@@ -20,3 +20,11 @@ export interface BoardProps {
 	onRestart: () => void;
 	currentTurn: TurnState;
 }
+
+export interface ResultProps {
+	isWin: boolean;
+	onRestart: () => void;
+	handleCancel: () => void;
+	onShowGames: () => void;
+	currentTurn: TurnState;
+}

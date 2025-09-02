@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { redirect } from "next/navigation";
-import getNewRoomId from "@/apis/newRoom";
+import getNewRoomId from "@/utils/newRoom";
 
 export default function Page() {
 	const roomId = getNewRoomId();

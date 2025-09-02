@@ -2,7 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { BoardProps } from "@/types/connect4";
-import { Button, Modal } from "antd";
+import Result from "./Result";
+import TurnDisc from "./TurnDisc";
 
 export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, currentTurn }: BoardProps) {
 
@@ -19,40 +20,9 @@ export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, 
 
 	return (
 		<div className="relative z-1">
-			<Modal
-				open={isWin}
-				title="決着！！"
-				onOk={onRestart}
-				onCancel={handleCancel}
-				footer={[
-					<Button key="back" onClick={handleCancel}>
-						戻る
-					</Button>,
-					<Button key="root" onClick={onShowGames}>
-						ゲーム一覧
-					</Button>,
-					<Button key="restart" type="primary" onClick={onRestart}>
-						リスタート
-					</Button>,
-				]}
-			>
-				<p className="text-center text-2xl">{
-					currentTurn === 'y'
-						? "🎉 🔴赤の勝利 🎉"
-						: "🎉 🟡黄色の勝利 🎉"
-				}
-				</p>
-			</Modal>
+			<Result isWin={isWin} onRestart={onRestart} handleCancel={handleCancel} onShowGames={onShowGames} currentTurn={currentTurn}/>
 
-			{/* ターン用のコマ */}
-			<div
-				className={`absolute left-1/2 -translate-x-1/2 top-8 w-12 h-12 rounded-full flex items-center justify-center transition-colors -z-1 
-					${currentTurn === 'r'
-						? 'bg-red-500'
-						: 'bg-yellow-500'
-					}`}
-			>
-			</div>
+			<TurnDisc currentTurn={currentTurn} />
 			<div className="flex flex-col items-center p-6">
 				<div className="-translate-x-40">
 					<h2 className="text-2xl font-bold mb-4 text-blue-800">Connect 4</h2>

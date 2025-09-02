@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import Board from "@/components/Connect4/board";
+import Board from "@/components/Connect4/Board";
 import { Connect4 } from "@/constants/connect4";
 import { BoardState, TurnState, lastPositionState } from "@/types/connect4";
 import { useUpdateEffect } from "@/hooks/useUpdateEffect";
