@@ -9,6 +9,7 @@ import { onRestart } from "@/libs/connect4/onRestart";
 import { useUpdateEffect } from "@/hooks/useUpdateEffect";
 import { checkWin } from "@/libs/connect4/checkWin";
 import { createSocket } from "@/libs/socket/client";
+import type { Socket } from "socket.io-client";
 import Loading from "@/components/Connect4/Loading";
 import styles from "@/styles/Utils.module.scss";
 
@@ -22,29 +23,38 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	const [canPlay, setCanPlay] = useState(true);
 	const [matchState, setMatchState] = useState<MatchState>("waiting");
 
-	const socketRef = useRef<any>(null);
+	const socketRef = useRef<Socket | null>(null);
 
 	useEffect(() => {
+		let pairedTimer: ReturnType<typeof setTimeout> | null = null;
 		const socket = createSocket();
 		socketRef.current = socket;
 
 		socket.connect();
 		socket.emit("joinRoom", roomId);
 
-		socket.on("joinedRoom", ({ members }: { members: number }) => {
+		const handleJoinedRoom = ({ members }: { members: number }) => {
 			console.log(`入室しました。現在の人数:`, members);
-		});
+		};
 
-		socket.on("roomPaired", ({ roomId: pairedRoomId }: { roomId: string }) => {
+		const handleRoomPaired = ({ roomId: pairedRoomId }: { roomId: string }) => {
 			if (pairedRoomId === roomId) {
 				setMatchState("matched");
-				setTimeout(() => {
+				pairedTimer = setTimeout(() => {
 					setMatchState("playing");
 				}, 2000);
 			}
-		});
+		};
+
+		socket.on("joinedRoom", handleJoinedRoom);
+		socket.on("roomPaired", handleRoomPaired);
 
 		return () => {
+			if (pairedTimer !== null) {
+				clearTimeout(pairedTimer);
+			}
+			socket.off("joinedRoom", handleJoinedRoom);
+			socket.off("roomPaired", handleRoomPaired);
 			socket.disconnect();
 			socketRef.current = null;
 		};
