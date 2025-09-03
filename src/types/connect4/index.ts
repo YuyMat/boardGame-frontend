@@ -34,3 +34,19 @@ export interface CheckWinProps {
 	currentTurn: TurnState;
 	board: BoardState;
 }
+
+export interface OnCellClickProps {
+	colIndex: number;
+	canPlay: boolean;
+	currentTurn: TurnState;
+	setCurrentTurn: React.Dispatch<React.SetStateAction<TurnState>>;
+	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
+	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
+}
+
+export interface OnRestartProps {
+	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
+	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
+	setCurrentTurn: React.Dispatch<React.SetStateAction<TurnState>>;
+	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
+}
