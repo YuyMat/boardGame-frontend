@@ -28,3 +28,9 @@ export interface ResultProps {
 	onShowGames: () => void;
 	currentTurn: TurnState;
 }
+
+export interface CheckWinProps {
+	lastPosition: lastPositionState;
+	currentTurn: TurnState;
+	board: BoardState;
+}
