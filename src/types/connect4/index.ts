@@ -11,6 +11,8 @@ export type lastPositionState = {
 	col: number;
 };
 
+export type MatchState = "waiting" | "matched" | "playing";
+
 // propsの型定義
 export interface BoardProps {
 	board: BoardState;

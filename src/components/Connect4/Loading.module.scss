@@ -1,0 +1,13 @@
+@keyframes wave-fade {
+  0% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-4px); }
+  100% { opacity: 0.5; transform: translateY(0); }
+}
+
+.waitingWave {
+  display: inline-block;
+  animation-name: wave-fade;
+  animation-duration: 1.6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}

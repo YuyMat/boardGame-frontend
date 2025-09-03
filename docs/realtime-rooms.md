@@ -1,30 +1,50 @@
-## Connect4: roomId で同じURL同士が対戦できる WebSocket 実装ガイド
+### 初心者向け: roomId（URL）で同じ人同士が対戦するしくみ（Socket.IO）
 
-このドキュメントは、`/connect4/[roomId]` にアクセスしているユーザー同士が Socket.IO を用いて同じルームで対戦できるようにする実装手順です。
+このガイドは「同じ URL（例: `/connect4/abc`）を開いた 2 人が、リアルタイムに対戦できる」機能を、最短手順で作るための解説です。難しい言葉はなるべく使わず、順番に進めるだけで動くようにまとめました。
 
-- バックエンド: Node.js + Express + Socket.IO（Render にデプロイ）
-- フロントエンド: Next.js App Router + Turbopack（Vercel にデプロイ）
-- 言語: TypeScript
+- **バックエンド**: Node.js + Express + Socket.IO（Render にデプロイ）
+- **フロントエンド**: Next.js App Router + Turbopack（Vercel にデプロイ）
+- **言語**: TypeScript
 
 ---
 
-### 1. バックエンドの準備（Socket.IO でルーム同期）
-ファイル: `backend/src/server.ts`
+### ゴールのイメージ（まずここを掴む）
+- URL が `/connect4/[roomId]` になっています。
+- 例えば 2 人が同じ `/connect4/abc` を開くと、両方とも「abc というルーム」に入ります。
+- どちらかが盤面をクリックすると、もう一方にも同じ動きがすぐに反映されます。
 
-すでに Socket.IO サーバは用意済みです。以下の点を満たしていれば OK:
+これを実現するために、**Socket.IO** を使って、ブラウザとサーバのあいだでメッセージを送り合います。
 
-- CORS 設定（フロントのデプロイドメインを origin に設定）
-- `joinRoom` イベントで `socket.join(roomId)` する
-- 同一ルームへ向けたブロードキャスト（例: `io.to(roomId).emit(...)` or `socket.to(roomId).emit(...)`）
+---
 
-参考となるイベント一覧（最小構成）:
+### ステップ0: 事前準備（動作環境）
+- バックエンド: `backend` ディレクトリで起動します（ポート 4000）。
+- フロントエンド: `frontend` ディレクトリで起動します（ポート 3000）。
 
-- `connection`: 接続時ハンドリング
-- `joinRoom`: クライアントから roomId を受け取り入室
-- `playerMove`: 盤面更新（列 index 等）を受け取り、ルームに中継
-- `restart`: ルーム内の全員にリスタート通知
+まずフロントエンドに Socket.IO のクライアントを入れます。
 
-サンプル（概念）:
+```bash
+cd frontend
+npm i socket.io-client
+```
+
+それから、フロントがサーバの URL を知れるように、環境変数を設定します。
+
+- `frontend/.env.local` に次を追加（ローカル開発用）
+```
+NEXT_PUBLIC_SOCKET_URL=http://localhost:4000
+```
+
+---
+
+### ステップ1: バックエンドの考え方（もう用意済み）
+`backend/src/server.ts` はすでに Socket.IO サーバを立てています。最低限、次ができれば OK です。
+
+- クライアントが送る `joinRoom(roomId)` を受け取り、`socket.join(roomId)` で入室させる。
+- 誰かが打った手（列番号）を `playerMove` で受け取り、同じルームの相手に `opponentMove` を送る。
+- 再戦ボタン（リスタート）を押したら `restart` をルーム全員に送る。
+
+イメージ（概念のコード）:
 ```ts
 io.on("connection", (socket) => {
   socket.on("joinRoom", (roomId: string) => {
@@ -42,64 +62,43 @@ io.on("connection", (socket) => {
 });
 ```
 
-デプロイ時は Render 上で `PORT` を環境変数として設定し、`httpServer.listen(PORT)` を利用します。
+ポイント:
+- 本番（Render）では `PORT` 環境変数で起動します。
+- CORS の `origin` にフロント（Vercel ドメイン）を許可してください。
 
 ---
 
-### 2. フロントエンドの準備（Socket.IO クライアント）
-依存追加（フロント）:
-
-```bash
-npm i socket.io-client
-```
-
-接続ユーティリティを作成します。
+### ステップ2: フロントでサーバに繋ぐ小さな部品を作る
+ソケット接続の小さなユーティリティを作ります。
 
 - 例: `frontend/src/libs/socket/client.ts`
-- バックエンドのエンドポイント（ローカル: `http://localhost:4000` / 本番: Render の URL）へ接続
-- `autoConnect: false` にしてページ入室時に明示的に connect
 
-例:
 ```ts
 import { io, Socket } from "socket.io-client";
 
 const backendUrl = process.env.NEXT_PUBLIC_SOCKET_URL ?? "http://localhost:4000";
 
 export const createSocket = (): Socket => {
-  const socket = io(backendUrl, { transports: ["websocket"], autoConnect: false });
-  return socket;
+  // 初心者向けポイント: autoConnect を false にして、明示的に connect します
+  return io(backendUrl, { transports: ["websocket"], autoConnect: false });
 };
-```
-
-`.env.local` に以下を用意（デプロイ時は Vercel の環境変数に設定）:
-```
-NEXT_PUBLIC_SOCKET_URL=http://localhost:4000
 ```
 
 ---
 
-### 3. ルーム入室とイベント配線（`/connect4/[roomId]`）
-ファイル: `frontend/src/app/(games)/connect4/[roomId]/page.tsx`
+### ステップ3: ルームに入って、手を送る/受け取る
+対戦ページ（`/connect4/[roomId]`）に、以下の 3 つを足します。
 
-やること:
-- ページマウント時に `createSocket()` → `socket.connect()`
-- `roomId` で `joinRoom` を emit
-- 自手のクリックはローカル反映 + `playerMove` を emit
-- 相手の `opponentMove` を受けてローカル盤面を更新
-- `restart` イベントでリセット
-- アンマウント時に `socket.disconnect()`
+1) ページ表示時にサーバへ接続し、`joinRoom(roomId)` を送る。
+2) 自分がクリックしたら、ローカルの盤面を更新して、`playerMove` をサーバに送る。
+3) 相手から `opponentMove` を受け取ったら、ローカルの盤面に反映する。
 
-重要なポイント:
-- 先攻/後攻は「最初に入室した人を赤、次を黄」などルーム参加順で決める or URL クエリで指定
-- ローカルでのターン進行とサーバからの相手手の適用が二重にならないように分岐
-
-擬似実装例（概念）:
+概念のコード（やることの流れ）:
 ```ts
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { createSocket } from "@/libs/socket/client";
-import { onCellClick as localOnCellClick } from "@/libs/connect4/onCellClick";
-// ...省略: board, checkWin, onRestart の import
+import { onCellClick as applyMove } from "@/libs/connect4/onCellClick";
 
 export default function Page({ params }: { params: { roomId: string } }) {
   const { roomId } = params;
@@ -112,13 +111,14 @@ export default function Page({ params }: { params: { roomId: string } }) {
     socket.connect();
     socket.emit("joinRoom", roomId);
 
+    // 相手の手を受け取ったら、自分の盤面に反映
     socket.on("opponentMove", ({ colIndex }) => {
-      // 相手手をローカル盤面に適用（currentTurn 等は既存ロジックを再利用）
-      localOnCellClick({ colIndex, /* state setters */ });
+      applyMove({ colIndex, /* 既存の state 更新関数を渡す */ });
     });
 
+    // ルーム内の誰かがリスタートしたら、自分もリスタート
     socket.on("restart", () => {
-      // 既存 onRestart を呼ぶ
+      // onRestart({ ... }) を呼ぶ
     });
 
     return () => {
@@ -127,82 +127,84 @@ export default function Page({ params }: { params: { roomId: string } }) {
     };
   }, [roomId]);
 
+  // クリック時: 盤面に反映して、サーバにも送る
   const onCellClick = (colIndex: number) => {
-    // 自分の手をローカル適用
-    localOnCellClick({ colIndex, /* state setters */ });
-    // サーバに送信
+    applyMove({ colIndex, /* 既存の state 更新関数を渡す */ });
     socketRef.current?.emit("playerMove", { roomId, colIndex });
   };
 
-  // ...既存 UI をそのまま利用
+  // 既存の Board コンポーネントに onCellClick を渡すだけで OK
 }
 ```
 
 ---
 
-### 4. 盤面更新ロジックの再利用
-すでに `onCellClick`, `checkWin`, `onRestart` が存在しています。オンライン対戦では以下の観点で軽微な修正が必要になることがあります。
+### ステップ4: 既存ロジックの活かし方（大きく変えない）
+このプロジェクトにはすでに以下があります。
+- `onCellClick`: クリック時の盤面更新
+- `checkWin`: 勝ち判定
+- `onRestart`: 盤面リセット
 
-- `onCellClick` の引数に「この手がローカルプレイヤーの手か、相手の手か」を識別するフラグを追加し、`canPlay` の制御と二重適用を防止
-- 相手手の適用時は「現在のターンが相手色であること」を満たすかチェック（ズレたら同期のやり直し or 直前盤面の再送）
-- 盤面の完全同期が必要であれば、`playerMove` のたびにサーバで盤面を正規化して配信する方式も可（最初はクライアント主導で十分）
+オンライン対戦では「自分の手」と「相手の手」が混ざるので、次の工夫をすると安全です。
 
-最小変更例（概念）:
+- `onCellClick` に「相手の手かどうか」を示すフラグ（例: `isRemote`）を任意で追加
+- 自分の手のときだけ `canPlay` を見る、などの条件分け
+
+イメージ:
 ```ts
 export const onCellClick = ({ colIndex, canPlay, currentTurn, setCurrentTurn, setLastPosition, setBoard, isRemote }: OnCellClickProps & { isRemote?: boolean }) => {
-  if (!isRemote && !canPlay) return; // 自手のときだけ canPlay を見る
+  if (!isRemote && !canPlay) return; // 自分の手のときだけ制限をかける
   setBoard((prev) => {
-    // ...既存ロジック
+    // 既存のロジックそのまま
+    return prev; // 実際は既存処理を残す
   });
 };
 ```
 
 ---
 
-### 5. 再戦（リスタート）同期
-- 自分が UI で再戦を押したら `restart` を emit
-- 受け取った側も `onRestart` を呼ぶ
+### ステップ5: 再戦（リスタート）の同期
+- 自分が再戦ボタンを押したら、まずローカルで `onRestart` を呼びます。
+- それと同時に `restart(roomId)` をサーバへ送ります。
+- 相手はサーバ経由で `restart` を受け取り、`onRestart` を呼びます。
 
 ```ts
 const onRestartClick = () => {
-  onRestart({ /* setters */ });
+  onRestart({ /* 既存の state 更新関数を渡す */ });
   socketRef.current?.emit("restart", roomId);
 };
 ```
 
 ---
 
-### 6. ローカル開発と本番デプロイ
+### ステップ6: 動作確認のやり方（超重要）
+1. バックエンド: `cd backend && npm run dev`（ポート: 4000）
+2. フロント: `cd frontend && npm run dev`（ポート: 3000）
+3. ブラウザを 2 つ用意して、両方で `http://localhost:3000/connect4/test` を開く
+4. 片方で盤面をクリック → もう片方に同じ手が反映されれば成功
 
-- 開発:
-  - Backend: `npm run dev`（ポート: 4000）
-  - Frontend: `npm run dev`（ポート: 3000）
-  - `NEXT_PUBLIC_SOCKET_URL=http://localhost:4000`
-
-- 本番:
-  - Backend: Render にデプロイ。`PORT` は Render が割り当てる値を使用
-  - Frontend: Vercel にデプロイ。環境変数 `NEXT_PUBLIC_SOCKET_URL` に Render の公開 URL を設定
-  - CORS 設定で Vercel のドメインを許可
-
----
-
-### 7. イベント仕様（提案）
-- `joinRoom(roomId: string)`
-- `playerMove({ roomId: string, colIndex: number })`
-- `opponentMove({ colIndex: number })`
-- `restart(roomId: string)` / `restart`
-- `userJoined({ socketId: string })`
-
-後方互換を守りやすいよう、最低限のペイロードに留めています。必要があれば `playerId` や `turn` などを拡張してください。
+うまく動かないときは次をチェック:
+- **URL の roomId が一致しているか**（例: 2 つとも `/connect4/test` か）
+- **`NEXT_PUBLIC_SOCKET_URL` が合っているか**（ローカルなら `http://localhost:4000`）
+- **バックエンド/フロントが両方起動しているか**
 
 ---
 
-### 8. よくあるつまづき
-- フロントとバックエンドの URL を取り違えて接続できない（`NEXT_PUBLIC_SOCKET_URL` を確認）
-- CORS でブロックされる（バックエンドの `origin` に本番の URL を設定）
-- 二重適用（自手と相手手の処理分岐、`isRemote` フラグで防止）
-- ルーム未参加のまま `playerMove` を emit（入室完了後に操作を許可）
+### ステップ7: 本番デプロイのポイント
+- バックエンド（Render）
+  - `PORT` は Render が自動で割り当てます。`httpServer.listen(PORT)` を使う。
+  - CORS の `origin` に Vercel の URL を許可します。
+- フロント（Vercel）
+  - 環境変数 `NEXT_PUBLIC_SOCKET_URL` に Render の公開 URL を設定します。
 
 ---
 
-以上で、同じ `roomId` URL のユーザー同士がリアルタイムで対戦するための最小構成が整います。運用でズレが発生する場合は、サーバ側で公式盤面を保持して authoritative に同期する方式へ発展させてください。
+### よくあるエラーと対処
+- **接続できない（connection refused）**: バックエンドが起動していない / URL が違う。
+- **CORS エラー**: バックエンドの `cors.origin` にデプロイ先ドメインを追加。
+- **二重に手が入る**: `onCellClick` に `isRemote` を導入し、相手の手と自分の手を分ける。
+- **ルーム未参加で送信している**: `socket.emit("joinRoom", roomId)` の後から操作を許可。
+
+---
+
+これで、同じ `roomId` を開いたユーザー同士がリアルタイムで対戦できる最小構成が完成です。まずはこの形で動かし、慣れてきたら「先攻/後攻の決め方」や「サーバ側で公式盤面を持つ方式」などを発展させてください。
