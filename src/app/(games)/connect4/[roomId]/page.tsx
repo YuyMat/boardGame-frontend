@@ -1,5 +1,5 @@
-export default async function Page({ params }: { params: { roomId: string } }) {
-	const { roomId } = await params;
+export default function Page({ params }: { params: { roomId: string } }) {
+	const { roomId } = params;
 	
 	return (
 		<div>
