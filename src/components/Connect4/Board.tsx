@@ -24,7 +24,7 @@ export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, 
 
 			<TurnDisc currentTurn={currentTurn} />
 			<div className="flex flex-col items-center p-6">
-				<div className="-translate-x-40">
+				<div className="-translate-x-35">
 					<h2 className="text-2xl font-bold mb-4 text-blue-800">Connect 4</h2>
 				</div>
 				{/* 盤面 */}
