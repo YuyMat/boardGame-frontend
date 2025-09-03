@@ -5,6 +5,7 @@ import Board from "@/components/Connect4/Board";
 import { Connect4 } from "@/constants/connect4";
 import { BoardState, TurnState, lastPositionState } from "@/types/connect4";
 import { useUpdateEffect } from "@/hooks/useUpdateEffect";
+import { checkWin } from "@/libs/connect4/checkWin";
 
 export default function page() {
 	const createEmptyBoard = (): BoardState => {
@@ -41,80 +42,8 @@ export default function page() {
 		setCanPlay(true);
 	}
 
-	const checkWin = () => {
-		const { row, col } = lastPosition;
-		const targetColor = currentTurn === 'r' ? 'y' : 'r';
-
-		let count = 0;
-
-		// 縦
-		for (let i = 0; i < Connect4.ROWS; i++) {
-			if (board[i][col] === targetColor) {
-				count++;
-			} else {
-				count = 0;
-			}
-			if (count >= 4) return true;
-		}
-
-		// 横
-		count = 0;
-		for (let i = 0; i < Connect4.COLS; i++) {
-			if (board[row][i] === targetColor) {
-				count++;
-			} else {
-				count = 0;
-			}
-			if (count >= 4) return true;
-		}
-
-		// 斜め（左上→右下）
-		count = 0;
-		// 左上に移動
-		let startRow = row;
-		let startCol = col;
-		while (startRow > 0 && startCol > 0) {
-			startRow--;
-			startCol--;
-		}
-		// 右下に向かってカウント
-		while (startRow < Connect4.ROWS && startCol < Connect4.COLS) {
-			if (board[startRow][startCol] === targetColor) {
-				count++;
-				if (count >= 4) return true;
-			} else {
-				count = 0;
-			}
-			startRow++;
-			startCol++;
-		}
-
-		// 斜め（左下→右上）
-		count = 0;
-		// 左下に移動
-		startRow = row;
-		startCol = col;
-		while (startRow < Connect4.ROWS - 1 && startCol > 0) {
-			startRow++;
-			startCol--;
-		}
-		// 右上に向かってカウント
-		while (startRow >= 0 && startCol < Connect4.COLS) {
-			if (board[startRow][startCol] === targetColor) {
-				count++;
-				if (count >= 4) return true;
-			} else {
-				count = 0;
-			}
-			startRow--;
-			startCol++;
-		}
-
-		return false;
-	};
-
 	useUpdateEffect(() => {
-		if (checkWin()) {
+		if (checkWin({ lastPosition, currentTurn, board })) {
 			setCanPlay(false);
 			const timer = setTimeout(() => {
 				setIsWin(true);
