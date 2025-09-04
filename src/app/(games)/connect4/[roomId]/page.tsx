@@ -88,7 +88,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			socket.disconnect();
 			socketRef.current = null;
 		};
-	}, [roomId]);
+	}, [roomId, members]);
 
 	// 盤面が変わったらサーバへ同期送信（リモート更新直後は一度だけ抑制）
 	useEffect(() => {
