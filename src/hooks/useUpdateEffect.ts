@@ -5,5 +5,5 @@ export const useUpdateEffect = (effect: React.EffectCallback, deps: React.Depend
   useEffect(() => {
     if (isFirst.current) { isFirst.current = false; return; }
     return effect();
-  }, deps);
+  }, [...deps]);
 };

@@ -9,7 +9,7 @@ import { checkWin } from "@/libs/connect4/checkWin";
 import { onCellClick } from "@/libs/connect4/onCellClick";
 import { onRestart } from "@/libs/connect4/onRestart";
 
-export default function page() {
+export default function Page() {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
 	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: 0, col: 0 });
 	const [currentTurn, setCurrentTurn] = useState<TurnState>('r');
