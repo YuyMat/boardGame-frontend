@@ -44,9 +44,6 @@ export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, 
 						)}
 					</div>
 				</div>
-				<div>
-					{currentTurn === 'r' ? <p>🔴赤の番です🔴</p> : <p>🟡黄色の番です🟡</p>}
-				</div>
 			</div>
 		</div>
 	);

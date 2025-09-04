@@ -52,3 +52,8 @@ export interface OnRestartProps {
 	setCurrentTurn: React.Dispatch<React.SetStateAction<TurnState>>;
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface ShowTurnProps {
+	currentTurn: TurnState;
+	playerRole: TurnState | null;
+}
