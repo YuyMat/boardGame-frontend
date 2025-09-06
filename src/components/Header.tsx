@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,8 +14,8 @@ const Header = () => {
 					{/* ロゴとサイト名 */}
 					<div className="flex items-center">
 						<Link href="/" className="flex items-center space-x-3">
-							<div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-								<span className="text-2xl">🎲</span>
+							<div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+								<Image src="/BGLogo.PNG" alt="Board Games Logo" width={40} height={40} className="object-contain" />
 							</div>
 							<h1 className="text-2xl font-bold text-white">
 								Board Games
