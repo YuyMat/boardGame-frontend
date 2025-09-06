@@ -3,7 +3,7 @@
 import Board from "@/components/Connect4/Board";
 import { use, useEffect, useRef, useState } from "react";
 import { createEmptyBoard } from "@/libs/connect4/createEmptyBoard";
-import { BoardState, lastPositionState, MatchState, TurnState } from "@/types/connect4";
+import { BoardState, FirstState, lastPositionState, MatchState, TurnState } from "@/types/connect4";
 import { onCellClick } from "@/libs/connect4/onCellClick";
 import { onRestart } from "@/libs/connect4/onRestart";
 import { useUpdateEffect } from "@/hooks/useUpdateEffect";
@@ -13,6 +13,8 @@ import type { Socket } from "socket.io-client";
 import Loading from "@/components/Connect4/Loading";
 import styles from "@/styles/Utils.module.scss";
 import { ShowTurn, ShowColor } from "@/components/Connect4/PlayerInfo";
+import RuleSettings from "@/components/Connect4/GameRule";
+import { getRandomInt } from "@/utils/getRandom";
 
 export default function Page({ params }: { params: Promise<{ roomId: string }> }) {
 	const { roomId } = use(params);
@@ -25,9 +27,16 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	const [matchState, setMatchState] = useState<MatchState>("waiting");
 	const [playerRole, setPlayerRole] = useState<TurnState | null>(null);
 	const [members, setMembers] = useState<number>(0);
+	const [firstTurn, setFirstTurn] = useState<FirstState>("random");
 
 	const socketRef = useRef<Socket | null>(null);
 	const suppressSyncRef = useRef<boolean>(false);
+
+	const getRandomTurn = () => {
+		if (getRandomInt(2) === 0)
+			return "r";
+		return "y";
+	}
 
 	useEffect(() => {
 		let pairedTimer: ReturnType<typeof setTimeout> | null = null;
@@ -64,11 +73,11 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		const handleRestart = () => {
 			if (members === 1) {
 				setMatchState("waiting");
-				return ;
+				return;
 			}
 			setIsWin(false);
 			setBoard(createEmptyBoard());
-			setCurrentTurn('r');
+			setCurrentTurn(firstTurn === "random" ? getRandomTurn() : firstTurn);
 			setCanPlay(true);
 		};
 
@@ -118,8 +127,23 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		}
 	}, [board]);
 
+	useUpdateEffect(() => {
+		if (firstTurn === "random") {
+			setCurrentTurn(getRandomTurn());
+			return ;
+		}
+		setCurrentTurn(firstTurn);
+	}, [firstTurn]);
+
 	if (matchState === "waiting") {
-		return <Loading text="対線相手を待っています…" />
+		return (
+			<>
+				<Loading text="対線相手を待っています…" />
+				<div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-40">
+					<RuleSettings first={firstTurn} setFirst={setFirstTurn} />
+				</div>
+			</>
+		)
 	}
 	if (matchState === "matched") {
 		return <Loading text="対線相手とマッチしました！" />

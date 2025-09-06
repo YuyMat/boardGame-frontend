@@ -11,6 +11,9 @@ export type lastPositionState = {
 	col: number;
 };
 
+export type FirstState = 'random' | 'r' | 'y';
+export type ShowFirstState = 'ランダム' | '赤' | '黄';
+
 export type MatchState = "waiting" | "matched" | "playing";
 
 // propsの型定義
@@ -56,4 +59,9 @@ export interface OnRestartProps {
 export interface ShowTurnProps {
 	currentTurn: TurnState;
 	playerRole: TurnState | null;
+}
+
+export interface RuleSettingsProps {
+	first: FirstState;
+	setFirst: React.Dispatch<React.SetStateAction<FirstState>>;
 }
