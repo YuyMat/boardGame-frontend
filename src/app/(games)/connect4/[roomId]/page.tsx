@@ -1,19 +1,13 @@
 "use client"
 
-import Board from "@/components/Connect4/Board";
 import { use, useEffect, useRef, useState } from "react";
-import { createEmptyBoard } from "@/libs/connect4/createEmptyBoard";
+import { Board, Loading, ShowTurn, ShowColor, RuleSettings } from "@/components/Connect4";
 import { BoardState, FirstState, lastPositionState, MatchState, TurnState } from "@/types/connect4";
-import { onCellClick } from "@/libs/connect4/onCellClick";
-import { onRestart } from "@/libs/connect4/onRestart";
-import { useUpdateEffect } from "@/hooks/useUpdateEffect";
-import { checkWin } from "@/libs/connect4/checkWin";
+import { onCellClick, onRestart, checkWin, createEmptyBoard } from "@/libs/connect4";
 import { createSocket } from "@/libs/socket/client";
+import { useUpdateEffect } from "@/hooks/useUpdateEffect";
 import type { Socket } from "socket.io-client";
-import Loading from "@/components/Connect4/Loading";
 import styles from "@/styles/Utils.module.scss";
-import { ShowTurn, ShowColor } from "@/components/Connect4/PlayerInfo";
-import RuleSettings from "@/components/Connect4/GameRule";
 import { getRandomInt } from "@/utils/getRandom";
 
 export default function Page({ params }: { params: Promise<{ roomId: string }> }) {
@@ -47,7 +41,6 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		socket.emit("joinRoom", roomId);
 
 		const handleJoinedRoom = ({ members, role }: { members: number; role: 'r' | 'y' | null }) => {
-			console.log(`入室しました。現在の人数:`, members);
 			setMembers(members);
 			// 最初に受け取ったロールのみ採用（後から上書きしない）
 			setPlayerRole((prev) => (prev ?? role));
