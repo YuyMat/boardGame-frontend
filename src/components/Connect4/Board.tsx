@@ -21,7 +21,6 @@ export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, 
 	return (
 		<div className="relative z-1">
 			<Result isWin={isWin} onRestart={onRestart} handleCancel={handleCancel} onShowGames={onShowGames} currentTurn={currentTurn}/>
-
 			<TurnDisc currentTurn={currentTurn} />
 			<div className="flex flex-col items-center p-6">
 				<div className="-translate-x-35">
