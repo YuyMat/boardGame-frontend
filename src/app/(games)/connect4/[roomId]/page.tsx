@@ -55,12 +55,11 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			}
 		};
 
-		const handleBoardUpdated = ({ board: nextBoard, currentTurn: nextTurn, lastPosition: nextLast, isWin: nextIsWin }: { board: BoardState; currentTurn: TurnState; lastPosition?: lastPositionState; isWin?: boolean; }) => {
+		const handleBoardUpdated = ({ board: nextBoard, currentTurn: nextTurn, lastPosition: nextLast }: { board: BoardState; currentTurn: TurnState; lastPosition?: lastPositionState; }) => {
 			suppressSyncRef.current = true;
 			setBoard(nextBoard);
 			setCurrentTurn(nextTurn);
 			if (nextLast) setLastPosition(nextLast);
-			if (typeof nextIsWin === 'boolean') setIsWin(nextIsWin);
 		};
 
 		const handleRestart = () => {
@@ -106,9 +105,8 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			board,
 			currentTurn,
 			lastPosition,
-			isWin,
 		});
-	}, [board, currentTurn, isWin, lastPosition, matchState, roomId]);
+	}, [board, currentTurn, lastPosition, matchState, roomId]);
 
 	useUpdateEffect(() => {
 		if (checkWin({ lastPosition, currentTurn, board })) {
