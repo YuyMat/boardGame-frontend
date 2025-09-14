@@ -153,7 +153,11 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		)
 	}
 	if (matchState === "matched") {
-		return <Loading text="対線相手とマッチしました！" />
+		return (
+			<div className="flex justify-center items-center min-h-[calc(100vh-72px)] ">
+				<Loading text="対線相手とマッチしました！" />
+			</div>
+		)
 	}
 	if (matchState === "playing") {
 		return (
