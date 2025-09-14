@@ -1,7 +1,7 @@
 "use client"
 
 import { use, useEffect, useRef, useState } from "react";
-import { Board, Loading, ShowTurn, ShowColor, RuleSettings, TemporaryWaiting } from "@/components/Connect4";
+import { Board, Loading, ShowTurn, RuleSettings, TemporaryWaiting } from "@/components/Connect4";
 import { BoardState, FirstState, lastPositionState, MatchState, TurnState } from "@/types/connect4";
 import { onCellClick, onRestart, checkWin, createEmptyBoard } from "@/libs/connect4";
 import { createSocket } from "@/libs/socket/client";
@@ -135,7 +135,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	useUpdateEffect(() => {
 		if (firstTurn === "random") {
 			setCurrentTurn(getRandomTurn());
-			return ;
+			return;
 		}
 		setCurrentTurn(firstTurn);
 	}, [firstTurn]);
@@ -143,20 +143,25 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	if (matchState === "waiting") {
 		return (
 			<>
-				<Loading text="対線相手を待っています…" />
-				<div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-40">
-					<RuleSettings first={firstTurn} setFirst={setFirstTurn} />
+				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)] ">
+					<Loading text="対線相手を待っています…" />
+					<div className="mt-7">
+						<RuleSettings first={firstTurn} setFirst={setFirstTurn} />
+					</div>
 				</div>
 			</>
 		)
 	}
 	if (matchState === "matched") {
-		return <Loading text="対線相手とマッチしました！" />
+		return (
+			<div className="flex justify-center items-center min-h-[calc(100vh-72px)] ">
+				<Loading text="対線相手とマッチしました！" />
+			</div>
+		)
 	}
 	if (matchState === "playing") {
-		console.log(`playerRole:`, playerRole);
 		return (
-			<div className={`${currentTurn === 'r' ? 'bg-red-200' : 'bg-yellow-200'} min-h-screen transition-colors duration-300 relative z-1 ${styles.fadeIn}`}>
+			<div className={`${currentTurn === 'r' ? 'bg-red-200' : 'bg-yellow-200'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1 ${styles.fadeIn}`}>
 				<Board
 					board={board}
 					currentTurn={currentTurn}
@@ -183,7 +188,6 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 					}}
 				/>
 				<ShowTurn currentTurn={currentTurn} playerRole={playerRole} />
-				<ShowColor playerRole={playerRole} />
 				<TemporaryWaiting members={members} />
 			</div>
 		);
