@@ -146,7 +146,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)] ">
 					<Loading text="対線相手を待っています…" />
 					<div className="mt-7">
-						<RuleSettings first={firstTurn} setFirst={setFirstTurn} />
+						<RuleSettings setFirst={setFirstTurn} />
 					</div>
 				</div>
 			</>

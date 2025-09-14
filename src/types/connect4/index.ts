@@ -60,8 +60,3 @@ export interface ShowTurnProps {
 	currentTurn: TurnState;
 	playerRole: TurnState | null;
 }
-
-export interface RuleSettingsProps {
-	first: FirstState;
-	setFirst: React.Dispatch<React.SetStateAction<FirstState>>;
-}

@@ -3,38 +3,18 @@
 import { useState } from "react";
 import { Modal, Button, Dropdown, Space, type MenuProps } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import { FirstState, ShowFirstState, RuleSettingsProps } from "@/types/connect4";
+import { FirstState, ShowFirstState } from "@/types/connect4";
+import { keyToShowLabel, firstTurnItems } from "@/constants/connect4";
 
-export default function RuleSettings({ first, setFirst }: RuleSettingsProps) {
+export default function RuleSettings({ setFirst }: { setFirst: React.Dispatch<React.SetStateAction<FirstState>> }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [showFirst, setShowFirst] = useState<ShowFirstState>("ランダム");
-
-	const keyToShowLabel: Record<FirstState, ShowFirstState> = {
-		random: "ランダム",
-		r: "赤",
-		y: "黄",
-	};
 
 	const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
 		const selected = String(key) as FirstState;
 		setFirst(selected);
 		setShowFirst(keyToShowLabel[selected]);
 	};
-
-	const items = [
-		{
-			label: "ランダム(デフォルト)",
-			key: "random",
-		},
-		{
-			label: "赤",
-			key: "r",
-		},
-		{
-			label: "黄",
-			key: "y",
-		},
-	]
 
 	return (
 		<>
@@ -50,7 +30,7 @@ export default function RuleSettings({ first, setFirst }: RuleSettingsProps) {
 				</div>
 				<div className="flex justify-center gap-2 mb-4">
 					先攻：
-					<Dropdown menu={{ items, onClick: handleMenuClick }} trigger={['click']}>
+					<Dropdown menu={{ items: firstTurnItems, onClick: handleMenuClick }} trigger={['click']}>
 						<a onClick={(e) => e.preventDefault()}>
 							<Space>
 								{showFirst}
