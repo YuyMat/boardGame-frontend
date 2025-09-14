@@ -65,9 +65,3 @@ export interface RuleSettingsProps {
 	first: FirstState;
 	setFirst: React.Dispatch<React.SetStateAction<FirstState>>;
 }
-
-export interface TemporaryWaitingProps {
-	currentTurn: TurnState;
-	playerRole: TurnState | null;
-	members: number;
-}

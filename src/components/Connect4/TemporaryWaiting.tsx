@@ -4,9 +4,8 @@ import { Modal, Button, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { TemporaryWaitingProps } from "@/types/connect4";
 
-export default function TemporaryWaiting({ currentTurn, playerRole, members }: TemporaryWaitingProps) {
+export default function TemporaryWaiting({ members }: { members: number }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const router = useRouter();
 
@@ -16,11 +15,11 @@ export default function TemporaryWaiting({ currentTurn, playerRole, members }: T
 	};
 
 	useEffect(() => {
-		if (currentTurn !== playerRole && members < 2)
+		if (members < 2)
 			setIsOpen(true);
 		else
 			setIsOpen(false);
-	}, [currentTurn, members]);
+	}, [members]);
 
 	return (
 		<Modal

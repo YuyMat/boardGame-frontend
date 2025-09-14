@@ -75,7 +75,6 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 		const handleMembersUpdate = ({ members }: { members: number }) => {
 			setMembers(members);
-			console.log("members:", members);
 		};
 
 		socket.on("joinedRoom", handleJoinedRoom);
@@ -177,7 +176,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				/>
 				<ShowTurn currentTurn={currentTurn} playerRole={playerRole} />
 				<ShowColor playerRole={playerRole} />
-				<TemporaryWaiting currentTurn={currentTurn} playerRole={playerRole} members={members} />
+				<TemporaryWaiting members={members} />
 			</div>
 		);
 	}
