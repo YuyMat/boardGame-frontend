@@ -1,7 +1,7 @@
 "use client"
 
 import { use } from "react";
-import { Board, Loading, ShowTurn, RuleSettings, TemporaryWaiting } from "@/components/Connect4";
+import { Board, Loading, ShowTurn, RuleSettings, TemporaryWaiting, CopyUrl } from "@/components/Connect4";
 import styles from "@/styles/Utils.module.scss";
 
 // カスタムフック
@@ -49,8 +49,9 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			<>
 				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
 					<Loading text="対線相手を待っています…" />
-					<div className="mt-7">
+					<div className="flex flex-row gap-2 mt-7">
 						<RuleSettings setFirst={setFirstTurn} />
+						<CopyUrl />
 					</div>
 				</div>
 			</>
