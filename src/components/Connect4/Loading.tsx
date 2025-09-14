@@ -2,7 +2,7 @@ import styles from "./Loading.module.scss";
 
 export default function Loading({ text }: { text: string }) {
 	return (
-		<div className="flex justify-center items-center h-screen">
+		<div className="flex justify-center items-center">
 			{Array.from(text).map((char, index) => (
 				<span
 					key={`${char}-${index}`}

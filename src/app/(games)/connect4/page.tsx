@@ -27,7 +27,7 @@ export default function Page() {
 	}, [board]);
 
 	return (
-		<div className={`${currentTurn === 'r' ? 'bg-red-200' : 'bg-yellow-200'} min-h-screen transition-colors duration-300 relative z-1`}>
+		<div className={`${currentTurn === 'r' ? 'bg-red-200' : 'bg-yellow-200'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1`}>
 			<Board
 				board={board}
 				currentTurn={currentTurn}

@@ -1,5 +1,5 @@
 export { default as Board } from "./Board";
-export { ShowColor, ShowTurn } from "./PlayerInfo";
+export { default as ShowTurn } from "./PlayerInfo";
 export { default as RuleSettings } from "./GameRule";
 export { default as Loading } from "./Loading";
 export { default as TemporaryWaiting } from "./TemporaryWaiting";
