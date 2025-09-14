@@ -1,7 +1,7 @@
 "use client"
 
 import { use, useEffect, useRef, useState } from "react";
-import { Board, Loading, ShowTurn, ShowColor, RuleSettings } from "@/components/Connect4";
+import { Board, Loading, ShowTurn, ShowColor, RuleSettings, TemporaryWaiting } from "@/components/Connect4";
 import { BoardState, FirstState, lastPositionState, MatchState, TurnState } from "@/types/connect4";
 import { onCellClick, onRestart, checkWin, createEmptyBoard } from "@/libs/connect4";
 import { createSocket } from "@/libs/socket/client";
@@ -25,6 +25,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 	const socketRef = useRef<Socket | null>(null);
 	const suppressSyncRef = useRef<boolean>(false);
+	const membersRef = useRef<number>(0);
 
 	const getRandomTurn = () => {
 		if (getRandomInt(2) === 0)
@@ -42,6 +43,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 		const handleJoinedRoom = ({ members, role }: { members: number; role: 'r' | 'y' | null }) => {
 			setMembers(members);
+			membersRef.current = members;
 			// 最初に受け取ったロールのみ採用（後から上書きしない）
 			setPlayerRole((prev) => (prev ?? role));
 		};
@@ -63,7 +65,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		};
 
 		const handleRestart = () => {
-			if (members === 1) {
+			if (membersRef.current === 1) {
 				setMatchState("waiting");
 				return;
 			}
@@ -73,10 +75,16 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			setCanPlay(true);
 		};
 
+		const handleMembersUpdate = ({ members }: { members: number }) => {
+			setMembers(members);
+			membersRef.current = members;
+		};
+
 		socket.on("joinedRoom", handleJoinedRoom);
 		socket.on("roomPaired", handleRoomPaired);
 		socket.on("boardUpdated", handleBoardUpdated);
 		socket.on("restart", handleRestart);
+		socket.on("membersUpdate", handleMembersUpdate);
 
 		return () => {
 			if (pairedTimer !== null) {
@@ -86,10 +94,11 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			socket.off("roomPaired", handleRoomPaired);
 			socket.off("boardUpdated", handleBoardUpdated);
 			socket.off("restart", handleRestart);
+			socket.off("membersUpdate", handleMembersUpdate);
 			socket.disconnect();
 			socketRef.current = null;
 		};
-	}, [roomId, members]);
+	}, [roomId]);
 
 	// 盤面が変わったらサーバへ同期送信（リモート更新直後は一度だけ抑制）
 	useEffect(() => {
@@ -170,6 +179,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				/>
 				<ShowTurn currentTurn={currentTurn} playerRole={playerRole} />
 				<ShowColor playerRole={playerRole} />
+				<TemporaryWaiting members={members} />
 			</div>
 		);
 	}
