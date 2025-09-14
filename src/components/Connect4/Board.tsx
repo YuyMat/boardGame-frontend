@@ -20,14 +20,14 @@ export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, 
 
 	return (
 		<div className="relative z-1">
-			<Result isWin={isWin} onRestart={onRestart} handleCancel={handleCancel} onShowGames={onShowGames} currentTurn={currentTurn}/>
+			<Result isWin={isWin} onRestart={onRestart} handleCancel={handleCancel} onShowGames={onShowGames} currentTurn={currentTurn} />
 			<TurnDisc currentTurn={currentTurn} />
+			<div className="pt-2 pl-2">
+				<h2 className="text-2xl font-bold text-blue-800">Connect 4</h2>
+			</div>
 			<div className="flex flex-col items-center p-6">
-				<div className="-translate-x-35">
-					<h2 className="text-2xl font-bold mb-4 text-blue-800">Connect 4</h2>
-				</div>
 				{/* 盤面 */}
-				<div className="bg-blue-600 p-4 rounded-lg shadow-lg">
+				<div className="bg-blue-600 p-4 rounded-lg shadow-lg mt-2">
 					<div className="grid grid-cols-7 gap-2">
 						{board.map((row, rowIndex) =>
 							row.map((cell, colIndex) => (
