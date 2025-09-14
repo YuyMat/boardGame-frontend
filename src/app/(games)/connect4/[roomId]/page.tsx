@@ -25,6 +25,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 	const socketRef = useRef<Socket | null>(null);
 	const suppressSyncRef = useRef<boolean>(false);
+	const membersRef = useRef<number>(0);
 
 	const getRandomTurn = () => {
 		if (getRandomInt(2) === 0)
@@ -42,6 +43,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 		const handleJoinedRoom = ({ members, role }: { members: number; role: 'r' | 'y' | null }) => {
 			setMembers(members);
+			membersRef.current = members;
 			// 最初に受け取ったロールのみ採用（後から上書きしない）
 			setPlayerRole((prev) => (prev ?? role));
 		};
@@ -63,7 +65,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		};
 
 		const handleRestart = () => {
-			if (members === 1) {
+			if (membersRef.current === 1) {
 				setMatchState("waiting");
 				return;
 			}
@@ -75,6 +77,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 		const handleMembersUpdate = ({ members }: { members: number }) => {
 			setMembers(members);
+			membersRef.current = members;
 		};
 
 		socket.on("joinedRoom", handleJoinedRoom);
@@ -95,7 +98,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			socket.disconnect();
 			socketRef.current = null;
 		};
-	}, [roomId, members]);
+	}, [roomId]);
 
 	// 盤面が変わったらサーバへ同期送信（リモート更新直後は一度だけ抑制）
 	useEffect(() => {
