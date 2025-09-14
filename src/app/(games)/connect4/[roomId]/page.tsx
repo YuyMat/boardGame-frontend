@@ -1,7 +1,7 @@
 "use client"
 
 import { use, useEffect, useRef, useState } from "react";
-import { Board, Loading, ShowTurn, ShowColor, RuleSettings } from "@/components/Connect4";
+import { Board, Loading, ShowTurn, ShowColor, RuleSettings, TemporaryWaiting } from "@/components/Connect4";
 import { BoardState, FirstState, lastPositionState, MatchState, TurnState } from "@/types/connect4";
 import { onCellClick, onRestart, checkWin, createEmptyBoard } from "@/libs/connect4";
 import { createSocket } from "@/libs/socket/client";
@@ -73,10 +73,16 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			setCanPlay(true);
 		};
 
+		const handleMembersUpdate = ({ members }: { members: number }) => {
+			setMembers(members);
+			console.log("members:", members);
+		};
+
 		socket.on("joinedRoom", handleJoinedRoom);
 		socket.on("roomPaired", handleRoomPaired);
 		socket.on("boardUpdated", handleBoardUpdated);
 		socket.on("restart", handleRestart);
+		socket.on("membersUpdate", handleMembersUpdate);
 
 		return () => {
 			if (pairedTimer !== null) {
@@ -86,6 +92,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			socket.off("roomPaired", handleRoomPaired);
 			socket.off("boardUpdated", handleBoardUpdated);
 			socket.off("restart", handleRestart);
+			socket.off("membersUpdate", handleMembersUpdate);
 			socket.disconnect();
 			socketRef.current = null;
 		};
@@ -170,6 +177,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				/>
 				<ShowTurn currentTurn={currentTurn} playerRole={playerRole} />
 				<ShowColor playerRole={playerRole} />
+				<TemporaryWaiting currentTurn={currentTurn} playerRole={playerRole} members={members} />
 			</div>
 		);
 	}
