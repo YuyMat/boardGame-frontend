@@ -1,26 +1,17 @@
 "use client"
 
-import { useRouter } from "next/navigation";
 import { BoardProps } from "@/types/connect4";
 import Result from "./Result";
 import TurnDisc from "./TurnDisc";
+import useGotoTopPage from "@/hooks/useGotoTopPage";
+import closeModal from "@/utils/closeModal";
 
 export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, currentTurn }: BoardProps) {
-
-	const router = useRouter();
-
-	const handleCancel = () => {
-		setIsWin(false);
-	}
-
-	const onShowGames = () => {
-		setIsWin(false);
-		router.push("/");
-	};
+    const gotoTopPage = useGotoTopPage();
 
 	return (
 		<div className="relative z-1">
-			<Result isWin={isWin} onRestart={onRestart} handleCancel={handleCancel} onShowGames={onShowGames} currentTurn={currentTurn} />
+			<Result isWin={isWin} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentTurn={currentTurn} />
 			<TurnDisc currentTurn={currentTurn} />
 			<div className="pt-2 pl-2">
 				<h2 className="text-2xl font-bold text-blue-800">Connect 4</h2>

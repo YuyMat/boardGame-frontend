@@ -1,3 +1,5 @@
+import type { Socket } from "socket.io-client";
+
 // セルの状態を表す型（'r' = 赤、'y' = 黄、null = 空）
 export type CellState = 'r' | 'y' | null;
 
@@ -61,7 +63,23 @@ export interface ShowTurnProps {
 	playerRole: TurnState | null;
 }
 
-export interface RuleSettingsProps {
-	first: FirstState;
-	setFirst: React.Dispatch<React.SetStateAction<FirstState>>;
+export interface UseConnect4GameProps {
+	socketRef: React.MutableRefObject<Socket | null>;
+	matchState: MatchState;
+	playerRole: TurnState | null;
+	firstTurn: FirstState;
+	roomId: string;
+	membersRef: React.MutableRefObject<number>;
+	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
+}
+
+export interface handleBoardUpdatedProps {
+	board: BoardState;
+	currentTurn: TurnState;
+	lastPosition: lastPositionState;
+}
+
+export interface handleJoinedRoomProps {
+	members: number;
+	role: TurnState | null;
 }
