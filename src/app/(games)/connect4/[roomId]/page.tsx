@@ -26,6 +26,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	const socketRef = useRef<Socket | null>(null);
 	const suppressSyncRef = useRef<boolean>(false);
 	const membersRef = useRef<number>(0);
+	const matchStateRef = useRef<MatchState>("waiting");
 
 	const getRandomTurn = () => {
 		if (getRandomInt(2) === 0)
@@ -49,7 +50,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		};
 
 		const handleRoomPaired = ({ roomId: pairedRoomId }: { roomId: string }) => {
-			if (pairedRoomId === roomId) {
+			if (pairedRoomId === roomId && matchStateRef.current === "waiting") {
 				setMatchState("matched");
 				pairedTimer = setTimeout(() => {
 					setMatchState("playing");
@@ -126,6 +127,10 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			return () => clearTimeout(timer);
 		}
 	}, [board]);
+
+	useEffect(() => {
+		matchStateRef.current = matchState;
+	}, [matchState]);
 
 	useUpdateEffect(() => {
 		if (firstTurn === "random") {
