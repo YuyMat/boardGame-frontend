@@ -12,13 +12,13 @@ export const GAMES: GameMeta[] = [
 		tags: ["2人用", "パズル"],
 	},
 	{
-		id: "othello",
+		id: "reversi",
 		name: "オセロ",
 		description: "相手の石を挟んでひっくり返し、最後に多い方が勝ち。",
-		imageSrc: "/file.svg",
-		localPath: "/othello",
-		onlinePath: "/othello/newRoom",
-		isAvailable: false,
+		imageSrc: "/games/thumbnail_reversi.png",
+		localPath: "/reversi",
+		// onlinePath: "/reversi/newRoom",
+		isAvailable: true,
 		tags: ["2人用", "陣取り"],
 	},
 	{
@@ -102,5 +102,3 @@ export const GAMES: GameMeta[] = [
 		tags: ["2人用", "推理"],
 	},
 ];
-
-
