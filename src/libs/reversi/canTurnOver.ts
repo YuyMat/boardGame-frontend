@@ -1,15 +1,5 @@
 import { CanTurnOverProps } from "@/types/reversi";
-
-const directions = [
-	{ row: -1, col: 0 },
-	{ row: 1, col: 0 },
-	{ row: 0, col: -1 },
-	{ row: 0, col: 1 },
-	{ row: -1, col: -1 },
-	{ row: 1, col: 1 },
-	{ row: -1, col: 1 },
-	{ row: 1, col: -1 },
-];
+import { directions } from "@/constants/reversi";
 
 export function canTurnOver({ board, row, col, currentTurn }: CanTurnOverProps) {
 	if (board[row][col] !== null)
