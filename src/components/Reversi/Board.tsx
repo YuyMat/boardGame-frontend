@@ -1,22 +1,12 @@
 "use client"
 
 import { BoardProps } from "@/types/reversi";
-import useGotoTopPage from "@/hooks/useGotoTopPage";
-import closeModal from "@/utils/closeModal";
 
-export default function Board({ board, highlightedCells, onCellClick, isWin, setIsWin, onRestart, currentTurn }: BoardProps) {
-    const gotoTopPage = useGotoTopPage();
-
+export default function Board({ board, highlightedCells, onCellClick, currentTurn }: BoardProps) {
 	return (
 		<div className="relative z-1">
-			{/* 結果モーダル（将来追加予定） */}
-			{/* <Result isWin={isWin} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentTurn={currentTurn} /> */}
-			
-			{/* ターン表示（将来追加予定） */}
-			{/* <TurnDisc currentTurn={currentTurn} /> */}
-			
 			<div className="pt-2 pl-2">
-				<h2 className="text-2xl font-bold text-green-800">オセロ</h2>
+				<h2 className={`text-2xl font-bold ${currentTurn === 'b' ? 'text-green-500' : 'text-green-700'}`}>オセロ</h2>
 			</div>
 			<div className="flex flex-col items-center p-6">
 				{/* 盤面 */}
@@ -48,7 +38,7 @@ export default function Board({ board, highlightedCells, onCellClick, isWin, set
 				{/* ゲーム情報 */}
 				<div className="mt-4 text-center">
 					<p className="text-lg font-semibold">
-						現在のターン: <span className={`${currentTurn === 'b' ? 'text-gray-900' : 'text-white'} font-bold`}>
+						現在のターン: <span className="font-bold">
 							{currentTurn === 'b' ? '黒' : '白'}
 						</span>
 					</p>

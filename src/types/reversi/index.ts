@@ -26,18 +26,16 @@ export interface BoardProps {
 	board: BoardState;
 	highlightedCells: HighlightedBoardState;
 	onCellClick: (rowIndex: number, colIndex: number) => void;
-	isWin: boolean;
-	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
-	onRestart: () => void;
 	currentTurn: TurnState;
 }
 
 export interface ResultProps {
-	isWin: boolean;
+	isOpen: boolean;
 	onRestart: () => void;
 	handleCancel: () => void;
 	onShowGames: () => void;
-	currentTurn: TurnState;
+	blackCount: number;
+	whiteCount: number;
 }
 
 export interface CheckWinProps {
@@ -93,5 +91,16 @@ export interface CanTurnOverProps {
 	board: BoardState;
 	row: number;
 	col: number;
+	currentTurn: TurnState;
+}
+
+export interface ReverseStonesProps {
+	board: BoardState;
+	lastPosition: lastPositionState;
+	currentTurn: TurnState;
+}
+
+export interface SkipTurnProps {
+	isSkipTurn: boolean;
 	currentTurn: TurnState;
 }
