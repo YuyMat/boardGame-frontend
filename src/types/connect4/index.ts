@@ -1,9 +1,8 @@
 import type { Socket } from "socket.io-client";
+import { Role } from "@/constants/connect4";
 
-// セルの状態を表す型（'r' = 赤、'y' = 黄、null = 空）
-export type CellState = 'r' | 'y' | null;
-
-export type TurnState = 'r' | 'y';
+export type RoleState = typeof Role.RED | typeof Role.YELLOW;
+export type CellState = RoleState | null;
 
 // 盤面の状態を表す型
 export type BoardState = CellState[][];
@@ -13,7 +12,7 @@ export type lastPositionState = {
 	col: number;
 };
 
-export type FirstState = 'random' | 'r' | 'y';
+export type FirstState = 'random' | RoleState;
 export type ShowFirstState = 'ランダム' | '赤' | '黄';
 
 export type MatchState = "waiting" | "matched" | "playing";
@@ -25,7 +24,7 @@ export interface BoardProps {
 	isWin: boolean;
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	onRestart: () => void;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 }
 
 export interface ResultProps {
@@ -33,20 +32,20 @@ export interface ResultProps {
 	onRestart: () => void;
 	handleCancel: () => void;
 	onShowGames: () => void;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 }
 
 export interface CheckWinProps {
 	lastPosition: lastPositionState;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 	board: BoardState;
 }
 
 export interface OnCellClickProps {
 	colIndex: number;
 	canPlay: boolean;
-	currentTurn: TurnState;
-	setCurrentTurn: React.Dispatch<React.SetStateAction<TurnState>>;
+	currentRole: RoleState;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 }
@@ -54,32 +53,34 @@ export interface OnCellClickProps {
 export interface OnRestartProps {
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
-	setCurrentTurn: React.Dispatch<React.SetStateAction<TurnState>>;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface ShowTurnProps {
-	currentTurn: TurnState;
-	playerRole: TurnState | null;
+export interface ShowRoleProps {
+	currentRole: RoleState;
+	playerRole: RoleState | null;
 }
 
 export interface UseConnect4GameProps {
 	socketRef: React.MutableRefObject<Socket | null>;
 	matchState: MatchState;
-	playerRole: TurnState | null;
-	firstTurn: FirstState;
+	playerRole: RoleState | null;
+	firstRole: FirstState;
 	roomId: string;
 	membersRef: React.MutableRefObject<number>;
 	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
+	currentRole: RoleState;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 }
 
 export interface handleBoardUpdatedProps {
 	board: BoardState;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 	lastPosition: lastPositionState;
 }
 
 export interface handleJoinedRoomProps {
 	members: number;
-	role: TurnState | null;
+	role: RoleState | null;
 }

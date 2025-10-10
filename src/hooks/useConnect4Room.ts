@@ -2,13 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createSocket } from "@/libs/socket/client";
-import { MatchState, TurnState, handleJoinedRoomProps } from "@/types/connect4";
+import { MatchState, RoleState, handleJoinedRoomProps, FirstState } from "@/types/connect4";
+import { Role } from "@/constants/connect4";
 import type { Socket } from "socket.io-client";
 
-export default function useConnect4Room(roomId: string) {
+export default function useConnect4Room(
+	roomId: string,
+	setFirstRole: React.Dispatch<React.SetStateAction<FirstState>>,
+	firstRole: FirstState
+) {
 	const [members, setMembers] = useState<number>(0);
-	const [playerRole, setPlayerRole] = useState<TurnState | null>(null);
+	const [playerRole, setPlayerRole] = useState<RoleState | null>(null);
 	const [matchState, setMatchState] = useState<MatchState>("waiting");
+	const [currentRole, setCurrentRole] = useState<RoleState>(Role.RED);
 
 	const socketRef = useRef<Socket | null>(null);
 	const membersRef = useRef<number>(0);
@@ -20,7 +26,7 @@ export default function useConnect4Room(roomId: string) {
 		socketRef.current = socket;
 
 		socket.connect();
-		socket.emit("joinRoom", roomId);
+		socket.emit("startRoom", roomId);
 
 		const handleJoinedRoom = ({ members, role }: handleJoinedRoomProps) => {
 			setMembers(members);
@@ -29,9 +35,11 @@ export default function useConnect4Room(roomId: string) {
 			setPlayerRole((prev) => (prev ?? role));
 		};
 
-		const handleRoomPaired = ({ roomId: pairedRoomId }: { roomId: string }) => {
-			if (pairedRoomId === roomId && matchStateRef.current === "waiting") {
+		const handleRoomPaired = (firstRole: RoleState) => {
+			if (matchStateRef.current === "waiting") {
 				setMatchState("matched");
+				setFirstRole(firstRole);
+				setCurrentRole(firstRole);
 				pairedTimer = setTimeout(() => {
 					setMatchState("playing");
 				}, 2000);
@@ -46,6 +54,7 @@ export default function useConnect4Room(roomId: string) {
 		socket.on("joinedRoom", handleJoinedRoom);
 		socket.on("roomPaired", handleRoomPaired);
 		socket.on("membersUpdate", handleMembersUpdate);
+		// socket.on("firstRoleUpdated", handleFirstRoleUpdated);
 
 		return () => {
 			if (pairedTimer !== null) {
@@ -54,10 +63,18 @@ export default function useConnect4Room(roomId: string) {
 			socket.off("joinedRoom", handleJoinedRoom);
 			socket.off("roomPaired", handleRoomPaired);
 			socket.off("membersUpdate", handleMembersUpdate);
+			// socket.off("firstRoleUpdated", handleFirstRoleUpdated);
 			socket.disconnect();
 			socketRef.current = null;
 		};
 	}, [roomId]);
+
+	// 先手設定の変更をサーバへ通知（単一ソケットで管理）
+	useEffect(() => {
+		if (!socketRef.current) return;
+		if (firstRole === undefined) return;
+		socketRef.current.emit("setFirstRole", { roomId, firstRole });
+	}, [firstRole, roomId]);
 
 	useEffect(() => {
 		matchStateRef.current = matchState;
@@ -75,5 +92,7 @@ export default function useConnect4Room(roomId: string) {
 		setMatchState,
 		membersRef,
 		emitRestart,
+		currentRole,
+		setCurrentRole,
 	};
 }

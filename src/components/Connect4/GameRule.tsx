@@ -11,7 +11,10 @@ export default function RuleSettings({ setFirst }: { setFirst: React.Dispatch<Re
 	const [showFirst, setShowFirst] = useState<ShowFirstState>("ランダム");
 
 	const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
-		const selected = String(key) as FirstState;
+		const selected =
+			key === 'random'
+				? 'random'
+				: (Number(key) as 1 | 2);
 		setFirst(selected);
 		setShowFirst(keyToShowLabel[selected]);
 	};
