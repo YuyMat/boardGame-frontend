@@ -6,7 +6,11 @@ import { MatchState, RoleState, handleJoinedRoomProps, FirstState } from "@/type
 import { Role } from "@/constants/connect4";
 import type { Socket } from "socket.io-client";
 
-export default function useConnect4Room(roomId: string, setFirstRole: React.Dispatch<React.SetStateAction<FirstState>>) {
+export default function useConnect4Room(
+	roomId: string,
+	setFirstRole: React.Dispatch<React.SetStateAction<FirstState>>,
+	firstRole: FirstState
+) {
 	const [members, setMembers] = useState<number>(0);
 	const [playerRole, setPlayerRole] = useState<RoleState | null>(null);
 	const [matchState, setMatchState] = useState<MatchState>("waiting");
@@ -47,10 +51,6 @@ export default function useConnect4Room(roomId: string, setFirstRole: React.Disp
 			membersRef.current = members;
 		};
 
-		// const handleFirstRoleUpdated = ({ firstRole }: { firstRole: FirstState }) => {
-		// 	setFirstRole(firstRole);
-		// };
-
 		socket.on("joinedRoom", handleJoinedRoom);
 		socket.on("roomPaired", handleRoomPaired);
 		socket.on("membersUpdate", handleMembersUpdate);
@@ -68,6 +68,13 @@ export default function useConnect4Room(roomId: string, setFirstRole: React.Disp
 			socketRef.current = null;
 		};
 	}, [roomId]);
+
+	// 先手設定の変更をサーバへ通知（単一ソケットで管理）
+	useEffect(() => {
+		if (!socketRef.current) return;
+		if (firstRole === undefined) return;
+		socketRef.current.emit("setFirstRole", { roomId, firstRole });
+	}, [firstRole, roomId]);
 
 	useEffect(() => {
 		matchStateRef.current = matchState;

@@ -27,7 +27,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		emitRestart,
 		currentRole,
 		setCurrentRole,
-	} = useConnect4Room(roomId, setFirstRole);
+	} = useConnect4Room(roomId, setFirstRole, firstRole);
 
 	// 盤面・手番・勝敗・同期
 	const {

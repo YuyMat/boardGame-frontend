@@ -53,7 +53,7 @@ export default function useConnect4Game({
 			socket.off("boardUpdated", handleBoardUpdated);
 			socket.off("restart", handleRestart);
 		};
-	}, [firstRole, membersRef]);
+	}, [roomId]);
 
 	// 盤面同期送信
 	useEffect(() => {
@@ -94,21 +94,11 @@ export default function useConnect4Game({
 		});
 	};
 
-	// const handleRestart = () => {
-	// 	onRestart({
-	// 		setIsWin,
-	// 		setBoard,
-	// 		setCurrentRole,
-	// 		setCanPlay,
-	// 	});
-	// };
-
 	return {
 		board,
 		currentRole,
 		isWin,
 		setIsWin,
 		onCellClick: handleCellClick,
-		// onRestart: handleRestart,
 	};
 }
