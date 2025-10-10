@@ -1,15 +1,18 @@
-import { FirstState, ShowFirstState } from "@/types/connect4";
+export const Connect4 = {
+	ROWS: 6,
+	COLS: 7,
+} as const;
 
-export class Connect4 {
-	static ROWS = 6;
-	static COLS = 7;
-}
+export const Role = {
+	RED: 1,
+	YELLOW: 2,
+} as const;
 
-export const keyToShowLabel: Record<FirstState, ShowFirstState> = {
+export const keyToShowLabel = {
 	random: "ランダム",
-	r: "赤",
-	y: "黄",
-};
+	[Role.RED]: "赤",
+	[Role.YELLOW]: "黄",
+} as const;
 
 export const firstTurnItems = [
 	{
@@ -18,10 +21,10 @@ export const firstTurnItems = [
 	},
 	{
 		label: "赤",
-		key: "r",
+		key: Role.RED,
 	},
 	{
 		label: "黄",
-		key: "y",
+		key: Role.YELLOW,
 	},
 ]

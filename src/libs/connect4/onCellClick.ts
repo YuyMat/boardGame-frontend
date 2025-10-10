@@ -1,6 +1,7 @@
 import { OnCellClickProps } from "@/types/connect4";
+import { Role } from "@/constants/connect4";
 
-export const onCellClick = ({ colIndex, canPlay, currentTurn, setCurrentTurn, setLastPosition, setBoard }: OnCellClickProps) => {
+export const onCellClick = ({ colIndex, canPlay, currentRole, setCurrentRole, setLastPosition, setBoard }: OnCellClickProps) => {
 	setBoard((prev) => {
 		let targetRow = prev.length - 1;
 		while (targetRow >= 0 && prev[targetRow][colIndex] !== null) {
@@ -10,8 +11,8 @@ export const onCellClick = ({ colIndex, canPlay, currentTurn, setCurrentTurn, se
 		if (!canPlay) return prev;
 
 		const next = prev.map((row) => [...row]);
-		next[targetRow][colIndex] = currentTurn;
-		setCurrentTurn(currentTurn === 'r' ? 'y' : 'r');
+		next[targetRow][colIndex] = currentRole;
+		setCurrentRole(currentRole === Role.RED ? Role.YELLOW : Role.RED);
 		setLastPosition({ row: targetRow, col: colIndex });
 		return next;
 	});

@@ -4,15 +4,16 @@ import { BoardProps } from "@/types/connect4";
 import Result from "./Result";
 import TurnDisc from "./TurnDisc";
 import useGotoTopPage from "@/hooks/useGotoTopPage";
+import { Role } from "@/constants/connect4";
 import closeModal from "@/utils/closeModal";
 
-export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, currentTurn }: BoardProps) {
+export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, currentRole }: BoardProps) {
     const gotoTopPage = useGotoTopPage();
 
 	return (
 		<div className="relative z-1">
-			<Result isWin={isWin} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentTurn={currentTurn} />
-			<TurnDisc currentTurn={currentTurn} />
+			<Result isWin={isWin} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentRole={currentRole} />
+			<TurnDisc currentRole={currentRole} />
 			<div className="pt-2 pl-2">
 				<h2 className="text-2xl font-bold text-blue-800">Connect 4</h2>
 			</div>
@@ -24,8 +25,8 @@ export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, 
 							row.map((cell, colIndex) => (
 								<div
 									key={`${rowIndex}-${colIndex}`}
-									className={`w-12 h-12 rounded-full border-2 border-blue-800 flex items-center justify-center cursor-pointer transition-colors ${cell === 'r' ? 'bg-red-500' :
-										cell === 'y' ? 'bg-yellow-500' :
+									className={`w-12 h-12 rounded-full border-2 border-blue-800 flex items-center justify-center cursor-pointer transition-colors ${cell === Role.RED ? 'bg-red-500' :
+										cell === Role.YELLOW ? 'bg-yellow-500' :
 											'bg-white'
 										}`}
 									onClick={() => onCellClick(colIndex)}

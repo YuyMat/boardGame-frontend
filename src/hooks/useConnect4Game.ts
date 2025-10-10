@@ -2,54 +2,47 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useUpdateEffect } from "@/hooks/useUpdateEffect";
-import { BoardState, lastPositionState, TurnState, handleBoardUpdatedProps } from "@/types/connect4";
+import { BoardState, lastPositionState, RoleState, handleBoardUpdatedProps, UseConnect4GameProps, FirstState } from "@/types/connect4";
 import { onCellClick, onRestart, checkWin, createEmptyBoard } from "@/libs/connect4";
-import { getRandomInt } from "@/utils/getRandom";
-import { UseConnect4GameProps } from "@/types/connect4";
 
 export default function useConnect4Game({
 	socketRef,
 	matchState,
 	playerRole,
-	firstTurn,
+	firstRole,
 	roomId,
 	membersRef,
 	setMatchState,
+	currentRole,
+	setCurrentRole,
 }: UseConnect4GameProps) {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
 	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: 0, col: 0 });
-	const [currentTurn, setCurrentTurn] = useState<TurnState>('r');
 	const [isWin, setIsWin] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
 
 	const suppressSyncRef = useRef<boolean>(false);
-
-	const getRandomTurn = (): TurnState => {
-		if (getRandomInt(2) === 0)
-			return "r";
-		return "y";
-	};
 
 	// ソケットリスナー設定
 	useEffect(() => {
 		const socket = socketRef.current;
 		if (!socket) return;
 
-		const handleBoardUpdated = ({ board: nextBoard, currentTurn: nextTurn, lastPosition: nextLast }: handleBoardUpdatedProps) => {
+		const handleBoardUpdated = ({ board: nextBoard, currentRole: nextRole, lastPosition: nextLast }: handleBoardUpdatedProps) => {
 			suppressSyncRef.current = true;
 			setBoard(nextBoard);
-			setCurrentTurn(nextTurn);
+			setCurrentRole(nextRole);
 			if (nextLast) setLastPosition(nextLast);
 		};
 
-		const handleRestart = () => {
+		const handleRestart = ({firstRole}: {firstRole: RoleState}) => {
 			if (membersRef.current === 1) {
 				setMatchState("waiting");
 				return;
 			}
 			setIsWin(false);
 			setBoard(createEmptyBoard());
-			setCurrentTurn(firstTurn === "random" ? getRandomTurn() : firstTurn);
+			setCurrentRole(firstRole);
 			setCanPlay(true);
 		};
 
@@ -60,7 +53,7 @@ export default function useConnect4Game({
 			socket.off("boardUpdated", handleBoardUpdated);
 			socket.off("restart", handleRestart);
 		};
-	}, [firstTurn, membersRef]);
+	}, [firstRole, membersRef]);
 
 	// 盤面同期送信
 	useEffect(() => {
@@ -74,14 +67,14 @@ export default function useConnect4Game({
 		socket.emit("syncBoard", {
 			roomId,
 			board,
-			currentTurn,
+			currentRole,
 			lastPosition,
 		});
-	}, [board, currentTurn, lastPosition, matchState, roomId]);
+	}, [board, currentRole, lastPosition, matchState, roomId]);
 
 	// 勝敗判定
 	useUpdateEffect(() => {
-		if (checkWin({ lastPosition, currentTurn, board })) {
+		if (checkWin({ lastPosition, currentRole, board })) {
 			setCanPlay(false);
 			const timer = setTimeout(() => {
 				setIsWin(true);
@@ -90,38 +83,32 @@ export default function useConnect4Game({
 		}
 	}, [board]);
 
-	// 先手設定反映（初回含む）
-	useEffect(() => {
-		const newTurn = firstTurn === "random" ? getRandomTurn() : firstTurn as TurnState;
-		setCurrentTurn(newTurn);
-	}, [firstTurn]);
-
 	const handleCellClick = (colIndex: number) => {
 		onCellClick({
 			colIndex,
-			canPlay: canPlay && playerRole === currentTurn,
-			currentTurn,
-			setCurrentTurn,
+			canPlay: canPlay && playerRole === currentRole,
+			currentRole,
+			setCurrentRole,
 			setLastPosition,
 			setBoard,
 		});
 	};
 
-	const handleRestart = () => {
-		onRestart({
-			setIsWin,
-			setBoard,
-			setCurrentTurn,
-			setCanPlay,
-		});
-	};
+	// const handleRestart = () => {
+	// 	onRestart({
+	// 		setIsWin,
+	// 		setBoard,
+	// 		setCurrentRole,
+	// 		setCanPlay,
+	// 	});
+	// };
 
 	return {
 		board,
-		currentTurn,
+		currentRole,
 		isWin,
 		setIsWin,
 		onCellClick: handleCellClick,
-		onRestart: handleRestart,
+		// onRestart: handleRestart,
 	};
 }

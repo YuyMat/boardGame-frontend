@@ -1,9 +1,9 @@
-import { Connect4 } from "@/constants/connect4";
+import { Connect4, Role } from "@/constants/connect4";
 import { CheckWinProps } from "@/types/connect4";
 
-export const checkWin = ({ lastPosition, currentTurn, board }: CheckWinProps) => {
+export const checkWin = ({ lastPosition, currentRole, board }: CheckWinProps) => {
 	const { row, col } = lastPosition;
-	const targetColor = currentTurn === 'r' ? 'y' : 'r';
+	const targetColor = currentRole === Role.RED ? Role.YELLOW : Role.RED;
 
 	let count = 0;
 

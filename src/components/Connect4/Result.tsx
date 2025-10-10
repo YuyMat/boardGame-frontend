@@ -1,7 +1,8 @@
 import { Button, Modal } from "antd";
 import { ResultProps } from "@/types/connect4";
+import { Role } from "@/constants/connect4";
 
-export default function Result({isWin, onRestart, handleCancel, onShowGames, currentTurn}: ResultProps) {
+export default function Result({isWin, onRestart, handleCancel, onShowGames, currentRole}: ResultProps) {
 	return (
 		<Modal
 			open={isWin}
@@ -21,10 +22,10 @@ export default function Result({isWin, onRestart, handleCancel, onShowGames, cur
 			]}
 		>
 			<p className="text-center text-2xl">{
-				currentTurn === 'y'
+				currentRole === Role.YELLOW
 					? "🎉 🔴赤の勝利 🎉"
 					: "🎉 🟡黄色の勝利 🎉"
-			}
+				}
 			</p>
 		</Modal>
 	)
