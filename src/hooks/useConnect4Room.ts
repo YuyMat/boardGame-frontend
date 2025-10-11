@@ -72,7 +72,6 @@ export default function useConnect4Room(
 	// 先手設定の変更をサーバへ通知（単一ソケットで管理）
 	useEffect(() => {
 		if (!socketRef.current) return;
-		if (firstRole === undefined) return;
 		socketRef.current.emit("setFirstRole", { roomId, firstRole });
 	}, [firstRole, roomId]);
 

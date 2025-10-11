@@ -14,7 +14,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	const { roomId } = use(params);
 
 	// 先手設定
-	const { firstRole, setFirstRole } = useFirstRole(roomId);
+	const { firstRole, setFirstRole } = useFirstRole();
 
 	// ルーム接続・メンバー/ロール・マッチ状態管理
 	const {
