@@ -11,5 +11,3 @@ const backendUrl =
 export const createSocket = (): Socket => {
   return io(backendUrl, { transports: ["websocket"], autoConnect: false });
 };
-
-
