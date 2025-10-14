@@ -41,16 +41,24 @@ export default function Page() {
 	const router = useRouter();
 
 	useEffect(() => {
+		let isMounted = true;
+
 		(async () => {
 			const healthy = await checkHealth(backendUrl);
+			if (!isMounted) return;
 
 			if (healthy) {
 				setIsBackendHealthy(true);
+				if (!isMounted) return;
 				await createRoom(router);
 			} else {
 				setIsBackendHealthy(false);
 			}
 		})();
+
+		return () => {
+			isMounted = false;
+		};
 	}, [router]);
 
 	if (isBackendHealthy === null)
