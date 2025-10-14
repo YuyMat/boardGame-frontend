@@ -71,7 +71,7 @@ export default function Page() {
 	if (!isBackendHealthy)
 		return (
 			<div className="flex justify-center items-center min-h-[calc(100vh-72px)]">
-				<Loading text="サーバーを起動中です。約1分後に再接続してください..." />
+				<Loading text="サーバーを起動しています。約1分後に再接続してください..." />
 			</div>
 		);
 
