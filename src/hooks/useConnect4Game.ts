@@ -9,7 +9,6 @@ export default function useConnect4Game({
 	socketRef,
 	matchState,
 	playerRole,
-	firstRole,
 	roomId,
 	membersRef,
 	setMatchState,
@@ -100,5 +99,6 @@ export default function useConnect4Game({
 		isWin,
 		setIsWin,
 		onCellClick: handleCellClick,
+		lastPosition,
 	};
 }

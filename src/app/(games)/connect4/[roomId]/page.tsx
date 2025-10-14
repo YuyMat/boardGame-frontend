@@ -35,11 +35,11 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		isWin,
 		setIsWin,
 		onCellClick,
+		lastPosition,
 	} = useConnect4Game({
 		socketRef,
 		matchState,
 		playerRole,
-		firstRole,
 		roomId,
 		membersRef,
 		setMatchState,
@@ -78,10 +78,8 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				isWin={isWin}
 				setIsWin={setIsWin}
 				onCellClick={onCellClick}
-				onRestart={() => {
-					// onRestart();
-					emitRestart();
-				}}
+				onRestart={emitRestart}
+				lastPosition={lastPosition}
 			/>
 			<ShowTurn currentRole={currentRole} playerRole={playerRole} />
 			<TemporaryWaiting members={members} />

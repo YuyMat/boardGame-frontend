@@ -7,7 +7,7 @@ import useGotoTopPage from "@/hooks/useGotoTopPage";
 import { Role } from "@/constants/connect4";
 import closeModal from "@/utils/closeModal";
 
-export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, currentRole }: BoardProps) {
+export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, currentRole, lastPosition }: BoardProps) {
     const gotoTopPage = useGotoTopPage();
 
 	return (
@@ -25,10 +25,18 @@ export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, 
 							row.map((cell, colIndex) => (
 								<div
 									key={`${rowIndex}-${colIndex}`}
-									className={`w-12 h-12 rounded-full border-2 border-blue-800 flex items-center justify-center cursor-pointer transition-colors ${cell === Role.RED ? 'bg-red-500' :
-										cell === Role.YELLOW ? 'bg-yellow-500' :
-											'bg-white'
-										}`}
+									className={`w-12 h-12 rounded-full border-2 border-blue-800 flex items-center justify-center cursor-pointer transition-colors
+										${cell === Role.RED
+											? 'bg-red-500'
+											: cell === Role.YELLOW
+												? 'bg-yellow-500'
+												: 'bg-white'
+										}
+										${lastPosition.row === rowIndex && lastPosition.col === colIndex
+											? 'border-4 border-green-500'
+											: ''
+										}
+										`}
 									onClick={() => onCellClick(colIndex)}
 								></div>
 							))

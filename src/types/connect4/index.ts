@@ -25,6 +25,7 @@ export interface BoardProps {
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	onRestart: () => void;
 	currentRole: RoleState;
+	lastPosition: lastPositionState;
 }
 
 export interface ResultProps {
@@ -66,7 +67,6 @@ export interface UseConnect4GameProps {
 	socketRef: React.MutableRefObject<Socket | null>;
 	matchState: MatchState;
 	playerRole: RoleState | null;
-	firstRole: FirstState;
 	roomId: string;
 	membersRef: React.MutableRefObject<number>;
 	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
