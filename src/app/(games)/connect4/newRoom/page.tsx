@@ -24,14 +24,14 @@ async function checkHealth(url: string): Promise<boolean> {
 	}
 }
 
-async function createRoom(router: any) {
+async function createRoom(router: ReturnType<typeof useRouter>) {
 	try {
 		const res = await fetch("/api/rooms/new", { cache: "no-store" });
 		if (!res.ok) throw new Error("Failed to create room");
 		const data = await res.json();
 		const roomId = data.roomId;
 		router.replace(`/connect4/${roomId}`);
-	} catch (e) {
+	} catch {
 		router.replace("/");
 	}
 }
