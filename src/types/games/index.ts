@@ -8,5 +8,3 @@ export type GameMeta = {
 	isAvailable: boolean;
 	tags?: string[];
 };
-
-
