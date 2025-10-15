@@ -2,14 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useUpdateEffect } from "@/hooks/useUpdateEffect";
-import { BoardState, lastPositionState, RoleState, handleBoardUpdatedProps, UseConnect4GameProps, FirstState } from "@/types/connect4";
-import { onCellClick, onRestart, checkWin, createEmptyBoard } from "@/libs/connect4";
+import { BoardState, lastPositionState, RoleState, handleBoardUpdatedProps, UseConnect4GameProps } from "@/types/connect4";
+import { onCellClick, checkWin, createEmptyBoard } from "@/libs/connect4";
 
 export default function useConnect4Game({
 	socketRef,
 	matchState,
 	playerRole,
-	firstRole,
 	roomId,
 	membersRef,
 	setMatchState,
@@ -17,7 +16,7 @@ export default function useConnect4Game({
 	setCurrentRole,
 }: UseConnect4GameProps) {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
-	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: 0, col: 0 });
+	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: null, col: null });
 	const [isWin, setIsWin] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
 
@@ -43,6 +42,8 @@ export default function useConnect4Game({
 			setIsWin(false);
 			setBoard(createEmptyBoard());
 			setCurrentRole(firstRole);
+			console.log("aaaaa");
+			setLastPosition({ row: null, col: null });
 			setCanPlay(true);
 		};
 
@@ -100,5 +101,6 @@ export default function useConnect4Game({
 		isWin,
 		setIsWin,
 		onCellClick: handleCellClick,
+		lastPosition,
 	};
 }

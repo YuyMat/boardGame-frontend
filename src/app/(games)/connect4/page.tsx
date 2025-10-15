@@ -9,7 +9,7 @@ import { Role } from "@/constants/connect4";
 
 export default function Page() {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
-	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: 0, col: 0 });
+	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: null, col: null });
 	const [currentRole, setCurrentRole] = useState<RoleState>(Role.RED);
 	const [isWin, setIsWin] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
@@ -46,9 +46,11 @@ export default function Page() {
 						setIsWin,
 						setBoard,
 						setCurrentRole,
-						setCanPlay
+						setCanPlay,
+						setLastPosition,
 					})
 				}
+				lastPosition={lastPosition}
 			/>
 		</div>
 	)

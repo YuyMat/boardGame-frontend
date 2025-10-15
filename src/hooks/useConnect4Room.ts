@@ -2,14 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createSocket } from "@/libs/socket/client";
-import { MatchState, RoleState, handleJoinedRoomProps, FirstState } from "@/types/connect4";
+import { MatchState, RoleState, handleJoinedRoomProps, FirstState, lastPositionState } from "@/types/connect4";
 import { Role } from "@/constants/connect4";
 import type { Socket } from "socket.io-client";
 
 export default function useConnect4Room(
 	roomId: string,
 	setFirstRole: React.Dispatch<React.SetStateAction<FirstState>>,
-	firstRole: FirstState
+	firstRole: FirstState,
 ) {
 	const [members, setMembers] = useState<number>(0);
 	const [playerRole, setPlayerRole] = useState<RoleState | null>(null);
@@ -54,7 +54,6 @@ export default function useConnect4Room(
 		socket.on("joinedRoom", handleJoinedRoom);
 		socket.on("roomPaired", handleRoomPaired);
 		socket.on("membersUpdate", handleMembersUpdate);
-		// socket.on("firstRoleUpdated", handleFirstRoleUpdated);
 
 		return () => {
 			if (pairedTimer !== null) {
@@ -63,7 +62,6 @@ export default function useConnect4Room(
 			socket.off("joinedRoom", handleJoinedRoom);
 			socket.off("roomPaired", handleRoomPaired);
 			socket.off("membersUpdate", handleMembersUpdate);
-			// socket.off("firstRoleUpdated", handleFirstRoleUpdated);
 			socket.disconnect();
 			socketRef.current = null;
 		};

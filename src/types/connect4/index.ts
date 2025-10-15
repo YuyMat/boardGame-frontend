@@ -8,8 +8,8 @@ export type CellState = RoleState | null;
 export type BoardState = CellState[][];
 
 export type lastPositionState = {
-	row: number;
-	col: number;
+	row: number | null;
+	col: number | null;
 };
 
 export type FirstState = 'random' | RoleState;
@@ -25,6 +25,7 @@ export interface BoardProps {
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	onRestart: () => void;
 	currentRole: RoleState;
+	lastPosition: lastPositionState;
 }
 
 export interface ResultProps {
@@ -55,6 +56,7 @@ export interface OnRestartProps {
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
+	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 }
 
 export interface ShowRoleProps {
@@ -66,7 +68,6 @@ export interface UseConnect4GameProps {
 	socketRef: React.MutableRefObject<Socket | null>;
 	matchState: MatchState;
 	playerRole: RoleState | null;
-	firstRole: FirstState;
 	roomId: string;
 	membersRef: React.MutableRefObject<number>;
 	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
