@@ -3,6 +3,8 @@ import { CheckWinProps } from "@/types/connect4";
 
 export const checkWin = ({ lastPosition, currentRole, board }: CheckWinProps) => {
 	const { row, col } = lastPosition;
+	if (row === null || col === null)
+		return false;
 	const targetColor = currentRole === Role.RED ? Role.YELLOW : Role.RED;
 
 	let count = 0;

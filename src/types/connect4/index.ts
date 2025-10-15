@@ -8,8 +8,8 @@ export type CellState = RoleState | null;
 export type BoardState = CellState[][];
 
 export type lastPositionState = {
-	row: number;
-	col: number;
+	row: number | null;
+	col: number | null;
 };
 
 export type FirstState = 'random' | RoleState;
@@ -56,6 +56,7 @@ export interface OnRestartProps {
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
+	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 }
 
 export interface ShowRoleProps {
