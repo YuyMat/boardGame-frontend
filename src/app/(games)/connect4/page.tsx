@@ -45,7 +45,6 @@ export default function Page() {
 					onRestart({
 						setIsWin,
 						setBoard,
-						setCurrentRole,
 						setCanPlay,
 						setLastPosition,
 					})
