@@ -54,7 +54,6 @@ export interface OnCellClickProps {
 export interface OnRestartProps {
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
-	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 }
