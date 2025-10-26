@@ -102,5 +102,6 @@ export default function useConnect4Game({
 		setIsWin,
 		onCellClick: handleCellClick,
 		lastPosition,
+		canPlay,
 	};
 }
