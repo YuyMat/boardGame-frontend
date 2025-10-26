@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import Board from "@/components/Connect4/Board";
+import { Board, ReShowResult } from "@/components/Connect4";
 import { useUpdateEffect } from "@/hooks/useUpdateEffect";
 import { BoardState, RoleState, lastPositionState } from "@/types/connect4";
 import { createEmptyBoard, checkWin, onCellClick, onRestart } from "@/libs/connect4";
@@ -51,6 +51,7 @@ export default function Page() {
 				}
 				lastPosition={lastPosition}
 			/>
+			<ReShowResult isWin={isWin} setIsWin={setIsWin} canPlay={canPlay} />
 		</div>
 	)
 }
