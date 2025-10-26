@@ -61,6 +61,7 @@ export interface OnRestartProps {
 export interface ShowRoleProps {
 	currentRole: RoleState;
 	playerRole: RoleState | null;
+	canPlay: boolean;
 }
 
 export interface UseConnect4GameProps {
@@ -83,4 +84,10 @@ export interface handleBoardUpdatedProps {
 export interface handleJoinedRoomProps {
 	members: number;
 	role: RoleState | null;
+}
+
+export interface ReShowResultProps {
+	isWin: boolean;
+	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
+	canPlay: boolean;
 }

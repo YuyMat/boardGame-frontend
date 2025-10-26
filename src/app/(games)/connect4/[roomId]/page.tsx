@@ -1,7 +1,7 @@
 "use client"
 
 import { use } from "react";
-import { Board, Loading, ShowTurn, RuleSettings, TemporaryWaiting, CopyUrl } from "@/components/Connect4";
+import { Board, Loading, ShowTurn, RuleSettings, TemporaryWaiting, CopyUrl, ReShowResult } from "@/components/Connect4";
 import { Role } from "@/constants/connect4";
 import styles from "@/styles/Utils.module.scss";
 
@@ -36,6 +36,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		setIsWin,
 		onCellClick,
 		lastPosition,
+		canPlay,
 	} = useConnect4Game({
 		socketRef,
 		matchState,
@@ -81,8 +82,9 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				onRestart={emitRestart}
 				lastPosition={lastPosition}
 			/>
-			<ShowTurn currentRole={currentRole} playerRole={playerRole} />
+			<ShowTurn currentRole={currentRole} playerRole={playerRole} canPlay={canPlay} />
 			<TemporaryWaiting members={members} />
+			<ReShowResult isWin={isWin} setIsWin={setIsWin} canPlay={canPlay} />
 		</div>
 	);
 }
