@@ -52,7 +52,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		return (
 			<>
 				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
-					<Loading text="対線相手を待っています…" />
+					<Loading text="対戦相手を待っています…" />
 					<div className="flex flex-row gap-2 mt-7">
 						<RuleSettings setFirst={setFirstRole} />
 						<CopyUrl />
@@ -65,7 +65,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	if (matchState === "matched") {
 		return (
 			<div className="flex justify-center items-center min-h-[calc(100vh-72px)]">
-				<Loading text="対線相手とマッチしました！" />
+				<Loading text="対戦相手とマッチしました！" />
 			</div>
 		);
 	}

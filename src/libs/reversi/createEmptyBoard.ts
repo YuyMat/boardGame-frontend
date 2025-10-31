@@ -15,5 +15,5 @@ export function createEmptyBoard(): BoardState {
 }
 
 export function createEmptyHighlightedBoard(): HighlightedBoardState {
-	return Array(8).fill(null).map(() => Array(8).fill(null));
+	return Array(8).fill(false).map(() => Array(8).fill(false));
 }

@@ -39,7 +39,7 @@ export interface ResultProps {
 
 export interface CheckWinProps {
 	lastPosition: lastPositionState;
-	currentTurn: RoleState;
+	currentRole: RoleState;
 	board: BoardState;
 }
 
@@ -47,8 +47,8 @@ export interface OnCellClickProps {
 	rowIndex: number;
 	colIndex: number;
 	canPlay: boolean;
-	currentTurn: RoleState;
-	setCurrentTurn: React.Dispatch<React.SetStateAction<RoleState>>;
+	currentRole: RoleState;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 }
@@ -56,12 +56,12 @@ export interface OnCellClickProps {
 export interface OnRestartProps {
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
-	setCurrentTurn: React.Dispatch<React.SetStateAction<RoleState>>;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface ShowTurnProps {
-	currentTurn: RoleState;
+export interface ShowRoleProps {
+	currentRole: RoleState;
 	playerRole: RoleState | null;
 }
 
@@ -69,7 +69,7 @@ export interface UseReversiGameProps {
 	socketRef: React.MutableRefObject<Socket | null>;
 	matchState: MatchState;
 	playerRole: RoleState | null;
-	firstTurn: FirstState;
+	firstRole: FirstState;
 	roomId: string;
 	membersRef: React.MutableRefObject<number>;
 	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
@@ -77,7 +77,7 @@ export interface UseReversiGameProps {
 
 export interface handleBoardUpdatedProps {
 	board: BoardState;
-	currentTurn: RoleState;
+	currentRole: RoleState;
 	lastPosition: lastPositionState;
 }
 
