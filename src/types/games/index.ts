@@ -6,5 +6,6 @@ export type GameMeta = {
 	localPath?: string | null; // ローカル対戦ページ
 	onlinePath?: string | null; // 新規ルーム作成 or マッチングページ
 	isAvailable: boolean;
+	isDev: boolean;
 	tags?: string[];
 };

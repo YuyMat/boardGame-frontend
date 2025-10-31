@@ -1,9 +1,9 @@
 import { ReverseStonesProps } from "@/types/reversi";
-import { directions } from "@/constants/reversi";
+import { directions, Role } from "@/constants/reversi";
 
-export function reverseStones({ board, lastPosition, currentTurn }: ReverseStonesProps) {
+export function reverseStones({ board, lastPosition, currentRole }: ReverseStonesProps) {
 	const { row, col } = lastPosition;
-	const oppositeTurn = currentTurn === 'b' ? 'w' : 'b';
+	const oppositeRole = currentRole === Role.BLACK ? Role.WHITE : Role.BLACK;
 
 	for (const { row: dRow, col: dCol } of directions) {
 		let nextRow = row + dRow;
@@ -18,14 +18,14 @@ export function reverseStones({ board, lastPosition, currentTurn }: ReverseStone
 				// 空のセルに到達したら、この方向では石をひっくり返せない
 				break;
 			}
-			if (currentCell === oppositeTurn) {
+			if (currentCell === oppositeRole) {
 				hasOppositeStone = true;
 				stonesToReverse.push({ row: nextRow, col: nextCol });
-			} else if (currentCell === currentTurn) {
+			} else if (currentCell === currentRole) {
 				if (hasOppositeStone) {
 					// 相手の石がある場合、記録した石をすべてひっくり返す
 					for (const stone of stonesToReverse) {
-						board[stone.row][stone.col] = currentTurn;
+						board[stone.row][stone.col] = currentRole;
 					}
 				}
 				break;

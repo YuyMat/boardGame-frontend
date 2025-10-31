@@ -26,7 +26,7 @@ export default function useConnect4Room(
 		socketRef.current = socket;
 
 		socket.connect();
-		socket.emit("startRoom", roomId);
+		socket.emit("startRoom", roomId, "connect4");
 
 		const handleJoinedRoom = ({ members, role }: handleJoinedRoomProps) => {
 			setMembers(members);

@@ -1,11 +1,11 @@
 import { CanTurnOverProps } from "@/types/reversi";
-import { directions } from "@/constants/reversi";
+import { directions, Role } from "@/constants/reversi";
 
-export function canTurnOver({ board, row, col, currentTurn }: CanTurnOverProps) {
+export function canTurnOver({ board, row, col, currentRole }: CanTurnOverProps) {
 	if (board[row][col] !== null)
 		return false;
 	
-	const oppositeTurn = currentTurn === 'b' ? 'w' : 'b';
+	const oppositeRole = currentRole === Role.BLACK ? Role.WHITE : Role.BLACK;
 	
 	for (const { row: dRow, col: dCol } of directions) {
 		let nextRow = row + dRow;
@@ -19,9 +19,9 @@ export function canTurnOver({ board, row, col, currentTurn }: CanTurnOverProps) 
 				// 空のセルに到達したら、この方向では石をひっくり返せない
 				break;
 			}
-			if (currentCell === oppositeTurn)
+			if (currentCell === oppositeRole)
 				hasOppositeStone = true;
-			else if (currentCell === currentTurn) {
+			else if (currentCell === currentRole) {
 				if (hasOppositeStone)
 					return true;
 				break;
