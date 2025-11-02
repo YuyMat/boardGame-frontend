@@ -14,7 +14,7 @@ export const GAMES: GameMeta[] = [
 	},
 	{
 		id: "reversi",
-		name: "オセロ",
+		name: "リバーシ",
 		description: "相手の石を挟んでひっくり返し、最後に多い方が勝ち。",
 		imageSrc: "/games/thumbnail_reversi.png",
 		localPath: "/reversi",

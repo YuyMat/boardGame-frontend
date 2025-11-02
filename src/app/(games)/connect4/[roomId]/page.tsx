@@ -1,14 +1,15 @@
 "use client"
 
 import { use } from "react";
-import { Board, Loading, ShowTurn, RuleSettings, TemporaryWaiting, CopyUrl, ReShowResult } from "@/components/Connect4";
+import { Board, ShowTurn, TemporaryWaiting, ReShowResult } from "@/components/Connect4";
+import { Loading, RuleSettings, CopyUrl } from "@/components/Utils";
 import { Role } from "@/constants/connect4";
 import styles from "@/styles/Utils.module.scss";
 
 // カスタムフック
-import useConnect4Room from "@/hooks/useConnect4Room";
-import useConnect4Game from "@/hooks/useConnect4Game";
-import useFirstRole from "@/hooks/useFirstRole";
+import useConnect4Room from "@/hooks/connect4/useConnect4Room";
+import useConnect4Game from "@/hooks/connect4/useConnect4Game";
+import useFirstRole from "@/hooks/connect4/useConnect4FirstRole";
 
 export default function Page({ params }: { params: Promise<{ roomId: string }> }) {
 	const { roomId } = use(params);
@@ -55,7 +56,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 					<Loading text="対戦相手を待っています…" />
 					<div className="flex flex-row gap-2 mt-7">
 						<RuleSettings setFirst={setFirstRole} />
-						<CopyUrl />
+						<CopyUrl gameName="コネクト４" />
 					</div>
 				</div>
 			</>

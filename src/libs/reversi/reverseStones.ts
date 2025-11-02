@@ -6,8 +6,8 @@ export function reverseStones({ board, lastPosition, currentRole }: ReverseStone
 	const oppositeRole = currentRole === Role.BLACK ? Role.WHITE : Role.BLACK;
 
 	for (const { row: dRow, col: dCol } of directions) {
-		let nextRow = row + dRow;
-		let nextCol = col + dCol;
+		let nextRow = row! + dRow;
+		let nextCol = col! + dCol;
 		let hasOppositeStone = false;
 		const stonesToReverse: { row: number; col: number }[] = [];
 

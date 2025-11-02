@@ -3,7 +3,7 @@
 import { Modal, Button, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
-import useGotoTopPage from "@/hooks/useGotoTopPage";
+import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 
 export default function TemporaryWaiting({ members }: { members: number }) {
 	const [isOpen, setIsOpen] = useState(false);
