@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loading } from "@/components/Utils";
 
+
 const env = process.env.NEXT_PUBLIC_ENV;
 const backendUrl =
 	env === "local"

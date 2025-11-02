@@ -1,14 +1,13 @@
 import type { Socket } from "socket.io-client";
+import { Role } from "@/constants/reversi";
 
-// セルの状態を表す型（'b' = 黒、'w' = 白、null = 空）
-export type CellState = 'b' | 'w' | null;
-export type HighlightedCellState = 1 | null;
+export type RoleState = typeof Role.BLACK | typeof Role.WHITE;
+export type CellState = RoleState | null;
+export type HighlightedCellState = boolean;
 
-export type TurnState = 'b' | 'w';
 
 // 盤面の状態を表す型（8x8）
 export type BoardState = CellState[][];
-
 export type HighlightedBoardState = HighlightedCellState[][];
 
 export type lastPositionState = {
@@ -26,7 +25,7 @@ export interface BoardProps {
 	board: BoardState;
 	highlightedCells: HighlightedBoardState;
 	onCellClick: (rowIndex: number, colIndex: number) => void;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 }
 
 export interface ResultProps {
@@ -40,7 +39,7 @@ export interface ResultProps {
 
 export interface CheckWinProps {
 	lastPosition: lastPositionState;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 	board: BoardState;
 }
 
@@ -48,8 +47,8 @@ export interface OnCellClickProps {
 	rowIndex: number;
 	colIndex: number;
 	canPlay: boolean;
-	currentTurn: TurnState;
-	setCurrentTurn: React.Dispatch<React.SetStateAction<TurnState>>;
+	currentRole: RoleState;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 }
@@ -57,20 +56,20 @@ export interface OnCellClickProps {
 export interface OnRestartProps {
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
-	setCurrentTurn: React.Dispatch<React.SetStateAction<TurnState>>;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface ShowTurnProps {
-	currentTurn: TurnState;
-	playerRole: TurnState | null;
+export interface ShowRoleProps {
+	currentRole: RoleState;
+	playerRole: RoleState | null;
 }
 
 export interface UseReversiGameProps {
 	socketRef: React.MutableRefObject<Socket | null>;
 	matchState: MatchState;
-	playerRole: TurnState | null;
-	firstTurn: FirstState;
+	playerRole: RoleState | null;
+	firstRole: FirstState;
 	roomId: string;
 	membersRef: React.MutableRefObject<number>;
 	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
@@ -78,29 +77,29 @@ export interface UseReversiGameProps {
 
 export interface handleBoardUpdatedProps {
 	board: BoardState;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 	lastPosition: lastPositionState;
 }
 
 export interface handleJoinedRoomProps {
 	members: number;
-	role: TurnState | null;
+	role: RoleState | null;
 }
 
 export interface CanTurnOverProps {
 	board: BoardState;
 	row: number;
 	col: number;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 }
 
 export interface ReverseStonesProps {
 	board: BoardState;
 	lastPosition: lastPositionState;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 }
 
 export interface SkipTurnProps {
 	isSkipTurn: boolean;
-	currentTurn: TurnState;
+	currentRole: RoleState;
 }

@@ -9,6 +9,9 @@ type GameCardProps = {
 };
 
 export default function GameCard({ game }: GameCardProps) {
+	const env = process.env.NEXT_PUBLIC_ENV;
+	const isDev = env === "local";
+
 	return (
 		<div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden flex flex-col">
 			<div className="relative w-full h-40 bg-gray-50">
@@ -27,7 +30,7 @@ export default function GameCard({ game }: GameCardProps) {
 							ローカルプレイ
 						</button>
 					)}
-					{game.onlinePath ? (
+					{(game.onlinePath && !game.isDev) || (game.onlinePath && isDev) ? (
 						<Link href={game.onlinePath} className="px-3 py-2 text-sm rounded-md bg-indigo-600 text-white hover:bg-indigo-500 transition-colors">
 							オンライン対戦
 						</Link>
@@ -41,5 +44,3 @@ export default function GameCard({ game }: GameCardProps) {
 		</div>
 	);
 }
-
-
