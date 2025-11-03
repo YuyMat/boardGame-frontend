@@ -1,0 +1,18 @@
+{
+	"$schema": "https://typedoc.org/schema.json",
+	"entryPoints": [
+		"src"
+	], // ドキュメント生成対象のディレクトリ
+	"out": "tsdocs", // 出力先
+	"includeVersion": true,
+	"excludePrivate": true,
+	"excludeInternal": true,
+	"excludeExternals": true,
+	"sort": [
+		"source-order"
+	],
+	"plugin": [
+		"typedoc-plugin-markdown"
+	], // Markdown形式にしたい場合
+	"tsconfig": "tsconfig.json"
+}

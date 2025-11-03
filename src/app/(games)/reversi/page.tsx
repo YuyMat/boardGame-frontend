@@ -6,7 +6,7 @@ import { createEmptyBoard, createEmptyHighlightedBoard, canTurnOver, reverseSton
 import { BoardState, RoleState, lastPositionState, HighlightedBoardState } from "@/types/reversi";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import closeModal from "@/utils/closeModal";
-import { Role, MAX_CELL_COUNT } from "@/constants/reversi";
+import { Role } from "@/constants/reversi";
 
 export default function Page() {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());

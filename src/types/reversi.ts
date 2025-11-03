@@ -16,7 +16,6 @@ export type lastPositionState = {
 };
 
 export type FirstState = 'random' | RoleState;
-export type ShowFirstState = 'ランダム' | '黒' | '白';
 
 export type MatchState = "waiting" | "matched" | "playing";
 
@@ -56,18 +55,6 @@ export interface OnCellClickProps {
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	highlightedCells: HighlightedBoardState;
 	setIsSkipTurn: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface OnRestartProps {
-	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
-	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
-	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
-	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface ShowRoleProps {
-	currentRole: RoleState;
-	playerRole: RoleState | null;
 }
 
 export interface UseReversiGameProps {

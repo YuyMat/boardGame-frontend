@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react";
+import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { createSocket } from "@/libs/socket/client";
 import { MatchState, RoleState, handleJoinedRoomProps, FirstState } from "@/types/reversi";
 import { Role } from "@/constants/reversi";
@@ -68,10 +69,10 @@ export default function useReversiRoom(
 	}, [roomId]);
 
 	// 先手設定の変更をサーバへ通知（単一ソケットで管理）
-	useEffect(() => {
+	useUpdateEffect(() => {
 		if (!socketRef.current) return;
 		socketRef.current.emit("setFirstRole", { roomId, firstRole });
-	}, [firstRole, roomId]);
+	}, [firstRole]);
 
 	useEffect(() => {
 		matchStateRef.current = matchState;
