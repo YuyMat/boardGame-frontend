@@ -1,6 +1,20 @@
 import { ShowRoleProps } from "@/types/connect4";
 import { Role } from "@/constants/connect4";
 
+/**
+ * Connect4ゲームの現在のターン情報を表示するコンポーネントです。
+ * プレイヤーのターン、相手のターン、観戦中の状態を表示します。
+ * 
+ * @param props - コンポーネントのProps
+ * @param props.currentRole - 現在のターンのプレイヤー（Role.REDまたはRole.YELLOW）
+ * @param props.playerRole - このプレイヤーのロール（観戦時はnull）
+ * @param props.canPlay - ゲームがプレイ可能な状態かどうか
+ * 
+ * @remarks
+ * - プレイヤーロールがnullの場合は「観戦中」と表示されます
+ * - 自分のターン、相手のターンで異なるメッセージを表示します
+ * - ゲーム終了後（`canPlay=false`）は何も表示しません
+ */
 export default function ShowTurn({ currentRole, playerRole, canPlay }: ShowRoleProps) {
 	if (!playerRole) {
 		return (

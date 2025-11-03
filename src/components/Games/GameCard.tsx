@@ -8,6 +8,18 @@ type GameCardProps = {
 	game: GameMeta;
 };
 
+/**
+ * ゲーム一覧に表示される個別のゲームカードコンポーネントです。
+ * ゲームのサムネイル、タイトル、説明、プレイボタンを表示します。
+ * 
+ * @param props - コンポーネントのProps
+ * @param props.game - 表示するゲームのメタデータ
+ * 
+ * @remarks
+ * - ローカルプレイとオンライン対戦の2つのボタンを提供します
+ * - 開発環境（`NEXT_PUBLIC_ENV="local"`）では開発中のゲームも表示されます
+ * - 利用不可のゲームモードはグレーアウトされたボタンで表示されます
+ */
 export default function GameCard({ game }: GameCardProps) {
 	const env = process.env.NEXT_PUBLIC_ENV;
 	const isDev = env === "local";

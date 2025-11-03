@@ -1,6 +1,20 @@
 import { ReverseStonesProps } from "@/types/reversi";
 import { directions, Role } from "@/constants/reversi";
 
+/**
+ * オセロで石を置いた後、挟まれた相手の石をひっくり返す処理を実行します。
+ * 8方向すべてをチェックし、挟んだ石を自分の色に変更します。
+ * 
+ * @param params - 石をひっくり返すために必要なパラメータ
+ * @param params.board - 現在のゲーム盤面の状態
+ * @param params.lastPosition - 最後に石が置かれた位置（row, col）
+ * @param params.currentRole - 現在のプレイヤーの色（Role.BLACKまたはRole.WHITE）
+ * 
+ * @remarks
+ * - この関数は盤面を直接変更します（mutable）
+ * - 8方向（上下左右＋斜め4方向）すべてをチェックします
+ * - 各方向で相手の石を挟んでいる場合のみ、その方向の石をひっくり返します
+ */
 export function reverseStones({ board, lastPosition, currentRole }: ReverseStonesProps) {
 	const { row, col } = lastPosition;
 	const oppositeRole = currentRole === Role.BLACK ? Role.WHITE : Role.BLACK;
