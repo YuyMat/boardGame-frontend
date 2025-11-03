@@ -6,6 +6,18 @@ import { DownOutlined } from "@ant-design/icons";
 import { FirstState, ShowFirstState } from "@/types/connect4";
 import { keyToShowLabel, firstTurnItems } from "@/constants/connect4";
 
+/**
+ * ゲームのルール設定（先攻選択）を行うモーダルコンポーネントです。
+ * Connect4ゲームの先攻を選択できます。
+ * 
+ * @param props - コンポーネントのProps
+ * @param props.setFirst - 先攻設定を更新するセッター関数
+ * 
+ * @remarks
+ * - モーダル内でドロップダウンから先攻プレイヤーを選択できます
+ * - 選択肢：ランダム、赤、黄
+ * - ゲーム開始前に先攻を決定するために使用されます
+ */
 export default function RuleSettings({ setFirst }: { setFirst: React.Dispatch<React.SetStateAction<FirstState>> }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [showFirst, setShowFirst] = useState<ShowFirstState>("ランダム");

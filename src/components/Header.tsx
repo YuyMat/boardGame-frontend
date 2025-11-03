@@ -5,6 +5,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { GAMES } from '@/constants/games';
 
+/**
+ * サイト全体で使用されるグローバルヘッダーコンポーネントです。
+ * ロゴ、サイト名、モバイルメニューを表示します。
+ * 
+ * @remarks
+ * - レスポンシブデザインに対応しています
+ * - モバイル表示時はハンバーガーメニューが表示されます
+ * - メニューには利用可能なゲームへのリンクが含まれます
+ * - ロゴをクリックするとトップページに遷移します
+ */
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 

@@ -1,6 +1,21 @@
 import { Connect4, Role } from "@/constants/connect4";
 import { CheckWinProps } from "@/types/connect4";
 
+/**
+ * Connect4ゲームで勝利条件を満たしているかをチェックします。
+ * 縦、横、斜め（2方向）のすべての方向で4つ連続しているかを判定します。
+ * 
+ * @param params - 勝利判定に必要なパラメータ
+ * @param params.lastPosition - 最後に石が置かれた位置（row, col）
+ * @param params.currentRole - 現在のプレイヤーの色（Role.REDまたはRole.YELLOW）
+ * @param params.board - 現在のゲーム盤面の状態
+ * 
+ * @returns 勝利条件を満たしている場合は`true`、そうでない場合は`false`
+ * 
+ * @remarks
+ * - 最後に置かれた石を基準に判定を行います
+ * - チェック対象は直前のプレイヤー（currentRoleの反対色）の石です
+ */
 export const checkWin = ({ lastPosition, currentRole, board }: CheckWinProps) => {
 	const { row, col } = lastPosition;
 	if (row === null || col === null)

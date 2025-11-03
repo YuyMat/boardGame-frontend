@@ -3,11 +3,13 @@
 	"entryPoints": [
 		"src"
 	], // ドキュメント生成対象のディレクトリ
+	"entryPointStrategy": "expand", // srcディレクトリ内のファイルを展開
 	"out": "tsdocs", // 出力先
 	"includeVersion": true,
 	"excludePrivate": true,
 	"excludeInternal": true,
 	"excludeExternals": true,
+	"excludeNotDocumented": false,
 	"sort": [
 		"source-order"
 	],

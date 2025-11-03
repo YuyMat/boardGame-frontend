@@ -7,6 +7,31 @@ import { MatchState, RoleState, handleJoinedRoomProps, FirstState } from "@/type
 import { Role } from "@/constants/reversi";
 import type { Socket } from "socket.io-client";
 
+/**
+ * オセロゲームのルーム管理とマッチング機能を提供するカスタムフックです。
+ * Socket.IOを使用してルームへの参加、プレイヤーのマッチング、先手設定の同期を行います。
+ * 
+ * @param roomId - 参加するルームのID
+ * @param setFirstRole - 先手設定を更新するセッター関数
+ * @param firstRole - 現在の先手設定（'random' | Role.BLACK | Role.WHITE）
+ * 
+ * @returns ルーム状態と操作関数を含むオブジェクト
+ * - `socketRef`: Socket.IOクライアントのRefオブジェクト
+ * - `members`: 現在のルームメンバー数
+ * - `playerRole`: このプレイヤーに割り当てられたロール
+ * - `matchState`: マッチング状態（waiting | matched | playing）
+ * - `setMatchState`: マッチ状態を更新するセッター関数
+ * - `membersRef`: メンバー数のRefオブジェクト
+ * - `emitRestart`: ゲームをリスタートするイベントを送信する関数
+ * - `currentRole`: 現在のターンのプレイヤー
+ * - `setCurrentRole`: 現在のロールを更新するセッター関数
+ * 
+ * @remarks
+ * - マウント時に自動的にSocket.IO接続を確立し、ルームに参加します
+ * - 2人のプレイヤーが揃うと自動的にマッチングされます
+ * - アンマウント時に自動的にSocket.IOから切断します
+ * - `useUpdateEffect`を使用して先手設定の変更をサーバーに通知します
+ */
 export default function useReversiRoom(
 	roomId: string,
 	setFirstRole: React.Dispatch<React.SetStateAction<FirstState>>,
