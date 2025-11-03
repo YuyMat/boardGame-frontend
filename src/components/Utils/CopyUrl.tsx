@@ -1,16 +1,9 @@
 import { Button, notification } from "antd";
 
 /**
- * ゲームの招待URLをクリップボードにコピーするボタンコンポーネントです。
- * コピー成功時に通知を表示します。
- * 
- * @param props - コンポーネントのProps
- * @param props.gameName - ゲームの名前（コピーメッセージに含まれます）
- * 
- * @remarks
- * - クリップボードにゲーム名と現在のURLを含むメッセージをコピーします
- * - コピー成功時にAnt Designの通知コンポーネントを使用して通知を表示します
- * - オンライン対戦時に友達を招待する際に使用されます
+ * Renders a button that copies an invitation message containing the current page URL and the game name to the clipboard and shows a success notification.
+ *
+ * @param gameName - The game's name to include in the copied invitation message
  */
 export default function CopyUrl({ gameName }: { gameName: string }) {
 	const [api, contextHolder] = notification.useNotification();

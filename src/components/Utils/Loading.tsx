@@ -1,16 +1,13 @@
 import styles from "./Loading.module.scss";
 
 /**
- * ウェーブアニメーション付きのローディングテキストコンポーネントです。
- * テキストの各文字が順番に波打つようにアニメーションします。
- * 
- * @param props - コンポーネントのProps
- * @param props.text - 表示するローディングテキスト
- * 
+ * Render a loading text where each character plays a staggered wave animation.
+ *
+ * @param text - The loading text to display; each character animates with an increasing delay.
+ * @returns The element containing the loading text with per-character staggered wave animation.
+ *
  * @remarks
- * - テキストの各文字に順次遅延を適用してウェーブアニメーションを実現します
- * - マッチング待機中などに使用されます
- * - レスポンシブデザインに対応しています
+ * Each character's animation delay is set to `index * 0.08s`.
  */
 export default function Loading({ text }: { text: string }) {
 	return (

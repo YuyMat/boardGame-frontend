@@ -9,16 +9,14 @@ type GameCardProps = {
 };
 
 /**
- * ゲーム一覧に表示される個別のゲームカードコンポーネントです。
- * ゲームのサムネイル、タイトル、説明、プレイボタンを表示します。
- * 
- * @param props - コンポーネントのProps
- * @param props.game - 表示するゲームのメタデータ
- * 
- * @remarks
- * - ローカルプレイとオンライン対戦の2つのボタンを提供します
- * - 開発環境（`NEXT_PUBLIC_ENV="local"`）では開発中のゲームも表示されます
- * - 利用不可のゲームモードはグレーアウトされたボタンで表示されます
+ * Render a card showing a game's thumbnail, title, description, and play actions.
+ *
+ * Displays "Local Play" and "Online Play" controls:
+ * - "Local Play" is enabled when `game.localPath` is provided; otherwise shown disabled.
+ * - "Online Play" is enabled when `game.onlinePath` is provided; availability also respects the `NEXT_PUBLIC_ENV="local"` development flag.
+ *
+ * @param game - Game metadata used to populate the card (thumbnail, name, description, and play paths)
+ * @returns The rendered React element for the game card
  */
 export default function GameCard({ game }: GameCardProps) {
 	const env = process.env.NEXT_PUBLIC_ENV;

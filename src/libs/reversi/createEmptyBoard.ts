@@ -2,17 +2,14 @@ import { BoardState, HighlightedBoardState } from "@/types/reversi";
 import { Role } from "@/constants/reversi";
 
 /**
- * オセロゲーム用の初期状態のボードを作成します。
- * 8x8の盤面の中央4マスに、標準的なオセロの初期配置で石を配置します。
- * 
- * @returns 初期配置された8x8のボード配列
- * - [3][3]: 白
- * - [3][4]: 黒
- * - [4][3]: 黒
- * - [4][4]: 白
- * 
- * @remarks
- * オセロの標準的な初期配置に従って石を配置します。
+ * Creates an 8x8 Reversi board set to the standard starting position.
+ *
+ * @returns An 8x8 BoardState where the center four cells are initialized as:
+ * - [3][3] = WHITE
+ * - [3][4] = BLACK
+ * - [4][3] = BLACK
+ * - [4][4] = WHITE
+ * All other cells are `null`.
  */
 export function createEmptyBoard(): BoardState {
 	// 8x8の空のボードを作成
@@ -28,14 +25,9 @@ export function createEmptyBoard(): BoardState {
 }
 
 /**
- * オセロゲーム用の空のハイライト用ボードを作成します。
- * 8x8のすべてのセルが`false`で初期化されたブール値配列を返します。
- * 
- * @returns 8x8のすべてのセルが`false`のブール値配列
- * 
- * @remarks
- * 合法手の位置をハイライト表示するために使用されます。
- * `computeHighlights`関数で合法手の位置を計算する際に利用されます。
+ * Create an 8x8 board used to mark highlighted squares.
+ *
+ * @returns An 8x8 boolean matrix where each cell is `false`
  */
 export function createEmptyHighlightedBoard(): HighlightedBoardState {
 	return Array(8).fill(false).map(() => Array(8).fill(false));

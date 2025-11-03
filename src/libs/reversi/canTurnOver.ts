@@ -2,20 +2,16 @@ import { CanTurnOverProps } from "@/types/reversi";
 import { directions, Role } from "@/constants/reversi";
 
 /**
- * オセロで指定された位置に石を置いたときに、相手の石をひっくり返せるかをチェックします。
- * 8方向すべてをチェックし、1つでもひっくり返せる方向があれば合法手と判定します。
- * 
- * @param params - ひっくり返し可能性をチェックするためのパラメータ
- * @param params.board - 現在のゲーム盤面の状態
- * @param params.row - チェックする行のインデックス（0〜7）
- * @param params.col - チェックする列のインデックス（0〜7）
- * @param params.currentRole - 現在のプレイヤーの色（Role.BLACKまたはRole.WHITE）
- * 
- * @returns ひっくり返せる石がある場合は`true`、ない場合は`false`
- * 
+ * Check whether placing a stone at the specified board position would flip at least one opponent stone.
+ *
+ * @param params.board - The current 8×8 board represented as a 2D array where each cell is a Role or `null`
+ * @param params.row - Target row index (0–7)
+ * @param params.col - Target column index (0–7)
+ * @param params.currentRole - The current player's role (`Role.BLACK` or `Role.WHITE`)
+ * @returns `true` if at least one opponent stone would be flipped, `false` otherwise
+ *
  * @remarks
- * - 指定位置がすでに石で埋まっている場合は`false`を返します
- * - 相手の石を挟んで自分の石がある方向が1つでもあれば`true`を返します
+ * - Returns `false` when the target cell is already occupied.
  */
 export function canTurnOver({ board, row, col, currentRole }: CanTurnOverProps) {
 	if (board[row][col] !== null)

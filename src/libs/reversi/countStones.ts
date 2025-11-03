@@ -2,17 +2,12 @@ import { BoardState } from "@/types/reversi";
 import { Role } from "@/constants/reversi";
 
 /**
- * オセロの盤面上にある黒石と白石の数をカウントします。
- * 
- * @param board - 現在のゲーム盤面の状態
- * 
- * @returns 石の数を含むオブジェクト
- * - `blackCount`: 盤面上の黒石の数
- * - `whiteCount`: 盤面上の白石の数
- * 
- * @remarks
- * この関数は盤面の状態を変更しません（純粋関数）。
- * ゲーム終了時の勝敗判定や、ゲーム中の状況表示に使用されます。
+ * Counts black and white stones on an 8×8 Othello board.
+ *
+ * Does not modify the provided board.
+ *
+ * @param board - Current 8×8 game board state
+ * @returns An object with `blackCount` and `whiteCount` representing the number of black and white stones on the board
  */
 export function countStones(board: BoardState) {
 	let blackCount = 0;

@@ -4,15 +4,14 @@ import { useState } from "react";
 import { FirstState } from "@/types/connect4";
 
 /**
- * Connect4ゲームの先手プレイヤーの選択状態を管理するカスタムフックです。
- * 
- * @returns 先手設定の状態と更新関数を含むオブジェクト
- * - `firstRole`: 現在の先手設定（'random' | Role.RED | Role.YELLOW）
- * - `setFirstRole`: 先手設定を更新するセッター関数
- * 
+ * Manage the selection state for the first player in a Connect4 game.
+ *
+ * @returns An object containing the current first-player setting and its setter:
+ * - `firstRole`: the current first-player setting — either `'random'`, `Role.RED`, or `Role.YELLOW`.
+ * - `setFirstRole`: a setter function to update `firstRole`.
+ *
  * @remarks
- * - 初期値は'random'（ランダムに先手を決定）です
- * - ゲーム開始前に先手プレイヤーを選択する機能を提供します
+ * The initial value of `firstRole` is `'random'`.
  */
 export default function useFirstRole() {
 	const [firstRole, setFirstRole] = useState<FirstState>("random");

@@ -7,16 +7,12 @@ import { FirstState, ShowFirstState } from "@/types/connect4";
 import { keyToShowLabel, firstTurnItems } from "@/constants/connect4";
 
 /**
- * ゲームのルール設定（先攻選択）を行うモーダルコンポーネントです。
- * Connect4ゲームの先攻を選択できます。
- * 
- * @param props - コンポーネントのProps
- * @param props.setFirst - 先攻設定を更新するセッター関数
- * 
+ * Modal component for selecting which player goes first in a Connect4 game.
+ *
+ * @param props.setFirst - Setter that updates the parent first-turn state; accepts `"random"`, `1` (red), or `2` (yellow).
+ *
  * @remarks
- * - モーダル内でドロップダウンから先攻プレイヤーを選択できます
- * - 選択肢：ランダム、赤、黄
- * - ゲーム開始前に先攻を決定するために使用されます
+ * Displays a dropdown with the choices "random", red, and yellow and propagates the selected value to the parent via `setFirst`.
  */
 export default function RuleSettings({ setFirst }: { setFirst: React.Dispatch<React.SetStateAction<FirstState>> }) {
 	const [isOpen, setIsOpen] = useState(false);
