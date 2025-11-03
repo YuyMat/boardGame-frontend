@@ -4,9 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import { Board, Result, SkipTurn } from "@/components/Reversi";
 import { createEmptyBoard, createEmptyHighlightedBoard, canTurnOver, reverseStones, countStones } from "@/libs/reversi";
 import { BoardState, RoleState, lastPositionState, HighlightedBoardState } from "@/types/reversi";
-import useGotoTopPage from "@/hooks/useGotoTopPage";
+import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import closeModal from "@/utils/closeModal";
-import { Role, CELL_COUNT } from "@/constants/reversi";
+import { Role } from "@/constants/reversi";
 
 export default function Page() {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
@@ -60,20 +60,12 @@ export default function Page() {
 		return { highlights, any };
 	};
 
+	// 置けるマスのハイライトと自動パス処理
 	useEffect(() => {
 		const stonesCount = countStones(board);
 		blackCount.current = stonesCount.blackCount;
 		whiteCount.current = stonesCount.whiteCount;
-		if (blackCount.current === 0 || whiteCount.current === 0) {
-			setOpenResultModal(true);
-		}
-		if (blackCount.current + whiteCount.current === CELL_COUNT) {
-			setOpenResultModal(true);
-		}
-	}, [board]);
 
-	// 置けるマスのハイライトと自動パス処理
-	useEffect(() => {
 		// 現在のターンでの合法手
 		const { highlights: currentHighlights, any: hasCurrentMove } = computeHighlights(currentRole);
 		if (hasCurrentMove) {
@@ -93,6 +85,7 @@ export default function Page() {
 
 		// 両者とも置けない → 終局
 		setIsSkipTurn(false);
+		setHighlightedCells(createEmptyHighlightedBoard());
 		setOpenResultModal(true);
 		setCanPlay(false);
 	}, [board, currentRole]);

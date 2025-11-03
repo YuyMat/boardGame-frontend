@@ -1,10 +1,10 @@
 import { Button, notification } from "antd";
 
-export default function CopyUrl() {
+export default function CopyUrl({ gameName }: { gameName: string }) {
 	const [api, contextHolder] = notification.useNotification();
 
 	const copyUrl = async () => {
-		await navigator.clipboard.writeText(`URLを押して、コネクト４を一緒にプレイしよう！🎉\n\n${window.location.href}`);
+		await navigator.clipboard.writeText(`URLを押して、${gameName}を一緒にプレイしよう！🎉\n\n${window.location.href}`);
 		api.success({
 			message: "コピーしました",
 			description: "招待URLをクリップボードにコピーしました。",

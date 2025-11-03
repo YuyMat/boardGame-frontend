@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react";
-import { useUpdateEffect } from "@/hooks/useUpdateEffect";
+import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { BoardState, lastPositionState, RoleState, handleBoardUpdatedProps, UseConnect4GameProps } from "@/types/connect4";
 import { onCellClick, checkWin, createEmptyBoard } from "@/libs/connect4";
 
@@ -42,7 +42,6 @@ export default function useConnect4Game({
 			setIsWin(false);
 			setBoard(createEmptyBoard());
 			setCurrentRole(firstRole);
-			console.log("aaaaa");
 			setLastPosition({ row: null, col: null });
 			setCanPlay(true);
 		};

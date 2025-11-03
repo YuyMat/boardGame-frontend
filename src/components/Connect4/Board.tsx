@@ -3,7 +3,7 @@
 import { BoardProps } from "@/types/connect4";
 import Result from "./Result";
 import TurnDisc from "./TurnDisc";
-import useGotoTopPage from "@/hooks/useGotoTopPage";
+import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import { Role } from "@/constants/connect4";
 import closeModal from "@/utils/closeModal";
 

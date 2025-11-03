@@ -11,12 +11,11 @@ export type BoardState = CellState[][];
 export type HighlightedBoardState = HighlightedCellState[][];
 
 export type lastPositionState = {
-	row: number;
-	col: number;
+	row: number | null;
+	col: number | null;
 };
 
-export type FirstState = 'random' | 'b' | 'w';
-export type ShowFirstState = 'ランダム' | '黒' | '白';
+export type FirstState = 'random' | RoleState;
 
 export type MatchState = "waiting" | "matched" | "playing";
 
@@ -38,9 +37,12 @@ export interface ResultProps {
 }
 
 export interface CheckWinProps {
-	lastPosition: lastPositionState;
 	currentRole: RoleState;
 	board: BoardState;
+	setHighlightedCells: React.Dispatch<React.SetStateAction<HighlightedBoardState>>;
+	setIsSkipTurn: React.Dispatch<React.SetStateAction<boolean>>;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
+	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface OnCellClickProps {
@@ -51,28 +53,19 @@ export interface OnCellClickProps {
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
-}
-
-export interface OnRestartProps {
-	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
-	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
-	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
-	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface ShowRoleProps {
-	currentRole: RoleState;
-	playerRole: RoleState | null;
+	highlightedCells: HighlightedBoardState;
+	setIsSkipTurn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface UseReversiGameProps {
 	socketRef: React.MutableRefObject<Socket | null>;
 	matchState: MatchState;
 	playerRole: RoleState | null;
-	firstRole: FirstState;
 	roomId: string;
 	membersRef: React.MutableRefObject<number>;
 	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
+	currentRole: RoleState;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 }
 
 export interface handleBoardUpdatedProps {

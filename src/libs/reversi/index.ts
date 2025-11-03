@@ -2,3 +2,5 @@ export { createEmptyBoard, createEmptyHighlightedBoard } from "./createEmptyBoar
 export { canTurnOver } from "./canTurnOver";
 export { reverseStones } from "./reverseStones";
 export { countStones } from "./countStones";
+export { onCellClick } from "./onCellClick";
+export { checkWin } from "./checkWin";

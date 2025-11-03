@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Board, ReShowResult } from "@/components/Connect4";
-import { useUpdateEffect } from "@/hooks/useUpdateEffect";
+import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { BoardState, RoleState, lastPositionState } from "@/types/connect4";
 import { createEmptyBoard, checkWin, onCellClick, onRestart } from "@/libs/connect4";
 import { Role } from "@/constants/connect4";
