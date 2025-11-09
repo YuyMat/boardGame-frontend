@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { BoardState, lastPositionState, RoleState, handleBoardUpdatedProps, UseReversiGameProps, HighlightedBoardState } from "@/types/reversi";
 import { onCellClick, checkWin, createEmptyBoard, createEmptyHighlightedBoard, countStones } from "@/libs/reversi";
+import { computeHighlights } from "@/libs/reversi/computeHighlights";
 
 /**
  * オセロゲームのゲームロジックとリアルタイム同期を管理するカスタムフックです。
@@ -108,7 +109,7 @@ export default function useReversiGame({
 		});
 	}, [board, lastPosition, matchState, roomId]);
 
-	// 勝敗判定
+	// 勝敗判定 & ハイライト更新
 	useUpdateEffect(() => {
 		const stonesCount = countStones(board);
 		blackCount.current = stonesCount.blackCount;
@@ -122,7 +123,10 @@ export default function useReversiGame({
 			}, 200);
 			return () => clearTimeout(timer);
 		}
-	}, [board]);
+		if (matchState === "playing" && playerRole !== currentRole) {
+			setHighlightedCells(createEmptyHighlightedBoard());
+		}
+	}, [board, matchState, currentRole]);
 
 	const handleCellClick = (rowIndex: number, colIndex: number) => {
 		onCellClick({
