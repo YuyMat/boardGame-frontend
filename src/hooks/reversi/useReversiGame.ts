@@ -56,7 +56,8 @@ export default function useReversiGame({
 
 	const blackCount = useRef(0);
 	const whiteCount = useRef(0);
-	const suppressSyncRef = useRef<boolean>(false);
+	const suppressSyncRef = useRef(false);
+	const skipTurnRef = useRef(false);
 
 	// ソケットリスナー設定
 	useEffect(() => {
@@ -108,11 +109,20 @@ export default function useReversiGame({
 		});
 	}, [board, lastPosition, matchState, roomId]);
 
-	// 勝敗判定
+	// 勝敗判定 & ハイライト更新
 	useUpdateEffect(() => {
 		const stonesCount = countStones(board);
 		blackCount.current = stonesCount.blackCount;
 		whiteCount.current = stonesCount.whiteCount;
+
+		if (isSkipTurn) {
+			if (!skipTurnRef.current)
+				skipTurnRef.current = true;
+			else {
+				setIsSkipTurn(false);
+				skipTurnRef.current = false;
+			}
+		}
 		
 		if (checkWin({ currentRole, board, setHighlightedCells, setIsSkipTurn, setCurrentRole, setCanPlay })) {
 			setHighlightedCells(createEmptyHighlightedBoard());
@@ -122,7 +132,10 @@ export default function useReversiGame({
 			}, 200);
 			return () => clearTimeout(timer);
 		}
-	}, [board]);
+		if (matchState === "playing" && playerRole !== currentRole) {
+			setHighlightedCells(createEmptyHighlightedBoard());
+		}
+	}, [board, matchState, currentRole]);
 
 	const handleCellClick = (rowIndex: number, colIndex: number) => {
 		onCellClick({
