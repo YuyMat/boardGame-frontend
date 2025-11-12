@@ -28,3 +28,5 @@ export const firstTurnItems = [
 		key: Role.YELLOW,
 	},
 ]
+
+export const mainPlayerColorClass = "text-red-500" as const;

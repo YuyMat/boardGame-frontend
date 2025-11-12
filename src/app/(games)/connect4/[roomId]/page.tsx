@@ -3,7 +3,7 @@
 import { use } from "react";
 import { Board, ShowTurn, TemporaryWaiting, ReShowResult } from "@/components/Connect4";
 import { Loading, RuleSettings, CopyUrl } from "@/components/Utils";
-import { Role } from "@/constants/connect4";
+import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass } from "@/constants/connect4";
 import styles from "@/styles/Utils.module.scss";
 
 // カスタムフック
@@ -55,7 +55,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
 					<Loading text="対戦相手を待っています…" />
 					<div className="flex flex-row gap-2 mt-7">
-						<RuleSettings setFirst={setFirstRole} />
+						<RuleSettings setFirst={setFirstRole} keyToShowLabel={keyToShowLabel} firstTurnItems={firstTurnItems} mainPlayerColorClass={mainPlayerColorClass} />
 						<CopyUrl gameName="コネクト４" />
 					</div>
 				</div>
