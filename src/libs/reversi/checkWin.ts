@@ -26,7 +26,6 @@ export const checkWin = ({ currentRole, board, setHighlightedCells, setIsSkipTur
 	const { highlights: currentHighlights, any: hasCurrentMove } = computeHighlights(board, currentRole);
 	if (hasCurrentMove) {
 		setHighlightedCells(currentHighlights);
-		setIsSkipTurn(false);
 		return false;
 	}
 

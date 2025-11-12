@@ -57,7 +57,8 @@ export default function useReversiGame({
 
 	const blackCount = useRef(0);
 	const whiteCount = useRef(0);
-	const suppressSyncRef = useRef<boolean>(false);
+	const suppressSyncRef = useRef(false);
+	const skipTurnRef = useRef(false);
 
 	// ソケットリスナー設定
 	useEffect(() => {
@@ -114,6 +115,15 @@ export default function useReversiGame({
 		const stonesCount = countStones(board);
 		blackCount.current = stonesCount.blackCount;
 		whiteCount.current = stonesCount.whiteCount;
+
+		if (isSkipTurn) {
+			if (!skipTurnRef.current)
+				skipTurnRef.current = true;
+			else {
+				setIsSkipTurn(false);
+				skipTurnRef.current = false;
+			}
+		}
 		
 		if (checkWin({ currentRole, board, setHighlightedCells, setIsSkipTurn, setCurrentRole, setCanPlay })) {
 			setHighlightedCells(createEmptyHighlightedBoard());
