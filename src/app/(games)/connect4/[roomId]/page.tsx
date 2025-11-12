@@ -1,8 +1,8 @@
 "use client"
 
 import { use } from "react";
-import { Board, ShowTurn, TemporaryWaiting, ReShowResult } from "@/components/Connect4";
-import { Loading, RuleSettings, CopyUrl, NewRoom } from "@/components/Utils";
+import { Board, ShowTurn, ReShowResult } from "@/components/Connect4";
+import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting } from "@/components/Utils";
 import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS } from "@/constants/connect4";
 import styles from "@/styles/Utils.module.scss";
 

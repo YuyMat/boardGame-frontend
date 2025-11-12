@@ -1,7 +1,7 @@
 "use client"
 
 import { use } from "react";
-import { Loading, RuleSettings, CopyUrl, NewRoom } from "@/components/Utils";
+import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting } from "@/components/Utils";
 import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS } from "@/constants/reversi";
 import { Board, Result, SkipTurn } from "@/components/Reversi";
 import closeModal from "@/utils/closeModal";
@@ -102,6 +102,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				currentRole={currentRole}
 				onCellClick={onCellClick}
 			/>
+			<TemporaryWaiting members={members} />
 		</div>
 	)
 }
