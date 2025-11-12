@@ -7,12 +7,12 @@ import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import { Role } from "@/constants/connect4";
 import closeModal from "@/utils/closeModal";
 
-export default function Board({ board, onCellClick, isWin, setIsWin, onRestart, currentRole, lastPosition }: BoardProps) {
+export default function Board({ board, onCellClick, isWin, isDraw, setIsWin, onRestart, currentRole, lastPosition }: BoardProps) {
     const gotoTopPage = useGotoTopPage();
 
 	return (
 		<div className="relative z-1">
-			<Result isWin={isWin} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentRole={currentRole} />
+			<Result isWin={isWin} isDraw={isDraw} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentRole={currentRole} />
 			<TurnDisc currentRole={currentRole} />
 			<div className="pt-2 pl-2">
 				<h2 className="text-2xl font-bold text-blue-800">Connect 4</h2>
