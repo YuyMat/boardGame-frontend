@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { BoardState, lastPositionState, RoleState, handleBoardUpdatedProps, UseReversiGameProps, HighlightedBoardState } from "@/types/reversi";
 import { onCellClick, checkWin, createEmptyBoard, createEmptyHighlightedBoard, countStones } from "@/libs/reversi";
-import { computeHighlights } from "@/libs/reversi/computeHighlights";
 
 /**
  * オセロゲームのゲームロジックとリアルタイム同期を管理するカスタムフックです。
