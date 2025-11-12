@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { BoardState, lastPositionState, RoleState, handleBoardUpdatedProps, UseConnect4GameProps } from "@/types/connect4";
-import { onCellClick, checkWin, createEmptyBoard } from "@/libs/connect4";
+import { onCellClick, checkWin, checkDraw, createEmptyBoard } from "@/libs/connect4";
 
 /**
  * Connect4ゲームのゲームロジックとリアルタイム同期を管理するカスタムフックです。
@@ -47,6 +47,7 @@ export default function useConnect4Game({
 	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: null, col: null });
 	const [isWin, setIsWin] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
+	const [isDraw, setIsDraw] = useState(false);
 
 	const suppressSyncRef = useRef<boolean>(false);
 
@@ -109,6 +110,14 @@ export default function useConnect4Game({
 			}, 200);
 			return () => clearTimeout(timer);
 		}
+		if (checkDraw(board)) {
+			setCanPlay(false);
+			setIsDraw(true);
+			const timer = setTimeout(() => {
+				setIsWin(true);
+			}, 200);
+			return () => clearTimeout(timer);
+		}
 	}, [board]);
 
 	const handleCellClick = (colIndex: number) => {
@@ -130,5 +139,6 @@ export default function useConnect4Game({
 		onCellClick: handleCellClick,
 		lastPosition,
 		canPlay,
+		isDraw,
 	};
 }
