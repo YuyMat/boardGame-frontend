@@ -73,6 +73,7 @@ export default function useConnect4Game({
 			setCurrentRole(firstRole);
 			setLastPosition({ row: null, col: null });
 			setCanPlay(true);
+			setIsDraw(false);
 		};
 
 		socket.on("boardUpdated", handleBoardUpdated);

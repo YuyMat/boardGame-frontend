@@ -58,6 +58,7 @@ export interface OnRestartProps {
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
+	setIsDraw: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface ShowRoleProps {

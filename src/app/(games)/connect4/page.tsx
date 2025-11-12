@@ -57,6 +57,7 @@ export default function Page() {
 						setBoard,
 						setCanPlay,
 						setLastPosition,
+						setIsDraw,
 					})
 				}
 				lastPosition={lastPosition}
