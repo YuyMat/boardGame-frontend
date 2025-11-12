@@ -23,3 +23,9 @@ Renames and re-exports [default](GameRule/functions/default.md)
 ### CopyUrl
 
 Renames and re-exports [default](CopyUrl/functions/default.md)
+
+***
+
+### NewRoom
+
+Renames and re-exports [default](NewRoom/functions/default.md)

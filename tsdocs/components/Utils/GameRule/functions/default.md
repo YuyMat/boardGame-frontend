@@ -8,22 +8,18 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Utils/GameRule.tsx:21](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/components/Utils/GameRule.tsx#L21)
+Defined in: [components/Utils/GameRule.tsx:26](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/components/Utils/GameRule.tsx#L26)
 
 ゲームのルール設定（先攻選択）を行うモーダルコンポーネントです。
-Connect4ゲームの先攻を選択できます。
+ゲームの先攻を選択できます。
 
 ## Parameters
 
 ### props
 
+[`RuleSettingsProps`](../../../../types/utils/type-aliases/RuleSettingsProps.md)
+
 コンポーネントのProps
-
-#### setFirst
-
-`Dispatch`\<`SetStateAction`\<[`FirstState`](../../../../types/connect4/type-aliases/FirstState.md)\>\>
-
-先攻設定を更新するセッター関数
 
 ## Returns
 
@@ -32,5 +28,7 @@ Connect4ゲームの先攻を選択できます。
 ## Remarks
 
 - モーダル内でドロップダウンから先攻プレイヤーを選択できます
-- 選択肢：ランダム、赤、黄
+- 選択肢：ランダム、または各ゲーム固有のプレイヤー（赤/黄、黒/白など）
 - ゲーム開始前に先攻を決定するために使用されます
+- 各ゲームで異なる色やラベルに対応できる汎用的な設計になっています
+- メインプレイヤーの色表示は各ゲームのconstantsから渡されたCSSクラスで動的に変更されます

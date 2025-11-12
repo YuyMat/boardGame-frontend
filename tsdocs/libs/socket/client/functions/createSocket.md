@@ -8,7 +8,7 @@
 
 > **createSocket**(): `Socket`
 
-Defined in: [libs/socket/client.ts:23](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/libs/socket/client.ts#L23)
+Defined in: [libs/socket/client.ts:23](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/socket/client.ts#L23)
 
 バックエンドサーバーへのSocket.IO接続を作成します。
 環境変数に基づいて、ローカル環境または本番環境への接続を確立します。

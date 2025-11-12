@@ -6,16 +6,26 @@
 
 # Function: default()
 
-> **default**(`__namedParameters`): `Element` \| `undefined`
+> **default**(`props`): `Element` \| `undefined`
 
-Defined in: [components/Connect4/ReShowResult.tsx:4](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/components/Connect4/ReShowResult.tsx#L4)
+Defined in: [components/Connect4/ReShowResult.tsx:17](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/components/Connect4/ReShowResult.tsx#L17)
+
+ゲーム終了後に結果モーダルを再表示するためのボタンコンポーネントです。
+結果モーダルを閉じた後でも、再度結果を確認できるようにします。
 
 ## Parameters
 
-### \_\_namedParameters
+### props
 
 [`ReShowResultProps`](../../../../types/connect4/interfaces/ReShowResultProps.md)
+
+コンポーネントのProps
 
 ## Returns
 
 `Element` \| `undefined`
+
+## Remarks
+
+- ゲームが終了（`canPlay=false`）していて、かつ結果モーダルが閉じている（`isWin=false`）場合のみ表示されます
+- 画面上部中央に配置されます

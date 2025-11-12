@@ -6,7 +6,7 @@
 
 # Interface: handleBoardUpdatedProps
 
-Defined in: [types/connect4.ts:78](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L78)
+Defined in: [types/connect4.ts:81](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L81)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/connect4.ts:78](https://github.com/YuyMat/boardGame-frontend/
 
 > **board**: [`BoardState`](../type-aliases/BoardState.md)
 
-Defined in: [types/connect4.ts:79](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L79)
+Defined in: [types/connect4.ts:82](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L82)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/connect4.ts:79](https://github.com/YuyMat/boardGame-frontend/
 
 > **currentRole**: [`RoleState`](../type-aliases/RoleState.md)
 
-Defined in: [types/connect4.ts:80](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L80)
+Defined in: [types/connect4.ts:83](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L83)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [types/connect4.ts:80](https://github.com/YuyMat/boardGame-frontend/
 
 > **lastPosition**: [`lastPositionState`](../type-aliases/lastPositionState.md)
 
-Defined in: [types/connect4.ts:81](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L81)
+Defined in: [types/connect4.ts:84](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L84)

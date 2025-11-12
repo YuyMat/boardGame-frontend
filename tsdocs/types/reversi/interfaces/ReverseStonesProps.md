@@ -6,7 +6,7 @@
 
 # Interface: ReverseStonesProps
 
-Defined in: [types/reversi.ts:89](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L89)
+Defined in: [types/reversi.ts:89](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L89)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/reversi.ts:89](https://github.com/YuyMat/boardGame-frontend/b
 
 > **board**: [`BoardState`](../type-aliases/BoardState.md)
 
-Defined in: [types/reversi.ts:90](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L90)
+Defined in: [types/reversi.ts:90](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L90)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/reversi.ts:90](https://github.com/YuyMat/boardGame-frontend/b
 
 > **lastPosition**: [`lastPositionState`](../type-aliases/lastPositionState.md)
 
-Defined in: [types/reversi.ts:91](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L91)
+Defined in: [types/reversi.ts:91](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L91)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [types/reversi.ts:91](https://github.com/YuyMat/boardGame-frontend/b
 
 > **currentRole**: [`RoleState`](../type-aliases/RoleState.md)
 
-Defined in: [types/reversi.ts:92](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L92)
+Defined in: [types/reversi.ts:92](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L92)

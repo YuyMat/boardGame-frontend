@@ -6,7 +6,7 @@
 
 # Interface: ReShowResultProps
 
-Defined in: [types/connect4.ts:89](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L89)
+Defined in: [types/connect4.ts:92](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L92)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/connect4.ts:89](https://github.com/YuyMat/boardGame-frontend/
 
 > **isWin**: `boolean`
 
-Defined in: [types/connect4.ts:90](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L90)
+Defined in: [types/connect4.ts:93](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L93)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/connect4.ts:90](https://github.com/YuyMat/boardGame-frontend/
 
 > **setIsWin**: `Dispatch`\<`SetStateAction`\<`boolean`\>\>
 
-Defined in: [types/connect4.ts:91](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L91)
+Defined in: [types/connect4.ts:94](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L94)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [types/connect4.ts:91](https://github.com/YuyMat/boardGame-frontend/
 
 > **canPlay**: `boolean`
 
-Defined in: [types/connect4.ts:92](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L92)
+Defined in: [types/connect4.ts:95](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L95)

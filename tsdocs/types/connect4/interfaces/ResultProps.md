@@ -6,7 +6,7 @@
 
 # Interface: ResultProps
 
-Defined in: [types/connect4.ts:31](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L31)
+Defined in: [types/connect4.ts:32](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L32)
 
 ## Properties
 
@@ -14,7 +14,15 @@ Defined in: [types/connect4.ts:31](https://github.com/YuyMat/boardGame-frontend/
 
 > **isWin**: `boolean`
 
-Defined in: [types/connect4.ts:32](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L32)
+Defined in: [types/connect4.ts:33](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L33)
+
+***
+
+### isDraw
+
+> **isDraw**: `boolean`
+
+Defined in: [types/connect4.ts:34](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L34)
 
 ***
 
@@ -22,7 +30,7 @@ Defined in: [types/connect4.ts:32](https://github.com/YuyMat/boardGame-frontend/
 
 > **onRestart**: () => `void`
 
-Defined in: [types/connect4.ts:33](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L33)
+Defined in: [types/connect4.ts:35](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L35)
 
 #### Returns
 
@@ -34,7 +42,7 @@ Defined in: [types/connect4.ts:33](https://github.com/YuyMat/boardGame-frontend/
 
 > **handleCancel**: () => `void`
 
-Defined in: [types/connect4.ts:34](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L34)
+Defined in: [types/connect4.ts:36](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L36)
 
 #### Returns
 
@@ -46,7 +54,7 @@ Defined in: [types/connect4.ts:34](https://github.com/YuyMat/boardGame-frontend/
 
 > **onShowGames**: () => `void`
 
-Defined in: [types/connect4.ts:35](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L35)
+Defined in: [types/connect4.ts:37](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L37)
 
 #### Returns
 
@@ -58,4 +66,4 @@ Defined in: [types/connect4.ts:35](https://github.com/YuyMat/boardGame-frontend/
 
 > **currentRole**: [`RoleState`](../type-aliases/RoleState.md)
 
-Defined in: [types/connect4.ts:36](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L36)
+Defined in: [types/connect4.ts:38](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L38)

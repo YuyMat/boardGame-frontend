@@ -6,7 +6,7 @@
 
 # Interface: OnCellClickProps
 
-Defined in: [types/reversi.ts:48](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L48)
+Defined in: [types/reversi.ts:48](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L48)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/reversi.ts:48](https://github.com/YuyMat/boardGame-frontend/b
 
 > **rowIndex**: `number`
 
-Defined in: [types/reversi.ts:49](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L49)
+Defined in: [types/reversi.ts:49](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L49)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/reversi.ts:49](https://github.com/YuyMat/boardGame-frontend/b
 
 > **colIndex**: `number`
 
-Defined in: [types/reversi.ts:50](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L50)
+Defined in: [types/reversi.ts:50](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L50)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/reversi.ts:50](https://github.com/YuyMat/boardGame-frontend/b
 
 > **canPlay**: `boolean`
 
-Defined in: [types/reversi.ts:51](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L51)
+Defined in: [types/reversi.ts:51](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L51)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [types/reversi.ts:51](https://github.com/YuyMat/boardGame-frontend/b
 
 > **currentRole**: [`RoleState`](../type-aliases/RoleState.md)
 
-Defined in: [types/reversi.ts:52](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L52)
+Defined in: [types/reversi.ts:52](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L52)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [types/reversi.ts:52](https://github.com/YuyMat/boardGame-frontend/b
 
 > **setCurrentRole**: `Dispatch`\<`SetStateAction`\<[`RoleState`](../type-aliases/RoleState.md)\>\>
 
-Defined in: [types/reversi.ts:53](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L53)
+Defined in: [types/reversi.ts:53](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L53)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [types/reversi.ts:53](https://github.com/YuyMat/boardGame-frontend/b
 
 > **setLastPosition**: `Dispatch`\<`SetStateAction`\<[`lastPositionState`](../type-aliases/lastPositionState.md)\>\>
 
-Defined in: [types/reversi.ts:54](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L54)
+Defined in: [types/reversi.ts:54](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L54)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [types/reversi.ts:54](https://github.com/YuyMat/boardGame-frontend/b
 
 > **setBoard**: `Dispatch`\<`SetStateAction`\<[`BoardState`](../type-aliases/BoardState.md)\>\>
 
-Defined in: [types/reversi.ts:55](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L55)
+Defined in: [types/reversi.ts:55](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L55)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [types/reversi.ts:55](https://github.com/YuyMat/boardGame-frontend/b
 
 > **highlightedCells**: [`HighlightedBoardState`](../type-aliases/HighlightedBoardState.md)
 
-Defined in: [types/reversi.ts:56](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L56)
+Defined in: [types/reversi.ts:56](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L56)
 
 ***
 
@@ -78,4 +78,4 @@ Defined in: [types/reversi.ts:56](https://github.com/YuyMat/boardGame-frontend/b
 
 > **setIsSkipTurn**: `Dispatch`\<`SetStateAction`\<`boolean`\>\>
 
-Defined in: [types/reversi.ts:57](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/reversi.ts#L57)
+Defined in: [types/reversi.ts:57](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L57)

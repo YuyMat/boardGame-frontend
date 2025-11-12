@@ -6,16 +6,27 @@
 
 # Function: default()
 
-> **default**(`__namedParameters`): `Element`
+> **default**(`props`): `Element`
 
-Defined in: [components/Reversi/Result.tsx:4](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/components/Reversi/Result.tsx#L4)
+Defined in: [components/Reversi/Result.tsx:21](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/components/Reversi/Result.tsx#L21)
+
+オセロゲームの結果を表示するモーダルコンポーネントです。
+黒石と白石の数を表示し、勝者を発表します。
 
 ## Parameters
 
-### \_\_namedParameters
+### props
 
 [`ResultProps`](../../../../types/reversi/interfaces/ResultProps.md)
+
+コンポーネントのProps
 
 ## Returns
 
 `Element`
+
+## Remarks
+
+- 石の数が同じ場合は引き分けと表示されます
+- 石の数が多い方が勝者として表示されます
+- 3つのアクション（戻る、ゲーム一覧、リスタート）を提供します

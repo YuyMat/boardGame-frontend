@@ -8,7 +8,7 @@
 
 > **checkWin**(`params`): `boolean`
 
-Defined in: [libs/reversi/checkWin.ts:24](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/libs/reversi/checkWin.ts#L24)
+Defined in: [libs/reversi/checkWin.ts:24](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/reversi/checkWin.ts#L24)
 
 オセロゲームの終局判定とスキップターン処理を行います。
 現在のプレイヤーが置ける場所があるか、相手にパスできるか、または終局かを判定します。

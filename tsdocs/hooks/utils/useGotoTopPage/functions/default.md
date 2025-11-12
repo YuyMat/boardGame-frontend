@@ -8,7 +8,7 @@
 
 > **default**(): (`setIsOpen`) => `void`
 
-Defined in: [hooks/utils/useGotoTopPage.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/hooks/utils/useGotoTopPage.ts#L20)
+Defined in: [hooks/utils/useGotoTopPage.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/hooks/utils/useGotoTopPage.ts#L20)
 
 モーダルを閉じてトップページに遷移する関数を返すカスタムフックです。
 
