@@ -30,3 +30,5 @@ export const firstTurnItems = [
 ]
 
 export const mainPlayerColorClass = "text-red-500" as const;
+
+export const MAX_PLAYERS = 2 as const;

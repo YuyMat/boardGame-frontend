@@ -2,8 +2,8 @@
 
 import { use } from "react";
 import { Board, ShowTurn, TemporaryWaiting, ReShowResult } from "@/components/Connect4";
-import { Loading, RuleSettings, CopyUrl } from "@/components/Utils";
-import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass } from "@/constants/connect4";
+import { Loading, RuleSettings, CopyUrl, NewRoom } from "@/components/Utils";
+import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS } from "@/constants/connect4";
 import styles from "@/styles/Utils.module.scss";
 
 // カスタムフック
@@ -50,6 +50,20 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	});
 
 	if (matchState === "waiting") {
+		// ルームが満員の場合
+		if (members > MAX_PLAYERS) {
+			return (
+				<>
+					<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
+						<Loading text="ルームが満員です。再度ルームを作成してください。" />
+						<div className="flex flex-row mt-7">
+							<NewRoom gameName="connect4" />
+						</div>
+					</div>
+				</>
+			);
+		}
+		// ルームが空いている場合
 		return (
 			<>
 				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
