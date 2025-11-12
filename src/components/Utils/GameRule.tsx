@@ -21,7 +21,7 @@ import { Role } from "@/constants/utils";
  * - ゲーム開始前に先攻を決定するために使用されます
  * - 各ゲームで異なる色やラベルに対応できる汎用的な設計になっています
  */
-export default function RuleSettings({ setFirst, keyToShowLabel, firstTurnItems }: RuleSettingsProps) {
+export default function RuleSettings({ setFirst, keyToShowLabel, firstTurnItems, mainPlayerColorClass }: RuleSettingsProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [showFirst, setShowFirst] = useState<RuleSettingsProps['keyToShowLabel'][FirstState]>("ランダム");
 
@@ -44,7 +44,7 @@ export default function RuleSettings({ setFirst, keyToShowLabel, firstTurnItems 
 			>
 				<div className="flex justify-between items-center mt-4">
 					<h2 className="text-2xl font-bold mb-4 text-blue-800">ルール</h2>
-					<span className="text-sm font-bold">※あなたの色は<span className="text-red-500">{keyToShowLabel[Role.MAIN]}</span>です</span>
+					<span className="text-sm font-bold">※あなたの色は<span className={`${mainPlayerColorClass} text-lg`}>{keyToShowLabel[Role.MAIN]}</span>です</span>
 				</div>
 				<div className="flex justify-center gap-2 mb-4">
 					先攻：
