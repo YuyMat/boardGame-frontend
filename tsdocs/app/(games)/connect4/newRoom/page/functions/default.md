@@ -8,7 +8,7 @@
 
 > **default**(): `Element`
 
-Defined in: [app/(games)/connect4/newRoom/page.tsx:39](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/app/(games)/connect4/newRoom/page.tsx#L39)
+Defined in: [app/(games)/connect4/newRoom/page.tsx:39](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/app/(games)/connect4/newRoom/page.tsx#L39)
 
 ## Returns
 

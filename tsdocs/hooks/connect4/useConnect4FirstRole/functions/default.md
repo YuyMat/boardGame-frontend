@@ -8,7 +8,7 @@
 
 > **default**(): `object`
 
-Defined in: [hooks/connect4/useConnect4FirstRole.ts:17](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/hooks/connect4/useConnect4FirstRole.ts#L17)
+Defined in: [hooks/connect4/useConnect4FirstRole.ts:17](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/hooks/connect4/useConnect4FirstRole.ts#L17)
 
 Connect4ゲームの先手プレイヤーの選択状態を管理するカスタムフックです。
 

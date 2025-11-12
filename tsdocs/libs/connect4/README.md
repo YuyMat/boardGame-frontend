@@ -8,6 +8,12 @@
 
 ## References
 
+### checkDraw
+
+Re-exports [checkDraw](checkDraw/functions/checkDraw.md)
+
+***
+
 ### checkWin
 
 Re-exports [checkWin](checkWin/functions/checkWin.md)

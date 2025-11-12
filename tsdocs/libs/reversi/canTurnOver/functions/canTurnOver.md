@@ -8,7 +8,7 @@
 
 > **canTurnOver**(`params`): `boolean`
 
-Defined in: [libs/reversi/canTurnOver.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/libs/reversi/canTurnOver.ts#L20)
+Defined in: [libs/reversi/canTurnOver.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/reversi/canTurnOver.ts#L20)
 
 オセロで指定された位置に石を置いたときに、相手の石をひっくり返せるかをチェックします。
 8方向すべてをチェックし、1つでもひっくり返せる方向があれば合法手と判定します。

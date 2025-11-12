@@ -6,7 +6,7 @@
 
 # Interface: UseConnect4GameProps
 
-Defined in: [types/connect4.ts:67](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L67)
+Defined in: [types/connect4.ts:70](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L70)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/connect4.ts:67](https://github.com/YuyMat/boardGame-frontend/
 
 > **socketRef**: `MutableRefObject`\<`Socket`\<`DefaultEventsMap`, `DefaultEventsMap`\> \| `null`\>
 
-Defined in: [types/connect4.ts:68](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L68)
+Defined in: [types/connect4.ts:71](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L71)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/connect4.ts:68](https://github.com/YuyMat/boardGame-frontend/
 
 > **matchState**: [`MatchState`](../type-aliases/MatchState.md)
 
-Defined in: [types/connect4.ts:69](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L69)
+Defined in: [types/connect4.ts:72](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L72)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/connect4.ts:69](https://github.com/YuyMat/boardGame-frontend/
 
 > **playerRole**: [`RoleState`](../type-aliases/RoleState.md) \| `null`
 
-Defined in: [types/connect4.ts:70](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L70)
+Defined in: [types/connect4.ts:73](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L73)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [types/connect4.ts:70](https://github.com/YuyMat/boardGame-frontend/
 
 > **roomId**: `string`
 
-Defined in: [types/connect4.ts:71](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L71)
+Defined in: [types/connect4.ts:74](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L74)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [types/connect4.ts:71](https://github.com/YuyMat/boardGame-frontend/
 
 > **membersRef**: `MutableRefObject`\<`number`\>
 
-Defined in: [types/connect4.ts:72](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L72)
+Defined in: [types/connect4.ts:75](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L75)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [types/connect4.ts:72](https://github.com/YuyMat/boardGame-frontend/
 
 > **setMatchState**: `Dispatch`\<`SetStateAction`\<[`MatchState`](../type-aliases/MatchState.md)\>\>
 
-Defined in: [types/connect4.ts:73](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L73)
+Defined in: [types/connect4.ts:76](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L76)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [types/connect4.ts:73](https://github.com/YuyMat/boardGame-frontend/
 
 > **currentRole**: [`RoleState`](../type-aliases/RoleState.md)
 
-Defined in: [types/connect4.ts:74](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L74)
+Defined in: [types/connect4.ts:77](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L77)
 
 ***
 
@@ -70,4 +70,4 @@ Defined in: [types/connect4.ts:74](https://github.com/YuyMat/boardGame-frontend/
 
 > **setCurrentRole**: `Dispatch`\<`SetStateAction`\<[`RoleState`](../type-aliases/RoleState.md)\>\>
 
-Defined in: [types/connect4.ts:75](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L75)
+Defined in: [types/connect4.ts:78](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L78)

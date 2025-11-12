@@ -8,7 +8,7 @@
 
 > **useUpdateEffect**(`effect`, `deps`): `void`
 
-Defined in: [hooks/utils/useUpdateEffect.ts:22](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/hooks/utils/useUpdateEffect.ts#L22)
+Defined in: [hooks/utils/useUpdateEffect.ts:22](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/hooks/utils/useUpdateEffect.ts#L22)
 
 初回レンダリング時の実行をスキップする`useEffect`のカスタムフックです。
 依存配列の変更時のみエフェクトを実行し、マウント時には実行しません。

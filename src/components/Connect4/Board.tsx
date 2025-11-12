@@ -7,6 +7,25 @@ import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import { Role } from "@/constants/connect4";
 import closeModal from "@/utils/closeModal";
 
+/**
+ * Connect4ゲームの盤面全体を表示するメインコンポーネントです。
+ * ボード、結果モーダル、ターン表示ディスクを含みます。
+ * 
+ * @param props - コンポーネントのProps
+ * @param props.board - 現在の盤面の状態
+ * @param props.onCellClick - セルをクリックした時のハンドラ関数
+ * @param props.isWin - 勝敗が決定したかどうか
+ * @param props.isDraw - 引き分けかどうか
+ * @param props.setIsWin - 勝敗フラグを更新するセッター関数
+ * @param props.onRestart - リスタートボタンがクリックされた時のハンドラ関数
+ * @param props.currentRole - 現在のターンのプレイヤー
+ * @param props.lastPosition - 最後に石が置かれた位置
+ * 
+ * @remarks
+ * - 6行7列のConnect4ボードを表示します
+ * - 最後に置かれた石は緑色のボーダーでハイライトされます
+ * - ゲーム終了時に結果モーダルを表示します
+ */
 export default function Board({ board, onCellClick, isWin, isDraw, setIsWin, onRestart, currentRole, lastPosition }: BoardProps) {
     const gotoTopPage = useGotoTopPage();
 

@@ -6,16 +6,27 @@
 
 # Function: default()
 
-> **default**(`__namedParameters`): `Element`
+> **default**(`props`): `Element`
 
-Defined in: [components/Connect4/Result.tsx:5](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/components/Connect4/Result.tsx#L5)
+Defined in: [components/Connect4/Result.tsx:22](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/components/Connect4/Result.tsx#L22)
+
+Connect4ゲームの結果を表示するモーダルコンポーネントです。
+勝者を発表し、リスタートやゲーム一覧への遷移オプションを提供します。
 
 ## Parameters
 
-### \_\_namedParameters
+### props
 
 [`ResultProps`](../../../../types/connect4/interfaces/ResultProps.md)
+
+コンポーネントのProps
 
 ## Returns
 
 `Element`
+
+## Remarks
+
+- 引き分けの場合は引き分けメッセージを表示します
+- 勝者がいる場合は、currentRoleの逆のプレイヤーが勝者として表示されます
+- 3つのアクション（戻る、ゲーム一覧、リスタート）を提供します

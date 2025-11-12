@@ -8,4 +8,4 @@
 
 > `const` **dynamic**: `"force-dynamic"` = `"force-dynamic"`
 
-Defined in: [app/api/rooms/new/route.ts:1](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/app/api/rooms/new/route.ts#L1)
+Defined in: [app/api/rooms/new/route.ts:1](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/app/api/rooms/new/route.ts#L1)

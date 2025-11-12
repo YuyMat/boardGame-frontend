@@ -27,6 +27,7 @@ import { onCellClick, checkWin, checkDraw, createEmptyBoard } from "@/libs/conne
  * - `onCellClick`: セルをクリックした時のハンドラ関数
  * - `lastPosition`: 最後に石が置かれた位置
  * - `canPlay`: プレイ可能かどうか
+ * - `isDraw`: 引き分けかどうか
  * 
  * @remarks
  * - Socket.IOを使用してリアルタイムで盤面を同期します

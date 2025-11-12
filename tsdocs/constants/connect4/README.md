@@ -12,3 +12,5 @@
 - [Role](variables/Role.md)
 - [keyToShowLabel](variables/keyToShowLabel.md)
 - [firstTurnItems](variables/firstTurnItems.md)
+- [mainPlayerColorClass](variables/mainPlayerColorClass.md)
+- [MAX\_PLAYERS](variables/MAX_PLAYERS.md)

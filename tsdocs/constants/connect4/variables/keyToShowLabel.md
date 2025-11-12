@@ -8,7 +8,7 @@
 
 > `const` **keyToShowLabel**: `object`
 
-Defined in: [constants/connect4/index.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/constants/connect4/index.ts#L11)
+Defined in: [constants/connect4.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/constants/connect4.ts#L11)
 
 ## Type Declaration
 

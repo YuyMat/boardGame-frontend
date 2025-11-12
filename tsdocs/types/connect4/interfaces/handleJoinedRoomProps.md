@@ -6,7 +6,7 @@
 
 # Interface: handleJoinedRoomProps
 
-Defined in: [types/connect4.ts:84](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L84)
+Defined in: [types/connect4.ts:87](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L87)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/connect4.ts:84](https://github.com/YuyMat/boardGame-frontend/
 
 > **members**: `number`
 
-Defined in: [types/connect4.ts:85](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L85)
+Defined in: [types/connect4.ts:88](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L88)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/connect4.ts:85](https://github.com/YuyMat/boardGame-frontend/
 
 > **role**: [`RoleState`](../type-aliases/RoleState.md) \| `null`
 
-Defined in: [types/connect4.ts:86](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/types/connect4.ts#L86)
+Defined in: [types/connect4.ts:89](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/connect4.ts#L89)

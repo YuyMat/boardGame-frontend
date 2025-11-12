@@ -8,7 +8,7 @@
 
 > **onCellClick**(`params`): `void`
 
-Defined in: [libs/reversi/onCellClick.ts:25](https://github.com/YuyMat/boardGame-frontend/blob/7dd50f5fe86bd0c3eeb130ed6337123e7f5495f9/src/libs/reversi/onCellClick.ts#L25)
+Defined in: [libs/reversi/onCellClick.ts:25](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/reversi/onCellClick.ts#L25)
 
 オセロゲームでセルがクリックされたときの処理を実行します。
 指定された位置に石を置き、挟まれた相手の石をひっくり返し、ターンを切り替えます。

@@ -4,6 +4,17 @@ import { getRandomInt } from "@/utils/getRandom";
 const MIN_ROOM_ID_NUMBER = Number(process.env.ROOMID_MIN);
 const MAX_ROOM_ID_NUMBER = Number(process.env.ROOMID_MAX);
 
+/**
+ * 一意なルームIDを生成します
+ * 
+ * @returns 16進数文字列形式の一意なルームID、またはエラー時は`null`
+ * 
+ * @remarks
+ * - 環境変数で設定された範囲内でランダムな数値を生成します
+ * - バックエンドサーバーに問い合わせて、既に存在しないIDを確認します
+ * - 一意なIDが見つかるまで繰り返します
+ * - 生成された数値は16進数文字列に変換されます
+ */
 async function generateRoomId() {
 	while (true) {
 		const roomIdNumber = BigInt(getRandomInt(MIN_ROOM_ID_NUMBER, MAX_ROOM_ID_NUMBER));
