@@ -14,4 +14,25 @@ export const Role = {
 	WHITE: 2,
 } as const;
 
+export const keyToShowLabel = {
+	random: "ランダム",
+	[Role.BLACK]: "黒",
+	[Role.WHITE]: "白",
+} as const;
+
+export const firstTurnItems = [
+	{
+		label: "ランダム(デフォルト)",
+		key: "random",
+	},
+	{
+		label: "黒",
+		key: Role.BLACK,
+	},
+	{
+		label: "白",
+		key: Role.WHITE,
+	},
+]
+
 export const MAX_CELL_COUNT = 64 as const;

@@ -2,7 +2,7 @@
 
 import { use } from "react";
 import { Loading, RuleSettings, CopyUrl } from "@/components/Utils";
-import { Role } from "@/constants/reversi";
+import { keyToShowLabel, firstTurnItems, Role } from "@/constants/reversi";
 import { Board, Result, SkipTurn } from "@/components/Reversi";
 import closeModal from "@/utils/closeModal";
 // カスタムフック
@@ -61,7 +61,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
 					<Loading text="対戦相手を待っています…" />
 					<div className="flex flex-row gap-2 mt-7">
-						<RuleSettings setFirst={setFirstRole} />
+						<RuleSettings setFirst={setFirstRole} keyToShowLabel={keyToShowLabel} firstTurnItems={firstTurnItems} />
 						<CopyUrl gameName="リバーシ" />
 					</div>
 				</div>
