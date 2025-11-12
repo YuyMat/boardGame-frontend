@@ -22,6 +22,7 @@ export interface BoardProps {
 	board: BoardState;
 	onCellClick: (colIndex: number) => void;
 	isWin: boolean;
+	isDraw: boolean;
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	onRestart: () => void;
 	currentRole: RoleState;
@@ -30,6 +31,7 @@ export interface BoardProps {
 
 export interface ResultProps {
 	isWin: boolean;
+	isDraw: boolean;
 	onRestart: () => void;
 	handleCancel: () => void;
 	onShowGames: () => void;
@@ -56,6 +58,7 @@ export interface OnRestartProps {
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
+	setIsDraw: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface ShowRoleProps {

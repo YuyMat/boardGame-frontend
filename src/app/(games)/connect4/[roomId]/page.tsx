@@ -38,6 +38,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		onCellClick,
 		lastPosition,
 		canPlay,
+		isDraw,
 	} = useConnect4Game({
 		socketRef,
 		matchState,
@@ -92,6 +93,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				board={board}
 				currentRole={currentRole}
 				isWin={isWin}
+				isDraw={isDraw}
 				setIsWin={setIsWin}
 				onCellClick={onCellClick}
 				onRestart={emitRestart}

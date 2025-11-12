@@ -14,9 +14,10 @@ import { createEmptyBoard } from "@/libs/connect4/createEmptyBoard";
  * @remarks
  * この関数を呼び出すと、ゲームは完全に初期状態に戻ります。
  */
-export const onRestart = ({ setIsWin, setBoard, setCanPlay, setLastPosition }: OnRestartProps) => {
+export const onRestart = ({ setIsWin, setBoard, setCanPlay, setLastPosition, setIsDraw }: OnRestartProps) => {
 	setIsWin(false);
 	setBoard(createEmptyBoard());
 	setCanPlay(true);
 	setLastPosition({ row: null, col: null });
+	setIsDraw(false);
 }
