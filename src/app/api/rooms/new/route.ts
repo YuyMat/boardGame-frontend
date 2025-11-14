@@ -1,4 +1,5 @@
 export const dynamic = "force-dynamic";
+import { MAX_ROOM_ID_GENERATION_ATTEMPTS } from "@/constants/utils";
 import { getRandomInt } from "@/utils/getRandom";
 
 const MIN_ROOM_ID_NUMBER = Number(process.env.ROOMID_MIN);
@@ -12,12 +13,12 @@ const MAX_ROOM_ID_NUMBER = Number(process.env.ROOMID_MAX);
  * @remarks
  * - 環境変数で設定された範囲内でランダムな数値を生成します
  * - バックエンドサーバーに問い合わせて、既に存在しないIDを確認します
- * - 一意なIDが見つかるまで繰り返します
+ * - 最大10回まで一意なIDを探索します
  * - 生成された数値は16進数文字列に変換されます
  */
 async function generateRoomId() {
-	while (true) {
-		const roomIdNumber = BigInt(getRandomInt(MIN_ROOM_ID_NUMBER, MAX_ROOM_ID_NUMBER));
+        for (let attempt = 0; attempt < MAX_ROOM_ID_GENERATION_ATTEMPTS; attempt++) {
+                const roomIdNumber = BigInt(getRandomInt(MIN_ROOM_ID_NUMBER, MAX_ROOM_ID_NUMBER));
 
 		const env = process.env.NEXT_PUBLIC_ENV;
 		const backendUrl = env === "local"
@@ -30,10 +31,12 @@ async function generateRoomId() {
 				if (!data.exists)
 					return roomIdNumber.toString(16);
 			}
-		} catch {
-			return null;
-		}
-	}
+                } catch {
+                        return null;
+                }
+        }
+
+        return null;
 }
 
 export async function GET() {
