@@ -5,13 +5,9 @@ export const dynamic = "force-dynamic";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loading } from "@/components/Utils";
+import { getBackendUrl } from "@/utils/getBackendUrl";
 
-
-const env = process.env.NEXT_PUBLIC_ENV;
-const backendUrl =
-	env === "local"
-		? "http://localhost:4000"
-		: "https://boardgame-backend-v1ew.onrender.com";
+const backendUrl = getBackendUrl();
 
 async function checkHealth(url: string): Promise<boolean> {
 	try {
