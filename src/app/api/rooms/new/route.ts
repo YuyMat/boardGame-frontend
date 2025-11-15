@@ -5,6 +5,8 @@ import { getBackendUrl } from "@/utils/getBackendUrl";
 const MIN_ROOM_ID_NUMBER = Number(process.env.ROOMID_MIN);
 const MAX_ROOM_ID_NUMBER = Number(process.env.ROOMID_MAX);
 
+const backendUrl = getBackendUrl();
+
 /**
  * 一意なルームIDを生成します
  * 
@@ -17,8 +19,6 @@ const MAX_ROOM_ID_NUMBER = Number(process.env.ROOMID_MAX);
  * - 生成された数値は16進数文字列に変換されます
  */
 async function generateRoomId() {
-	const backendUrl = getBackendUrl();
-
 	while (true) {
 		const roomIdNumber = getRandomInt(MIN_ROOM_ID_NUMBER, MAX_ROOM_ID_NUMBER);
 

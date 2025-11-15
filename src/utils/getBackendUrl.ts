@@ -12,5 +12,5 @@ export function getBackendUrl(): string {
 
 	return env === "local"
 		? "http://localhost:4000"
-		: "https://boardgame-backend-v1ew.onrender.com";
+		: process.env.NEXT_PUBLIC_BACKEND_URL ?? "https://boardgame-backend-v1ew.onrender.com";
 }
