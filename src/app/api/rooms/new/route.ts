@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 import { getRandomInt } from "@/utils/getRandom";
+import { getBackendUrl } from "@/utils/getBackendUrl";
 
 const MIN_ROOM_ID_NUMBER = Number(process.env.ROOMID_MIN);
 const MAX_ROOM_ID_NUMBER = Number(process.env.ROOMID_MAX);
@@ -16,13 +17,11 @@ const MAX_ROOM_ID_NUMBER = Number(process.env.ROOMID_MAX);
  * - 生成された数値は16進数文字列に変換されます
  */
 async function generateRoomId() {
-	while (true) {
-		const roomIdNumber = BigInt(getRandomInt(MIN_ROOM_ID_NUMBER, MAX_ROOM_ID_NUMBER));
+	const backendUrl = getBackendUrl();
 
-		const env = process.env.NEXT_PUBLIC_ENV;
-		const backendUrl = env === "local"
-			? "http://localhost:4000"
-			: "https://boardgame-backend-v1ew.onrender.com";
+	while (true) {
+		const roomIdNumber = getRandomInt(MIN_ROOM_ID_NUMBER, MAX_ROOM_ID_NUMBER);
+
 		try {
 			const res = await fetch(`${backendUrl}/rooms/${roomIdNumber}/exists`, { cache: "no-store" });
 			if (res.ok) {
