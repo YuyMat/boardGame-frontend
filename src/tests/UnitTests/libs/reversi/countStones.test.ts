@@ -1,9 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { countStones } from '@/libs/reversi/countStones';
 import { Role } from '@/constants/reversi';
-import type { BoardState } from '@/types/reversi';
-
-const createEmptyBoard = (): BoardState => Array(8).fill(null).map(() => Array(8).fill(null));
+import { createEmptyBoard } from './testUtils';
 
 describe('countStones', () => {
 	it('初期配置の盤面では黒石と白石がそれぞれ2個になる', () => {

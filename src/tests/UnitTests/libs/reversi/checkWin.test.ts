@@ -1,11 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 import { checkWin } from '@/libs/reversi/checkWin';
 import { Role } from '@/constants/reversi';
-import type { BoardState, HighlightedBoardState } from '@/types/reversi';
+import { createEmptyBoard, createEmptyHighlights } from './testUtils';
 
-const createEmptyBoard = (): BoardState => Array(8).fill(null).map(() => Array(8).fill(null));
-const createEmptyHighlights = (): HighlightedBoardState =>
-	Array(8).fill(false).map(() => Array(8).fill(false));
 
 describe('checkWin', () => {
 	it('現在プレイヤーに合法手がある場合はハイライトを更新して false を返す', () => {

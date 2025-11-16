@@ -1,9 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { canTurnOver } from '@/libs/reversi/canTurnOver';
 import { Role } from '@/constants/reversi';
-import type { BoardState } from '@/types/reversi';
-
-const createEmptyBoard = (): BoardState => Array(8).fill(null).map(() => Array(8).fill(null));
+import { createEmptyBoard } from './testUtils';
 
 describe('canTurnOver', () => {
 	it('指定マスにすでに石がある場合は false を返す', () => {

@@ -1,7 +1,7 @@
 ## libs/reversi ユニットテスト設計
 
 このドキュメントは `src/libs/reversi` 配下の各関数に対するユニットテスト項目をまとめたものです。  
-実装は Vitest を用い、テストファイルは `src/tests/unit` 配下に作成します。
+実装は Vitest を用い、テストファイルは `src/tests/UnitTests` 配下に作成します。
 
 ---
 
@@ -174,7 +174,7 @@
 ## 8. テスト実装方針メモ
 
 - テストランナー: Vitest（`package.json` の `test` スクリプトを使用）
-- テストディレクトリ: `src/tests/unit`
+- テストディレクトリ: `src/tests/UnitTests`
 - 各関数ごとに以下のような構成を想定
   - `reversi/createEmptyBoard.test.ts`
   - `reversi/canTurnOver.test.ts`

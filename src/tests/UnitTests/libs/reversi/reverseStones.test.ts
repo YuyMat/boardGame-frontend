@@ -1,9 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { reverseStones } from '@/libs/reversi/reverseStones';
 import { Role } from '@/constants/reversi';
-import type { BoardState } from '@/types/reversi';
-
-const createEmptyBoard = (): BoardState => Array(8).fill(null).map(() => Array(8).fill(null));
+import { createEmptyBoard } from './testUtils';
 
 describe('reverseStones', () => {
 	it('水平方向で挟んだ相手の石をひっくり返す', () => {

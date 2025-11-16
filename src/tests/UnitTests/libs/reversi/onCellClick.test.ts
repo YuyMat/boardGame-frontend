@@ -2,10 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { onCellClick } from '@/libs/reversi/onCellClick';
 import { Role } from '@/constants/reversi';
 import type { BoardState, HighlightedBoardState } from '@/types/reversi';
-
-const createEmptyBoard = (): BoardState => Array(8).fill(null).map(() => Array(8).fill(null));
-const createEmptyHighlights = (): HighlightedBoardState =>
-	Array(8).fill(false).map(() => Array(8).fill(false));
+import { createEmptyBoard, createEmptyHighlights } from './testUtils';
 
 describe('onCellClick', () => {
 	let board: BoardState;

@@ -1,9 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { computeHighlights } from '@/libs/reversi/computeHighlights';
 import { Role } from '@/constants/reversi';
-import type { BoardState } from '@/types/reversi';
-
-const createEmptyBoard = (): BoardState => Array(8).fill(null).map(() => Array(8).fill(null));
+import { createEmptyBoard } from './testUtils';
 
 describe('computeHighlights', () => {
 	it('合法手が存在する場合、対応するセルが true になり any が true になる', () => {
