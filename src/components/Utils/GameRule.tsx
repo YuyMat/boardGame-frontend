@@ -12,7 +12,7 @@ import { Role } from "@/constants/utils";
  * 
  * @param props - コンポーネントのProps
  * @param props.setFirst - 先攻設定を更新するセッター関数
- * @param props.keyToShowLabel - FirstStateの値を表示用ラベルに変換するマップ（例: { random: "ランダム", 1: "赤", 2: "黄" }）
+ * @param props.keyToShowLabel - 先攻状態の値を表示用ラベルに変換するマップ（例: { random: "ランダム", 1: "赤", 2: "黄" }）
  * @param props.firstTurnItems - ドロップダウンに表示する先攻選択肢の配列
  * @param props.mainPlayerColorClass - メインプレイヤーの色を表すTailwind CSSクラス（例: "text-red-500", "text-gray-900"）
  * 
