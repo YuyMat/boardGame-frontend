@@ -54,7 +54,6 @@ export interface OnCellClickProps {
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	highlightedCells: HighlightedBoardState;
-	setIsSkipTurn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface UseReversiGameProps {

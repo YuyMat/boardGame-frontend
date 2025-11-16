@@ -15,14 +15,13 @@ import { reverseStones } from "./reverseStones";
  * @param params.setLastPosition - 最後の位置を更新するセッター関数
  * @param params.setBoard - ボードの状態を更新するセッター関数
  * @param params.highlightedCells - 合法手がハイライトされているセルの配列
- * @param params.setIsSkipTurn - スキップターンフラグを更新するセッター関数
  * 
  * @remarks
  * - ハイライトされていない位置（合法手でない位置）はクリックしても何も起こりません
  * - プレイ不可能な状態（`canPlay=false`）の場合は何もしません
  * - 石を置いた後、相手の石を自動的にひっくり返し、ターンが切り替わります
  */
-export const onCellClick = ({ rowIndex, colIndex, canPlay, currentRole, setCurrentRole, setLastPosition, setBoard, highlightedCells, setIsSkipTurn }: OnCellClickProps) => {	
+export const onCellClick = ({ rowIndex, colIndex, canPlay, currentRole, setCurrentRole, setLastPosition, setBoard, highlightedCells }: OnCellClickProps) => {	
 	setBoard((prev) => {
 		if (!canPlay || highlightedCells[rowIndex][colIndex] !== true)
 			return prev;
