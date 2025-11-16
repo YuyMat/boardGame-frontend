@@ -37,7 +37,6 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		setIsWin,
 		onCellClick,
 		lastPosition,
-		canPlay,
 		blackCount,
 		whiteCount,
 		isSkipTurn,

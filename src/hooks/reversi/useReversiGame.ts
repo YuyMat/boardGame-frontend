@@ -147,7 +147,6 @@ export default function useReversiGame({
 			setLastPosition,
 			setBoard,
 			highlightedCells,
-			setIsSkipTurn,
 		});
 	};
 
@@ -158,7 +157,6 @@ export default function useReversiGame({
 		setIsWin,
 		onCellClick: handleCellClick,
 		lastPosition,
-		canPlay,
 		blackCount,
 		whiteCount,
 		isSkipTurn,

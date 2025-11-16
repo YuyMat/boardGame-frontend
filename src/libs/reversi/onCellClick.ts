@@ -22,7 +22,7 @@ import { reverseStones } from "./reverseStones";
  * - プレイ不可能な状態（`canPlay=false`）の場合は何もしません
  * - 石を置いた後、相手の石を自動的にひっくり返し、ターンが切り替わります
  */
-export const onCellClick = ({ rowIndex, colIndex, canPlay, currentRole, setCurrentRole, setLastPosition, setBoard, highlightedCells, setIsSkipTurn }: OnCellClickProps) => {	
+export const onCellClick = ({ rowIndex, colIndex, canPlay, currentRole, setCurrentRole, setLastPosition, setBoard, highlightedCells }: OnCellClickProps) => {	
 	setBoard((prev) => {
 		if (!canPlay || highlightedCells[rowIndex][colIndex] !== true)
 			return prev;

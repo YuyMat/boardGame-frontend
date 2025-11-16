@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Modal, Button, Dropdown, Space, type MenuProps } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import { FirstState, RoleState, RuleSettingsProps } from "@/types/utils";
+import { RoleState, RuleSettingsProps } from "@/types/utils";
 import { Role } from "@/constants/utils";
 
 /**
