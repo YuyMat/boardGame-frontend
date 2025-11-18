@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createSocket } from "@/libs/socket/client";
-import { MatchState, RoleState, handleJoinedRoomProps, FirstState } from "@/types/connect4";
+import { MatchState, RoleState, HandleJoinedRoomProps, FirstState } from "@/types/connect4";
 import { Role } from "@/constants/connect4";
 import type { Socket } from "socket.io-client";
 
@@ -52,7 +52,7 @@ export default function useConnect4Room(
 		socket.connect();
 		socket.emit("startRoom", roomId, "connect4");
 
-		const handleJoinedRoom = ({ members, role }: handleJoinedRoomProps) => {
+		const handleJoinedRoom = ({ members, role }: HandleJoinedRoomProps) => {
 			setMembers(members);
 			membersRef.current = members;
 			// 最初に受け取ったロールのみ採用（後から上書きしない）

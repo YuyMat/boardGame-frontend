@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react";
-import { BoardState, lastPositionState, HighlightedBoardState } from "@/types/reversi";
+import { BoardState, LastPositionState, HighlightedBoardState } from "@/types/reversi";
 import { createEmptyBoard, createEmptyHighlightedBoard } from "@/libs/reversi";
 
 /**
@@ -9,7 +9,7 @@ import { createEmptyBoard, createEmptyHighlightedBoard } from "@/libs/reversi";
  */
 export function useReversiGameState() {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
-	const [lastPosition, setLastPosition] = useState<lastPositionState>({
+	const [lastPosition, setLastPosition] = useState<LastPositionState>({
 		row: null,
 		col: null,
 	});

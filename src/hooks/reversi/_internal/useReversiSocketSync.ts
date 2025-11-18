@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react";
-import { handleGameStateUpdatedProps, UseReversiSocketSyncProps } from "@/types/reversi";
+import { HandleGameStateUpdatedProps, UseReversiSocketSyncProps } from "@/types/reversi";
 
 /**
  * ReversiのSocket通信による盤面同期を管理する内部フック
@@ -24,7 +24,7 @@ export function useReversiSocketSync({
 		const socket = socketRef.current;
 		if (!socket) return;
 
-		const handleGameStateUpdated = ({ board: nextBoard, currentRole: nextRole, lastPosition: nextLast }: handleGameStateUpdatedProps) => {
+		const handleGameStateUpdated = ({ board: nextBoard, currentRole: nextRole, lastPosition: nextLast }: HandleGameStateUpdatedProps) => {
 			suppressSyncRef.current = true;
 			setBoard(nextBoard);
 			setCurrentRole(nextRole);

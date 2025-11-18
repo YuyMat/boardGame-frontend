@@ -10,7 +10,7 @@ export type HighlightedCellState = boolean;
 export type BoardState = CellState[][];
 export type HighlightedBoardState = HighlightedCellState[][];
 
-export type lastPositionState = {
+export type LastPositionState = {
 	row: number | null;
 	col: number | null;
 };
@@ -51,7 +51,7 @@ export interface OnCellClickProps {
 	canPlay: boolean;
 	currentRole: RoleState;
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
-	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
+	setLastPosition: React.Dispatch<React.SetStateAction<LastPositionState>>;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	highlightedCells: HighlightedBoardState;
 }
@@ -67,13 +67,13 @@ export interface UseReversiGameProps {
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 }
 
-export interface handleGameStateUpdatedProps {
+export interface HandleGameStateUpdatedProps {
 	board: BoardState;
 	currentRole: RoleState;
-	lastPosition: lastPositionState;
+	lastPosition: LastPositionState;
 }
 
-export interface handleJoinedRoomProps {
+export interface HandleJoinedRoomProps {
 	members: number;
 	role: RoleState | null;
 }
@@ -87,7 +87,7 @@ export interface CanTurnOverProps {
 
 export interface ReverseStonesProps {
 	board: BoardState;
-	lastPosition: lastPositionState;
+	lastPosition: LastPositionState;
 	currentRole: RoleState;
 }
 
@@ -101,11 +101,11 @@ export interface UseReversiSocketSyncProps {
 	roomId: string;
 	matchState: MatchState;
 	board: BoardState;
-	lastPosition: lastPositionState;
+	lastPosition: LastPositionState;
 	currentRole: RoleState;
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
-	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
+	setLastPosition: React.Dispatch<React.SetStateAction<LastPositionState>>;
 }
 
 export interface UseReversiWinCheckProps {
