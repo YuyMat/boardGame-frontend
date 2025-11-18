@@ -1,4 +1,4 @@
-import { ShowRoleProps } from "@/types/reversi";
+import { ShowRoleProps } from "@/types/utils";
 import { Role } from "@/constants/reversi";
 
 /**

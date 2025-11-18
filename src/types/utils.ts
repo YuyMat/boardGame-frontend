@@ -10,3 +10,9 @@ export type RuleSettingsProps = {
 	firstTurnItems: { label: string; key: string | number }[];
 	mainPlayerColorClass: CSSColorClass;
 }
+
+export interface ShowRoleProps {
+	currentRole: RoleState;
+	playerRole: RoleState | null;
+	canPlay: boolean;
+}

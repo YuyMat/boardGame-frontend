@@ -57,12 +57,6 @@ export interface OnCellClickProps {
 	highlightedCells: HighlightedBoardState;
 }
 
-export interface ShowRoleProps {
-	currentRole: RoleState;
-	playerRole: RoleState | null;
-	canPlay: boolean;
-}
-
 export interface UseReversiGameProps {
 	socketRef: React.RefObject<Socket | null>;
 	matchState: MatchState;

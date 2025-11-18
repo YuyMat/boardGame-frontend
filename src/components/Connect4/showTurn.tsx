@@ -1,4 +1,4 @@
-import { ShowRoleProps } from "@/types/connect4";
+import { ShowRoleProps } from "@/types/utils";
 import { Role } from "@/constants/connect4";
 
 /**
@@ -16,11 +16,7 @@ import { Role } from "@/constants/connect4";
  * - ゲーム終了後（`canPlay=false`）は何も表示しません
  */
 export default function ShowTurn({ currentRole, playerRole, canPlay }: ShowRoleProps) {
-	if (!playerRole) {
-		return (
-			<div className="absolute top-110 left-1/2 -translate-x-1/2 text-blue-800 font-bold whitespace-nowrap text-base sm:text-xl md:text-2xl">👀 観戦中 👀</div>
-		);
-	}
+	if (!playerRole) return;
 
 	const isMyTurn = currentRole === playerRole;
 	const isRed = playerRole === Role.RED;
