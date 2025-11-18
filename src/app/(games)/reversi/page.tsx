@@ -99,6 +99,7 @@ export default function Page() {
 				highlightedCells={highlightedCells}
 				currentRole={currentRole}
 				onCellClick={handleCellClick}
+				lastPosition={lastPosition}
 			/>
 		</div>
 	)

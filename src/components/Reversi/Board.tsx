@@ -19,7 +19,7 @@ import { Role } from "@/constants/reversi";
  * - 黒石と白石が視覚的に区別されます
  * - 現在のターン情報も表示されます
  */
-export default function Board({ board, highlightedCells, onCellClick, currentRole }: BoardProps) {
+export default function Board({ board, highlightedCells, onCellClick, currentRole, lastPosition }: BoardProps) {
 	return (
 		<div className="relative z-1">
 			<div className="pt-2 pl-2">
@@ -33,7 +33,7 @@ export default function Board({ board, highlightedCells, onCellClick, currentRol
 							row.map((cell, colIndex) => (
 								<div
 									key={`${rowIndex}-${colIndex}`}
-									className={`w-10 h-10 border-2 border-green-800 flex items-center justify-center cursor-pointer transition-colors hover:bg-green-600 ${highlightedCells[rowIndex][colIndex] === true ? 'bg-green-500' : 'bg-green-700'}`}
+									className={`w-10 h-10 border-2 flex items-center justify-center cursor-pointer transition-colors hover:bg-green-600 ${highlightedCells[rowIndex][colIndex] === true ? 'bg-green-500' : 'bg-green-700'} ${lastPosition.row === rowIndex && lastPosition.col === colIndex ? 'border-green-200' : 'border-green-800'}`}
 									onClick={() => onCellClick(rowIndex, colIndex)}
 								>
 									{/* 石の表示 */}
