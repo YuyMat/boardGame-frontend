@@ -5,23 +5,23 @@ import { Role } from "@/constants/reversi";
 
 /**
  * オセロゲームの盤面を表示するメインボードコンポーネントです。
- * 8x8の盤面、石、合法手のハイライトを表示します。
+ * 8x8の盤面、石、合法手のハイライト、および直前に置かれた石の位置を表示します。
  * 
  * @param props - コンポーネントのProps
- * @param props.board - 現在の盤面の状態
- * @param props.highlightedCells - 合法手がハイライトされているセルの配列
+ * @param props.board - 現在の盤面の状態（8x8の2次元配列）
+ * @param props.highlightedCells - 合法手がハイライトされているセルの2次元配列
  * @param props.onCellClick - セルをクリックした時のハンドラ関数
- * @param props.currentRole - 現在のターンのプレイヤー（Role.BLACKまたはRole.WHITE）
+ * @param props.currentRole - 現在のターンのプレイヤー（`Role.BLACK` または `Role.WHITE`）
+ * @param props.lastPosition - 直前に石を置いたセルの位置（行・列）。該当マスの枠線が強調表示されます
  * 
  * @remarks
  * - 8x8のオセロ盤面を表示します
  * - 合法手の位置は明るい緑色でハイライトされます
+ * - 直前に石を置いたマスは枠線の色によって強調表示されます
  * - 黒石と白石が視覚的に区別されます
  * - 現在のターン情報も表示されます
  */
 export default function Board({ board, highlightedCells, onCellClick, currentRole, lastPosition }: BoardProps) {
-
-	console.log(lastPosition);
 	return (
 		<div className="relative z-1">
 			<div className="pt-2 pl-2">
