@@ -83,12 +83,6 @@ export interface HandleJoinedRoomProps {
 	role: RoleState | null;
 }
 
-export interface ReShowResultProps {
-	isWin: boolean;
-	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
-	canPlay: boolean;
-}
-
 export interface UseConnect4RestartProps {
 	socketRef: React.RefObject<Socket | null>;
 	roomId: string;

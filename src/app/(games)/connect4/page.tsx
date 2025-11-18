@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react";
-import { Board, ReShowResult } from "@/components/Connect4";
+import { Board } from "@/components/Connect4";
+import { ReShowResult } from "@/components/Utils";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { BoardState, RoleState, lastPositionState } from "@/types/connect4";
 import { createEmptyBoard, checkWin, checkDraw, onCellClick, onRestart } from "@/libs/connect4";

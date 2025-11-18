@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Board, Result, SkipTurn, TurnInfo } from "@/components/Reversi";
+import { ReShowResult } from "@/components/Utils";
 import { createEmptyBoard, createEmptyHighlightedBoard, canTurnOver, reverseStones, countStones } from "@/libs/reversi";
 import { BoardState, RoleState, LastPositionState, HighlightedBoardState } from "@/types/reversi";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
@@ -13,7 +14,7 @@ export default function Page() {
 	const [highlightedCells, setHighlightedCells] = useState<HighlightedBoardState>(createEmptyHighlightedBoard());
 	const [lastPosition, setLastPosition] = useState<LastPositionState>({ row: null, col: null });
 	const [currentRole, setCurrentRole] = useState<RoleState>(Role.BLACK);
-	const [openResultModal, setOpenResultModal] = useState(false);
+	const [isWin, setIsWin] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
 	const [isSkipTurn, setIsSkipTurn] = useState(false);
 	const blackCount = useRef(0);
@@ -42,7 +43,7 @@ export default function Page() {
 		setBoard(createEmptyBoard());
 		setHighlightedCells(createEmptyHighlightedBoard());
 		setCurrentRole(Role.BLACK);
-		setOpenResultModal(false);
+		setIsWin(false);
 		setCanPlay(true);
 		setLastPosition({ row: null, col: null });
 		setIsSkipTurn(false);
@@ -88,13 +89,13 @@ export default function Page() {
 		// 両者とも置けない → 終局
 		setIsSkipTurn(false);
 		setHighlightedCells(createEmptyHighlightedBoard());
-		setOpenResultModal(true);
+		setIsWin(true);
 		setCanPlay(false);
 	}, [board, currentRole]);
 
 	return (
 		<div className={`${currentRole === Role.BLACK ? 'bg-gray-500' : 'bg-gray-100'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1`}>
-			<Result isOpen={openResultModal} onRestart={handleRestart} handleCancel={() => closeModal(setOpenResultModal)} onShowGames={() => gotoTopPage(setOpenResultModal)} blackCount={blackCount.current} whiteCount={whiteCount.current} />
+			<Result isOpen={isWin} onRestart={handleRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} blackCount={blackCount.current} whiteCount={whiteCount.current} />
 			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
 			<Board
 				board={board}
@@ -104,6 +105,7 @@ export default function Page() {
 				lastPosition={lastPosition}
 			/>
 			<TurnInfo currentRole={currentRole} />
+			<ReShowResult isWin={isWin} setIsWin={setIsWin} canPlay={canPlay} />
 		</div>
 	)
 }
