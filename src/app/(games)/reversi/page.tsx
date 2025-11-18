@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
-import { Board, Result, SkipTurn } from "@/components/Reversi";
+import { Board, Result, SkipTurn, TurnInfo } from "@/components/Reversi";
 import { createEmptyBoard, createEmptyHighlightedBoard, canTurnOver, reverseStones, countStones } from "@/libs/reversi";
 import { BoardState, RoleState, LastPositionState, HighlightedBoardState } from "@/types/reversi";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
@@ -103,6 +103,7 @@ export default function Page() {
 				onCellClick={handleCellClick}
 				lastPosition={lastPosition}
 			/>
+			<TurnInfo currentRole={currentRole} />
 		</div>
 	)
 }

@@ -60,15 +60,6 @@ export default function Board({ board, highlightedCells, onCellClick, currentRol
 						)}
 					</div>
 				</div>
-				
-				{/* ゲーム情報 */}
-				<div className="mt-4 text-center">
-					<p className="text-lg font-semibold">
-						現在のターン: <span className="font-bold">
-							{currentRole === Role.BLACK ? '黒' : '白'}
-						</span>
-					</p>
-				</div>
 			</div>
 		</div>
 	);
