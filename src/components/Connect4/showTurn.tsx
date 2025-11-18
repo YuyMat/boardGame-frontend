@@ -1,5 +1,6 @@
-import { ShowRoleProps } from "@/types/utils";
 import { Role } from "@/constants/connect4";
+import { RoleState } from "@/types/connect4";
+import { ShowRoleProps } from "@/types/utils";
 
 /**
  * Connect4ゲームの現在のターン情報を表示するコンポーネントです。
@@ -14,7 +15,7 @@ import { Role } from "@/constants/connect4";
  * - 自分のターン、相手のターンで異なるメッセージを表示します
  * - ゲーム終了後（`canPlay=false`）は何も表示しません
  */
-export default function ShowTurn({ currentRole, playerRole, canPlay }: ShowRoleProps) {
+export default function ShowTurn({ currentRole, playerRole, canPlay }: ShowRoleProps<RoleState>) {
 	if (!playerRole) return;
 
 	const isMyTurn = currentRole === playerRole;

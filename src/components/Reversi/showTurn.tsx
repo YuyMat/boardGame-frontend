@@ -1,5 +1,6 @@
-import { ShowRoleProps } from "@/types/utils";
 import { Role } from "@/constants/reversi";
+import { RoleState } from "@/types/reversi";
+import { ShowRoleProps } from "@/types/utils";
 
 /**
  * リバーシゲームの現在のターン情報を表示するコンポーネントです。（オンライン対戦用）
@@ -15,7 +16,7 @@ import { Role } from "@/constants/reversi";
  * - ゲーム終了後（`canPlay=false`）は何も表示しません
  * - ローカル対戦用には `TurnInfo` コンポーネントが使用されます
  */
-export default function ShowTurn({ currentRole, playerRole, canPlay }: ShowRoleProps) {
+export default function ShowTurn({ currentRole, playerRole, canPlay }: ShowRoleProps<RoleState>) {
 	if (!playerRole) return;
 
 	const isMyTurn = currentRole === playerRole;

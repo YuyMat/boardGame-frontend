@@ -11,8 +11,8 @@ export type RuleSettingsProps = {
 	mainPlayerColorClass: CSSColorClass;
 }
 
-export interface ShowRoleProps {
-	currentRole: RoleState;
-	playerRole: RoleState | null;
+export interface ShowRoleProps<T = RoleState> {
+	currentRole: T;
+	playerRole: T | null;
 	canPlay: boolean;
 }
