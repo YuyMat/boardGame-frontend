@@ -11,7 +11,7 @@ import { Role } from "@/constants/reversi";
 export default function Page() {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
 	const [highlightedCells, setHighlightedCells] = useState<HighlightedBoardState>(createEmptyHighlightedBoard());
-	const [lastPosition, setLastPosition] = useState<LastPositionState>({ row: 0, col: 0 });
+	const [lastPosition, setLastPosition] = useState<LastPositionState>({ row: null, col: null });
 	const [currentRole, setCurrentRole] = useState<RoleState>(Role.BLACK);
 	const [openResultModal, setOpenResultModal] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
