@@ -121,7 +121,6 @@ export default function useReversiGame({
 
 	return {
 		board,
-		currentRole,
 		isWin,
 		setIsWin,
 		onCellClick: handleCellClick,

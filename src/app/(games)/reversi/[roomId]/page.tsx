@@ -3,7 +3,7 @@
 import { use } from "react";
 import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting } from "@/components/Utils";
 import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS } from "@/constants/reversi";
-import { Board, Result, SkipTurn } from "@/components/Reversi";
+import { Board, Result, SkipTurn, ShowTurn } from "@/components/Reversi";
 import closeModal from "@/utils/closeModal";
 import { RoleState } from "@/types/reversi";
 
@@ -43,6 +43,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		whiteCount,
 		isSkipTurn,
 		highlightedCells,
+		canPlay,
 	} = useReversiGame({
 		socketRef,
 		matchState,
@@ -105,6 +106,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				lastPosition={lastPosition}
 			/>
 			<TemporaryWaiting members={members} />
+			<ShowTurn currentRole={currentRole} playerRole={playerRole} canPlay={canPlay} />
 		</div>
 	)
 }

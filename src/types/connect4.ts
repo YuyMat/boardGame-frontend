@@ -61,12 +61,6 @@ export interface OnRestartProps {
 	setIsDraw: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface ShowRoleProps {
-	currentRole: RoleState;
-	playerRole: RoleState | null;
-	canPlay: boolean;
-}
-
 export interface UseConnect4GameProps {
 	socketRef: React.MutableRefObject<Socket | null>;
 	matchState: MatchState;
