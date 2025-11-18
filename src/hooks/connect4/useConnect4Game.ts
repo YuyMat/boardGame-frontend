@@ -1,9 +1,12 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react";
-import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
-import { BoardState, lastPositionState, RoleState, handleBoardUpdatedProps, UseConnect4GameProps } from "@/types/connect4";
-import { onCellClick, checkWin, checkDraw, createEmptyBoard } from "@/libs/connect4";
+import { useState } from "react";
+import { UseConnect4GameProps } from "@/types/connect4";
+import { onCellClick } from "@/libs/connect4";
+import { useConnect4GameState } from "./_internal/useConnect4GameState";
+import { useConnect4SocketSync } from "./_internal/useConnect4SocketSync";
+import { useConnect4WinCheck } from "./_internal/useConnect4WinCheck";
+import { useConnect4Restart } from "./_internal/useConnect4Restart";
 
 /**
  * Connect4ゲームのゲームロジックとリアルタイム同期を管理するカスタムフックです。
@@ -44,83 +47,50 @@ export default function useConnect4Game({
 	currentRole,
 	setCurrentRole,
 }: UseConnect4GameProps) {
-	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
-	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: null, col: null });
 	const [isWin, setIsWin] = useState(false);
-	const [canPlay, setCanPlay] = useState(true);
-	const [isDraw, setIsDraw] = useState(false);
 
-	const suppressSyncRef = useRef<boolean>(false);
+	const {
+		board,
+		setBoard,
+		lastPosition,
+		setLastPosition,
+		canPlay,
+		setCanPlay,
+		isDraw,
+		setIsDraw,
+		resetGameState,
+	} = useConnect4GameState();
 
-	// ソケットリスナー設定
-	useEffect(() => {
-		const socket = socketRef.current;
-		if (!socket) return;
+	useConnect4SocketSync({
+		socketRef,
+		roomId,
+		matchState,
+		board,
+		currentRole,
+		lastPosition,
+		setBoard,
+		setCurrentRole,
+		setLastPosition,
+	});
 
-		const handleBoardUpdated = ({ board: nextBoard, currentRole: nextRole, lastPosition: nextLast }: handleBoardUpdatedProps) => {
-			suppressSyncRef.current = true;
-			setBoard(nextBoard);
-			setCurrentRole(nextRole);
-			if (nextLast) setLastPosition(nextLast);
-		};
+	useConnect4WinCheck({
+		board,
+		lastPosition,
+		currentRole,
+		setCanPlay,
+		setIsWin,
+		setIsDraw,
+	});
 
-		const handleRestart = ({firstRole}: {firstRole: RoleState}) => {
-			if (membersRef.current === 1) {
-				setMatchState("waiting");
-				return;
-			}
-			setIsWin(false);
-			setBoard(createEmptyBoard());
-			setCurrentRole(firstRole);
-			setLastPosition({ row: null, col: null });
-			setCanPlay(true);
-			setIsDraw(false);
-		};
-
-		socket.on("boardUpdated", handleBoardUpdated);
-		socket.on("restart", handleRestart);
-
-		return () => {
-			socket.off("boardUpdated", handleBoardUpdated);
-			socket.off("restart", handleRestart);
-		};
-	}, [roomId]);
-
-	// 盤面同期送信
-	useEffect(() => {
-		if (matchState !== "playing") return;
-		const socket = socketRef.current;
-		if (!socket) return;
-		if (suppressSyncRef.current) {
-			suppressSyncRef.current = false;
-			return;
-		}
-		socket.emit("syncBoard", {
-			roomId,
-			board,
-			currentRole,
-			lastPosition,
-		});
-	}, [board, currentRole, lastPosition, matchState, roomId]);
-
-	// 勝敗判定
-	useUpdateEffect(() => {
-		if (checkWin({ lastPosition, currentRole, board })) {
-			setCanPlay(false);
-			const timer = setTimeout(() => {
-				setIsWin(true);
-			}, 200);
-			return () => clearTimeout(timer);
-		}
-		if (checkDraw(board)) {
-			setCanPlay(false);
-			setIsDraw(true);
-			const timer = setTimeout(() => {
-				setIsWin(true);
-			}, 200);
-			return () => clearTimeout(timer);
-		}
-	}, [board]);
+	useConnect4Restart({
+		socketRef,
+		roomId,
+		membersRef,
+		setMatchState,
+		setIsWin,
+		resetGameState,
+		setCurrentRole,
+	});
 
 	const handleCellClick = (colIndex: number) => {
 		onCellClick({

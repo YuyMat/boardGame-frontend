@@ -5,17 +5,19 @@ import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting } from "@/com
 import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS } from "@/constants/reversi";
 import { Board, Result, SkipTurn } from "@/components/Reversi";
 import closeModal from "@/utils/closeModal";
+import { RoleState } from "@/types/reversi";
+
 // カスタムフック
 import useReversiRoom from "@/hooks/reversi/useReversiRoom";
 import useReversiGame from "@/hooks/reversi/useReversiGame";
-import useFirstRole from "@/hooks/reversi/useReversiFirstRole";
+import useFirstRole from "@/hooks/utils/useFirstRole";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 
 export default function Page({ params }: { params: Promise<{ roomId: string }> }) {
 	const { roomId } = use(params);
 
 	// 先手設定
-	const { firstRole, setFirstRole } = useFirstRole();
+	const { firstRole, setFirstRole } = useFirstRole<RoleState>() ;
 
 	// ルーム接続・メンバー/ロール・マッチ状態管理
 	const {

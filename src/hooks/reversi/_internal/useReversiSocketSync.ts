@@ -1,0 +1,58 @@
+"use client"
+
+import { useEffect, useRef } from "react";
+import { handleGameStateUpdatedProps, UseReversiSocketSyncProps } from "@/types/reversi";
+
+/**
+ * ReversiのSocket通信による盤面同期を管理する内部フック
+ */
+export function useReversiSocketSync({
+	socketRef,
+	roomId,
+	matchState,
+	board,
+	lastPosition,
+	currentRole,
+	setBoard,
+	setCurrentRole,
+	setLastPosition,
+}: UseReversiSocketSyncProps) {
+	const suppressSyncRef = useRef(false);
+
+	// 受信: 他プレイヤーの盤面を受け取る
+	useEffect(() => {
+		const socket = socketRef.current;
+		if (!socket) return;
+
+		const handleGameStateUpdated = ({ board: nextBoard, currentRole: nextRole, lastPosition: nextLast }: handleGameStateUpdatedProps) => {
+			suppressSyncRef.current = true;
+			setBoard(nextBoard);
+			setCurrentRole(nextRole);
+			if (nextLast) setLastPosition(nextLast);
+		};
+
+		socket.on("boardUpdated", handleGameStateUpdated);
+
+		return () => {
+			socket.off("boardUpdated", handleGameStateUpdated);
+		};
+	}, [roomId]);
+
+	// 送信: 自分の盤面を送信する
+	useEffect(() => {
+		if (matchState !== "playing") return;
+		const socket = socketRef.current;
+		if (!socket) return;
+		if (suppressSyncRef.current) {
+			suppressSyncRef.current = false;
+			return;
+		}
+
+		socket.emit("syncBoard", {
+			roomId,
+			board,
+			currentRole,
+			lastPosition,
+		});
+	}, [board]);
+}

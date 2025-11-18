@@ -1,9 +1,12 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react";
-import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
-import { BoardState, lastPositionState, RoleState, handleBoardUpdatedProps, UseReversiGameProps, HighlightedBoardState } from "@/types/reversi";
-import { onCellClick, checkWin, createEmptyBoard, createEmptyHighlightedBoard, countStones } from "@/libs/reversi";
+import { useState } from "react";
+import { UseReversiGameProps } from "@/types/reversi";
+import { onCellClick } from "@/libs/reversi";
+import { useReversiGameState } from "./_internal/useReversiGameState";
+import { useReversiSocketSync } from "./_internal/useReversiSocketSync";
+import { useReversiWinCheck } from "./_internal/useReversiWinCheck";
+import { useReversiRestart } from "./_internal/useReversiRestart";
 
 /**
  * オセロゲームのゲームロジックとリアルタイム同期を管理するカスタムフックです。
@@ -47,95 +50,61 @@ export default function useReversiGame({
 	currentRole,
 	setCurrentRole,
 }: UseReversiGameProps) {
-	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
-	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: null, col: null });
 	const [isWin, setIsWin] = useState(false);
-	const [canPlay, setCanPlay] = useState(true);
-	const [highlightedCells, setHighlightedCells] = useState<HighlightedBoardState>(createEmptyHighlightedBoard());
-	const [isSkipTurn, setIsSkipTurn] = useState(false);
+	const {
+		board,
+		setBoard,
+		lastPosition,
+		setLastPosition,
+		canPlay,
+		setCanPlay,
+		highlightedCells,
+		setHighlightedCells,
+		isSkipTurn,
+		setIsSkipTurn,
+		blackCount,
+		whiteCount,
+		skipTurnRef,
+		resetGameState,
+	} = useReversiGameState();
 
-	const blackCount = useRef(0);
-	const whiteCount = useRef(0);
-	const suppressSyncRef = useRef(false);
-	const skipTurnRef = useRef(false);
+	useReversiSocketSync({
+		socketRef,
+		roomId,
+		matchState,
+		board,
+		lastPosition,
+		currentRole,
+		setBoard,
+		setCurrentRole,
+		setLastPosition,
+	});
 
-	// ソケットリスナー設定
-	useEffect(() => {
-		const socket = socketRef.current;
-		if (!socket) return;
+	useReversiWinCheck({
+		board,
+		currentRole,
+		matchState,
+		playerRole,
+		isSkipTurn,
+		skipTurnRef,
+		blackCount,
+		whiteCount,
+		setCanPlay,
+		setIsWin,
+		setHighlightedCells,
+		setIsSkipTurn,
+		setCurrentRole,
+	});
 
-		const handleBoardUpdated = ({ board: nextBoard, currentRole: nextRole, lastPosition: nextLast }: handleBoardUpdatedProps) => {
-			suppressSyncRef.current = true;
-			setBoard(nextBoard);
-			setCurrentRole(nextRole);
-			if (nextLast) setLastPosition(nextLast);
-		};
-
-		const handleRestart = ({firstRole}: {firstRole: RoleState}) => {
-			if (membersRef.current === 1) {
-				setMatchState("waiting");
-				return;
-			}
-			setIsWin(false);
-			setBoard(createEmptyBoard());
-			setCurrentRole(firstRole);
-			setLastPosition({ row: null, col: null });
-			setCanPlay(true);
-		};
-
-		socket.on("boardUpdated", handleBoardUpdated);
-		socket.on("restart", handleRestart);
-
-		return () => {
-			socket.off("boardUpdated", handleBoardUpdated);
-			socket.off("restart", handleRestart);
-		};
-	}, [roomId]);
-
-	// 盤面同期送信
-	useEffect(() => {
-		if (matchState !== "playing") return;
-		const socket = socketRef.current;
-		if (!socket) return;
-		if (suppressSyncRef.current) {
-			suppressSyncRef.current = false;
-			return;
-		}
-		socket.emit("syncBoard", {
-			roomId,
-			board,
-			currentRole,
-			lastPosition,
-		});
-	}, [board, lastPosition, matchState, roomId]);
-
-	// 勝敗判定 & ハイライト更新
-	useUpdateEffect(() => {
-		const stonesCount = countStones(board);
-		blackCount.current = stonesCount.blackCount;
-		whiteCount.current = stonesCount.whiteCount;
-
-		if (isSkipTurn) {
-			if (!skipTurnRef.current)
-				skipTurnRef.current = true;
-			else {
-				setIsSkipTurn(false);
-				skipTurnRef.current = false;
-			}
-		}
-		
-		if (checkWin({ currentRole, board, setHighlightedCells, setIsSkipTurn, setCurrentRole, setCanPlay })) {
-			setHighlightedCells(createEmptyHighlightedBoard());
-			setCanPlay(false);
-			const timer = setTimeout(() => {
-				setIsWin(true);
-			}, 200);
-			return () => clearTimeout(timer);
-		}
-		if (matchState === "playing" && playerRole !== currentRole) {
-			setHighlightedCells(createEmptyHighlightedBoard());
-		}
-	}, [board, matchState, currentRole]);
+	useReversiRestart({
+		socketRef,
+		roomId,
+		membersRef,
+		setMatchState,
+		setIsWin,
+		resetGameState,
+		setCurrentRole,
+	});
 
 	const handleCellClick = (rowIndex: number, colIndex: number) => {
 		onCellClick({
@@ -157,6 +126,7 @@ export default function useReversiGame({
 		setIsWin,
 		onCellClick: handleCellClick,
 		lastPosition,
+		canPlay,
 		blackCount,
 		whiteCount,
 		isSkipTurn,
