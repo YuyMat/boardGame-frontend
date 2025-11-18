@@ -44,6 +44,8 @@ export default function Page() {
 		setCurrentRole(Role.BLACK);
 		setOpenResultModal(false);
 		setCanPlay(true);
+		setLastPosition({ row: null, col: null });
+		setIsSkipTurn(false);
 	};
 
 	const computeHighlights = (role: RoleState) => {
