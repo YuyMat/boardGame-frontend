@@ -78,13 +78,13 @@ export interface UseConnect4GameProps {
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 }
 
-export interface handleBoardUpdatedProps {
+export interface HandleGameStateUpdatedProps {
 	board: BoardState;
 	currentRole: RoleState;
 	lastPosition: lastPositionState;
 }
 
-export interface handleJoinedRoomProps {
+export interface HandleJoinedRoomProps {
 	members: number;
 	role: RoleState | null;
 }
@@ -93,4 +93,26 @@ export interface ReShowResultProps {
 	isWin: boolean;
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	canPlay: boolean;
+}
+
+export interface UseConnect4RestartProps {
+	socketRef: React.RefObject<Socket | null>;
+	roomId: string;
+	membersRef: React.RefObject<number>;
+	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
+	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
+	resetGameState: () => void;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
+}
+
+export interface UseConnect4SocketSyncProps {
+	socketRef: React.RefObject<Socket | null>;
+	roomId: string;
+	matchState: MatchState;
+	board: BoardState;
+	currentRole: RoleState;
+	lastPosition: lastPositionState;
+	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
+	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 }

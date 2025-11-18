@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Board, Result, SkipTurn } from "@/components/Reversi";
 import { createEmptyBoard, createEmptyHighlightedBoard, canTurnOver, reverseStones, countStones } from "@/libs/reversi";
-import { BoardState, RoleState, lastPositionState, HighlightedBoardState } from "@/types/reversi";
+import { BoardState, RoleState, LastPositionState, HighlightedBoardState } from "@/types/reversi";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import closeModal from "@/utils/closeModal";
 import { Role } from "@/constants/reversi";
@@ -11,7 +11,7 @@ import { Role } from "@/constants/reversi";
 export default function Page() {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
 	const [highlightedCells, setHighlightedCells] = useState<HighlightedBoardState>(createEmptyHighlightedBoard());
-	const [lastPosition, setLastPosition] = useState<lastPositionState>({ row: 0, col: 0 });
+	const [lastPosition, setLastPosition] = useState<LastPositionState>({ row: 0, col: 0 });
 	const [currentRole, setCurrentRole] = useState<RoleState>(Role.BLACK);
 	const [openResultModal, setOpenResultModal] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);

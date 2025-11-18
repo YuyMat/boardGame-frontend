@@ -5,17 +5,18 @@ import { Board, ShowTurn, ReShowResult } from "@/components/Connect4";
 import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting } from "@/components/Utils";
 import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS } from "@/constants/connect4";
 import styles from "@/styles/Utils.module.scss";
+import { RoleState } from "@/types/connect4";
 
 // カスタムフック
 import useConnect4Room from "@/hooks/connect4/useConnect4Room";
 import useConnect4Game from "@/hooks/connect4/useConnect4Game";
-import useFirstRole from "@/hooks/connect4/useConnect4FirstRole";
+import useFirstRole from "@/hooks/utils/useFirstRole";
 
 export default function Page({ params }: { params: Promise<{ roomId: string }> }) {
 	const { roomId } = use(params);
 
 	// 先手設定
-	const { firstRole, setFirstRole } = useFirstRole();
+	const { firstRole, setFirstRole } = useFirstRole<RoleState>() ;
 
 	// ルーム接続・メンバー/ロール・マッチ状態管理
 	const {

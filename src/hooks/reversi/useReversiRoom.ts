@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { createSocket } from "@/libs/socket/client";
-import { MatchState, RoleState, handleJoinedRoomProps, FirstState } from "@/types/reversi";
+import { MatchState, RoleState, HandleJoinedRoomProps, FirstState } from "@/types/reversi";
 import { Role } from "@/constants/reversi";
 import type { Socket } from "socket.io-client";
 
@@ -54,7 +54,7 @@ export default function useReversiRoom(
 		socket.connect();
 		socket.emit("startRoom", roomId, "reversi");
 
-		const handleJoinedRoom = ({ members, role }: handleJoinedRoomProps) => {
+		const handleJoinedRoom = ({ members, role }: HandleJoinedRoomProps) => {
 			setMembers(members);
 			membersRef.current = members;
 			// 最初に受け取ったロールのみ採用（後から上書きしない）
