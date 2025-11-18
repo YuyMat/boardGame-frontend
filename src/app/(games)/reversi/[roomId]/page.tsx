@@ -102,6 +102,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				highlightedCells={highlightedCells}
 				currentRole={currentRole}
 				onCellClick={onCellClick}
+				lastPosition={lastPosition}
 			/>
 			<TemporaryWaiting members={members} />
 		</div>

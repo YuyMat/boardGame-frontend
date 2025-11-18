@@ -25,6 +25,7 @@ export interface BoardProps {
 	highlightedCells: HighlightedBoardState;
 	onCellClick: (rowIndex: number, colIndex: number) => void;
 	currentRole: RoleState;
+	lastPosition: LastPositionState;
 }
 
 export interface ResultProps {

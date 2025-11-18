@@ -11,7 +11,7 @@ import { Role } from "@/constants/reversi";
 export default function Page() {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
 	const [highlightedCells, setHighlightedCells] = useState<HighlightedBoardState>(createEmptyHighlightedBoard());
-	const [lastPosition, setLastPosition] = useState<LastPositionState>({ row: 0, col: 0 });
+	const [lastPosition, setLastPosition] = useState<LastPositionState>({ row: null, col: null });
 	const [currentRole, setCurrentRole] = useState<RoleState>(Role.BLACK);
 	const [openResultModal, setOpenResultModal] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
@@ -44,6 +44,8 @@ export default function Page() {
 		setCurrentRole(Role.BLACK);
 		setOpenResultModal(false);
 		setCanPlay(true);
+		setLastPosition({ row: null, col: null });
+		setIsSkipTurn(false);
 	};
 
 	const computeHighlights = (role: RoleState) => {
@@ -99,6 +101,7 @@ export default function Page() {
 				highlightedCells={highlightedCells}
 				currentRole={currentRole}
 				onCellClick={handleCellClick}
+				lastPosition={lastPosition}
 			/>
 		</div>
 	)
