@@ -40,13 +40,14 @@ export function useConnect4SocketSync({
 
 	// 送信: 自分の盤面を送信する
 	useEffect(() => {
-		if (matchState !== "playing") return;
 		const socket = socketRef.current;
 		if (!socket) return;
+		// 受信側で立てた抑制フラグは、matchState に関係なく必ずここで一度消費する
 		if (suppressSyncRef.current) {
 			suppressSyncRef.current = false;
 			return;
 		}
+		if (matchState !== "playing") return;
 
 		socket.emit("syncBoard", {
 			roomId,
