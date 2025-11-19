@@ -1,42 +1,41 @@
 export const dynamic = "force-dynamic";
-import { getRandomInt } from "@/utils/getRandom";
 import { getBackendUrl } from "@/utils/getBackendUrl";
 
-const MIN_ROOM_ID_NUMBER = Number(process.env.ROOMID_MIN);
-const MAX_ROOM_ID_NUMBER = Number(process.env.ROOMID_MAX);
-
 const backendUrl = getBackendUrl();
+const MAX_ROOM_COUNT = Number(process.env.MAX_ROOM_COUNT);
 
 /**
- * 一意なルームIDを生成します
+ * 新規ルーム作成用のID(UUID)を生成します
  * 
- * @returns 16進数文字列形式の一意なルームID、またはエラー時は`null`
+ * @returns UUID形式のルームID。ルーム数上限到達時やエラー発生時は`null`
  * 
  * @remarks
- * - 環境変数で設定された範囲内でランダムな数値を生成します
- * - バックエンドサーバーに問い合わせて、既に存在しないIDを確認します
- * - 一意なIDが見つかるまで繰り返します
- * - 生成された数値は16進数文字列に変換されます
+ * - `crypto.randomUUID()`を使用してUUIDを生成します
+ * - バックエンドサーバーに問い合わせて現在のルーム数を確認し、上限(`MAX_ROOM_COUNT`)未満の場合のみIDを発行します
  */
 async function generateRoomId() {
-	while (true) {
-		const roomIdNumber = getRandomInt(MIN_ROOM_ID_NUMBER, MAX_ROOM_ID_NUMBER);
-
-		try {
-			const res = await fetch(`${backendUrl}/rooms/${roomIdNumber}/exists`, { cache: "no-store" });
-			if (res.ok) {
-				const data: { exists: boolean } = await res.json();
-				if (!data.exists)
-					return roomIdNumber.toString(16);
-			}
-		} catch {
-			return null;
+	try {
+		const res = await fetch(`${backendUrl}/count-rooms`, { cache: "no-store" });
+		if (!res.ok) throw new Error();
+		const data: { count: number } = await res.json();
+		if (data.count < MAX_ROOM_COUNT) {
+			const roomId = crypto.randomUUID();
+			return roomId;
 		}
+		else
+			return null;
+	} catch {
+		return null;
 	}
 }
 
 export async function GET() {
 	const roomId = await generateRoomId();
+	
+	if (!roomId) {
+		return new Response("Service Unavailable", { status: 503 });
+	}
+
 	return Response.json(
 		{ roomId },
 		{ headers: { "Cache-Control": "no-store" } }
