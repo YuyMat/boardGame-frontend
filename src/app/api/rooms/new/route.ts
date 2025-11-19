@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 import { getBackendUrl } from "@/utils/getBackendUrl";
 
 const backendUrl = getBackendUrl();
-const MAX_ROOM_COUNT = Number(process.env.MAX_ROOM_COUNT);
+const MAX_ROOM_COUNT = Number(process.env.MAX_ROOM_COUNT) || 200;
 
 /**
  * 新規ルーム作成用のID(UUID)を生成します
@@ -15,7 +15,10 @@ const MAX_ROOM_COUNT = Number(process.env.MAX_ROOM_COUNT);
  */
 async function generateRoomId() {
 	try {
-		const res = await fetch(`${backendUrl}/count-rooms`, { cache: "no-store" });
+		const res = await fetch(`${backendUrl}/count-rooms`, {
+			cache: "no-store",
+			signal: AbortSignal.timeout(5000),
+		});
 		if (!res.ok) throw new Error();
 		const data: { count: number } = await res.json();
 		if (data.count < MAX_ROOM_COUNT) {
