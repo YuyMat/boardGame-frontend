@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import { ReShowResultProps } from "@/types/connect4";
+import { ReShowResultProps } from "@/types/utils";
 
 /**
  * ゲーム終了後に結果モーダルを再表示するためのボタンコンポーネントです。

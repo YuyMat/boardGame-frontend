@@ -16,3 +16,9 @@ export interface ShowRoleProps<T = RoleState> {
 	playerRole: T | null;
 	canPlay: boolean;
 }
+
+export interface ReShowResultProps {
+	isWin: boolean;
+	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
+	canPlay: boolean;
+}
