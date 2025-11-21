@@ -1,7 +1,7 @@
 # 実装方法
 基本的なリアルタイム通信はコネクト4やリバーシと一緒。Boardコンポーネントや、メタデータのBoardがやや特殊。
 
-1. カードの枚数は[8, 12, 16, 20, 24, 28]から選択(デフォルトは16)
+1. カードの枚数は[8, 12, 16, 20, 24]から選択(デフォルトは16)
 2. そのカードの枚数の新規boardが生成される。
 ```ts
 // 例
@@ -49,7 +49,7 @@ const CardState = {
 }
 
 // 初期状態
-const cardStateBoard = Array(8).fill(null).map(() => Array(8).fill(CardState.CLOSED));
+const cardStateBoard = Array(4).fill(null).map(() => Array(8).fill(CardState.CLOSED));
 ```
 
 6. ユーザーが押したカードの(row, col)をCardState.OPENEDにして図形を表示。
