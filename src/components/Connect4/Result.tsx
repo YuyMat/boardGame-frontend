@@ -24,7 +24,6 @@ export default function Result({isWin, isDraw, onRestart, handleCancel, onShowGa
 		<Modal
 			open={isWin}
 			title="決着！！"
-			onOk={onRestart}
 			onCancel={handleCancel}
 			footer={[
 				<Button key="back" onClick={handleCancel}>

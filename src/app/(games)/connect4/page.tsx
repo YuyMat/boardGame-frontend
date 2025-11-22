@@ -63,7 +63,7 @@ export default function Page() {
 				}
 				lastPosition={lastPosition}
 			/>
-			<ReShowResult isWin={isWin} setIsWin={setIsWin} canPlay={canPlay} />
+			<ReShowResult openModal={isWin} setOpenModal={setIsWin} canPlay={canPlay} />
 		</div>
 	)
 }
