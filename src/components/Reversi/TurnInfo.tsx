@@ -1,9 +1,5 @@
 import { Role } from "@/constants/reversi";
-import { RoleState } from "@/types/reversi";
-
-interface TurnInfoProps {
-	currentRole: RoleState;
-}
+import { TurnInfoProps } from "@/types/reversi";
 
 /**
  * ローカル対戦用の簡易ターン表示コンポーネントです。
@@ -15,7 +11,9 @@ interface TurnInfoProps {
  * @remarks
  * - オンライン対戦用の `ShowTurn` (PlayerInfo.tsx) とは異なり、観戦者や自分/相手の区別はなく、単純に現在の手番を表示します。
  */
-export default function TurnInfo({ currentRole }: TurnInfoProps) {
+export default function TurnInfo({ currentRole, canPlay }: TurnInfoProps) {
+	if (!canPlay) return;
+
 	return (
 		<div className="text-center">
 			<p className="text-xl font-bold">

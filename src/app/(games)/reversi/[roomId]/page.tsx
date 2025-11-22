@@ -107,7 +107,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			/>
 			<TemporaryWaiting members={members} />
 			<ShowTurn currentRole={currentRole} playerRole={playerRole} canPlay={canPlay} />
-			<ReShowResult isWin={isWin} setIsWin={setIsWin} canPlay={canPlay} />
+			<ReShowResult openModal={isWin} setOpenModal={setIsWin} canPlay={canPlay} />
 		</div>
 	)
 }

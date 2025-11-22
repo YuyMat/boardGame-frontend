@@ -54,4 +54,15 @@ const cardStateBoard = Array(4).fill(null).map(() => Array(8).fill(CardState.CLO
 
 6. ユーザーが押したカードの(row, col)をCardState.OPENEDにして図形を表示。
 7. 2枚同時に同じ数字が開かれたらREMOVED状態にしてずっと表むき
+	checkPairについて
+	1. cardStateBoardを全て確認する。
+	2. オープン一つ目 -> 座標と、URLのstringを保持
+	3. オープン二つ目 -> 一つ目のURLと確認
+		- 同じだったら
+			- currentRoleのプレイヤーの点数を足す
+			- 一つ目の座標と、二つ目の座標のcardStateBoardをREMOVEDにする。
+		- 違かったら
+			- 一つ目の座標と、二つ目の座標のcardStateBoardをCLOSEDにする。
+			- currentRoleの変更
+
 8. cardStateBoardの全てがREMOVEDになった時点で試合終了

@@ -1,6 +1,11 @@
 import { CardState } from "@/constants/memory";
 import { Role } from "@/constants/memory";
 
+export interface Position {
+	row: number;
+	col: number;
+}
+
 export type RoleState = typeof Role.BLUE | typeof Role.GREEN;
 export type CardURL = string;
 export type NumericBoardContent = number | null;
@@ -14,11 +19,23 @@ export interface BoardProps {
 	cardBoard: CardBoard;
 	cardStateBoard: CardStateBoard;
 	onCardClick: (rowIndex: number, colIndex: number) => void;
-	currentRole: RoleState;
 	cards: Cards;
 }
 
 export interface Settings {
 	cards: Cards;
 	firstRole: RoleState;
+}
+
+export interface OpenedCard {
+	position: Position;
+	url: string;
+}
+
+export interface ResultProps {
+	isFinished: boolean;
+	onRestart: () => void;
+	handleCancel: () => void;
+	onShowGames: () => void;
+	scores: { [key in RoleState]: number };
 }

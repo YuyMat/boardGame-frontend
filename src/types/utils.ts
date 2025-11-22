@@ -18,7 +18,7 @@ export interface ShowRoleProps<T = RoleState> {
 }
 
 export interface ReShowResultProps {
-	isWin: boolean;
-	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
+	openModal: boolean;
+	setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 	canPlay: boolean;
 }

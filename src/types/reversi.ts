@@ -97,6 +97,11 @@ export interface SkipTurnProps {
 	currentRole: RoleState;
 }
 
+export interface TurnInfoProps {
+	currentRole: RoleState;
+	canPlay: boolean;
+}
+
 export interface UseReversiSocketSyncProps {
 	socketRef: React.RefObject<Socket | null>;
 	roomId: string;

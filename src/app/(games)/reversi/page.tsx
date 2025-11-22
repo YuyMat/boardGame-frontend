@@ -104,8 +104,8 @@ export default function Page() {
 				onCellClick={handleCellClick}
 				lastPosition={lastPosition}
 			/>
-			<TurnInfo currentRole={currentRole} />
-			<ReShowResult isWin={isWin} setIsWin={setIsWin} canPlay={canPlay} />
+			<TurnInfo currentRole={currentRole} canPlay={canPlay} />
+			<ReShowResult openModal={isWin} setOpenModal={setIsWin} canPlay={canPlay} />
 		</div>
 	)
 }
