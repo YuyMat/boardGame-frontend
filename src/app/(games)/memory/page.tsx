@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { CardBoard, CardStateBoard, OpenedCard, RoleState, Settings } from "@/types/memory";
 import { Board, Result } from "@/components/Memory";
 import { CardState, Role } from "@/constants/memory";
@@ -11,7 +11,7 @@ import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import { ReShowResult } from "@/components/Utils";
 
 export default function Page() {
-	const [settings, setSettings] = useState<Settings>({ cards: 24, firstRole: Role.BLUE });
+	const [settings, setSettings] = useState<Settings>({ cards: 8, firstRole: Role.BLUE });
 	const [cardBoard, setCardBoard] = useState<CardBoard>(createInitialCardBoard(settings.cards));
 	const [cardStateBoard, setCardStateBoard] = useState<CardStateBoard>(createInitialCardStateBoard(settings.cards));
 	const [currentRole, setCurrentRole] = useState<RoleState>(settings.firstRole);
@@ -19,6 +19,8 @@ export default function Page() {
 	const [isChecking, setIsChecking] = useState(false);
 	const [isFinished, setIsFinished] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
+
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
 	const gotoTopPage = useGotoTopPage();
 
@@ -49,7 +51,7 @@ export default function Page() {
 
 	const handleMatch = (first: OpenedCard, second: OpenedCard) => {
 		setScores((prev) => ({ ...prev, [currentRole]: prev[currentRole] + 1 }));
-		setTimeout(() => {
+		timeoutRef.current = setTimeout(() => {
 			setCardStateBoard((prev) => {
 				const next = prev.map((row) => [...row]);
 				next[first.position.row][first.position.col] = CardState.REMOVED;
@@ -61,7 +63,7 @@ export default function Page() {
 	};
 
 	const handleMismatch = (first: OpenedCard, second: OpenedCard) => {
-		setTimeout(() => {
+		timeoutRef.current = setTimeout(() => {
 			setCardStateBoard((prev) => {
 				const next = prev.map((row) => [...row]);
 				next[first.position.row][first.position.col] = CardState.CLOSED;
@@ -94,14 +96,18 @@ export default function Page() {
 	useEffect(() => {
 		checkPair();
 
+		let timer: NodeJS.Timeout;
 		if (checkFinished()) {
 			setCanPlay(false);
-			const timer = setTimeout(() => {
+			timer = setTimeout(() => {
 				setIsFinished(true);
 			}, 200);
-			return () => clearTimeout(timer);
 		}
 
+		return () => {
+			if (timer) clearTimeout(timer);
+			if (timeoutRef.current) clearTimeout(timeoutRef.current);
+		};
 	}, [cardStateBoard])
 
 	const onRestart = () => {

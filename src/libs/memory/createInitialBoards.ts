@@ -1,18 +1,16 @@
 import { CardState, CHIPS, DICE, MAX_FILL_TRIES, cols, TRUMP_CARDS } from "@/constants/memory";
 import { CardBoard, CardURL, NumericBoard } from "@/types/memory";
-import { getRandomNumber } from "@/utils/getRandomNumber";
+import { getRandomInt } from "@/utils/getRandom";
 
 const simpleFillNumericBoard = (numericBoard: NumericBoard, num: number) => {
-	const rows = numericBoard.length;
-
-	for (let i = 0; i < rows; i++) {
-		for (let j = 0; j < cols; j++) {
-			if (numericBoard[i][j] === null) {
-				numericBoard[i][j] = num;
-				return;
-			}
+	numericBoard.some((row) => {
+		const colIndex = row.indexOf(null);
+		if (colIndex !== -1) {
+			row[colIndex] = num;
+			return true;
 		}
-	}
+		return false;
+	});
 }
 
 const fillNumericBoard = (numericBoard: NumericBoard, cards: number) => {
@@ -23,8 +21,8 @@ const fillNumericBoard = (numericBoard: NumericBoard, cards: number) => {
 	for (let i = 1; i <= maxNumber; count++) {
 		let tries = 0;
 		while (tries < MAX_FILL_TRIES) {
-			const row = getRandomNumber(0, rows);
-			const col = getRandomNumber(0, cols);
+			const row = getRandomInt(0, rows);
+			const col = getRandomInt(0, cols);
 			if (numericBoard[row][col] === null) {
 				numericBoard[row][col] = i;
 				break;
@@ -58,7 +56,7 @@ const generateCardURLs = (cards: number) => {
 	const trumpNumberHistory = new Set<number>();
 	for (let i = 1; i < Math.floor(maxNumber/3); i++) {
 		while (true) {
-			randomNumber = getRandomNumber(1, TRUMP_CARDS+1);
+			randomNumber = getRandomInt(1, TRUMP_CARDS+1);
 			if (!trumpNumberHistory.has(randomNumber)) {
 				trumpNumberHistory.add(randomNumber);
 				break;
@@ -71,7 +69,7 @@ const generateCardURLs = (cards: number) => {
 	const chipNumberHistory = new Set<number>();
 	for (let i = Math.floor(maxNumber/3); i < Math.floor(maxNumber*2/3); i++) {
 		while (true) {
-			randomNumber = getRandomNumber(1, CHIPS+1);
+			randomNumber = getRandomInt(1, CHIPS+1);
 			if (!chipNumberHistory.has(randomNumber)) {
 				chipNumberHistory.add(randomNumber);
 				break;
@@ -84,7 +82,7 @@ const generateCardURLs = (cards: number) => {
 	const diceNumberHistory = new Set<number>();
 	for (let i = Math.floor(maxNumber*2/3); i <= maxNumber; i++) {
 		while (true) {
-			randomNumber = getRandomNumber(1, DICE+1);
+			randomNumber = getRandomInt(1, DICE+1);
 			if (!diceNumberHistory.has(randomNumber)) {
 				diceNumberHistory.add(randomNumber);
 				break;

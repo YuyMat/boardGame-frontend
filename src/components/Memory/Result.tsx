@@ -23,7 +23,6 @@ export default function Result({ isFinished, onRestart, handleCancel, onShowGame
 		<Modal
 			open={isFinished}
 			title="決着！！"
-			onOk={onRestart}
 			onCancel={handleCancel}
 			footer={[
 				<Button key="back" onClick={handleCancel}>

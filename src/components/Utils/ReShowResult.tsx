@@ -15,7 +15,6 @@ import { ReShowResultProps } from "@/types/utils";
  * - 画面上部中央に配置されます
  */
 export default function ReShowResult({ openModal, setOpenModal, canPlay }: ReShowResultProps) {
-	console.log(openModal, canPlay);
 	if (!openModal && !canPlay) {
 		return (
 			<div className="flex justify-center w-full -translate-y-2">
