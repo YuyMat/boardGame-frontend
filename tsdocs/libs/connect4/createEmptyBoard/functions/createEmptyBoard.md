@@ -8,7 +8,7 @@
 
 > **createEmptyBoard**(): [`BoardState`](../../../../types/connect4/type-aliases/BoardState.md)
 
-Defined in: [libs/connect4/createEmptyBoard.ts:12](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/connect4/createEmptyBoard.ts#L12)
+Defined in: [libs/connect4/createEmptyBoard.ts:12](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/libs/connect4/createEmptyBoard.ts#L12)
 
 Connect4ゲーム用の空のゲームボードを作成します。
 

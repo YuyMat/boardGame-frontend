@@ -8,7 +8,7 @@
 
 > **createEmptyHighlightedBoard**(): [`HighlightedBoardState`](../../../../types/reversi/type-aliases/HighlightedBoardState.md)
 
-Defined in: [libs/reversi/createEmptyBoard.ts:40](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/reversi/createEmptyBoard.ts#L40)
+Defined in: [libs/reversi/createEmptyBoard.ts:40](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/libs/reversi/createEmptyBoard.ts#L40)
 
 オセロゲーム用の空のハイライト用ボードを作成します。
 8x8のすべてのセルが`false`で初期化されたブール値配列を返します。

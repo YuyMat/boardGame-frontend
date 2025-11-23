@@ -8,7 +8,7 @@
 
 > **default**(`setIsOpen`): `void`
 
-Defined in: [utils/closeModal.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/utils/closeModal.ts#L11)
+Defined in: [utils/closeModal.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/utils/closeModal.ts#L11)
 
 モーダルを閉じる処理を実行します。
 

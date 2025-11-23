@@ -8,7 +8,7 @@
 
 > **default**(`props`): `object`
 
-Defined in: [hooks/reversi/useReversiGame.ts:40](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/hooks/reversi/useReversiGame.ts#L40)
+Defined in: [hooks/reversi/useReversiGame.ts:43](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/hooks/reversi/useReversiGame.ts#L43)
 
 オセロゲームのゲームロジックとリアルタイム同期を管理するカスタムフックです。
 ボードの状態管理、合法手のハイライト、勝敗判定、Socket.IOを使った盤面同期を行います。
@@ -42,10 +42,6 @@ Defined in: [hooks/reversi/useReversiGame.ts:40](https://github.com/YuyMat/board
 
 > **board**: [`BoardState`](../../../../types/reversi/type-aliases/BoardState.md)
 
-### currentRole
-
-> **currentRole**: [`RoleState`](../../../../types/reversi/type-aliases/RoleState.md)
-
 ### isWin
 
 > **isWin**: `boolean`
@@ -74,7 +70,7 @@ Defined in: [hooks/reversi/useReversiGame.ts:40](https://github.com/YuyMat/board
 
 ### lastPosition
 
-> **lastPosition**: [`lastPositionState`](../../../../types/reversi/type-aliases/lastPositionState.md)
+> **lastPosition**: [`LastPositionState`](../../../../types/reversi/type-aliases/LastPositionState.md)
 
 ### canPlay
 

@@ -8,10 +8,10 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Reversi/Board.tsx:22](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/components/Reversi/Board.tsx#L22)
+Defined in: [components/Reversi/Board.tsx:24](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Reversi/Board.tsx#L24)
 
-オセロゲームの盤面を表示するメインボードコンポーネントです。
-8x8の盤面、石、合法手のハイライトを表示します。
+リバーシゲームの盤面を表示するメインボードコンポーネントです。
+8x8の盤面、石、合法手のハイライト、および直前に置かれた石の位置を表示します。
 
 ## Parameters
 
@@ -27,7 +27,8 @@ Defined in: [components/Reversi/Board.tsx:22](https://github.com/YuyMat/boardGam
 
 ## Remarks
 
-- 8x8のオセロ盤面を表示します
+- 8x8のリバーシ盤面を表示します
 - 合法手の位置は明るい緑色でハイライトされます
+- 直前に石を置いたマスは枠線の色によって強調表示されます
 - 黒石と白石が視覚的に区別されます
 - 現在のターン情報も表示されます

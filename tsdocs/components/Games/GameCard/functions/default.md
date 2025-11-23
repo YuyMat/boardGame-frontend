@@ -8,7 +8,7 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Games/GameCard.tsx:23](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/components/Games/GameCard.tsx#L23)
+Defined in: [components/Games/GameCard.tsx:23](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Games/GameCard.tsx#L23)
 
 ゲーム一覧に表示される個別のゲームカードコンポーネントです。
 ゲームのサムネイル、タイトル、説明、プレイボタンを表示します。

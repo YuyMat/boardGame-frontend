@@ -8,7 +8,7 @@
 
 > **onCellClick**(`params`): `void`
 
-Defined in: [libs/connect4/onCellClick.ts:21](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/connect4/onCellClick.ts#L21)
+Defined in: [libs/connect4/onCellClick.ts:21](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/libs/connect4/onCellClick.ts#L21)
 
 Connect4ゲームで列がクリックされたときの処理を実行します。
 指定された列の最下段の空きセルに石を落とし、ターンを切り替えます。

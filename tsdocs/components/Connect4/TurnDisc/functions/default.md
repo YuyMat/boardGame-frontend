@@ -8,7 +8,7 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Connect4/TurnDisc.tsx:15](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/components/Connect4/TurnDisc.tsx#L15)
+Defined in: [components/Connect4/TurnDisc.tsx:15](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Connect4/TurnDisc.tsx#L15)
 
 Connect4ゲームで現在のターンを視覚的に表示するディスクコンポーネントです。
 画面上部に現在のターンの色のディスクを表示します。
