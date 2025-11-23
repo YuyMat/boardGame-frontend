@@ -33,14 +33,6 @@ export interface OpenedCard {
 	url: string;
 }
 
-export interface ResultProps {
-	isFinished: boolean;
-	onRestart: () => void;
-	handleCancel: () => void;
-	onShowGames: () => void;
-	scores: { [key in RoleState]: number };
-}
-
 export interface ScoresProps {
 	scores: ScoresState;
 	canPlay: boolean;

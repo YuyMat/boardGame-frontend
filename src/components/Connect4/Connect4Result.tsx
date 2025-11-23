@@ -1,5 +1,5 @@
 import { Button, Modal } from "antd";
-import { ResultProps } from "@/types/connect4";
+import { Connect4ResultProps } from "@/types/connect4";
 import { Role } from "@/constants/connect4";
 
 /**
@@ -19,7 +19,7 @@ import { Role } from "@/constants/connect4";
  * - 勝者がいる場合は、currentRoleの逆のプレイヤーが勝者として表示されます
  * - 3つのアクション（戻る、ゲーム一覧、リスタート）を提供します
  */
-export default function Result({isWin, isDraw, onRestart, handleCancel, onShowGames, currentRole}: ResultProps) {
+export default function Connect4Result({isWin, isDraw, onRestart, handleCancel, onShowGames, currentRole}: Connect4ResultProps) {
 	return (
 		<Modal
 			open={isWin}

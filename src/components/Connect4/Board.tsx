@@ -1,7 +1,7 @@
 "use client"
 
 import { BoardProps } from "@/types/connect4";
-import Result from "./Result";
+import Connect4Result from "./Connect4Result";
 import TurnDisc from "./TurnDisc";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import { Role } from "@/constants/connect4";
@@ -31,7 +31,7 @@ export default function Board({ board, onCellClick, isWin, isDraw, setIsWin, onR
 
 	return (
 		<div className="relative z-1">
-			<Result isWin={isWin} isDraw={isDraw} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentRole={currentRole} />
+			<Connect4Result isWin={isWin} isDraw={isDraw} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentRole={currentRole} />
 			<TurnDisc currentRole={currentRole} />
 			<div className="pt-2 pl-2">
 				<h2 className="text-2xl font-bold text-blue-800">Connect 4</h2>

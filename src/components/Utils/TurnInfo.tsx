@@ -2,14 +2,20 @@ import { Role } from "@/constants/utils";
 import { TurnInfoProps } from "@/types/reversi";
 
 /**
- * ローカル対戦用の簡易ターン表示コンポーネントです。
- * 現在のプレイヤーが黒か白かを表示します。
- * 
+ * 現在のターンを表示するコンポーネントです。
+ *
  * @param props - コンポーネントのProps
- * @param props.currentRole - 現在のターンのプレイヤー（Role.BLACKまたはRole.WHITE）
- * 
+ * @param props.currentRole - 現在のターンのプレイヤー
+ * @param props.canPlay - ゲームがプレイ可能かどうか（falseの場合は何も表示しない）
+ * @param props.mainRole - メインプレイヤー（例: 黒、先攻）の表示名
+ * @param props.subRole - サブプレイヤー（例: 白、後攻）の表示名
+ * @param props.mainRoleColorClass - メインプレイヤー名を表示する際の色クラス
+ * @param props.subRoleColorClass - サブプレイヤー名を表示する際の色クラス
+ *
  * @remarks
- * - オンライン対戦用の `ShowTurn` (PlayerInfo.tsx) とは異なり、観戦者や自分/相手の区別はなく、単純に現在の手番を表示します。
+ * - 汎用的なターン表示コンポーネントとして、Reversi以外のゲームでも使用可能です。
+ * - `currentRole` が `Role.MAIN` の場合は `mainRole` と `mainRoleColorClass` を使用し、
+ *   それ以外の場合は `subRole` と `subRoleColorClass` を使用します。
  */
 export default function TurnInfo({ currentRole, canPlay, mainRole, subRole, mainRoleColorClass, subRoleColorClass }: TurnInfoProps) {
 	if (!canPlay) return;

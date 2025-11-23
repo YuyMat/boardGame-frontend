@@ -29,15 +29,6 @@ export interface BoardProps {
 	lastPosition: LastPositionState;
 }
 
-export interface ResultProps {
-	isOpen: boolean;
-	onRestart: () => void;
-	handleCancel: () => void;
-	onShowGames: () => void;
-	blackCount: number;
-	whiteCount: number;
-}
-
 export interface CheckWinProps {
 	currentRole: RoleState;
 	board: BoardState;
