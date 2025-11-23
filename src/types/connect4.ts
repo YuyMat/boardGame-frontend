@@ -29,7 +29,7 @@ export interface BoardProps {
 	lastPosition: lastPositionState;
 }
 
-export interface ResultProps {
+export interface Connect4ResultProps {
 	isWin: boolean;
 	isDraw: boolean;
 	onRestart: () => void;

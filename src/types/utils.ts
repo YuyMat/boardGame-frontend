@@ -22,3 +22,14 @@ export interface ReShowResultProps {
 	setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 	canPlay: boolean;
 }
+
+export interface ResultProps {
+	isOpen: boolean;
+	onRestart: () => void;
+	handleCancel: () => void;
+	onShowGames: () => void;
+	mainScore: number;
+	subScore: number;
+	mainRole: string;
+	subRole: string;
+}

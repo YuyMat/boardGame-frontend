@@ -1,9 +1,9 @@
 "use client"
 
 import { use } from "react";
-import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting, ReShowResult } from "@/components/Utils";
+import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting, ReShowResult, Result } from "@/components/Utils";
 import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS } from "@/constants/reversi";
-import { Board, Result, SkipTurn, ShowTurn } from "@/components/Reversi";
+import { Board, SkipTurn, ShowTurn } from "@/components/Reversi";
 import closeModal from "@/utils/closeModal";
 import { RoleState } from "@/types/reversi";
 
@@ -96,7 +96,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	// playing
 	return (
 		<div className={`${currentRole === Role.BLACK ? 'bg-gray-500' : 'bg-gray-100'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1`}>
-			<Result isOpen={isWin} onRestart={emitRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} blackCount={blackCount.current} whiteCount={whiteCount.current} />
+			<Result isOpen={isWin} onRestart={emitRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} mainScore={blackCount.current} subScore={whiteCount.current} mainRole={'黒'} subRole={'白'} />
 			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
 			<Board
 				board={board}

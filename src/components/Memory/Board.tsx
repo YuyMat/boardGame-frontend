@@ -1,5 +1,5 @@
 import { BoardProps } from "@/types/memory";
-import { CardState, Role } from "@/constants/memory";
+import { CardState } from "@/constants/memory";
 import Image from "next/image";
 
 export default function Board({ cardBoard, cardStateBoard, onCardClick, cards }: BoardProps) {

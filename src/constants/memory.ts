@@ -1,6 +1,7 @@
 export const totalCards = [8, 12, 16, 20, 24, 28] as const;
 export const defaultTotalCards = 16;
 export const cols = 4;
+export const MATCH_POINT = 2;
 
 export const Role = {
 	BLUE: 1,

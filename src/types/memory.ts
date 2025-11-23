@@ -10,6 +10,7 @@ export type RoleState = typeof Role.BLUE | typeof Role.GREEN;
 export type CardURL = string;
 export type NumericBoardContent = number | null;
 
+export type ScoresState = { [key in RoleState]: number };
 export type Cards = 8 | 12 | 16 | 20 | 24;
 export type NumericBoard = NumericBoardContent[][];
 export type CardBoard = CardURL[][];
@@ -32,10 +33,7 @@ export interface OpenedCard {
 	url: string;
 }
 
-export interface ResultProps {
-	isFinished: boolean;
-	onRestart: () => void;
-	handleCancel: () => void;
-	onShowGames: () => void;
-	scores: { [key in RoleState]: number };
+export interface ScoresProps {
+	scores: ScoresState;
+	canPlay: boolean;
 }

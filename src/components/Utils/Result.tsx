@@ -1,4 +1,4 @@
-import { ResultProps } from "@/types/reversi";
+import { ResultProps } from "@/types/utils";
 import { Button, Modal } from "antd";
 
 /**
@@ -18,7 +18,7 @@ import { Button, Modal } from "antd";
  * - 石の数が多い方が勝者として表示されます
  * - 3つのアクション（戻る、ゲーム一覧、リスタート）を提供します
  */
-export default function Result({ isOpen, onRestart, handleCancel, onShowGames, blackCount, whiteCount }: ResultProps) {
+export default function Result({ isOpen, onRestart, handleCancel, onShowGames, mainScore, subScore, mainRole, subRole }: ResultProps) {
 	return (
 		<Modal
 			open={isOpen}
@@ -37,15 +37,15 @@ export default function Result({ isOpen, onRestart, handleCancel, onShowGames, b
 			]}
 		>
 			<p className="text-center text-2xl">
-				{blackCount} - {whiteCount} により...
+				{mainScore} - {subScore} により...
 			</p>
-			{blackCount === whiteCount ?
-				<p className="text-center text-2xl">引き分け</p>
+			{mainScore === subScore ?
+				<p className="text-center text-2xl">😑 引き分け 😑</p>
 				:
 				<p className="text-center text-2xl">{
-					blackCount > whiteCount
-						? "🎉 黒の勝利 🎉"
-						: "🎉 白の勝利 🎉"
+					mainScore > subScore
+						? `🎉 ${mainRole}の勝利 🎉`
+						: `🎉 ${subRole}の勝利 🎉`
 				}
 				</p>
 			}
