@@ -8,7 +8,7 @@
 
 > **getRandomInt**(`min`, `max`): `number`
 
-Defined in: [utils/getRandom.ts:17](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/utils/getRandom.ts#L17)
+Defined in: [utils/getRandom.ts:13](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/utils/getRandom.ts#L13)
 
 指定された範囲内のランダムな整数を生成します。
 
@@ -30,15 +30,15 @@ Defined in: [utils/getRandom.ts:17](https://github.com/YuyMat/boardGame-frontend
 
 `number`
 
-`min`以上`max`未満のランダムな整数
+min以上max未満のランダムな整数
 
 ## Throws
 
-`max`が`min`以下の場合はエラーをスロー
+maxがmin以下の場合はエラーをスロー
 
 ## Example
 
-```typescript
+```ts
 getRandomInt(1, 10); // 1〜9のいずれかの整数を返す
 getRandomInt(0, 2);  // 0または1を返す
 ```

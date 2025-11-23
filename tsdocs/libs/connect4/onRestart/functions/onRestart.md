@@ -8,7 +8,7 @@
 
 > **onRestart**(`params`): `void`
 
-Defined in: [libs/connect4/onRestart.ts:18](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/connect4/onRestart.ts#L18)
+Defined in: [libs/connect4/onRestart.ts:18](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/libs/connect4/onRestart.ts#L18)
 
 Connect4ゲームを初期状態にリセットします。
 ボード、勝利フラグ、プレイ可能フラグ、最後の位置、引き分けフラグをすべてリセットします。

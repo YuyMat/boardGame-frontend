@@ -8,4 +8,4 @@
 
 > `const` **MAX\_PLAYERS**: `2`
 
-Defined in: [constants/connect4.ts:34](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/constants/connect4.ts#L34)
+Defined in: [constants/connect4.ts:34](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/constants/connect4.ts#L34)

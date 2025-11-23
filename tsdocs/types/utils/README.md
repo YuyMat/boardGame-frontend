@@ -6,6 +6,12 @@
 
 # types/utils
 
+## Interfaces
+
+- [ShowRoleProps](interfaces/ShowRoleProps.md)
+- [ReShowResultProps](interfaces/ReShowResultProps.md)
+- [ResultProps](interfaces/ResultProps.md)
+
 ## Type Aliases
 
 - [CSSColorClass](type-aliases/CSSColorClass.md)

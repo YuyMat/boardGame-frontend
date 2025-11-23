@@ -8,7 +8,7 @@
 
 > **default**(): `Element`
 
-Defined in: [app/(games)/reversi/page.tsx:11](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/app/(games)/reversi/page.tsx#L11)
+Defined in: [app/(games)/reversi/page.tsx:12](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/app/(games)/reversi/page.tsx#L12)
 
 ## Returns
 

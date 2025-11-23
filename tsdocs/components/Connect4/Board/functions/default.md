@@ -8,7 +8,7 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Connect4/Board.tsx:29](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/components/Connect4/Board.tsx#L29)
+Defined in: [components/Connect4/Board.tsx:29](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Connect4/Board.tsx#L29)
 
 Connect4ゲームの盤面全体を表示するメインコンポーネントです。
 ボード、結果モーダル、ターン表示ディスクを含みます。

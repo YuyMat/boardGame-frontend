@@ -9,15 +9,15 @@
 ## Interfaces
 
 - [BoardProps](interfaces/BoardProps.md)
-- [ResultProps](interfaces/ResultProps.md)
+- [Connect4ResultProps](interfaces/Connect4ResultProps.md)
 - [CheckWinProps](interfaces/CheckWinProps.md)
 - [OnCellClickProps](interfaces/OnCellClickProps.md)
 - [OnRestartProps](interfaces/OnRestartProps.md)
-- [ShowRoleProps](interfaces/ShowRoleProps.md)
 - [UseConnect4GameProps](interfaces/UseConnect4GameProps.md)
-- [handleBoardUpdatedProps](interfaces/handleBoardUpdatedProps.md)
-- [handleJoinedRoomProps](interfaces/handleJoinedRoomProps.md)
-- [ReShowResultProps](interfaces/ReShowResultProps.md)
+- [HandleGameStateUpdatedProps](interfaces/HandleGameStateUpdatedProps.md)
+- [HandleJoinedRoomProps](interfaces/HandleJoinedRoomProps.md)
+- [UseConnect4RestartProps](interfaces/UseConnect4RestartProps.md)
+- [UseConnect4SocketSyncProps](interfaces/UseConnect4SocketSyncProps.md)
 
 ## Type Aliases
 

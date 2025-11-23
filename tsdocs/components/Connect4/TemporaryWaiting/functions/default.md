@@ -8,7 +8,7 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Connect4/TemporaryWaiting.tsx:21](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/components/Connect4/TemporaryWaiting.tsx#L21)
+Defined in: [components/Connect4/TemporaryWaiting.tsx:21](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Connect4/TemporaryWaiting.tsx#L21)
 
 Connect4のオンライン対戦で対戦相手の参加を待つ待機モーダルコンポーネントです。
 メンバー数が2人未満の場合に自動的に表示されます。

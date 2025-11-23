@@ -8,7 +8,7 @@
 
 > **default**(`props`): `object`
 
-Defined in: [hooks/connect4/useConnect4Game.ts:37](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/hooks/connect4/useConnect4Game.ts#L37)
+Defined in: [hooks/connect4/useConnect4Game.ts:40](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/hooks/connect4/useConnect4Game.ts#L40)
 
 Connect4ゲームのゲームロジックとリアルタイム同期を管理するカスタムフックです。
 ボードの状態管理、勝敗判定、Socket.IOを使った盤面同期を行います。

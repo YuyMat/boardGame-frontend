@@ -14,12 +14,12 @@ Renames and re-exports [default](Board/functions/default.md)
 
 ***
 
-### Result
-
-Renames and re-exports [default](Result/functions/default.md)
-
-***
-
 ### SkipTurn
 
 Renames and re-exports [default](SkipTurn/functions/default.md)
+
+***
+
+### ShowTurn
+
+Renames and re-exports [default](showTurn/functions/default.md)

@@ -8,7 +8,7 @@
 
 > **checkWin**(`params`): `boolean`
 
-Defined in: [libs/connect4/checkWin.ts:19](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/connect4/checkWin.ts#L19)
+Defined in: [libs/connect4/checkWin.ts:19](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/libs/connect4/checkWin.ts#L19)
 
 Connect4ゲームで勝利条件を満たしているかをチェックします。
 縦、横、斜め（2方向）のすべての方向で4つ連続しているかを判定します。

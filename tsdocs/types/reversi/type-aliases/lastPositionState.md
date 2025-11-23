@@ -2,13 +2,13 @@
 
 ***
 
-[frontend](../../../modules.md) / [types/reversi](../README.md) / lastPositionState
+[frontend](../../../modules.md) / [types/reversi](../README.md) / LastPositionState
 
-# Type Alias: lastPositionState
+# Type Alias: LastPositionState
 
-> **lastPositionState** = `object`
+> **LastPositionState** = `object`
 
-Defined in: [types/reversi.ts:13](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L13)
+Defined in: [types/reversi.ts:14](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L14)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [types/reversi.ts:13](https://github.com/YuyMat/boardGame-frontend/b
 
 > **row**: `number` \| `null`
 
-Defined in: [types/reversi.ts:14](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L14)
+Defined in: [types/reversi.ts:15](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L15)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [types/reversi.ts:14](https://github.com/YuyMat/boardGame-frontend/b
 
 > **col**: `number` \| `null`
 
-Defined in: [types/reversi.ts:15](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L15)
+Defined in: [types/reversi.ts:16](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L16)

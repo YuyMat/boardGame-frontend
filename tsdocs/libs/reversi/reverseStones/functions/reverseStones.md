@@ -8,7 +8,7 @@
 
 > **reverseStones**(`params`): `void`
 
-Defined in: [libs/reversi/reverseStones.ts:18](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/libs/reversi/reverseStones.ts#L18)
+Defined in: [libs/reversi/reverseStones.ts:18](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/libs/reversi/reverseStones.ts#L18)
 
 オセロで石を置いた後、挟まれた相手の石をひっくり返す処理を実行します。
 8方向すべてをチェックし、挟んだ石を自分の色に変更します。

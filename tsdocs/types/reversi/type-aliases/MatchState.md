@@ -8,4 +8,4 @@
 
 > **MatchState** = `"waiting"` \| `"matched"` \| `"playing"`
 
-Defined in: [types/reversi.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/reversi.ts#L20)
+Defined in: [types/reversi.ts:21](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L21)

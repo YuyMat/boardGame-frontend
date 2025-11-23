@@ -9,23 +9,27 @@
 ## Interfaces
 
 - [BoardProps](interfaces/BoardProps.md)
-- [ResultProps](interfaces/ResultProps.md)
 - [CheckWinProps](interfaces/CheckWinProps.md)
 - [OnCellClickProps](interfaces/OnCellClickProps.md)
 - [UseReversiGameProps](interfaces/UseReversiGameProps.md)
-- [handleBoardUpdatedProps](interfaces/handleBoardUpdatedProps.md)
-- [handleJoinedRoomProps](interfaces/handleJoinedRoomProps.md)
+- [HandleGameStateUpdatedProps](interfaces/HandleGameStateUpdatedProps.md)
+- [HandleJoinedRoomProps](interfaces/HandleJoinedRoomProps.md)
 - [CanTurnOverProps](interfaces/CanTurnOverProps.md)
 - [ReverseStonesProps](interfaces/ReverseStonesProps.md)
 - [SkipTurnProps](interfaces/SkipTurnProps.md)
+- [TurnInfoProps](interfaces/TurnInfoProps.md)
+- [UseReversiSocketSyncProps](interfaces/UseReversiSocketSyncProps.md)
+- [UseReversiWinCheckProps](interfaces/UseReversiWinCheckProps.md)
+- [UseReversiRestartProps](interfaces/UseReversiRestartProps.md)
 
 ## Type Aliases
 
 - [RoleState](type-aliases/RoleState.md)
 - [CellState](type-aliases/CellState.md)
 - [HighlightedCellState](type-aliases/HighlightedCellState.md)
+- [RoleColorClass](type-aliases/RoleColorClass.md)
 - [BoardState](type-aliases/BoardState.md)
 - [HighlightedBoardState](type-aliases/HighlightedBoardState.md)
-- [lastPositionState](type-aliases/lastPositionState.md)
+- [LastPositionState](type-aliases/LastPositionState.md)
 - [FirstState](type-aliases/FirstState.md)
 - [MatchState](type-aliases/MatchState.md)

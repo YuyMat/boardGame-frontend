@@ -8,7 +8,7 @@
 
 > **RuleSettingsProps** = `object`
 
-Defined in: [types/utils.ts:7](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/utils.ts#L7)
+Defined in: [types/utils.ts:7](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L7)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [types/utils.ts:7](https://github.com/YuyMat/boardGame-frontend/blob
 
 > **setFirst**: (`first`) => `void`
 
-Defined in: [types/utils.ts:8](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/utils.ts#L8)
+Defined in: [types/utils.ts:8](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L8)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [types/utils.ts:8](https://github.com/YuyMat/boardGame-frontend/blob
 
 > **keyToShowLabel**: `Record`\<[`FirstState`](FirstState.md), `string`\>
 
-Defined in: [types/utils.ts:9](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/utils.ts#L9)
+Defined in: [types/utils.ts:9](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L9)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [types/utils.ts:9](https://github.com/YuyMat/boardGame-frontend/blob
 
 > **firstTurnItems**: `object`[]
 
-Defined in: [types/utils.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/utils.ts#L10)
+Defined in: [types/utils.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L10)
 
 #### label
 
@@ -58,4 +58,4 @@ Defined in: [types/utils.ts:10](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **mainPlayerColorClass**: [`CSSColorClass`](CSSColorClass.md)
 
-Defined in: [types/utils.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/utils.ts#L11)
+Defined in: [types/utils.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L11)

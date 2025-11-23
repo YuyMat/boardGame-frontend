@@ -8,7 +8,7 @@
 
 > **GameMeta** = `object`
 
-Defined in: [types/games.ts:1](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L1)
+Defined in: [types/games.ts:1](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L1)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [types/games.ts:1](https://github.com/YuyMat/boardGame-frontend/blob
 
 > **id**: `string`
 
-Defined in: [types/games.ts:2](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L2)
+Defined in: [types/games.ts:2](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L2)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [types/games.ts:2](https://github.com/YuyMat/boardGame-frontend/blob
 
 > **name**: `string`
 
-Defined in: [types/games.ts:3](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L3)
+Defined in: [types/games.ts:3](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L3)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [types/games.ts:3](https://github.com/YuyMat/boardGame-frontend/blob
 
 > **description**: `string`
 
-Defined in: [types/games.ts:4](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L4)
+Defined in: [types/games.ts:4](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L4)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [types/games.ts:4](https://github.com/YuyMat/boardGame-frontend/blob
 
 > **imageSrc**: `string`
 
-Defined in: [types/games.ts:5](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L5)
+Defined in: [types/games.ts:5](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L5)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [types/games.ts:5](https://github.com/YuyMat/boardGame-frontend/blob
 
 > `optional` **localPath**: `string` \| `null`
 
-Defined in: [types/games.ts:6](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L6)
+Defined in: [types/games.ts:6](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L6)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [types/games.ts:6](https://github.com/YuyMat/boardGame-frontend/blob
 
 > `optional` **onlinePath**: `string` \| `null`
 
-Defined in: [types/games.ts:7](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L7)
+Defined in: [types/games.ts:7](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L7)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [types/games.ts:7](https://github.com/YuyMat/boardGame-frontend/blob
 
 > **isAvailable**: `boolean`
 
-Defined in: [types/games.ts:8](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L8)
+Defined in: [types/games.ts:8](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L8)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [types/games.ts:8](https://github.com/YuyMat/boardGame-frontend/blob
 
 > **isDev**: `boolean`
 
-Defined in: [types/games.ts:9](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L9)
+Defined in: [types/games.ts:9](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L9)
 
 ***
 
@@ -80,4 +80,4 @@ Defined in: [types/games.ts:9](https://github.com/YuyMat/boardGame-frontend/blob
 
 > `optional` **tags**: `string`[]
 
-Defined in: [types/games.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/b1016e2a0c10c4591b81b48d72fc6c96a85783a4/src/types/games.ts#L10)
+Defined in: [types/games.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/games.ts#L10)
