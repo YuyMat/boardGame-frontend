@@ -4,7 +4,7 @@ import { BoardProps } from "@/types/reversi";
 import { Role } from "@/constants/reversi";
 
 /**
- * オセロゲームの盤面を表示するメインボードコンポーネントです。
+ * リバーシゲームの盤面を表示するメインボードコンポーネントです。
  * 8x8の盤面、石、合法手のハイライト、および直前に置かれた石の位置を表示します。
  * 
  * @param props - コンポーネントのProps
@@ -15,7 +15,7 @@ import { Role } from "@/constants/reversi";
  * @param props.lastPosition - 直前に石を置いたセルの位置（行・列）。該当マスの枠線が強調表示されます
  * 
  * @remarks
- * - 8x8のオセロ盤面を表示します
+ * - 8x8のリバーシ盤面を表示します
  * - 合法手の位置は明るい緑色でハイライトされます
  * - 直前に石を置いたマスは枠線の色によって強調表示されます
  * - 黒石と白石が視覚的に区別されます
