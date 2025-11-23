@@ -1,21 +1,21 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
-import { CardBoard, CardStateBoard, OpenedCard, RoleState, Settings } from "@/types/memory";
-import { Board, Result } from "@/components/Memory";
-import { CardState, Role } from "@/constants/memory";
+import { CardBoard, CardStateBoard, OpenedCard, RoleState, Settings, ScoresState } from "@/types/memory";
+import { Board, Scores } from "@/components/Memory";
+import { CardState, Role, MATCH_POINT } from "@/constants/memory";
 import { createInitialCardBoard } from "@/libs/memory/createInitialBoards";
 import { createInitialCardStateBoard } from "@/libs/memory/createInitialBoards";
 import closeModal from "@/utils/closeModal";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
-import { ReShowResult } from "@/components/Utils";
+import { ReShowResult, TurnInfo, Result } from "@/components/Utils";
 
 export default function Page() {
 	const [settings, setSettings] = useState<Settings>({ cards: 8, firstRole: Role.BLUE });
 	const [cardBoard, setCardBoard] = useState<CardBoard>(createInitialCardBoard(settings.cards));
 	const [cardStateBoard, setCardStateBoard] = useState<CardStateBoard>(createInitialCardStateBoard(settings.cards));
 	const [currentRole, setCurrentRole] = useState<RoleState>(settings.firstRole);
-	const [scores, setScores] = useState({ [Role.BLUE]: 0, [Role.GREEN]: 0 });
+	const [scores, setScores] = useState<ScoresState>({ [Role.BLUE]: 0, [Role.GREEN]: 0 });
 	const [isChecking, setIsChecking] = useState(false);
 	const [isFinished, setIsFinished] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
@@ -50,7 +50,7 @@ export default function Page() {
 	};
 
 	const handleMatch = (first: OpenedCard, second: OpenedCard) => {
-		setScores((prev) => ({ ...prev, [currentRole]: prev[currentRole] + 1 }));
+		setScores((prev) => ({ ...prev, [currentRole]: prev[currentRole] + MATCH_POINT }));
 		timeoutRef.current = setTimeout(() => {
 			setCardStateBoard((prev) => {
 				const next = prev.map((row) => [...row]);
@@ -122,8 +122,12 @@ export default function Page() {
 	return (
 		<div className={`${currentRole === Role.BLUE ? 'bg-blue-200' : 'bg-green-200'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1`}>
 			<Board cardBoard={cardBoard} cardStateBoard={cardStateBoard} onCardClick={onCardClick} cards={settings.cards} />
-			<Result isFinished={isFinished} onRestart={onRestart} handleCancel={() => closeModal(setIsFinished)} onShowGames={() => gotoTopPage(setIsFinished)} scores={scores} />
+			<Result isOpen={isFinished} onRestart={onRestart} handleCancel={() => closeModal(setIsFinished)} onShowGames={() => gotoTopPage(setIsFinished)} mainScore={scores[Role.BLUE]} subScore={scores[Role.GREEN]} mainRole={'青'} subRole={'緑'} />
 			<ReShowResult openModal={isFinished} setOpenModal={setIsFinished} canPlay={canPlay} />
+			<div className="flex flex-row items-center justify-center gap-10">
+				<TurnInfo currentRole={currentRole} canPlay={canPlay} mainRole={'青'} subRole={'緑'} mainRoleColorClass={'text-blue-800'} subRoleColorClass={'text-green-800'} />
+				<Scores scores={scores} canPlay={canPlay} />
+			</div>
 		</div>
 	)
 }

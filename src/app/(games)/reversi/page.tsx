@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
-import { Board, Result, SkipTurn, TurnInfo } from "@/components/Reversi";
-import { ReShowResult } from "@/components/Utils";
+import { Board, SkipTurn } from "@/components/Reversi";
+import { ReShowResult, TurnInfo, Result } from "@/components/Utils";
 import { createEmptyBoard, createEmptyHighlightedBoard, canTurnOver, reverseStones, countStones } from "@/libs/reversi";
 import { BoardState, RoleState, LastPositionState, HighlightedBoardState } from "@/types/reversi";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
@@ -95,7 +95,7 @@ export default function Page() {
 
 	return (
 		<div className={`${currentRole === Role.BLACK ? 'bg-gray-500' : 'bg-gray-100'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1`}>
-			<Result isOpen={isWin} onRestart={handleRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} blackCount={blackCount.current} whiteCount={whiteCount.current} />
+			<Result isOpen={isWin} onRestart={handleRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} mainScore={blackCount.current} subScore={whiteCount.current} mainRole={'黒'} subRole={'白'} />
 			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
 			<Board
 				board={board}
@@ -104,7 +104,7 @@ export default function Page() {
 				onCellClick={handleCellClick}
 				lastPosition={lastPosition}
 			/>
-			<TurnInfo currentRole={currentRole} canPlay={canPlay} />
+			<TurnInfo currentRole={currentRole} canPlay={canPlay} mainRole={'⚫️'} subRole={'⚪️'} mainRoleColorClass={'text-black'} subRoleColorClass={'text-black'} />
 			<ReShowResult openModal={isWin} setOpenModal={setIsWin} canPlay={canPlay} />
 		</div>
 	)

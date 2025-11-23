@@ -1,4 +1,4 @@
-import { Role } from "@/constants/reversi";
+import { Role } from "@/constants/utils";
 import { TurnInfoProps } from "@/types/reversi";
 
 /**
@@ -11,16 +11,16 @@ import { TurnInfoProps } from "@/types/reversi";
  * @remarks
  * - オンライン対戦用の `ShowTurn` (PlayerInfo.tsx) とは異なり、観戦者や自分/相手の区別はなく、単純に現在の手番を表示します。
  */
-export default function TurnInfo({ currentRole, canPlay }: TurnInfoProps) {
+export default function TurnInfo({ currentRole, canPlay, mainRole, subRole, mainRoleColorClass, subRoleColorClass }: TurnInfoProps) {
 	if (!canPlay) return;
 
 	return (
 		<div className="text-center">
-			<p className="text-xl font-bold">
-				現在のターン: <span className="font-bold">
-					{currentRole === Role.BLACK ? '⚫️' : '⚪️'}
+			<span className="text-xl font-bold">
+				現在のターン: <span className={`font-bold ${currentRole === Role.MAIN ? mainRoleColorClass : subRoleColorClass}`}>
+					{currentRole === Role.MAIN ? mainRole : subRole}
 				</span>
-			</p>
+			</span>
 		</div>
 	);
 }

@@ -4,6 +4,7 @@ import { Role } from "@/constants/reversi";
 export type RoleState = typeof Role.BLACK | typeof Role.WHITE;
 export type CellState = RoleState | null;
 export type HighlightedCellState = boolean;
+export type RoleColorClass = string;
 
 
 // 盤面の状態を表す型（8x8）
@@ -100,6 +101,10 @@ export interface SkipTurnProps {
 export interface TurnInfoProps {
 	currentRole: RoleState;
 	canPlay: boolean;
+	mainRole: string;
+	subRole: string;
+	mainRoleColorClass: RoleColorClass;
+	subRoleColorClass: RoleColorClass;
 }
 
 export interface UseReversiSocketSyncProps {
