@@ -20,7 +20,7 @@ export const GAMES: GameMeta[] = [
 		localPath: "/reversi",
 		onlinePath: "/reversi/newRoom",
 		isAvailable: true,
-		isDev: true,
+		isDev: false,
 		tags: ["2人用", "陣取り"],
 	},
 	{

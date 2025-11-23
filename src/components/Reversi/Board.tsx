@@ -25,7 +25,7 @@ export default function Board({ board, highlightedCells, onCellClick, currentRol
 	return (
 		<div className="relative z-1">
 			<div className="pt-2 pl-2">
-				<h2 className={`text-2xl font-bold ${currentRole === Role.BLACK ? 'text-green-500' : 'text-green-700'}`}>オセロ</h2>
+				<h2 className={`text-2xl font-bold ${currentRole === Role.BLACK ? 'text-green-500' : 'text-green-700'}`}>リバーシ</h2>
 			</div>
 			<div className="flex flex-col items-center p-6">
 				{/* 盤面 */}
