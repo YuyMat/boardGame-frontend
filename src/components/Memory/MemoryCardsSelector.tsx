@@ -1,9 +1,8 @@
 "use client"
 
-import { Space, type MenuProps, Dropdown, Button } from "antd";
+import { type MenuProps, Dropdown, Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import { MemoryCardsSelectorProps } from "@/types/memory";
-import { Cards } from "@/types/memory";
+import { MemoryCardsSelectorProps, Cards } from "@/types/memory";
 import { totalCards } from "@/constants/memory";
 
 export default function MemoryCardsSelector({ cards, setCards }: MemoryCardsSelectorProps) {
