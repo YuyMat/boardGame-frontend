@@ -78,11 +78,7 @@ export interface CanTurnOverProps {
 	currentRole: RoleState;
 }
 
-export interface ReverseStonesProps {
-	board: BoardState;
-	lastPosition: LastPositionState;
-	currentRole: RoleState;
-}
+export interface ReverseStonesProps extends HandleGameStateUpdatedProps {}
 
 export interface SkipTurnProps {
 	isSkipTurn: boolean;
@@ -134,4 +130,10 @@ export interface UseReversiRestartProps {
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	resetGameState: () => void;
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
+}
+
+export interface ReversiRuleSettingsProps {
+	setFirstRole: React.Dispatch<React.SetStateAction<FirstState>>;
+	keyToShowLabel: Record<FirstState, string>;
+	firstTurnItems: { label: string; key: string | number }[];
 }

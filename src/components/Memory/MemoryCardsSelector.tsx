@@ -2,17 +2,17 @@
 
 import { type MenuProps, Dropdown, Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import { MemoryCardsSelectorProps, Cards } from "@/types/memory";
+import { MemoryCardsSelectorProps, Cards, Settings } from "@/types/memory";
 import { totalCards } from "@/constants/memory";
 
-export default function MemoryCardsSelector({ cards, setCards }: MemoryCardsSelectorProps) {
+export default function MemoryCardsSelector({ cards, setSettings }: MemoryCardsSelectorProps) {
 	const cardItems: MenuProps['items'] = totalCards.map((num) => ({
 		label: `${num}枚`,
 		key: String(num),
 	}));
 
 	const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
-		setCards(Number(key) as Cards);
+		setSettings((prev: Settings) => ({ ...prev, cards: Number(key) as Cards }));
 	};
 
 	return (

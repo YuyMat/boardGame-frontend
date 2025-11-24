@@ -29,6 +29,8 @@ export const firstTurnItems = [
 	},
 ]
 
+export const mainPlayerColorClass = "text-blue-900" as const;
+
 export enum CardState {
 	CLOSED = 0,
 	OPENED = 1,
