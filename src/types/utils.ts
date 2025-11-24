@@ -9,6 +9,7 @@ export type RuleSettingsProps = {
 	keyToShowLabel: Record<FirstState, string>;
 	firstTurnItems: { label: string; key: string | number }[];
 	mainPlayerColorClass: CSSColorClass;
+	additionalSettings?: React.ReactNode;
 }
 
 export interface ShowRoleProps<T = RoleState> {
@@ -32,4 +33,10 @@ export interface ResultProps {
 	subScore: number;
 	mainRole: string;
 	subRole: string;
+}
+
+export interface FirstRoleSelectorProps {
+	setFirst: (first: FirstState) => void;
+	keyToShowLabel: Record<FirstState, string>;
+	firstTurnItems: { label: string; key: string | number }[];
 }

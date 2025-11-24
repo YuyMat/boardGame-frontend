@@ -37,3 +37,8 @@ export interface ScoresProps {
 	scores: ScoresState;
 	canPlay: boolean;
 }
+
+export interface MemoryCardsSelectorProps {
+	cards: Cards;
+	setCards: (cards: Cards) => void;
+}

@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react";
-import { Modal, Button, Dropdown, Space, type MenuProps } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-import { RoleState, RuleSettingsProps } from "@/types/utils";
+import { Modal, Button } from "antd";
+import { RuleSettingsProps } from "@/types/utils";
+import FirstRoleSelector from "@/components/Utils/FirstRoleSelector";
 import { Role } from "@/constants/utils";
 
 /**
@@ -15,6 +15,7 @@ import { Role } from "@/constants/utils";
  * @param props.keyToShowLabel - 先攻状態の値を表示用ラベルに変換するマップ（例: { random: "ランダム", 1: "赤", 2: "黄" }）
  * @param props.firstTurnItems - ドロップダウンに表示する先攻選択肢の配列
  * @param props.mainPlayerColorClass - メインプレイヤーの色を表すTailwind CSSクラス（例: "text-red-500", "text-gray-900"）
+ * @param props.additionalSettings - 追加の設定コンポーネント（任意）。FirstRoleSelectorの後に表示されます。
  * 
  * @remarks
  * - モーダル内でドロップダウンから先攻プレイヤーを選択できます
@@ -23,18 +24,8 @@ import { Role } from "@/constants/utils";
  * - 各ゲームで異なる色やラベルに対応できる汎用的な設計になっています
  * - メインプレイヤーの色表示は各ゲームのconstantsから渡されたCSSクラスで動的に変更されます
  */
-export default function RuleSettings({ setFirst, keyToShowLabel, firstTurnItems, mainPlayerColorClass }: RuleSettingsProps) {
+export default function RuleSettings({ setFirst, keyToShowLabel, firstTurnItems, mainPlayerColorClass, additionalSettings }: RuleSettingsProps) {
 	const [isOpen, setIsOpen] = useState(false);
-	const [showFirst, setShowFirst] = useState<string>("ランダム"); //表示用ラベル
-
-	const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
-		const selected =
-			key === 'random'
-				? 'random'
-				: (Number(key) as RoleState);
-		setFirst(selected);
-		setShowFirst(keyToShowLabel[selected]);
-	};
 
 	return (
 		<>
@@ -48,17 +39,8 @@ export default function RuleSettings({ setFirst, keyToShowLabel, firstTurnItems,
 					<h2 className="text-2xl font-bold mb-4 text-blue-800">ルール</h2>
 					<span className="text-sm font-bold">※あなたの色は<span className={`${mainPlayerColorClass} text-lg`}>{keyToShowLabel[Role.MAIN]}</span>です</span>
 				</div>
-				<div className="flex justify-center gap-2 mb-4">
-					先攻：
-					<Dropdown menu={{ items: firstTurnItems, onClick: handleMenuClick }} trigger={['click']}>
-						<a onClick={(e) => e.preventDefault()}>
-							<Space>
-								{showFirst}
-								<DownOutlined />
-							</Space>
-						</a>
-					</Dropdown>
-				</div>
+				<FirstRoleSelector setFirst={setFirst} keyToShowLabel={keyToShowLabel} firstTurnItems={firstTurnItems} />
+				{additionalSettings}
 			</Modal >
 		</>
 	)
