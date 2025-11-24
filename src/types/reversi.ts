@@ -78,7 +78,7 @@ export interface CanTurnOverProps {
 	currentRole: RoleState;
 }
 
-export interface ReverseStonesProps extends HandleGameStateUpdatedProps {}
+export type ReverseStonesProps = HandleGameStateUpdatedProps;
 
 export interface SkipTurnProps {
 	isSkipTurn: boolean;
