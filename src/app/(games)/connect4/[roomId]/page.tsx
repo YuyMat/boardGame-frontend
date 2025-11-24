@@ -1,7 +1,7 @@
 "use client"
 
 import { use } from "react";
-import { Board, ShowTurn } from "@/components/Connect4";
+import { Board, ShowTurn, Connect4RuleSettings } from "@/components/Connect4";
 import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting, ReShowResult } from "@/components/Utils";
 import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS } from "@/constants/connect4";
 import styles from "@/styles/Utils.module.scss";
@@ -71,7 +71,17 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
 					<Loading text="対戦相手を待っています…" />
 					<div className="flex flex-row gap-2 mt-7">
-						<RuleSettings setFirst={setFirstRole} keyToShowLabel={keyToShowLabel} firstTurnItems={firstTurnItems} mainPlayerColorClass={mainPlayerColorClass} />
+						<RuleSettings
+							keyToShowLabel={keyToShowLabel}
+							mainPlayerColorClass={mainPlayerColorClass}
+							settingsComponents={
+								<Connect4RuleSettings
+									setFirstRole={setFirstRole}
+									keyToShowLabel={keyToShowLabel}
+									firstTurnItems={firstTurnItems}
+								/>
+							}
+						/>
 						<CopyUrl gameName="コネクト４" />
 					</div>
 				</div>

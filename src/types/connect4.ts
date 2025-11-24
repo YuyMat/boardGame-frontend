@@ -104,3 +104,9 @@ export interface UseConnect4SocketSyncProps {
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
 }
+
+export interface Connect4RuleSettingsProps {
+	setFirstRole: React.Dispatch<React.SetStateAction<FirstState>>;
+	keyToShowLabel: Record<FirstState, string>;
+	firstTurnItems: { label: string; key: string | number }[];
+}

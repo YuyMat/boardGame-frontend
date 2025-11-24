@@ -26,6 +26,7 @@ export interface BoardProps {
 export interface Settings {
 	cards: Cards;
 	firstRole: RoleState;
+	haveRuleSettings: boolean;
 }
 
 export interface OpenedCard {
@@ -40,5 +41,10 @@ export interface ScoresProps {
 
 export interface MemoryCardsSelectorProps {
 	cards: Cards;
-	setCards: (cards: Cards) => void;
+	setSettings: React.Dispatch<React.SetStateAction<Settings>>;
+}
+
+export interface MemoryRuleSettingsProps {
+	cards: Cards;
+	setSettings: React.Dispatch<React.SetStateAction<Settings>>;
 }

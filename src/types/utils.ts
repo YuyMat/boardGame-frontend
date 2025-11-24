@@ -5,11 +5,9 @@ export type RoleState = typeof Role.MAIN | typeof Role.SUB;
 export type FirstState = 'random' | RoleState;
 
 export type RuleSettingsProps = {
-	setFirst: (first: FirstState) => void;
 	keyToShowLabel: Record<FirstState, string>;
-	firstTurnItems: { label: string; key: string | number }[];
 	mainPlayerColorClass: CSSColorClass;
-	additionalSettings?: React.ReactNode;
+	settingsComponents?: React.ReactNode;
 }
 
 export interface ShowRoleProps<T = RoleState> {

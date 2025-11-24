@@ -2,16 +2,16 @@
 
 import { useState, useEffect, useRef } from "react";
 import { CardBoard, CardStateBoard, OpenedCard, RoleState, Settings, ScoresState } from "@/types/memory";
-import { Board, Scores } from "@/components/Memory";
-import { CardState, Role, MATCH_POINT } from "@/constants/memory";
+import { Board, Scores, MemoryRuleSettings } from "@/components/Memory";
+import { CardState, Role, MATCH_POINT, keyToShowLabel, mainPlayerColorClass, defaultTotalCards } from "@/constants/memory";
 import { createInitialCardBoard } from "@/libs/memory/createInitialBoards";
 import { createInitialCardStateBoard } from "@/libs/memory/createInitialBoards";
 import closeModal from "@/utils/closeModal";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
-import { ReShowResult, TurnInfo, Result } from "@/components/Utils";
+import { ReShowResult, TurnInfo, Result, RuleSettings } from "@/components/Utils";
 
 export default function Page() {
-	const [settings, setSettings] = useState<Settings>({ cards: 8, firstRole: Role.BLUE });
+	const [settings, setSettings] = useState<Settings>({ cards: defaultTotalCards, firstRole: Role.BLUE, haveRuleSettings: false });
 	const [cardBoard, setCardBoard] = useState<CardBoard>(createInitialCardBoard(settings.cards));
 	const [cardStateBoard, setCardStateBoard] = useState<CardStateBoard>(createInitialCardStateBoard(settings.cards));
 	const [currentRole, setCurrentRole] = useState<RoleState>(settings.firstRole);
@@ -93,6 +93,15 @@ export default function Page() {
 		return cardStateBoard.flat().every((state) => state === CardState.REMOVED);
 	}
 
+	const onRestart = () => {
+		setCardBoard(createInitialCardBoard(settings.cards));
+		setCardStateBoard(createInitialCardStateBoard(settings.cards));
+		setCurrentRole(settings.firstRole);
+		setScores({ [Role.BLUE]: 0, [Role.GREEN]: 0 });
+		setIsFinished(false);
+		setCanPlay(true);
+	}
+
 	useEffect(() => {
 		checkPair();
 
@@ -110,15 +119,19 @@ export default function Page() {
 		};
 	}, [cardStateBoard])
 
-	const onRestart = () => {
+	useEffect(() => {
 		setCardBoard(createInitialCardBoard(settings.cards));
 		setCardStateBoard(createInitialCardStateBoard(settings.cards));
-		setCurrentRole(settings.firstRole);
-		setScores({ [Role.BLUE]: 0, [Role.GREEN]: 0 });
-		setIsFinished(false);
-		setCanPlay(true);
-	}
+	}, [settings.cards])
 
+	if (!settings.haveRuleSettings) {
+		return (
+			<div className="flex justify-center items-center min-h-[calc(100vh-72px)]">
+				<RuleSettings keyToShowLabel={keyToShowLabel} mainPlayerColorClass={mainPlayerColorClass} settingsComponents={<MemoryRuleSettings cards={settings.cards} setSettings={setSettings} />} />
+			</div>
+		)
+	}
+	
 	return (
 		<div className={`${currentRole === Role.BLUE ? 'bg-blue-200' : 'bg-green-200'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1`}>
 			<Board cardBoard={cardBoard} cardStateBoard={cardStateBoard} onCardClick={onCardClick} cards={settings.cards} />
