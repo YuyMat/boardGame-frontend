@@ -77,8 +77,16 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
 					<Loading text="対戦相手を待っています…" />
 					<div className="flex flex-row gap-2 mt-7">
-						<RuleSettings keyToShowLabel={keyToShowLabel} mainPlayerColorClass={mainPlayerColorClass}
-							settingsComponents={<ReversiRuleSettings setFirstRole={setFirstRole} keyToShowLabel={keyToShowLabel} firstTurnItems={firstTurnItems} />}
+						<RuleSettings
+							keyToShowLabel={keyToShowLabel}
+							mainPlayerColorClass={mainPlayerColorClass}
+							settingsComponents={
+								<ReversiRuleSettings
+								setFirstRole={setFirstRole}
+								keyToShowLabel={keyToShowLabel}
+								firstTurnItems={firstTurnItems}
+								/>
+							}
 						/>
 						<CopyUrl gameName="リバーシ" />
 					</div>
