@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "@ant-design/v5-patch-for-react-19";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -62,6 +63,7 @@ export default function RootLayout({
 			<body>
 				<Header />
 				{children}
+				<SpeedInsights />
 			</body>
 		</html>
 	);
