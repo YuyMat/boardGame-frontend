@@ -24,14 +24,10 @@ export default function FirstRoleSelector({ setFirst, keyToShowLabel, firstTurnI
 		<div className="flex justify-center items-center gap-2 mb-4">
 			<div className="text-lg">先攻：</div>
 			<Dropdown menu={{ items: firstTurnItems, onClick: handleMenuClick }} trigger={['click']}>
-				<a onClick={(e) => e.preventDefault()}>
-					<Space>
-						<Button>
-							{showFirst}
-							<DownOutlined />
-						</Button>
-					</Space>
-				</a>
+				<Button>
+					{showFirst}
+					<DownOutlined />
+				</Button>
 			</Dropdown>
 		</div>
 	)

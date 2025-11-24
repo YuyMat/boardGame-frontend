@@ -20,14 +20,10 @@ export default function MemoryCardsSelector({ cards, setCards }: MemoryCardsSele
 		<div className="flex justify-center items-center gap-2 mb-4">
 			<div className="text-lg">カードの枚数：</div>
 			<Dropdown menu={{ items: cardItems, onClick: handleMenuClick }} trigger={['click']}>
-				<a onClick={(e) => e.preventDefault()}>
-					<Space>
-						<Button>
-							{cards}
-							<DownOutlined />
-						</Button>
-					</Space>
-				</a>
+				<Button>
+					{cards}枚
+					<DownOutlined />
+				</Button>
 			</Dropdown>
 		</div>
 	)
