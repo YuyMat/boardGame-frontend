@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
-import { preload } from "react-dom";
 import { CardBoard, CardStateBoard, OpenedCard, RoleState, Settings, ScoresState } from "@/types/memory";
 import { Board, Scores, MemoryRuleSettings } from "@/components/Memory";
 import { CardState, Role, MATCH_POINT, keyToShowLabel, mainPlayerColorClass, defaultTotalCards } from "@/constants/memory";
@@ -102,13 +101,6 @@ export default function Page() {
 		setIsFinished(false);
 		setCanPlay(true);
 	}
-
-	useEffect(() => {
-		const uniqueUrls = new Set(cardBoard.flat());
-		uniqueUrls.forEach((url) => {
-			preload(url, { as: "image" })
-		});
-	}, [cardBoard]);
 
 	useEffect(() => {
 		checkPair();

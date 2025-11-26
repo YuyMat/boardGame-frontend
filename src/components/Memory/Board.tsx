@@ -30,7 +30,12 @@ export default function Board({ cardBoard, cardStateBoard, onCardClick, cards }:
 							`}
 							>
 								<span className={`transition-opacity duration-300 ${isClosed ? 'opacity-0' : 'opacity-100'}`}>
-									{!isClosed && <Image src={card} alt="card" width={cards === 24 ? 65 : 100} height={cards === 24 ? 65 : 100} />}
+									<Image
+										src={card}
+										alt="card"
+										width={cards === 24 ? 65 : 100}
+										height={cards === 24 ? 65 : 100}
+									/>
 								</span>
 							</div>
 						);
