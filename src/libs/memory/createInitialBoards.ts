@@ -94,6 +94,13 @@ const generateCardURLs = (cards: number) => {
 	return cardURLs;
 }
 
+/**
+ * 初期状態のカードボードを作成します。
+ * 指定された枚数のカードに対して、数値ボードを作成し、対応する画像URLをマッピングします。
+ *
+ * @param cards - カードの総数
+ * @returns 画像URLが設定されたカードボード（CardBoard）
+ */
 export const createInitialCardBoard = (cards: number) => {
 	const numericBoard = createNumericBoard(cards);
 	const cardURLs = generateCardURLs(cards);
@@ -110,6 +117,13 @@ export const createInitialCardBoard = (cards: number) => {
 	return cardBoard;
 }
 
+/**
+ * 初期状態のカード状態ボードを作成します。
+ * 全てのカードをCLOSED（裏向き）状態で初期化します。
+ *
+ * @param cards - カードの総数
+ * @returns 全てCLOSED状態のカード状態ボード（CardStateBoard）
+ */
 export const createInitialCardStateBoard = (cards: number) => {
 	const rows = cards / cols;
 	return Array(rows).fill(null).map(() => Array(cols).fill(CardState.CLOSED));

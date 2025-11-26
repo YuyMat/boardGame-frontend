@@ -48,3 +48,52 @@ export interface MemoryRuleSettingsProps {
 	cards: Cards;
 	setSettings: React.Dispatch<React.SetStateAction<Settings>>;
 }
+
+export interface OnCardClickProps {
+	rowIndex: number;
+	colIndex: number;
+	cardStateBoard: CardStateBoard;
+	setCardStateBoard: React.Dispatch<React.SetStateAction<CardStateBoard>>;
+	canPlay: boolean;
+	isChecking: boolean;
+}
+
+export interface OnRestartProps {
+	setCardBoard: React.Dispatch<React.SetStateAction<CardBoard>>;
+	setCardStateBoard: React.Dispatch<React.SetStateAction<CardStateBoard>>;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
+	setScores: React.Dispatch<React.SetStateAction<ScoresState>>;
+	setIsFinished: React.Dispatch<React.SetStateAction<boolean>>;
+	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
+	settings: Settings;
+}
+
+export interface HandleMatchProps {
+	first: OpenedCard;
+	second: OpenedCard;
+	currentRole: RoleState;
+	timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>;
+	setScores: React.Dispatch<React.SetStateAction<ScoresState>>;
+	setCardStateBoard: React.Dispatch<React.SetStateAction<CardStateBoard>>;
+	setIsChecking: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface HandleMismatchProps {
+	first: OpenedCard;
+	second: OpenedCard;
+	timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>;
+	setCardStateBoard: React.Dispatch<React.SetStateAction<CardStateBoard>>;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
+	setIsChecking: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface CheckPairProps {
+	cardStateBoard: CardStateBoard;
+	cardBoard: CardBoard;
+	currentRole: RoleState;
+	timeoutRef: React.MutableRefObject<NodeJS.Timeout | null>;
+	setIsChecking: React.Dispatch<React.SetStateAction<boolean>>;
+	setScores: React.Dispatch<React.SetStateAction<ScoresState>>;
+	setCardStateBoard: React.Dispatch<React.SetStateAction<CardStateBoard>>;
+	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
+}
