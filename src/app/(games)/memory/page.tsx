@@ -104,8 +104,9 @@ export default function Page() {
 	}
 
 	useEffect(() => {
-		cardBoard.flat().forEach((url) => {
-			preload(url, { as: "image" });
+		const uniqueUrls = new Set(cardBoard.flat());
+		uniqueUrls.forEach((url) => {
+			preload(url, { as: "image" })
 		});
 	}, [cardBoard]);
 
