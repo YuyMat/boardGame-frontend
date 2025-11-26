@@ -35,7 +35,6 @@ export default function Board({ cardBoard, cardStateBoard, onCardClick, cards }:
 										alt="card"
 										width={cards === 24 ? 65 : 100}
 										height={cards === 24 ? 65 : 100}
-										priority={true}
 									/>
 								</span>
 							</div>
