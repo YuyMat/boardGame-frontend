@@ -23,6 +23,8 @@ import { Role } from "@/constants/utils";
  * - 3つのアクション（戻る、ゲーム一覧、リスタート）を提供します
  */
 export default function Result({ playerRole, isOpen, onRestart, handleCancel, onShowGames, mainScore, subScore, mainRole, subRole }: ResultProps) {
+	if (!playerRole) return;
+	
 	return (
 		<Modal
 			open={isOpen}

@@ -21,6 +21,8 @@ import { Role } from "@/constants/connect4";
  * - 3つのアクション（戻る、ゲーム一覧、リスタート）を提供します
  */
 export default function Connect4Result({playerRole, isWin, isDraw, onRestart, handleCancel, onShowGames, currentRole}: Connect4ResultProps) {
+	if (!playerRole) return;
+	
 	return (
 		<Modal
 			open={isWin}

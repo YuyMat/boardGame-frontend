@@ -21,6 +21,8 @@ export default function Page() {
 
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+	const localPlayerRole = Role.BLUE;
+
 	const gotoTopPage = useGotoTopPage();
 
 	// 判定処理
@@ -80,6 +82,7 @@ export default function Page() {
 				cards={settings.cards}
 			/>
 			<Result
+				playerRole={localPlayerRole}
 				isOpen={isFinished}
 				onRestart={() => onRestart({
 					setCardBoard,
