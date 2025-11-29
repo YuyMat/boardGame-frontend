@@ -26,12 +26,12 @@ import closeModal from "@/utils/closeModal";
  * - 最後に置かれた石は緑色のボーダーでハイライトされます
  * - ゲーム終了時に結果モーダルを表示します
  */
-export default function Board({ board, onCellClick, isWin, isDraw, setIsWin, onRestart, currentRole, lastPosition }: BoardProps) {
+export default function Board({ board, onCellClick, isWin, isDraw, setIsWin, onRestart, currentRole, lastPosition, playerRole }: BoardProps) {
     const gotoTopPage = useGotoTopPage();
 
 	return (
 		<div className="relative z-1">
-			<Connect4Result isWin={isWin} isDraw={isDraw} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentRole={currentRole} />
+			<Connect4Result playerRole={playerRole} isWin={isWin} isDraw={isDraw} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentRole={currentRole} />
 			<TurnDisc currentRole={currentRole} />
 			<div className="pt-2 pl-2">
 				<h2 className="text-2xl font-bold text-blue-800">Connect 4</h2>

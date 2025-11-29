@@ -7,6 +7,7 @@ import { Role } from "@/constants/connect4";
  * 勝者を発表し、リスタートやゲーム一覧への遷移オプションを提供します。
  * 
  * @param props - コンポーネントのProps
+ * @param props.playerRole - プレイヤーの色
  * @param props.isWin - 勝敗が決定したかどうか（モーダルの表示/非表示を制御）
  * @param props.isDraw - 引き分けかどうか
  * @param props.onRestart - リスタートボタンがクリックされた時のハンドラ関数
@@ -19,7 +20,9 @@ import { Role } from "@/constants/connect4";
  * - 勝者がいる場合は、currentRoleの逆のプレイヤーが勝者として表示されます
  * - 3つのアクション（戻る、ゲーム一覧、リスタート）を提供します
  */
-export default function Connect4Result({isWin, isDraw, onRestart, handleCancel, onShowGames, currentRole}: Connect4ResultProps) {
+export default function Connect4Result({playerRole, isWin, isDraw, onRestart, handleCancel, onShowGames, currentRole}: Connect4ResultProps) {
+	if (!playerRole) return;
+	
 	return (
 		<Modal
 			open={isWin}
@@ -32,9 +35,15 @@ export default function Connect4Result({isWin, isDraw, onRestart, handleCancel, 
 				<Button key="root" onClick={onShowGames}>
 					ゲーム一覧
 				</Button>,
-				<Button key="restart" type="primary" onClick={onRestart}>
-					リスタート
-				</Button>,
+				playerRole === Role.RED ? (
+					<Button key="restart" type="primary" onClick={onRestart}>
+						リスタート
+					</Button>
+				) : (
+					<Button key="cannot-restart" disabled>
+						ホストのみリスタート可能
+					</Button>
+				),
 			]}
 		>
 			<p className="text-center text-2xl">{

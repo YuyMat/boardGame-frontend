@@ -23,6 +23,7 @@ export interface ReShowResultProps {
 }
 
 export interface ResultProps {
+	playerRole: RoleState | null;
 	isOpen: boolean;
 	onRestart: () => void;
 	handleCancel: () => void;

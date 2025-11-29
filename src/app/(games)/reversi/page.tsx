@@ -21,6 +21,8 @@ export default function Page() {
 	const whiteCount = useRef(0);
 	const gotoTopPage = useGotoTopPage();
 
+	const localPlayerRole = Role.BLACK;
+
 	const handleCellClick = (rowIndex: number, colIndex: number) => {
 		if (!canPlay || board[rowIndex][colIndex] !== null || highlightedCells[rowIndex][colIndex] !== true)
 			return;
@@ -95,7 +97,7 @@ export default function Page() {
 
 	return (
 		<div className={`${currentRole === Role.BLACK ? 'bg-gray-500' : 'bg-gray-100'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1`}>
-			<Result isOpen={isWin} onRestart={handleRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} mainScore={blackCount.current} subScore={whiteCount.current} mainRole={'黒'} subRole={'白'} />
+			<Result playerRole={localPlayerRole} isOpen={isWin} onRestart={handleRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} mainScore={blackCount.current} subScore={whiteCount.current} mainRole={'黒'} subRole={'白'} />
 			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
 			<Board
 				board={board}
