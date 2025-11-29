@@ -23,6 +23,7 @@ export const useRoomInitializer = (gamePath: string) => {
 
 			if (healthy) {
 				setIsBackendHealthy(true);
+				if (!isMounted) return;
 				try {
 					const roomId = await createRoom();
 					if (!isMounted) return;
