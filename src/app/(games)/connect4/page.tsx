@@ -16,6 +16,8 @@ export default function Page() {
 	const [isDraw, setIsDraw] = useState(false);
 	const [canPlay, setCanPlay] = useState(true);
 
+	const localPlayerRole = Role.RED;
+
 	useUpdateEffect(() => {
 		if (checkWin({ lastPosition, currentRole, board })) {
 			setCanPlay(false);
@@ -62,6 +64,7 @@ export default function Page() {
 					})
 				}
 				lastPosition={lastPosition}
+				playerRole={localPlayerRole}
 			/>
 			<ReShowResult openModal={isWin} setOpenModal={setIsWin} canPlay={canPlay} />
 		</div>
