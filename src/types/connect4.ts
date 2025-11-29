@@ -27,9 +27,11 @@ export interface BoardProps {
 	onRestart: () => void;
 	currentRole: RoleState;
 	lastPosition: lastPositionState;
+	playerRole: RoleState;
 }
 
 export interface Connect4ResultProps {
+	playerRole: RoleState;
 	isWin: boolean;
 	isDraw: boolean;
 	onRestart: () => void;

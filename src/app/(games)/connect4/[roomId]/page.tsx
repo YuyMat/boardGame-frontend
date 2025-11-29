@@ -109,6 +109,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				onCellClick={onCellClick}
 				onRestart={emitRestart}
 				lastPosition={lastPosition}
+				playerRole={playerRole!}
 			/>
 			<ShowTurn currentRole={currentRole} playerRole={playerRole} canPlay={canPlay} />
 			<TemporaryWaiting members={members} />
