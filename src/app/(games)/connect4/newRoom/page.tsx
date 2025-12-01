@@ -2,61 +2,11 @@
 
 export const dynamic = "force-dynamic";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { Loading } from "@/components/Utils";
-import { getBackendUrl } from "@/utils/getBackendUrl";
-
-const backendUrl = getBackendUrl();
-
-async function checkHealth(url: string): Promise<boolean> {
-	try {
-		const res = await fetch(`${url}/health`, {
-			cache: "no-store",
-			signal: AbortSignal.timeout(2000),
-		});
-		return res.ok;
-	} catch {
-		return false;
-	}
-}
-
-async function createRoom(router: ReturnType<typeof useRouter>) {
-	try {
-		const res = await fetch("/api/rooms/new", { cache: "no-store" });
-		if (!res.ok) throw new Error("Failed to create room");
-		const data = await res.json();
-		const roomId = data.roomId;
-		router.replace(`/connect4/${roomId}`);
-	} catch {
-		router.replace("/");
-	}
-}
+import { useRoomInitializer } from "@/hooks/utils/useRoomInitializer";
 
 export default function Page() {
-	const [isBackendHealthy, setIsBackendHealthy] = useState<boolean | null>(null);
-	const router = useRouter();
-
-	useEffect(() => {
-		let isMounted = true;
-
-		(async () => {
-			const healthy = await checkHealth(backendUrl);
-			if (!isMounted) return;
-
-			if (healthy) {
-				setIsBackendHealthy(true);
-				if (!isMounted) return;
-				await createRoom(router);
-			} else {
-				setIsBackendHealthy(false);
-			}
-		})();
-
-		return () => {
-			isMounted = false;
-		};
-	}, [router]);
+	const { isBackendHealthy } = useRoomInitializer("connect4");
 
 	if (isBackendHealthy === null)
 		return (
