@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { createSocket } from "@/libs/socket/client";
 import { MatchState, RoleState, HandleJoinedRoomProps, FirstState } from "@/types/connect4";
 import { Role } from "@/constants/connect4";
@@ -98,9 +98,9 @@ export default function useConnect4Room(
 		socketRef.current.emit("setFirstRole", { roomId, firstRole });
 	}, [firstRole, roomId]);
 
-	const emitRestart = () => {
+	const emitRestart = useCallback(() => {
 		socketRef.current?.emit("restart", roomId);
-	};
+	}, [roomId]);
 
 	return {
 		socketRef,
