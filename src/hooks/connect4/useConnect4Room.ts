@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { createSocket } from "@/libs/socket/client";
+import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { MatchState, RoleState, HandleJoinedRoomProps, FirstState } from "@/types/connect4";
 import { Role } from "@/constants/connect4";
 import type { Socket } from "socket.io-client";
@@ -93,7 +94,7 @@ export default function useConnect4Room(
 	}, [roomId]);
 
 	// 先手設定の変更をサーバへ通知（単一ソケットで管理）
-	useEffect(() => {
+	useUpdateEffect(() => {
 		if (!socketRef.current) return;
 		socketRef.current.emit("setFirstRole", { roomId, firstRole });
 	}, [firstRole, roomId]);

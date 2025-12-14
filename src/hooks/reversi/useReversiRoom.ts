@@ -98,7 +98,7 @@ export default function useReversiRoom(
 	useUpdateEffect(() => {
 		if (!socketRef.current) return;
 		socketRef.current.emit("setFirstRole", { roomId, firstRole });
-	}, [firstRole]);
+	}, [firstRole, roomId]);
 
 	const emitRestart = useCallback(() => {
 		socketRef.current?.emit("restart", roomId);
