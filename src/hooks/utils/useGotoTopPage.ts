@@ -19,8 +19,9 @@ import closeModal from "@/utils/closeModal";
  */
 export default function useGotoTopPage() {
 	const router = useRouter();
-	return (setIsOpen: React.Dispatch<React.SetStateAction<boolean>>) => {
-		closeModal(setIsOpen);
+	return (setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>) => {
+		if (setIsOpen)
+			closeModal(setIsOpen);
 		router.push("/");
 	};
 }
