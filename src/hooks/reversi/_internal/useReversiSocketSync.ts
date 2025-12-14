@@ -55,5 +55,6 @@ export function useReversiSocketSync({
 			currentRole,
 			lastPosition,
 		});
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [board]);
 }
