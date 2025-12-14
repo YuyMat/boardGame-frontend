@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { createSocket } from "@/libs/socket/client";
 import { MatchState, RoleState, HandleJoinedRoomProps, FirstState } from "@/types/reversi";
@@ -45,6 +45,7 @@ export default function useReversiRoom(
 	const socketRef = useRef<Socket | null>(null);
 	const membersRef = useRef<number>(0);
 	const matchStateRef = useRef<MatchState>("waiting");
+	matchStateRef.current = matchState;
 
 	useEffect(() => {
 		let pairedTimer: ReturnType<typeof setTimeout> | null = null;
@@ -99,13 +100,9 @@ export default function useReversiRoom(
 		socketRef.current.emit("setFirstRole", { roomId, firstRole });
 	}, [firstRole]);
 
-	useEffect(() => {
-		matchStateRef.current = matchState;
-	}, [matchState]);
-
-	const emitRestart = () => {
+	const emitRestart = useCallback(() => {
 		socketRef.current?.emit("restart", roomId);
-	};
+	}, [roomId]);
 
 	return {
 		socketRef,

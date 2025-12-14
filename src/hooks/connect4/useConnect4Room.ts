@@ -43,6 +43,7 @@ export default function useConnect4Room(
 	const socketRef = useRef<Socket | null>(null);
 	const membersRef = useRef<number>(0);
 	const matchStateRef = useRef<MatchState>("waiting");
+	matchStateRef.current = matchState;
 
 	useEffect(() => {
 		let pairedTimer: ReturnType<typeof setTimeout> | null = null;
@@ -96,10 +97,6 @@ export default function useConnect4Room(
 		if (!socketRef.current) return;
 		socketRef.current.emit("setFirstRole", { roomId, firstRole });
 	}, [firstRole, roomId]);
-
-	useEffect(() => {
-		matchStateRef.current = matchState;
-	}, [matchState]);
 
 	const emitRestart = () => {
 		socketRef.current?.emit("restart", roomId);

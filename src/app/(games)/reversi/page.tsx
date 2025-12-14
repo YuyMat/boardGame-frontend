@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Board, SkipTurn } from "@/components/Reversi";
 import { ReShowResult, TurnInfo, Result } from "@/components/Utils";
-import { createEmptyBoard, createEmptyHighlightedBoard, canTurnOver, reverseStones, countStones } from "@/libs/reversi";
+import { createEmptyBoard, createEmptyHighlightedBoard, reverseStones, countStones } from "@/libs/reversi";
+import { computeHighlights } from "@/libs/reversi/computeHighlights";
 import { BoardState, RoleState, LastPositionState, HighlightedBoardState } from "@/types/reversi";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import closeModal from "@/utils/closeModal";
@@ -51,20 +52,6 @@ export default function Page() {
 		setIsSkipTurn(false);
 	};
 
-	const computeHighlights = (role: RoleState) => {
-		const highlights = createEmptyHighlightedBoard();
-		let any = false;
-		for (let row = 0; row < 8; row++) {
-			for (let col = 0; col < 8; col++) {
-				if (canTurnOver({ board, row, col, currentRole: role })) {
-					highlights[row][col] = true;
-					any = true;
-				}
-			}
-		}
-		return { highlights, any };
-	};
-
 	// 置けるマスのハイライトと自動パス処理
 	useEffect(() => {
 		const stonesCount = countStones(board);
@@ -72,7 +59,7 @@ export default function Page() {
 		whiteCount.current = stonesCount.whiteCount;
 
 		// 現在のターンでの合法手
-		const { highlights: currentHighlights, any: hasCurrentMove } = computeHighlights(currentRole);
+		const { highlights: currentHighlights, any: hasCurrentMove } = computeHighlights(board, currentRole);
 		if (hasCurrentMove) {
 			setHighlightedCells(currentHighlights);
 			return;
@@ -80,7 +67,7 @@ export default function Page() {
 
 		// 現在置けない → 相手にパスできるか検査
 		const nextTurn = currentRole === Role.BLACK ? Role.WHITE : Role.BLACK;
-		const { highlights: nextHighlights, any: hasNextMove } = computeHighlights(nextTurn);
+		const { highlights: nextHighlights, any: hasNextMove } = computeHighlights(board, nextTurn);
 		if (hasNextMove) {
 			setIsSkipTurn(true);
 			setCurrentRole(nextTurn);
