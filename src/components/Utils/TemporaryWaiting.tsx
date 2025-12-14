@@ -2,7 +2,6 @@
 
 import { Modal, Button, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
-import { useState, useEffect } from "react";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 
 /**
@@ -19,15 +18,8 @@ import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
  * - 2人目が参加すると自動的にモーダルが閉じます
  */
 export default function TemporaryWaiting({ members }: { members: number }) {
-	const [isOpen, setIsOpen] = useState(false);
+	const isOpen = members < 2;
 	const gotoTopPage = useGotoTopPage();
-
-	useEffect(() => {
-		if (members < 2)
-			setIsOpen(true);
-		else
-			setIsOpen(false);
-	}, [members]);
 
 	return (
 		<Modal
@@ -35,7 +27,7 @@ export default function TemporaryWaiting({ members }: { members: number }) {
 			title="対戦相手を待っています..."
 			onCancel={undefined}
 			footer={[
-				<Button key="root" type="primary" onClick={() => gotoTopPage(setIsOpen)}>
+				<Button key="root" type="primary" onClick={() => gotoTopPage()}>
 					退出する
 				</Button>,
 			]}
