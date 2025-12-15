@@ -30,7 +30,7 @@ export default function Board({ board, onCellClick, isWin, isDraw, setIsWin, onR
     const gotoTopPage = useGotoTopPage();
 
 	return (
-		<div className="relative z-1">
+		<div className="relative">
 			<Connect4Result playerRole={playerRole} isWin={isWin} isDraw={isDraw} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentRole={currentRole} />
 			<TurnDisc currentRole={currentRole} />
 			<div className="pt-2 pl-2">

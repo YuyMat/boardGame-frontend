@@ -19,7 +19,7 @@ const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	return (
-		<header className="absolute top-0 left-0 w-full bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg z-50">
+		<header className="fixed top-0 left-0 w-full bg-linear-to-r from-purple-600 to-blue-600 shadow-lg z-50">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center py-4">
 					{/* ロゴとサイト名 */}
