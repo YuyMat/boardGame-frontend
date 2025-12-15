@@ -20,7 +20,8 @@ export default function Page() {
 	const localPlayerRole = Role.RED;
 
 	// bodyの背景色を動的に変更
-	useBodyBackgroundColor(currentRole === Role.RED ? RED_BG_COLOR : YELLOW_BG_COLOR);
+	const color = currentRole === Role.RED ? RED_BG_COLOR : YELLOW_BG_COLOR;
+	useBodyBackgroundColor(color);
 
 	useUpdateEffect(() => {
 		if (checkWin({ lastPosition, currentRole, board })) {

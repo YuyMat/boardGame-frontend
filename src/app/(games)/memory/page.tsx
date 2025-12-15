@@ -25,7 +25,8 @@ export default function Page() {
 	const localPlayerRole = Role.BLUE;
 
 	// bodyの背景色を動的に変更
-	useBodyBackgroundColor(currentRole === Role.BLUE ? BLUE_BG_COLOR : GREEN_BG_COLOR);
+	const color = currentRole === Role.BLUE ? BLUE_BG_COLOR : GREEN_BG_COLOR;
+	useBodyBackgroundColor(color);
 
 	const gotoTopPage = useGotoTopPage();
 

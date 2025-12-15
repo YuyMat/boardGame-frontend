@@ -4,6 +4,8 @@ export type CSSColorClass = string;
 export type RoleState = typeof Role.MAIN | typeof Role.SUB;
 export type FirstState = 'random' | RoleState;
 
+export type MatchState = "waiting" | "matched" | "playing";
+
 export type RuleSettingsProps = {
 	keyToShowLabel: Record<FirstState, string>;
 	mainPlayerColorClass: CSSColorClass;

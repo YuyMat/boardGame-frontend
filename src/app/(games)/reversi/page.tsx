@@ -26,7 +26,8 @@ export default function Page() {
 	const localPlayerRole = Role.BLACK;
 
 	// bodyの背景色を動的に変更
-	useBodyBackgroundColor(currentRole === Role.BLACK ? BLACK_BG_COLOR : WHITE_BG_COLOR);
+	const color = currentRole === Role.BLACK ? BLACK_BG_COLOR : WHITE_BG_COLOR;
+	useBodyBackgroundColor(color);
 
 	const handleCellClick = (rowIndex: number, colIndex: number) => {
 		if (!canPlay || board[rowIndex][colIndex] !== null || highlightedCells[rowIndex][colIndex] !== true)

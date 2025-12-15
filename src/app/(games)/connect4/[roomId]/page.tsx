@@ -32,7 +32,8 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	} = useConnect4Room(roomId, setFirstRole, firstRole);
 
 	// bodyの背景色を動的に変更
-	useBodyBackgroundColor(currentRole === Role.RED ? RED_BG_COLOR : YELLOW_BG_COLOR);
+	const color = currentRole === Role.RED ? RED_BG_COLOR : YELLOW_BG_COLOR;
+	useBodyBackgroundColor(color, matchState);
 
 	// 盤面・手番・勝敗・同期
 	const {
