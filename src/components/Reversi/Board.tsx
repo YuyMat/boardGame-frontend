@@ -23,7 +23,7 @@ import { Role } from "@/constants/reversi";
  */
 export default function Board({ board, highlightedCells, onCellClick, currentRole, lastPosition }: BoardProps) {
 	return (
-		<div className="relative z-1">
+		<div className="relative">
 			<div className="pt-2 pl-2">
 				<h2 className={`text-2xl font-bold ${currentRole === Role.BLACK ? 'text-green-500' : 'text-green-700'}`}>リバーシ</h2>
 			</div>

@@ -41,7 +41,7 @@ export default function Page() {
 	}, [board]);
 
 	return (
-		<div className="mt-18 relative z-1">
+		<div className="relative">
 			<Board
 				board={board}
 				currentRole={currentRole}

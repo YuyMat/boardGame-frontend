@@ -109,7 +109,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 	// playing
 	return (
-		<div className="mt-18 relative z-1">
+		<div className="relative">
 			<Result playerRole={playerRole} isOpen={isWin} onRestart={emitRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} mainScore={blackCount.current} subScore={whiteCount.current} mainRole={'黒'} subRole={'白'} />
 			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
 			<Board

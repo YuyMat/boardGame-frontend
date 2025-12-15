@@ -2,22 +2,20 @@ import { useEffect } from 'react';
 
 /**
  * bodyの背景色を動的に変更するカスタムフック
+ *
+ * CSS変数 --body-bg-color を操作して背景色を変更します。
+ * グローバルCSSで transition が設定されているため、スムーズに色が変化します。
+ *
  * @param color 適用したい背景色（CSSの色コードまたはカラーネーム）
  */
 export const useBodyBackgroundColor = (color: string) => {
 	useEffect(() => {
-		// マウント時にtransitionを設定
-		document.body.style.transition = 'background-color 300ms';
-		
-		// アンマウント時のクリーンアップ
-		return () => {
-			document.body.style.transition = '';
-			document.body.style.backgroundColor = '';
-		};
-	}, []);
+		if (typeof window === 'undefined') return;
 
-	useEffect(() => {
-		// 指定された色が変更されたら背景色を更新
-		document.body.style.backgroundColor = color;
+		document.body.style.setProperty('--body-bg-color', color);
+
+		return () => {
+			document.body.style.removeProperty('--body-bg-color');
+		};
 	}, [color]);
 };

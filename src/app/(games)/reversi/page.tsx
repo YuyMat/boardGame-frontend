@@ -87,7 +87,7 @@ export default function Page() {
 	}, [board, currentRole]);
 
 	return (
-		<div className='mt-18 relative z-1'>
+		<div className="relative">
 			<Result playerRole={localPlayerRole} isOpen={isWin} onRestart={handleRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} mainScore={blackCount.current} subScore={whiteCount.current} mainRole={'黒'} subRole={'白'} />
 			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
 			<Board

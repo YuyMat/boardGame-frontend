@@ -71,7 +71,7 @@ export default function Page() {
 	}
 	
 	return (
-		<div className="mt-18 relative z-1">
+		<div className="relative">
 			<Board
 				cardBoard={cardBoard}
 				cardStateBoard={cardStateBoard}

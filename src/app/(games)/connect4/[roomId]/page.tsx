@@ -103,7 +103,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 	// playing
 	return (
-		<div className={`mt-18 relative z-1 ${styles.fadeIn}`}>
+		<div className="relative">
 			<Board
 				board={board}
 				currentRole={currentRole}
