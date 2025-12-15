@@ -4,7 +4,6 @@ import { use } from "react";
 import { Board, ShowTurn, Connect4RuleSettings } from "@/components/Connect4";
 import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting, ReShowResult } from "@/components/Utils";
 import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS, RED_BG_COLOR, YELLOW_BG_COLOR } from "@/constants/connect4";
-import styles from "@/styles/Utils.module.scss";
 import { RoleState } from "@/types/connect4";
 
 // カスタムフック
