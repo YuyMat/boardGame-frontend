@@ -8,7 +8,8 @@ import { computeHighlights } from "@/libs/reversi/computeHighlights";
 import { BoardState, RoleState, LastPositionState, HighlightedBoardState } from "@/types/reversi";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import closeModal from "@/utils/closeModal";
-import { Role } from "@/constants/reversi";
+import { Role, BLACK_BG_COLOR, WHITE_BG_COLOR } from "@/constants/reversi";
+import { useBodyBackgroundColor } from "@/hooks/utils/useBodyBackgroundColor";
 
 export default function Page() {
 	const [board, setBoard] = useState<BoardState>(createEmptyBoard());
@@ -23,6 +24,9 @@ export default function Page() {
 	const gotoTopPage = useGotoTopPage();
 
 	const localPlayerRole = Role.BLACK;
+
+	// bodyの背景色を動的に変更
+	useBodyBackgroundColor(currentRole === Role.BLACK ? BLACK_BG_COLOR : WHITE_BG_COLOR);
 
 	const handleCellClick = (rowIndex: number, colIndex: number) => {
 		if (!canPlay || board[rowIndex][colIndex] !== null || highlightedCells[rowIndex][colIndex] !== true)
@@ -83,7 +87,7 @@ export default function Page() {
 	}, [board, currentRole]);
 
 	return (
-		<div className={`${currentRole === Role.BLACK ? 'bg-gray-500' : 'bg-gray-100'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1`}>
+		<div className='mt-18 relative z-1'>
 			<Result playerRole={localPlayerRole} isOpen={isWin} onRestart={handleRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} mainScore={blackCount.current} subScore={whiteCount.current} mainRole={'黒'} subRole={'白'} />
 			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
 			<Board

@@ -36,6 +36,8 @@ export const firstTurnItems = [
 ]
 
 export const mainPlayerColorClass = "text-gray-900" as const;
+export const BLACK_BG_COLOR = '#6a7282'
+export const WHITE_BG_COLOR = '#f3f4f6'
 
 export const MAX_CELL_COUNT = 64 as const;
 

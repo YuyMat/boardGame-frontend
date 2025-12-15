@@ -3,11 +3,12 @@
 import { useState, useEffect, useRef } from "react";
 import { CardBoard, CardStateBoard, RoleState, Settings, ScoresState } from "@/types/memory";
 import { Board, Scores, MemoryRuleSettings } from "@/components/Memory";
-import { Role, keyToShowLabel, mainPlayerColorClass, defaultTotalCards } from "@/constants/memory";
+import { Role, keyToShowLabel, mainPlayerColorClass, defaultTotalCards, BLUE_BG_COLOR, GREEN_BG_COLOR } from "@/constants/memory";
 import { createInitialCardBoard, checkFinished, createInitialCardStateBoard, onRestart, onCardClick, checkPair } from "@/libs/memory";
 import closeModal from "@/utils/closeModal";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
 import { ReShowResult, TurnInfo, Result, RuleSettings } from "@/components/Utils";
+import { useBodyBackgroundColor } from "@/hooks/utils/useBodyBackgroundColor";
 
 export default function Page() {
 	const [settings, setSettings] = useState<Settings>({ cards: defaultTotalCards, firstRole: Role.BLUE, haveRuleSettings: false });
@@ -22,6 +23,9 @@ export default function Page() {
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
 	const localPlayerRole = Role.BLUE;
+
+	// bodyの背景色を動的に変更
+	useBodyBackgroundColor(currentRole === Role.BLUE ? BLUE_BG_COLOR : GREEN_BG_COLOR);
 
 	const gotoTopPage = useGotoTopPage();
 
@@ -67,7 +71,7 @@ export default function Page() {
 	}
 	
 	return (
-		<div className={`${currentRole === Role.BLUE ? 'bg-blue-200' : 'bg-green-200'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1`}>
+		<div className="mt-18 relative z-1">
 			<Board
 				cardBoard={cardBoard}
 				cardStateBoard={cardStateBoard}

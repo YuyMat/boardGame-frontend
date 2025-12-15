@@ -3,7 +3,7 @@
 import { use } from "react";
 import { Board, ShowTurn, Connect4RuleSettings } from "@/components/Connect4";
 import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting, ReShowResult } from "@/components/Utils";
-import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS } from "@/constants/connect4";
+import { keyToShowLabel, firstTurnItems, Role, mainPlayerColorClass, MAX_PLAYERS, RED_BG_COLOR, YELLOW_BG_COLOR } from "@/constants/connect4";
 import styles from "@/styles/Utils.module.scss";
 import { RoleState } from "@/types/connect4";
 
@@ -11,6 +11,7 @@ import { RoleState } from "@/types/connect4";
 import useConnect4Room from "@/hooks/connect4/useConnect4Room";
 import useConnect4Game from "@/hooks/connect4/useConnect4Game";
 import useFirstRole from "@/hooks/utils/useFirstRole";
+import { useBodyBackgroundColor } from "@/hooks/utils/useBodyBackgroundColor";
 
 export default function Page({ params }: { params: Promise<{ roomId: string }> }) {
 	const { roomId } = use(params);
@@ -30,6 +31,9 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		currentRole,
 		setCurrentRole,
 	} = useConnect4Room(roomId, setFirstRole, firstRole);
+
+	// bodyの背景色を動的に変更
+	useBodyBackgroundColor(currentRole === Role.RED ? RED_BG_COLOR : YELLOW_BG_COLOR);
 
 	// 盤面・手番・勝敗・同期
 	const {
@@ -99,7 +103,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 	// playing
 	return (
-		<div className={`${currentRole === Role.RED ? 'bg-red-200' : 'bg-yellow-200'} min-h-[calc(100vh-72px)] transition-colors duration-300 relative z-1 ${styles.fadeIn}`}>
+		<div className={`mt-18 relative z-1 ${styles.fadeIn}`}>
 			<Board
 				board={board}
 				currentRole={currentRole}
