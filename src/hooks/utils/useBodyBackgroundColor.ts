@@ -13,7 +13,7 @@ import { MatchState } from '@/types/utils';
 export const useBodyBackgroundColor = (color: string, matchState?: MatchState) => {
 	useEffect(() => {
 		if (typeof window === 'undefined') return;
-		if (matchState !== 'playing') return;
+		if (matchState && matchState !== 'playing') return;
 
 		document.body.style.setProperty('--body-bg-color', color);
 
