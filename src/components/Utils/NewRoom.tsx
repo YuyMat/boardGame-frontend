@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 /**
  * 新規ルーム作成用のコンポーネント
  * 
- * @description
  * 指定されたゲームの新規ルーム作成ページへ遷移するボタンを表示します。
  * ボタンをクリックすると、`/{gameName}/newRoom` のパスへナビゲートします。
  * 

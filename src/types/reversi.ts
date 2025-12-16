@@ -24,7 +24,6 @@ export interface BoardProps {
 	board: BoardState;
 	highlightedCells: HighlightedBoardState;
 	onCellClick: (rowIndex: number, colIndex: number) => void;
-	currentRole: RoleState;
 	lastPosition: LastPositionState;
 }
 
@@ -136,3 +135,9 @@ export interface ReversiRuleSettingsProps {
 	keyToShowLabel: Record<FirstState, string>;
 	firstTurnItems: { label: string; key: string | number }[];
 }
+
+export interface ReversiScoreBoardProps {
+	blackCount: number;
+	whiteCount: number;
+	currentRole: RoleState;
+};

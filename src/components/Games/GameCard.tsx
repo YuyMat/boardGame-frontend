@@ -2,11 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { GameMeta } from "@/types/games";
-
-type GameCardProps = {
-	game: GameMeta;
-};
+import type { GameMeta, GameCardProps } from "@/types/games";
 
 /**
  * ゲーム一覧に表示される個別のゲームカードコンポーネントです。

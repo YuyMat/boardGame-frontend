@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
-import { Board, SkipTurn } from "@/components/Reversi";
-import { ReShowResult, TurnInfo, Result } from "@/components/Utils";
+import { Board, SkipTurn, ReversiScoreBoard } from "@/components/Reversi";
+import { ReShowResult, Result } from "@/components/Utils";
 import { createEmptyBoard, createEmptyHighlightedBoard, reverseStones, countStones } from "@/libs/reversi";
 import { computeHighlights } from "@/libs/reversi/computeHighlights";
 import { BoardState, RoleState, LastPositionState, HighlightedBoardState } from "@/types/reversi";
@@ -89,16 +89,15 @@ export default function Page() {
 
 	return (
 		<div className="relative">
+			<ReversiScoreBoard blackCount={blackCount.current} whiteCount={whiteCount.current} currentRole={currentRole} />
 			<Result playerRole={localPlayerRole} isOpen={isWin} onRestart={handleRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} mainScore={blackCount.current} subScore={whiteCount.current} mainRole={'黒'} subRole={'白'} />
-			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
 			<Board
 				board={board}
 				highlightedCells={highlightedCells}
-				currentRole={currentRole}
 				onCellClick={handleCellClick}
 				lastPosition={lastPosition}
 			/>
-			<TurnInfo currentRole={currentRole} canPlay={canPlay} mainRole={'⚫️'} subRole={'⚪️'} mainRoleColorClass={'text-black'} subRoleColorClass={'text-black'} />
+			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
 			<ReShowResult openModal={isWin} setOpenModal={setIsWin} canPlay={canPlay} />
 		</div>
 	)
