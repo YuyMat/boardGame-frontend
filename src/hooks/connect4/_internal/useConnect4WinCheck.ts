@@ -1,18 +1,8 @@
 "use client"
 
-import { Dispatch, SetStateAction } from "react";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
-import { BoardState, lastPositionState, RoleState } from "@/types/connect4";
 import { checkWin, checkDraw } from "@/libs/connect4";
-
-interface UseConnect4WinCheckProps {
-	board: BoardState;
-	lastPosition: lastPositionState;
-	currentRole: RoleState;
-	setCanPlay: Dispatch<SetStateAction<boolean>>;
-	setIsWin: Dispatch<SetStateAction<boolean>>;
-	setIsDraw: Dispatch<SetStateAction<boolean>>;
-}
+import { UseConnect4WinCheckProps } from "@/types/connect4";
 
 /**
  * Connect4の勝敗判定を管理する内部フック

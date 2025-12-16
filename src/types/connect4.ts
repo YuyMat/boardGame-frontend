@@ -111,3 +111,12 @@ export interface Connect4RuleSettingsProps {
 	keyToShowLabel: Record<FirstState, string>;
 	firstTurnItems: { label: string; key: string | number }[];
 }
+
+export interface UseConnect4WinCheckProps {
+	board: BoardState;
+	lastPosition: lastPositionState;
+	currentRole: RoleState;
+	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
+	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
+	setIsDraw: React.Dispatch<React.SetStateAction<boolean>>;
+}

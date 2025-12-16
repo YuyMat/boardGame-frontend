@@ -11,7 +11,6 @@ import { Role } from "@/constants/reversi";
  * @param props.board - 現在の盤面の状態（8x8の2次元配列）
  * @param props.highlightedCells - 合法手がハイライトされているセルの2次元配列
  * @param props.onCellClick - セルをクリックした時のハンドラ関数
- * @param props.currentRole - 現在のターンのプレイヤー（`Role.BLACK` または `Role.WHITE`）
  * @param props.lastPosition - 直前に石を置いたセルの位置（行・列）。該当マスの枠線が強調表示されます
  * 
  * @remarks
@@ -21,12 +20,9 @@ import { Role } from "@/constants/reversi";
  * - 黒石と白石が視覚的に区別されます
  * - 現在のターン情報も表示されます
  */
-export default function Board({ board, highlightedCells, onCellClick, currentRole, lastPosition }: BoardProps) {
+export default function Board({ board, highlightedCells, onCellClick, lastPosition }: BoardProps) {
 	return (
 		<div className="relative">
-			<div className="pt-2 pl-2">
-				<h2 className={`text-2xl font-bold ${currentRole === Role.BLACK ? 'text-green-500' : 'text-green-700'}`}>リバーシ</h2>
-			</div>
 			<div className="flex flex-col items-center p-6">
 				{/* 盤面 */}
 				<div className="bg-green-600 p-4 rounded-lg shadow-lg mt-2">

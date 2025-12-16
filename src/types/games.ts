@@ -9,3 +9,7 @@ export type GameMeta = {
 	isDev: boolean;
 	tags?: string[];
 };
+
+export interface GameCardProps {
+	game: GameMeta;
+};

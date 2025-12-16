@@ -17,7 +17,7 @@ import { Role } from "@/constants/reversi";
 export default function SkipTurn({ isSkipTurn, currentRole }: SkipTurnProps) {
 	if (isSkipTurn) {
 		return (
-			<div className="absolute top-8 left-1/2 -translate-x-1/2 text-center whitespace-nowrap font-bold text-base sm:text-2xl">
+			<div className="text-center whitespace-nowrap font-bold text-base sm:text-2xl">
 				{`${currentRole === Role.BLACK ? '白' : '黒'}は置けないため、${currentRole === Role.BLACK ? '黒' : '白'}のターンです。`}
 			</div>
 		)
