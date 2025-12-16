@@ -17,3 +17,9 @@ Renames and re-exports [default](Board/functions/default.md)
 ### Scores
 
 Renames and re-exports [default](Scores/functions/default.md)
+
+***
+
+### MemoryRuleSettings
+
+Renames and re-exports [default](MemoryRuleSettings/functions/default.md)

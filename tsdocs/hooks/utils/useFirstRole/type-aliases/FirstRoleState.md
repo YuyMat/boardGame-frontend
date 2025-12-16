@@ -8,7 +8,7 @@
 
 > **FirstRoleState**\<`RoleType`\> = `"random"` \| `RoleType`
 
-Defined in: [hooks/utils/useFirstRole.ts:21](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/hooks/utils/useFirstRole.ts#L21)
+Defined in: [hooks/utils/useFirstRole.ts:21](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/hooks/utils/useFirstRole.ts#L21)
 
 ゲームの先手プレイヤーの選択状態を管理する汎用カスタムフックです。
 

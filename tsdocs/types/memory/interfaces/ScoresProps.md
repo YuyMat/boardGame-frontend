@@ -6,7 +6,7 @@
 
 # Interface: ScoresProps
 
-Defined in: [types/memory.ts:36](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L36)
+Defined in: [types/memory.ts:37](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L37)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/memory.ts:36](https://github.com/YuyMat/boardGame-frontend/bl
 
 > **scores**: [`ScoresState`](../type-aliases/ScoresState.md)
 
-Defined in: [types/memory.ts:37](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L37)
+Defined in: [types/memory.ts:38](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L38)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/memory.ts:37](https://github.com/YuyMat/boardGame-frontend/bl
 
 > **canPlay**: `boolean`
 
-Defined in: [types/memory.ts:38](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L38)
+Defined in: [types/memory.ts:39](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L39)

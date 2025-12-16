@@ -6,7 +6,7 @@
 
 # Interface: CanTurnOverProps
 
-Defined in: [types/reversi.ts:74](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L74)
+Defined in: [types/reversi.ts:72](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L72)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/reversi.ts:74](https://github.com/YuyMat/boardGame-frontend/b
 
 > **board**: [`BoardState`](../type-aliases/BoardState.md)
 
-Defined in: [types/reversi.ts:75](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L75)
+Defined in: [types/reversi.ts:73](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L73)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/reversi.ts:75](https://github.com/YuyMat/boardGame-frontend/b
 
 > **row**: `number`
 
-Defined in: [types/reversi.ts:76](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L76)
+Defined in: [types/reversi.ts:74](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L74)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/reversi.ts:76](https://github.com/YuyMat/boardGame-frontend/b
 
 > **col**: `number`
 
-Defined in: [types/reversi.ts:77](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L77)
+Defined in: [types/reversi.ts:75](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L75)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [types/reversi.ts:77](https://github.com/YuyMat/boardGame-frontend/b
 
 > **currentRole**: [`RoleState`](../type-aliases/RoleState.md)
 
-Defined in: [types/reversi.ts:78](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L78)
+Defined in: [types/reversi.ts:76](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L76)

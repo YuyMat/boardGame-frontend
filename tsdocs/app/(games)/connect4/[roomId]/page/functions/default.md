@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `Element`
 
-Defined in: [app/(games)/connect4/\[roomId\]/page.tsx:15](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/app/(games)/connect4/[roomId]/page.tsx#L15)
+Defined in: [app/(games)/connect4/\[roomId\]/page.tsx:15](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/app/(games)/connect4/[roomId]/page.tsx#L15)
 
 ## Parameters
 

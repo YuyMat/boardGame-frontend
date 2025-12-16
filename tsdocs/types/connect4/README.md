@@ -18,6 +18,8 @@
 - [HandleJoinedRoomProps](interfaces/HandleJoinedRoomProps.md)
 - [UseConnect4RestartProps](interfaces/UseConnect4RestartProps.md)
 - [UseConnect4SocketSyncProps](interfaces/UseConnect4SocketSyncProps.md)
+- [Connect4RuleSettingsProps](interfaces/Connect4RuleSettingsProps.md)
+- [UseConnect4WinCheckProps](interfaces/UseConnect4WinCheckProps.md)
 
 ## Type Aliases
 
@@ -27,4 +29,3 @@
 - [lastPositionState](type-aliases/lastPositionState.md)
 - [FirstState](type-aliases/FirstState.md)
 - [ShowFirstState](type-aliases/ShowFirstState.md)
-- [MatchState](type-aliases/MatchState.md)

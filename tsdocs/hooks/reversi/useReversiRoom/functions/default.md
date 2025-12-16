@@ -8,7 +8,7 @@
 
 > **default**(`roomId`, `setFirstRole`, `firstRole`): `object`
 
-Defined in: [hooks/reversi/useReversiRoom.ts:35](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/hooks/reversi/useReversiRoom.ts#L35)
+Defined in: [hooks/reversi/useReversiRoom.ts:36](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/hooks/reversi/useReversiRoom.ts#L36)
 
 オセロゲームのルーム管理とマッチング機能を提供するカスタムフックです。
 Socket.IOを使用してルームへの参加、プレイヤーのマッチング、先手設定の同期を行います。
@@ -62,11 +62,11 @@ Socket.IOを使用してルームへの参加、プレイヤーのマッチン�
 
 ### matchState
 
-> **matchState**: [`MatchState`](../../../../types/reversi/type-aliases/MatchState.md)
+> **matchState**: [`MatchState`](../../../../types/utils/type-aliases/MatchState.md)
 
 ### setMatchState
 
-> **setMatchState**: `Dispatch`\<`SetStateAction`\<[`MatchState`](../../../../types/reversi/type-aliases/MatchState.md)\>\>
+> **setMatchState**: `Dispatch`\<`SetStateAction`\<[`MatchState`](../../../../types/utils/type-aliases/MatchState.md)\>\>
 
 ### membersRef
 

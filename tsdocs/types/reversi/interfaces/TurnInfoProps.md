@@ -6,7 +6,7 @@
 
 # Interface: TurnInfoProps
 
-Defined in: [types/reversi.ts:92](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L92)
+Defined in: [types/reversi.ts:86](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L86)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/reversi.ts:92](https://github.com/YuyMat/boardGame-frontend/b
 
 > **currentRole**: [`RoleState`](../type-aliases/RoleState.md)
 
-Defined in: [types/reversi.ts:93](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L93)
+Defined in: [types/reversi.ts:87](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L87)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/reversi.ts:93](https://github.com/YuyMat/boardGame-frontend/b
 
 > **canPlay**: `boolean`
 
-Defined in: [types/reversi.ts:94](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L94)
+Defined in: [types/reversi.ts:88](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L88)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/reversi.ts:94](https://github.com/YuyMat/boardGame-frontend/b
 
 > **mainRole**: `string`
 
-Defined in: [types/reversi.ts:95](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L95)
+Defined in: [types/reversi.ts:89](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L89)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [types/reversi.ts:95](https://github.com/YuyMat/boardGame-frontend/b
 
 > **subRole**: `string`
 
-Defined in: [types/reversi.ts:96](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L96)
+Defined in: [types/reversi.ts:90](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L90)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [types/reversi.ts:96](https://github.com/YuyMat/boardGame-frontend/b
 
 > **mainRoleColorClass**: `string`
 
-Defined in: [types/reversi.ts:97](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L97)
+Defined in: [types/reversi.ts:91](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L91)
 
 ***
 
@@ -54,4 +54,4 @@ Defined in: [types/reversi.ts:97](https://github.com/YuyMat/boardGame-frontend/b
 
 > **subRoleColorClass**: `string`
 
-Defined in: [types/reversi.ts:98](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L98)
+Defined in: [types/reversi.ts:92](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L92)

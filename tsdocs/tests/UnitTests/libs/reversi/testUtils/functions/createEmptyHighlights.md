@@ -8,7 +8,7 @@
 
 > **createEmptyHighlights**(): [`HighlightedBoardState`](../../../../../../types/reversi/type-aliases/HighlightedBoardState.md)
 
-Defined in: [tests/UnitTests/libs/reversi/testUtils.ts:6](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/tests/UnitTests/libs/reversi/testUtils.ts#L6)
+Defined in: [tests/UnitTests/libs/reversi/testUtils.ts:6](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/tests/UnitTests/libs/reversi/testUtils.ts#L6)
 
 ## Returns
 

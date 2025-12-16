@@ -6,7 +6,7 @@
 
 # Interface: SkipTurnProps
 
-Defined in: [types/reversi.ts:87](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L87)
+Defined in: [types/reversi.ts:81](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L81)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/reversi.ts:87](https://github.com/YuyMat/boardGame-frontend/b
 
 > **isSkipTurn**: `boolean`
 
-Defined in: [types/reversi.ts:88](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L88)
+Defined in: [types/reversi.ts:82](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L82)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/reversi.ts:88](https://github.com/YuyMat/boardGame-frontend/b
 
 > **currentRole**: [`RoleState`](../type-aliases/RoleState.md)
 
-Defined in: [types/reversi.ts:89](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L89)
+Defined in: [types/reversi.ts:83](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L83)

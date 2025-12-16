@@ -6,7 +6,7 @@
 
 # Interface: ShowRoleProps\<T\>
 
-Defined in: [types/utils.ts:14](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L14)
+Defined in: [types/utils.ts:15](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L15)
 
 ## Type Parameters
 
@@ -20,7 +20,7 @@ Defined in: [types/utils.ts:14](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **currentRole**: `T`
 
-Defined in: [types/utils.ts:15](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L15)
+Defined in: [types/utils.ts:16](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L16)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [types/utils.ts:15](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **playerRole**: `T` \| `null`
 
-Defined in: [types/utils.ts:16](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L16)
+Defined in: [types/utils.ts:17](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L17)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [types/utils.ts:16](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **canPlay**: `boolean`
 
-Defined in: [types/utils.ts:17](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L17)
+Defined in: [types/utils.ts:18](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L18)

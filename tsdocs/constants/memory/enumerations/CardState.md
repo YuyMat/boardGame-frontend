@@ -6,7 +6,7 @@
 
 # Enumeration: CardState
 
-Defined in: [constants/memory.ts:32](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/constants/memory.ts#L32)
+Defined in: [constants/memory.ts:36](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/constants/memory.ts#L36)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [constants/memory.ts:32](https://github.com/YuyMat/boardGame-fronten
 
 > **CLOSED**: `0`
 
-Defined in: [constants/memory.ts:33](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/constants/memory.ts#L33)
+Defined in: [constants/memory.ts:37](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/constants/memory.ts#L37)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [constants/memory.ts:33](https://github.com/YuyMat/boardGame-fronten
 
 > **OPENED**: `1`
 
-Defined in: [constants/memory.ts:34](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/constants/memory.ts#L34)
+Defined in: [constants/memory.ts:38](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/constants/memory.ts#L38)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [constants/memory.ts:34](https://github.com/YuyMat/boardGame-fronten
 
 > **REMOVED**: `2`
 
-Defined in: [constants/memory.ts:35](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/constants/memory.ts#L35)
+Defined in: [constants/memory.ts:39](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/constants/memory.ts#L39)

@@ -8,7 +8,7 @@
 
 > **lastPositionState** = `object`
 
-Defined in: [types/connect4.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L10)
+Defined in: [types/connect4.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L11)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [types/connect4.ts:10](https://github.com/YuyMat/boardGame-frontend/
 
 > **row**: `number` \| `null`
 
-Defined in: [types/connect4.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L11)
+Defined in: [types/connect4.ts:12](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L12)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [types/connect4.ts:11](https://github.com/YuyMat/boardGame-frontend/
 
 > **col**: `number` \| `null`
 
-Defined in: [types/connect4.ts:12](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L12)
+Defined in: [types/connect4.ts:13](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L13)

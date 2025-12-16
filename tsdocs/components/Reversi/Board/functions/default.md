@@ -8,7 +8,7 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Reversi/Board.tsx:24](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Reversi/Board.tsx#L24)
+Defined in: [components/Reversi/Board.tsx:23](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/components/Reversi/Board.tsx#L23)
 
 リバーシゲームの盤面を表示するメインボードコンポーネントです。
 8x8の盤面、石、合法手のハイライト、および直前に置かれた石の位置を表示します。

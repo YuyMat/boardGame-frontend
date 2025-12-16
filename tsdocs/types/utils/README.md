@@ -11,10 +11,12 @@
 - [ShowRoleProps](interfaces/ShowRoleProps.md)
 - [ReShowResultProps](interfaces/ReShowResultProps.md)
 - [ResultProps](interfaces/ResultProps.md)
+- [FirstRoleSelectorProps](interfaces/FirstRoleSelectorProps.md)
 
 ## Type Aliases
 
 - [CSSColorClass](type-aliases/CSSColorClass.md)
 - [RoleState](type-aliases/RoleState.md)
 - [FirstState](type-aliases/FirstState.md)
+- [MatchState](type-aliases/MatchState.md)
 - [RuleSettingsProps](type-aliases/RuleSettingsProps.md)

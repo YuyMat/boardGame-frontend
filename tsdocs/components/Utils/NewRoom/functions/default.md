@@ -8,9 +8,12 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Utils/NewRoom.tsx:23](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Utils/NewRoom.tsx#L23)
+Defined in: [components/Utils/NewRoom.tsx:22](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/components/Utils/NewRoom.tsx#L22)
 
 新規ルーム作成用のコンポーネント
+
+指定されたゲームの新規ルーム作成ページへ遷移するボタンを表示します。
+ボタンをクリックすると、`/{gameName}/newRoom` のパスへナビゲートします。
 
 ## Parameters
 
@@ -29,11 +32,6 @@ Defined in: [components/Utils/NewRoom.tsx:23](https://github.com/YuyMat/boardGam
 `Element`
 
 新規ルーム作成ボタンを含むReact要素
-
-## Description
-
-指定されたゲームの新規ルーム作成ページへ遷移するボタンを表示します。
-ボタンをクリックすると、`/{gameName}/newRoom` のパスへナビゲートします。
 
 ## Example
 

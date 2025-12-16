@@ -13,4 +13,6 @@
 - [keyToShowLabel](variables/keyToShowLabel.md)
 - [firstTurnItems](variables/firstTurnItems.md)
 - [mainPlayerColorClass](variables/mainPlayerColorClass.md)
+- [RED\_BG\_COLOR](variables/RED_BG_COLOR.md)
+- [YELLOW\_BG\_COLOR](variables/YELLOW_BG_COLOR.md)
 - [MAX\_PLAYERS](variables/MAX_PLAYERS.md)

@@ -6,7 +6,7 @@
 
 # Interface: HandleJoinedRoomProps
 
-Defined in: [types/reversi.ts:69](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L69)
+Defined in: [types/reversi.ts:67](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L67)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/reversi.ts:69](https://github.com/YuyMat/boardGame-frontend/b
 
 > **members**: `number`
 
-Defined in: [types/reversi.ts:70](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L70)
+Defined in: [types/reversi.ts:68](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L68)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/reversi.ts:70](https://github.com/YuyMat/boardGame-frontend/b
 
 > **role**: [`RoleState`](../type-aliases/RoleState.md) \| `null`
 
-Defined in: [types/reversi.ts:71](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/reversi.ts#L71)
+Defined in: [types/reversi.ts:69](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/reversi.ts#L69)

@@ -2,9 +2,9 @@
 
 ***
 
-[frontend](../../../modules.md) / components/Reversi/showTurn
+[frontend](../../../modules.md) / components/Reversi/ShowTurn
 
-# components/Reversi/showTurn
+# components/Reversi/ShowTurn
 
 ## Functions
 

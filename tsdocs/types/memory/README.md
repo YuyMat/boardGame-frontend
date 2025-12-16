@@ -13,6 +13,13 @@
 - [Settings](interfaces/Settings.md)
 - [OpenedCard](interfaces/OpenedCard.md)
 - [ScoresProps](interfaces/ScoresProps.md)
+- [MemoryCardsSelectorProps](interfaces/MemoryCardsSelectorProps.md)
+- [MemoryRuleSettingsProps](interfaces/MemoryRuleSettingsProps.md)
+- [OnCardClickProps](interfaces/OnCardClickProps.md)
+- [OnRestartProps](interfaces/OnRestartProps.md)
+- [HandleMatchProps](interfaces/HandleMatchProps.md)
+- [HandleMismatchProps](interfaces/HandleMismatchProps.md)
+- [CheckPairProps](interfaces/CheckPairProps.md)
 
 ## Type Aliases
 

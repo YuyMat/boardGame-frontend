@@ -8,7 +8,7 @@
 
 > **useReversiWinCheck**(`__namedParameters`): `void`
 
-Defined in: [hooks/reversi/\_internal/useReversiWinCheck.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/hooks/reversi/_internal/useReversiWinCheck.ts#L10)
+Defined in: [hooks/reversi/\_internal/useReversiWinCheck.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/hooks/reversi/_internal/useReversiWinCheck.ts#L10)
 
 Reversiの勝敗判定とハイライト表示を管理する内部フック
 

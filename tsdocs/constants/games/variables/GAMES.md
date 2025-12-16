@@ -8,4 +8,4 @@
 
 > `const` **GAMES**: [`GameMeta`](../../../types/games/type-aliases/GameMeta.md)[]
 
-Defined in: [constants/games.ts:3](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/constants/games.ts#L3)
+Defined in: [constants/games.ts:3](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/constants/games.ts#L3)

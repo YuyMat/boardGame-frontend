@@ -6,6 +6,10 @@
 
 # types/games
 
+## Interfaces
+
+- [GameCardProps](interfaces/GameCardProps.md)
+
 ## Type Aliases
 
 - [GameMeta](type-aliases/GameMeta.md)

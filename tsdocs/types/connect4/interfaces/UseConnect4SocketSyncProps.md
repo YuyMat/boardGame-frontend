@@ -6,7 +6,7 @@
 
 # Interface: UseConnect4SocketSyncProps
 
-Defined in: [types/connect4.ts:96](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L96)
+Defined in: [types/connect4.ts:97](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L97)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/connect4.ts:96](https://github.com/YuyMat/boardGame-frontend/
 
 > **socketRef**: `RefObject`\<`Socket`\<`DefaultEventsMap`, `DefaultEventsMap`\> \| `null`\>
 
-Defined in: [types/connect4.ts:97](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L97)
+Defined in: [types/connect4.ts:98](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L98)
 
 ***
 
@@ -22,15 +22,15 @@ Defined in: [types/connect4.ts:97](https://github.com/YuyMat/boardGame-frontend/
 
 > **roomId**: `string`
 
-Defined in: [types/connect4.ts:98](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L98)
+Defined in: [types/connect4.ts:99](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L99)
 
 ***
 
 ### matchState
 
-> **matchState**: [`MatchState`](../type-aliases/MatchState.md)
+> **matchState**: [`MatchState`](../../utils/type-aliases/MatchState.md)
 
-Defined in: [types/connect4.ts:99](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L99)
+Defined in: [types/connect4.ts:100](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L100)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [types/connect4.ts:99](https://github.com/YuyMat/boardGame-frontend/
 
 > **board**: [`BoardState`](../type-aliases/BoardState.md)
 
-Defined in: [types/connect4.ts:100](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L100)
+Defined in: [types/connect4.ts:101](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L101)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [types/connect4.ts:100](https://github.com/YuyMat/boardGame-frontend
 
 > **currentRole**: [`RoleState`](../type-aliases/RoleState.md)
 
-Defined in: [types/connect4.ts:101](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L101)
+Defined in: [types/connect4.ts:102](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L102)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [types/connect4.ts:101](https://github.com/YuyMat/boardGame-frontend
 
 > **lastPosition**: [`lastPositionState`](../type-aliases/lastPositionState.md)
 
-Defined in: [types/connect4.ts:102](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L102)
+Defined in: [types/connect4.ts:103](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L103)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [types/connect4.ts:102](https://github.com/YuyMat/boardGame-frontend
 
 > **setBoard**: `Dispatch`\<`SetStateAction`\<[`BoardState`](../type-aliases/BoardState.md)\>\>
 
-Defined in: [types/connect4.ts:103](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L103)
+Defined in: [types/connect4.ts:104](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L104)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [types/connect4.ts:103](https://github.com/YuyMat/boardGame-frontend
 
 > **setCurrentRole**: `Dispatch`\<`SetStateAction`\<[`RoleState`](../type-aliases/RoleState.md)\>\>
 
-Defined in: [types/connect4.ts:104](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L104)
+Defined in: [types/connect4.ts:105](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L105)
 
 ***
 
@@ -78,4 +78,4 @@ Defined in: [types/connect4.ts:104](https://github.com/YuyMat/boardGame-frontend
 
 > **setLastPosition**: `Dispatch`\<`SetStateAction`\<[`lastPositionState`](../type-aliases/lastPositionState.md)\>\>
 
-Defined in: [types/connect4.ts:105](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/connect4.ts#L105)
+Defined in: [types/connect4.ts:106](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/connect4.ts#L106)

@@ -8,4 +8,4 @@
 
 > `const` **dynamic**: `"force-dynamic"` = `"force-dynamic"`
 
-Defined in: [app/(games)/connect4/newRoom/page.tsx:3](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/app/(games)/connect4/newRoom/page.tsx#L3)
+Defined in: [app/(games)/connect4/newRoom/page.tsx:3](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/app/(games)/connect4/newRoom/page.tsx#L3)

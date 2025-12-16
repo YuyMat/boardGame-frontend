@@ -8,7 +8,7 @@
 
 > **computeHighlights**(`board`, `role`): `object`
 
-Defined in: [libs/reversi/computeHighlights.ts:19](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/libs/reversi/computeHighlights.ts#L19)
+Defined in: [libs/reversi/computeHighlights.ts:19](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/libs/reversi/computeHighlights.ts#L19)
 
 オセロの盤面上で現在のプレイヤーが石を置ける位置（合法手）を計算します。
 すべてのセルをチェックし、石を置ける位置をハイライト配列として返します。
