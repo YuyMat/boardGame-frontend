@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { createSocket } from "@/libs/socket/client";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
-import { MatchState, RoleState, HandleJoinedRoomProps, FirstState } from "@/types/connect4";
+import { RoleState, HandleJoinedRoomProps, FirstState } from "@/types/connect4";
+import { MatchState } from "@/types/utils";
 import { Role } from "@/constants/connect4";
 import type { Socket } from "socket.io-client";
 
