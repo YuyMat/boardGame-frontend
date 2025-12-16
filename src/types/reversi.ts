@@ -1,5 +1,6 @@
 import type { Socket } from "socket.io-client";
 import { Role } from "@/constants/reversi";
+import { MatchState } from "@/types/utils";
 
 export type RoleState = typeof Role.BLACK | typeof Role.WHITE;
 export type CellState = RoleState | null;
@@ -17,8 +18,6 @@ export type LastPositionState = {
 };
 
 export type FirstState = 'random' | RoleState;
-
-export type MatchState = "waiting" | "matched" | "playing";
 
 // propsの型定義
 export interface BoardProps {

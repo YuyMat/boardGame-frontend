@@ -34,7 +34,8 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 	} = useReversiRoom(roomId, setFirstRole, firstRole);
 
 	// bodyの背景色を動的に変更
-	useBodyBackgroundColor(currentRole === Role.BLACK ? BLACK_BG_COLOR : WHITE_BG_COLOR);
+	const color = currentRole === Role.BLACK ? BLACK_BG_COLOR : WHITE_BG_COLOR;
+	useBodyBackgroundColor(color, matchState);
 
 	// 盤面・手番・勝敗・同期
 	const {
