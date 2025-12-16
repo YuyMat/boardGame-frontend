@@ -8,10 +8,10 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Utils/GameRule.tsx:26](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Utils/GameRule.tsx#L26)
+Defined in: [components/Utils/GameRule.tsx:22](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/components/Utils/GameRule.tsx#L22)
 
-ゲームのルール設定（先攻選択）を行うモーダルコンポーネントです。
-ゲームの先攻を選択できます。
+ゲームのルール設定を表示するモーダルコンポーネントです。
+汎用的なルール設定の枠組みを提供し、具体的な設定項目は子コンポーネントとして受け取ります。
 
 ## Parameters
 
@@ -27,8 +27,6 @@ Defined in: [components/Utils/GameRule.tsx:26](https://github.com/YuyMat/boardGa
 
 ## Remarks
 
-- モーダル内でドロップダウンから先攻プレイヤーを選択できます
-- 選択肢：ランダム、または各ゲーム固有のプレイヤー（赤/黄、黒/白など）
-- ゲーム開始前に先攻を決定するために使用されます
-- 各ゲームで異なる色やラベルに対応できる汎用的な設計になっています
-- メインプレイヤーの色表示は各ゲームのconstantsから渡されたCSSクラスで動的に変更されます
+- モーダルを開くボタンを提供します
+- モーダルヘッダー部分にプレイヤーの自分の色を表示します
+- 具体的な設定内容は `settingsComponents` プロパティを通じて注入されます

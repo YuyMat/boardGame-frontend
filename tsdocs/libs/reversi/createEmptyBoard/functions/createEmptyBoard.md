@@ -8,7 +8,7 @@
 
 > **createEmptyBoard**(): [`BoardState`](../../../../types/reversi/type-aliases/BoardState.md)
 
-Defined in: [libs/reversi/createEmptyBoard.ts:17](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/libs/reversi/createEmptyBoard.ts#L17)
+Defined in: [libs/reversi/createEmptyBoard.ts:17](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/libs/reversi/createEmptyBoard.ts#L17)
 
 オセロゲーム用の初期状態のボードを作成します。
 8x8の盤面の中央4マスに、標準的なオセロの初期配置で石を配置します。

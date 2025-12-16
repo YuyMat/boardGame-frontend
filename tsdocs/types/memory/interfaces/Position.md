@@ -6,7 +6,7 @@
 
 # Interface: Position
 
-Defined in: [types/memory.ts:4](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L4)
+Defined in: [types/memory.ts:4](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L4)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/memory.ts:4](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **row**: `number`
 
-Defined in: [types/memory.ts:5](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L5)
+Defined in: [types/memory.ts:5](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L5)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [types/memory.ts:5](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **col**: `number`
 
-Defined in: [types/memory.ts:6](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L6)
+Defined in: [types/memory.ts:6](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L6)

@@ -15,12 +15,13 @@
 - [HandleGameStateUpdatedProps](interfaces/HandleGameStateUpdatedProps.md)
 - [HandleJoinedRoomProps](interfaces/HandleJoinedRoomProps.md)
 - [CanTurnOverProps](interfaces/CanTurnOverProps.md)
-- [ReverseStonesProps](interfaces/ReverseStonesProps.md)
 - [SkipTurnProps](interfaces/SkipTurnProps.md)
 - [TurnInfoProps](interfaces/TurnInfoProps.md)
 - [UseReversiSocketSyncProps](interfaces/UseReversiSocketSyncProps.md)
 - [UseReversiWinCheckProps](interfaces/UseReversiWinCheckProps.md)
 - [UseReversiRestartProps](interfaces/UseReversiRestartProps.md)
+- [ReversiRuleSettingsProps](interfaces/ReversiRuleSettingsProps.md)
+- [ReversiScoreBoardProps](interfaces/ReversiScoreBoardProps.md)
 
 ## Type Aliases
 
@@ -32,4 +33,4 @@
 - [HighlightedBoardState](type-aliases/HighlightedBoardState.md)
 - [LastPositionState](type-aliases/LastPositionState.md)
 - [FirstState](type-aliases/FirstState.md)
-- [MatchState](type-aliases/MatchState.md)
+- [ReverseStonesProps](type-aliases/ReverseStonesProps.md)

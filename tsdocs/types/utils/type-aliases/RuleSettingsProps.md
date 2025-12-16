@@ -8,49 +8,15 @@
 
 > **RuleSettingsProps** = `object`
 
-Defined in: [types/utils.ts:7](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L7)
+Defined in: [types/utils.ts:9](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L9)
 
 ## Properties
-
-### setFirst()
-
-> **setFirst**: (`first`) => `void`
-
-Defined in: [types/utils.ts:8](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L8)
-
-#### Parameters
-
-##### first
-
-[`FirstState`](FirstState.md)
-
-#### Returns
-
-`void`
-
-***
 
 ### keyToShowLabel
 
 > **keyToShowLabel**: `Record`\<[`FirstState`](FirstState.md), `string`\>
 
-Defined in: [types/utils.ts:9](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L9)
-
-***
-
-### firstTurnItems
-
-> **firstTurnItems**: `object`[]
-
-Defined in: [types/utils.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L10)
-
-#### label
-
-> **label**: `string`
-
-#### key
-
-> **key**: `string` \| `number`
+Defined in: [types/utils.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L10)
 
 ***
 
@@ -58,4 +24,12 @@ Defined in: [types/utils.ts:10](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **mainPlayerColorClass**: [`CSSColorClass`](CSSColorClass.md)
 
-Defined in: [types/utils.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L11)
+Defined in: [types/utils.ts:11](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L11)
+
+***
+
+### settingsComponents?
+
+> `optional` **settingsComponents**: `React.ReactNode`
+
+Defined in: [types/utils.ts:12](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L12)

@@ -6,9 +6,9 @@
 
 # Function: default()
 
-> **default**(`props`): `Element`
+> **default**(`props`): `Element` \| `undefined`
 
-Defined in: [components/Connect4/Connect4Result.tsx:22](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Connect4/Connect4Result.tsx#L22)
+Defined in: [components/Connect4/Connect4Result.tsx:23](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/components/Connect4/Connect4Result.tsx#L23)
 
 Connect4ゲームの結果を表示するモーダルコンポーネントです。
 勝者を発表し、リスタートやゲーム一覧への遷移オプションを提供します。
@@ -23,7 +23,7 @@ Connect4ゲームの結果を表示するモーダルコンポーネントです
 
 ## Returns
 
-`Element`
+`Element` \| `undefined`
 
 ## Remarks
 

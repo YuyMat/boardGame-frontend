@@ -8,7 +8,7 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Utils/TemporaryWaiting.tsx:21](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Utils/TemporaryWaiting.tsx#L21)
+Defined in: [components/Utils/TemporaryWaiting.tsx:20](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/components/Utils/TemporaryWaiting.tsx#L20)
 
 オンライン対戦で対戦相手の参加を待つ待機モーダルコンポーネントです。
 メンバー数が2人未満の場合に自動的に表示されます。

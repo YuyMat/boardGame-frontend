@@ -8,4 +8,4 @@
 
 > `const` **firstTurnItems**: (\{ `label`: `string`; `key`: `string`; \} \| \{ `label`: `string`; `key`: `1`; \} \| \{ `label`: `string`; `key`: `2`; \})[]
 
-Defined in: [constants/reversi.ts:23](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/constants/reversi.ts#L23)
+Defined in: [constants/reversi.ts:23](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/constants/reversi.ts#L23)

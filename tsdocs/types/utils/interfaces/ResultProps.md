@@ -6,15 +6,23 @@
 
 # Interface: ResultProps
 
-Defined in: [types/utils.ts:26](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L26)
+Defined in: [types/utils.ts:27](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L27)
 
 ## Properties
+
+### playerRole
+
+> **playerRole**: [`RoleState`](../type-aliases/RoleState.md) \| `null`
+
+Defined in: [types/utils.ts:28](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L28)
+
+***
 
 ### isOpen
 
 > **isOpen**: `boolean`
 
-Defined in: [types/utils.ts:27](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L27)
+Defined in: [types/utils.ts:29](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L29)
 
 ***
 
@@ -22,7 +30,7 @@ Defined in: [types/utils.ts:27](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **onRestart**: () => `void`
 
-Defined in: [types/utils.ts:28](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L28)
+Defined in: [types/utils.ts:30](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L30)
 
 #### Returns
 
@@ -34,7 +42,7 @@ Defined in: [types/utils.ts:28](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **handleCancel**: () => `void`
 
-Defined in: [types/utils.ts:29](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L29)
+Defined in: [types/utils.ts:31](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L31)
 
 #### Returns
 
@@ -46,7 +54,7 @@ Defined in: [types/utils.ts:29](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **onShowGames**: () => `void`
 
-Defined in: [types/utils.ts:30](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L30)
+Defined in: [types/utils.ts:32](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L32)
 
 #### Returns
 
@@ -58,7 +66,7 @@ Defined in: [types/utils.ts:30](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **mainScore**: `number`
 
-Defined in: [types/utils.ts:31](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L31)
+Defined in: [types/utils.ts:33](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L33)
 
 ***
 
@@ -66,7 +74,7 @@ Defined in: [types/utils.ts:31](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **subScore**: `number`
 
-Defined in: [types/utils.ts:32](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L32)
+Defined in: [types/utils.ts:34](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L34)
 
 ***
 
@@ -74,7 +82,7 @@ Defined in: [types/utils.ts:32](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **mainRole**: `string`
 
-Defined in: [types/utils.ts:33](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L33)
+Defined in: [types/utils.ts:35](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L35)
 
 ***
 
@@ -82,4 +90,4 @@ Defined in: [types/utils.ts:33](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **subRole**: `string`
 
-Defined in: [types/utils.ts:34](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L34)
+Defined in: [types/utils.ts:36](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L36)

@@ -6,7 +6,7 @@
 
 # Interface: ReShowResultProps
 
-Defined in: [types/utils.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L20)
+Defined in: [types/utils.ts:21](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L21)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/utils.ts:20](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **openModal**: `boolean`
 
-Defined in: [types/utils.ts:21](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L21)
+Defined in: [types/utils.ts:22](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L22)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/utils.ts:21](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **setOpenModal**: `Dispatch`\<`SetStateAction`\<`boolean`\>\>
 
-Defined in: [types/utils.ts:22](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L22)
+Defined in: [types/utils.ts:23](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L23)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [types/utils.ts:22](https://github.com/YuyMat/boardGame-frontend/blo
 
 > **canPlay**: `boolean`
 
-Defined in: [types/utils.ts:23](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/utils.ts#L23)
+Defined in: [types/utils.ts:24](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/utils.ts#L24)

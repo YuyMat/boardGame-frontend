@@ -8,7 +8,7 @@
 
 > **useConnect4SocketSync**(`__namedParameters`): `void`
 
-Defined in: [hooks/connect4/\_internal/useConnect4SocketSync.ts:9](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/hooks/connect4/_internal/useConnect4SocketSync.ts#L9)
+Defined in: [hooks/connect4/\_internal/useConnect4SocketSync.ts:9](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/hooks/connect4/_internal/useConnect4SocketSync.ts#L9)
 
 Connect4のSocket通信による盤面同期を管理する内部フック
 

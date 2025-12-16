@@ -8,7 +8,7 @@
 
 > **useReversiGameState**(): `object`
 
-Defined in: [hooks/reversi/\_internal/useReversiGameState.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/hooks/reversi/_internal/useReversiGameState.ts#L10)
+Defined in: [hooks/reversi/\_internal/useReversiGameState.ts:10](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/hooks/reversi/_internal/useReversiGameState.ts#L10)
 
 Reversiのボード状態を管理する内部フック
 

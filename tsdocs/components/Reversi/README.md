@@ -22,4 +22,16 @@ Renames and re-exports [default](SkipTurn/functions/default.md)
 
 ### ShowTurn
 
-Renames and re-exports [default](showTurn/functions/default.md)
+Renames and re-exports [default](ShowTurn/functions/default.md)
+
+***
+
+### ReversiRuleSettings
+
+Renames and re-exports [default](ReversiRuleSettings/functions/default.md)
+
+***
+
+### ReversiScoreBoard
+
+Renames and re-exports [default](ReversiScoreBoard/functions/default.md)

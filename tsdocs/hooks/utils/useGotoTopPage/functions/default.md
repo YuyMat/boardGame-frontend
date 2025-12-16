@@ -6,9 +6,9 @@
 
 # Function: default()
 
-> **default**(): (`setIsOpen`) => `void`
+> **default**(): (`setIsOpen?`) => `void`
 
-Defined in: [hooks/utils/useGotoTopPage.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/hooks/utils/useGotoTopPage.ts#L20)
+Defined in: [hooks/utils/useGotoTopPage.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/hooks/utils/useGotoTopPage.ts#L20)
 
 モーダルを閉じてトップページに遷移する関数を返すカスタムフックです。
 
@@ -16,11 +16,11 @@ Defined in: [hooks/utils/useGotoTopPage.ts:20](https://github.com/YuyMat/boardGa
 
 モーダルを閉じてトップページ（"/"）に遷移する関数
 
-> (`setIsOpen`): `void`
+> (`setIsOpen?`): `void`
 
 ### Parameters
 
-#### setIsOpen
+#### setIsOpen?
 
 `Dispatch`\<`SetStateAction`\<`boolean`\>\>
 

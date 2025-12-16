@@ -8,7 +8,7 @@
 
 > **default**(`props`): `Element` \| `undefined`
 
-Defined in: [components/Utils/ReShowResult.tsx:17](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Utils/ReShowResult.tsx#L17)
+Defined in: [components/Utils/ReShowResult.tsx:17](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/components/Utils/ReShowResult.tsx#L17)
 
 ゲーム終了後に結果モーダルを再表示するためのボタンコンポーネントです。
 結果モーダルを閉じた後でも、再度結果を確認できるようにします。

@@ -8,7 +8,7 @@
 
 > **default**(`props`): `Element`
 
-Defined in: [components/Utils/Loading.tsx:15](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Utils/Loading.tsx#L15)
+Defined in: [components/Utils/Loading.tsx:15](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/components/Utils/Loading.tsx#L15)
 
 ウェーブアニメーション付きのローディングテキストコンポーネントです。
 テキストの各文字が順番に波打つようにアニメーションします。

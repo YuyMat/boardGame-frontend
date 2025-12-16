@@ -6,7 +6,7 @@
 
 # Interface: BoardProps
 
-Defined in: [types/memory.ts:19](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L19)
+Defined in: [types/memory.ts:19](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L19)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [types/memory.ts:19](https://github.com/YuyMat/boardGame-frontend/bl
 
 > **cardBoard**: [`CardBoard`](../type-aliases/CardBoard.md)
 
-Defined in: [types/memory.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L20)
+Defined in: [types/memory.ts:20](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L20)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [types/memory.ts:20](https://github.com/YuyMat/boardGame-frontend/bl
 
 > **cardStateBoard**: [`CardStateBoard`](../type-aliases/CardStateBoard.md)
 
-Defined in: [types/memory.ts:21](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L21)
+Defined in: [types/memory.ts:21](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L21)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [types/memory.ts:21](https://github.com/YuyMat/boardGame-frontend/bl
 
 > **onCardClick**: (`rowIndex`, `colIndex`) => `void`
 
-Defined in: [types/memory.ts:22](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L22)
+Defined in: [types/memory.ts:22](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L22)
 
 #### Parameters
 
@@ -52,4 +52,4 @@ Defined in: [types/memory.ts:22](https://github.com/YuyMat/boardGame-frontend/bl
 
 > **cards**: [`Cards`](../type-aliases/Cards.md)
 
-Defined in: [types/memory.ts:23](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/types/memory.ts#L23)
+Defined in: [types/memory.ts:23](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/types/memory.ts#L23)

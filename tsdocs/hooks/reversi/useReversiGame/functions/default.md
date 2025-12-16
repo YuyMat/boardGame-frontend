@@ -8,7 +8,7 @@
 
 > **default**(`props`): `object`
 
-Defined in: [hooks/reversi/useReversiGame.ts:43](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/hooks/reversi/useReversiGame.ts#L43)
+Defined in: [hooks/reversi/useReversiGame.ts:43](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/hooks/reversi/useReversiGame.ts#L43)
 
 オセロゲームのゲームロジックとリアルタイム同期を管理するカスタムフックです。
 ボードの状態管理、合法手のハイライト、勝敗判定、Socket.IOを使った盤面同期を行います。

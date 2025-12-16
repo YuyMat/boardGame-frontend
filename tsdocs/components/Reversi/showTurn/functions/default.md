@@ -2,13 +2,13 @@
 
 ***
 
-[frontend](../../../../modules.md) / [components/Reversi/showTurn](../README.md) / default
+[frontend](../../../../modules.md) / [components/Reversi/ShowTurn](../README.md) / default
 
 # Function: default()
 
 > **default**(`props`): `Element` \| `undefined`
 
-Defined in: [components/Reversi/showTurn.tsx:19](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Reversi/showTurn.tsx#L19)
+Defined in: [components/Reversi/ShowTurn.tsx:19](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/components/Reversi/ShowTurn.tsx#L19)
 
 リバーシゲームの現在のターン情報を表示するコンポーネントです。（オンライン対戦用）
 プレイヤーのターン、相手のターン状態を表示します。

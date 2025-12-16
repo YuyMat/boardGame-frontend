@@ -8,7 +8,7 @@
 
 > **default**(`props`): `Element` \| `undefined`
 
-Defined in: [components/Connect4/showTurn.tsx:18](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/components/Connect4/showTurn.tsx#L18)
+Defined in: [components/Connect4/showTurn.tsx:18](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/components/Connect4/showTurn.tsx#L18)
 
 Connect4ゲームの現在のターン情報を表示するコンポーネントです。
 プレイヤーのターン、相手のターンを表示します。

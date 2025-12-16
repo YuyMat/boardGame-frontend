@@ -8,7 +8,7 @@
 
 > **checkDraw**(`board`): `boolean`
 
-Defined in: [libs/connect4/checkDraw.ts:17](https://github.com/YuyMat/boardGame-frontend/blob/e1a14249541aeaf6e70aca503c708635378832f7/src/libs/connect4/checkDraw.ts#L17)
+Defined in: [libs/connect4/checkDraw.ts:17](https://github.com/YuyMat/boardGame-frontend/blob/d0dc3cf3d8e8ba24e20f7d4b015cbe0b14edbbdd/src/libs/connect4/checkDraw.ts#L17)
 
 Connect4ゲームで引き分け状態（盤面が完全に埋まった状態）かどうかをチェックします。
 最上段のすべてのセルが埋まっているかを判定します。
