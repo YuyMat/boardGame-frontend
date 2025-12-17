@@ -33,10 +33,7 @@ export default function Board({ board, onCellClick, isWin, isDraw, setIsWin, onR
 		<div className="relative">
 			<Connect4Result playerRole={playerRole} isWin={isWin} isDraw={isDraw} onRestart={onRestart} handleCancel={() => closeModal(setIsWin)} onShowGames={() => gotoTopPage(setIsWin)} currentRole={currentRole} />
 			<TurnDisc currentRole={currentRole} />
-			<div className="pt-2 pl-2">
-				<h2 className="text-2xl font-bold text-blue-800">Connect 4</h2>
-			</div>
-			<div className="flex flex-col items-center p-6">
+			<div className="flex flex-col items-center p-6 mt-40">
 				{/* 盤面 */}
 				<div className="bg-blue-600 p-4 rounded-lg shadow-lg mt-2">
 					<div className="grid grid-cols-7 gap-2">
