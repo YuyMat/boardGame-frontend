@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Drawer } from 'antd';
-import closeModal from '@/utils/closeModal';
 import { GAMES } from '@/constants/games';
 
 /**
@@ -64,7 +63,7 @@ const Header = () => {
 				{/* モバイルメニュー */}
 				<Drawer
 					open={isMenuOpen}
-					onClose={() => closeModal(setIsMenuOpen)}
+					onClose={() => setIsMenuOpen(false)}
 					placement="top"
 					title="ゲーム一覧"
 					rootClassName="[&_.ant-drawer-close]:order-1 [&_.ant-drawer-close]:mr-0 [&_.ant-drawer-close]:ml-3"
