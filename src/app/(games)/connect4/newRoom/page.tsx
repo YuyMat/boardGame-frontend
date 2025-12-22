@@ -10,20 +10,20 @@ export default function Page() {
 
 	if (isBackendHealthy === null)
 		return (
-			<div className="flex justify-center items-center min-h-[calc(100vh-72px)]">
+			<div className="flex justify-center items-center h-[calc(100svh-72px)]">
 				<Loading text="サーバーの状態を確認しています..." />
 			</div>
 		);
 
 	if (!isBackendHealthy)
 		return (
-			<div className="flex justify-center items-center min-h-[calc(100vh-72px)]">
+			<div className="flex justify-center items-center h-[calc(100svh-72px)]">
 				<Loading text="サーバーを起動しています。約1分後に再接続してください..." />
 			</div>
 		);
 
 	return (
-		<div className="flex justify-center items-center min-h-[calc(100vh-72px)]">
+		<div className="flex justify-center items-center h-[calc(100svh-72px)]">
 			<Loading text="部屋を作成しています..." />
 		</div>
 	);

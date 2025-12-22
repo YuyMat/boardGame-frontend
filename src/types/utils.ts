@@ -41,3 +41,11 @@ export interface FirstRoleSelectorProps {
 	keyToShowLabel: Record<FirstState, string>;
 	firstTurnItems: { label: string; key: string | number }[];
 }
+
+export interface PlayerCardProps {
+	playerRole: RoleState | null;
+	cardRole: RoleState;
+	members: number;
+	mainAvatarBGcolor: string;
+	subAvatarBGcolor: string;
+}

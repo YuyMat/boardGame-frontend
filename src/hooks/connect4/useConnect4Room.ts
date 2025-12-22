@@ -67,11 +67,12 @@ export default function useConnect4Room(
 				setMatchState("matched");
 				setFirstRole(firstRole);
 				setCurrentRole(firstRole);
-				pairedTimer = setTimeout(() => {
-					setMatchState("playing");
-				}, 2000);
 			}
 		};
+
+		const handleSomeoneDisconnected = () => {
+			setMatchState("waiting");
+		}
 
 		const handleMembersUpdate = ({ members }: { members: number }) => {
 			setMembers(members);
@@ -80,6 +81,7 @@ export default function useConnect4Room(
 
 		socket.on("joinedRoom", handleJoinedRoom);
 		socket.on("roomPaired", handleRoomPaired);
+		socket.on("someoneDisconnected", handleSomeoneDisconnected);
 		socket.on("membersUpdate", handleMembersUpdate);
 
 		return () => {
@@ -88,6 +90,7 @@ export default function useConnect4Room(
 			}
 			socket.off("joinedRoom", handleJoinedRoom);
 			socket.off("roomPaired", handleRoomPaired);
+			socket.off("someoneDisconnected", handleSomeoneDisconnected);
 			socket.off("membersUpdate", handleMembersUpdate);
 			socket.disconnect();
 			socketRef.current = null;

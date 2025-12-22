@@ -1,7 +1,7 @@
 "use client"
 
 import { use } from "react";
-import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting, ReShowResult, Result } from "@/components/Utils";
+import { Loading, RuleSettings, CopyUrl, NewRoom, TemporaryWaiting, ReShowResult, Result, PlayerCard, StartGame } from "@/components/Utils";
 import { keyToShowLabel, Role, mainPlayerColorClass, MAX_PLAYERS, firstTurnItems, BLACK_BG_COLOR, WHITE_BG_COLOR } from "@/constants/reversi";
 import { Board, SkipTurn, ShowTurn, ReversiRuleSettings, ReversiScoreBoard } from "@/components/Reversi";
 import closeModal from "@/utils/closeModal";
@@ -62,12 +62,12 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 
 	const gotoTopPage = useGotoTopPage();
 
-	if (matchState === "waiting") {
+	if (matchState === "waiting" || matchState === "matched") {
 		// ルームが満員の場合
 		if (members > MAX_PLAYERS) {
 			return (
 				<>
-					<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
+					<div className="flex flex-col justify-center items-center h-[calc(100svh-72px)]">
 						<Loading text="ルームが満員です。再度ルームを作成してください。" />
 						<div className="flex flex-row mt-7">
 							<NewRoom gameName="reversi" />
@@ -79,32 +79,46 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		// ルームが空いている場合
 		return (
 			<>
-				<div className="flex flex-col justify-center items-center min-h-[calc(100vh-72px)]">
-					<Loading text="対戦相手を待っています…" />
-					<div className="flex flex-row gap-2 mt-7">
-						<RuleSettings
-							keyToShowLabel={keyToShowLabel}
-							mainPlayerColorClass={mainPlayerColorClass}
-							settingsComponents={
-								<ReversiRuleSettings
-								setFirstRole={setFirstRole}
-								keyToShowLabel={keyToShowLabel}
-								firstTurnItems={firstTurnItems}
-								/>
-							}
+				<div className="flex flex-col justify-center items-center h-[calc(100svh-72px)]">
+					<div className="w-full max-w-md space-y-4 px-4">
+						<PlayerCard
+							playerRole={playerRole}
+							cardRole={Role.BLACK}
+							members={members}
+							mainAvatarBGcolor={BLACK_BG_COLOR}
+							subAvatarBGcolor={WHITE_BG_COLOR}
 						/>
-						<CopyUrl gameName="リバーシ" />
+						<PlayerCard
+							playerRole={playerRole}
+							cardRole={Role.WHITE}
+							members={members}
+							mainAvatarBGcolor={BLACK_BG_COLOR}
+							subAvatarBGcolor={WHITE_BG_COLOR}
+						/>
+					</div>
+
+					<div className="flex flex-col items-center">
+						<div className="flex flex-row gap-2 mt-7">
+							<RuleSettings
+								keyToShowLabel={keyToShowLabel}
+								mainPlayerColorClass={mainPlayerColorClass}
+								settingsComponents={
+									<ReversiRuleSettings
+									setFirstRole={setFirstRole}
+									keyToShowLabel={keyToShowLabel}
+									firstTurnItems={firstTurnItems}
+									/>
+								}
+							/>
+							<CopyUrl gameName="リバーシ" />
+						</div>
+					</div>
+
+					<div className="mt-9">
+						<StartGame matchState={matchState} setMatchState={setMatchState} />
 					</div>
 				</div>
 			</>
-		);
-	}
-
-	if (matchState === "matched") {
-		return (
-			<div className="flex justify-center items-center min-h-[calc(100vh-72px)]">
-				<Loading text="対戦相手とマッチしました！" />
-			</div>
 		);
 	}
 
@@ -121,7 +135,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 			/>
 			<ShowTurn currentRole={currentRole} playerRole={playerRole} canPlay={canPlay} />
 			<SkipTurn isSkipTurn={isSkipTurn} currentRole={currentRole} />
-			<TemporaryWaiting members={members} />
+			<TemporaryWaiting matchState={matchState} members={members} />
 			<ReShowResult openModal={isWin} setOpenModal={setIsWin} canPlay={canPlay} />
 		</div>
 	)
