@@ -1,6 +1,5 @@
 import GameCard from "@/components/Games/GameCard";
 import { GAMES } from "@/constants/games";
-import PlayerCard from "@/components/Utils/PlayerCard";
 
 export default function Home() {
 	return (
