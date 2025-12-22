@@ -6,3 +6,5 @@ export { default as TemporaryWaiting } from "./TemporaryWaiting";
 export { default as ReShowResult } from "./ReShowResult";
 export { default as TurnInfo } from "./TurnInfo";
 export { default as Result } from "./Result";
+export { default as PlayerCard } from "./PlayerCard";
+export { default as StartGame } from "./StartGame";

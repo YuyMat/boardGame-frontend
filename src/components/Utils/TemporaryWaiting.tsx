@@ -3,6 +3,7 @@
 import { Modal, Button, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
+import { MatchState } from "@/types/utils";
 
 /**
  * オンライン対戦で対戦相手の参加を待つ待機モーダルコンポーネントです。
@@ -17,13 +18,13 @@ import useGotoTopPage from "@/hooks/utils/useGotoTopPage";
  * - 退出ボタンからトップページに戻ることができます
  * - 2人目が参加すると自動的にモーダルが閉じます
  */
-export default function TemporaryWaiting({ members }: { members: number }) {
+export default function TemporaryWaiting({ matchState, members }: { matchState: MatchState, members: number }) {
 	const isOpen = members < 2;
 	const gotoTopPage = useGotoTopPage();
 
 	return (
 		<Modal
-			open={isOpen}
+			open={matchState === "playing" && isOpen}
 			title="対戦相手を待っています..."
 			onCancel={undefined}
 			footer={[
