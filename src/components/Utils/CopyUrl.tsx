@@ -29,7 +29,7 @@ export default function CopyUrl({ gameName }: { gameName: string }) {
 		<>
 			{contextHolder}
 			<div>
-				<Button type="primary" onClick={() => copyUrl()}>
+				<Button onClick={() => copyUrl()}>
 					招待URLをコピー
 				</Button>
 			</div>
