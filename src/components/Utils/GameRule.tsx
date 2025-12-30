@@ -21,7 +21,7 @@ import { Role } from "@/constants/utils";
  * - 具体的な設定内容は `settingsComponents` プロパティを通じて注入されます
  */
 export default function RuleSettings({ keyToShowLabel, mainPlayerColorClass, settingsComponents, playerRole }: RuleSettingsProps) {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 	const [isMounted, setIsMounted] = useState(false);
 
 	useEffect(() => {
