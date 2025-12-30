@@ -49,7 +49,6 @@ export default function useReversiRoom(
 	matchStateRef.current = matchState;
 
 	useEffect(() => {
-		let pairedTimer: ReturnType<typeof setTimeout> | null = null;
 		const socket = createSocket();
 		socketRef.current = socket;
 
@@ -68,11 +67,17 @@ export default function useReversiRoom(
 				setMatchState("matched");
 				setFirstRole(firstRole);
 				setCurrentRole(firstRole);
+				setMembers(2);
+				membersRef.current = 2;
 			}
 		};
 
 		const handleSomeoneDisconnected = () => {
-			setMatchState("waiting");
+			if (matchStateRef.current !== "playing") {
+				setMatchState("waiting");
+			}
+			setMembers(1);
+			membersRef.current = 1;
 		}
 
 		const handleMembersUpdate = ({ members }: { members: number }) => {
@@ -80,19 +85,22 @@ export default function useReversiRoom(
 			membersRef.current = members;
 		};
 
+		const handleGameStart = () => {
+			setMatchState("playing");
+		};
+
 		socket.on("joinedRoom", handleJoinedRoom);
 		socket.on("roomPaired", handleRoomPaired);
 		socket.on("someoneDisconnected", handleSomeoneDisconnected);
 		socket.on("membersUpdate", handleMembersUpdate);
+		socket.on("gameStarted", handleGameStart);
 
 		return () => {
-			if (pairedTimer !== null) {
-				clearTimeout(pairedTimer);
-			}
 			socket.off("joinedRoom", handleJoinedRoom);
 			socket.off("roomPaired", handleRoomPaired);
 			socket.off("someoneDisconnected", handleSomeoneDisconnected);
 			socket.off("membersUpdate", handleMembersUpdate);
+			socket.off("gameStarted", handleGameStart);
 			socket.disconnect();
 			socketRef.current = null;
 		};
@@ -103,6 +111,13 @@ export default function useReversiRoom(
 		if (!socketRef.current) return;
 		socketRef.current.emit("setFirstRole", { roomId, firstRole });
 	}, [firstRole, roomId]);
+
+	useUpdateEffect(() => {
+		if (!socketRef.current) return;
+		if (matchState !== "playing") return;
+		if (playerRole !== Role.BLACK) return;
+		socketRef.current.emit("startGame", roomId);
+	}, [matchState]);
 
 	const emitRestart = useCallback(() => {
 		socketRef.current?.emit("restart", roomId);
