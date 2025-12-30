@@ -102,13 +102,14 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 										firstTurnItems={firstTurnItems}
 									/>
 								}
+								playerRole={playerRole}
 							/>
 							<CopyUrl gameName="コネクト４" />
 						</div>
 					</div>
 
 					<div className="mt-2">
-						<StartGame matchState={matchState} setMatchState={setMatchState} />
+						<StartGame matchState={matchState} setMatchState={setMatchState} playerRole={playerRole} />
 					</div>
 				</div>
 			</>

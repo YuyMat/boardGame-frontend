@@ -18,7 +18,7 @@ export default function CopyUrl({ gameName }: { gameName: string }) {
 	const copyUrl = async () => {
 		await navigator.clipboard.writeText(`URLを押して、${gameName}を一緒にプレイしよう！🎉\n\n${window.location.href}`);
 		api.success({
-			message: "コピーしました",
+			title: "コピーしました",
 			description: "招待URLをクリップボードにコピーしました。",
 			placement: "top",
 			duration: 2,
@@ -29,7 +29,7 @@ export default function CopyUrl({ gameName }: { gameName: string }) {
 		<>
 			{contextHolder}
 			<div>
-				<Button type="primary" onClick={() => copyUrl()}>
+				<Button onClick={copyUrl}>
 					招待URLをコピー
 				</Button>
 			</div>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import { Modal, Button } from "antd";
+import { Modal, Button, Tooltip } from "antd";
 import { RuleSettingsProps } from "@/types/utils";
 import { Role } from "@/constants/utils";
 
@@ -13,13 +13,14 @@ import { Role } from "@/constants/utils";
  * @param props.keyToShowLabel - Roleの値を表示用ラベルに変換するマップ（例: { [Role.MAIN]: "赤", [Role.CPU]: "黄" }）
  * @param props.mainPlayerColorClass - メインプレイヤーの色を表すTailwind CSSクラス（例: "text-red-500"）
  * @param props.settingsComponents - モーダル内に表示する設定項目のコンポーネント（先攻選択など）
+ * @param props.playerRole - プレイヤーの役割（Role.SUBの場合、ルール設定ボタンが無効化されます）
  * 
  * @remarks
  * - モーダルを開くボタンを提供します
  * - モーダルヘッダー部分にプレイヤーの自分の色を表示します
  * - 具体的な設定内容は `settingsComponents` プロパティを通じて注入されます
  */
-export default function RuleSettings({ keyToShowLabel, mainPlayerColorClass, settingsComponents }: RuleSettingsProps) {
+export default function RuleSettings({ keyToShowLabel, mainPlayerColorClass, settingsComponents, playerRole }: RuleSettingsProps) {
 	const [isOpen, setIsOpen] = useState(true);
 	const [isMounted, setIsMounted] = useState(false);
 
@@ -29,7 +30,9 @@ export default function RuleSettings({ keyToShowLabel, mainPlayerColorClass, set
 
 	return (
 		<>
-			<Button onClick={() => setIsOpen(true)}>ルールを設定</Button>
+			<Tooltip title={playerRole === Role.SUB ? "ルームホストのみルールを設定できます" : undefined}>
+				<Button onClick={() => setIsOpen(true)} disabled={playerRole === Role.SUB}>ルールを設定</Button>
+			</Tooltip>
 			{isMounted && (
 				<Modal
 					open={isOpen}

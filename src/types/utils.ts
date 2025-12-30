@@ -10,6 +10,7 @@ export type RuleSettingsProps = {
 	keyToShowLabel: Record<FirstState, string>;
 	mainPlayerColorClass: CSSColorClass;
 	settingsComponents?: React.ReactNode;
+	playerRole: RoleState | null;
 }
 
 export interface ShowRoleProps<T = RoleState> {
@@ -48,4 +49,10 @@ export interface PlayerCardProps {
 	members: number;
 	mainAvatarBGcolor: string;
 	subAvatarBGcolor: string;
+}
+
+export interface StartGameProps {
+	matchState: MatchState;
+	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
+	playerRole: RoleState | null;
 }

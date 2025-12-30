@@ -1,5 +1,4 @@
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import "@ant-design/v5-patch-for-react-19";
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
