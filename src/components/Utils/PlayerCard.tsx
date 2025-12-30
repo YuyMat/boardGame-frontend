@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Avatar } from 'antd';
+import { Avatar, Spin } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { getRandomInt } from '@/utils/getRandom';
 import { Role } from '@/constants/utils';
@@ -43,11 +43,16 @@ export default function PlayerCard({
 	return (
 		<div className="flex items-center justify-between w-full p-3 border border-gray-200 rounded-xl shadow-sm bg-white h-20 max-w-md mx-auto">
 			<div className="flex items-center flex-1 min-w-0 mr-3">
-				<Avatar
-					style={{ backgroundColor: bgColor, verticalAlign: 'middle', flexShrink: 0 }}
-					icon={<UserOutlined />}
-					size={48}
-				/>
+				{isWaiting ?
+					<div className="ml-1">
+						<Spin size="large" />
+					</div> : (
+					<Avatar
+						style={{ backgroundColor: bgColor, verticalAlign: 'middle', flexShrink: 0 }}
+						icon={<UserOutlined />}
+						size={48}
+					/>
+				)}
 				<div className="ml-3 flex-1 min-w-0 relative">
 					<div 
 						className="text-gray-800 font-bold text-2xl whitespace-nowrap overflow-hidden mask-[linear-gradient(to_right,black_80%,transparent_100%)]"
