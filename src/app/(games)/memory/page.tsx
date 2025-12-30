@@ -66,7 +66,7 @@ export default function Page() {
 	if (!settings.haveRuleSettings) {
 		return (
 			<div className="flex justify-center items-center min-h-[calc(100svh-72px)]">
-				<RuleSettings keyToShowLabel={keyToShowLabel} mainPlayerColorClass={mainPlayerColorClass} settingsComponents={<MemoryRuleSettings cards={settings.cards} setSettings={setSettings} />} />
+				<RuleSettings keyToShowLabel={keyToShowLabel} mainPlayerColorClass={mainPlayerColorClass} settingsComponents={<MemoryRuleSettings cards={settings.cards} setSettings={setSettings} />} playerRole={localPlayerRole} />
 			</div>
 		)
 	}
