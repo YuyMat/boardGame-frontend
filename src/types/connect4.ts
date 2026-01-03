@@ -1,6 +1,6 @@
 import type { Socket } from "socket.io-client";
 import { Role } from "@/constants/connect4";
-import { MatchState } from "@/types/utils";
+import { MatchState, GuestIds } from "@/types/utils";
 
 export type RoleState = typeof Role.RED | typeof Role.YELLOW;
 export type CellState = RoleState | null;
@@ -82,6 +82,7 @@ export interface HandleGameStateUpdatedProps {
 export interface HandleJoinedRoomProps {
 	members: number;
 	role: RoleState | null;
+	guestIds: GuestIds;
 }
 
 export interface UseConnect4RestartProps {
@@ -119,4 +120,9 @@ export interface UseConnect4WinCheckProps {
 	setCanPlay: React.Dispatch<React.SetStateAction<boolean>>;
 	setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 	setIsDraw: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface HandleRoomPairedProps {
+	firstRole: RoleState;
+	guestIds: GuestIds;
 }

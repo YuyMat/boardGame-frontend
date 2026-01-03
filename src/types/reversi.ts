@@ -1,6 +1,6 @@
 import type { Socket } from "socket.io-client";
 import { Role } from "@/constants/reversi";
-import { MatchState } from "@/types/utils";
+import { MatchState, GuestIds } from "@/types/utils";
 
 export type RoleState = typeof Role.BLACK | typeof Role.WHITE;
 export type CellState = RoleState | null;
@@ -67,6 +67,7 @@ export interface HandleGameStateUpdatedProps {
 export interface HandleJoinedRoomProps {
 	members: number;
 	role: RoleState | null;
+	guestIds: GuestIds;
 }
 
 export interface CanTurnOverProps {
@@ -141,3 +142,8 @@ export interface ReversiScoreBoardProps {
 	whiteCount: number;
 	currentRole: RoleState;
 };
+
+export interface HandleRoomPairedProps {
+	firstRole: RoleState;
+	guestIds: GuestIds;
+}

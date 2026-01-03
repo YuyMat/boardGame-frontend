@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
 import { createSocket } from "@/libs/socket/client";
-import { RoleState, HandleJoinedRoomProps, FirstState } from "@/types/reversi";
-import { MatchState } from "@/types/utils";
+import { RoleState, HandleJoinedRoomProps, HandleRoomPairedProps, FirstState } from "@/types/reversi";
+import { MatchState, GuestIds } from "@/types/utils";
 import { Role } from "@/constants/reversi";
 import type { Socket } from "socket.io-client";
 
@@ -42,6 +42,7 @@ export default function useReversiRoom(
 	const [playerRole, setPlayerRole] = useState<RoleState | null>(null);
 	const [matchState, setMatchState] = useState<MatchState>("waiting");
 	const [currentRole, setCurrentRole] = useState<RoleState>(Role.BLACK);
+	const [guestIds, setGuestIds] = useState<GuestIds>({});
 
 	const socketRef = useRef<Socket | null>(null);
 	const membersRef = useRef<number>(0);
@@ -55,17 +56,19 @@ export default function useReversiRoom(
 		socket.connect();
 		socket.emit("startRoom", roomId, "reversi");
 
-		const handleJoinedRoom = ({ members, role }: HandleJoinedRoomProps) => {
+		const handleJoinedRoom = ({ members, role, guestIds }: HandleJoinedRoomProps) => {
 			setMembers(members);
 			membersRef.current = members;
 			// 最初に受け取ったロールのみ採用（後から上書きしない）
 			setPlayerRole((prev) => (prev ?? role));
+			setGuestIds(guestIds);
 		};
 
-		const handleRoomPaired = (firstRole: RoleState) => {
+		const handleRoomPaired = ({ firstRole, guestIds }: HandleRoomPairedProps) => {
 			if (matchStateRef.current === "waiting") {
 				setMatchState("matched");
 				setFirstRole(firstRole);
+				setGuestIds(guestIds);
 				setCurrentRole(firstRole);
 				setMembers(2);
 				membersRef.current = 2;
@@ -133,5 +136,6 @@ export default function useReversiRoom(
 		emitRestart,
 		currentRole,
 		setCurrentRole,
+		guestIds,
 	};
 }

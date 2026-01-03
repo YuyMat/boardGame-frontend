@@ -13,27 +13,16 @@ import Loading from './Loading';
  * @returns Reactコンポーネント
  * 
  * @remarks
- * - Guest IDの衝突確率は約 1.1 × 10⁻⁷ (1000000-9999999の範囲) であり、
- *   ルーム内の少人数（通常2人）での利用においては十分に安全であるため、この範囲を採用しています。
  * - 名前が長すぎる場合は右端がグラデーションで透明になります。
  */
 export default function PlayerCard({
+	guestId,
 	playerRole,
 	cardRole,
 	members,
 	mainAvatarBGcolor,
 	subAvatarBGcolor,
 }: PlayerCardProps) {
-	// 一時的にここでゲストIDを生成しているが、将来的にはサーバーから取得するようにする。
-	const guestId = useMemo(() => {
-		try {
-			return getRandomInt(1000000, 10000000);
-		} catch (e) {
-			console.error("Failed to generate random ID", e);
-			return 1000000;
-		}
-	}, []);
-
 	const isMe = cardRole === playerRole;
 	const isOpponent = !isMe;
 	const isWaiting = isOpponent && members < 2;

@@ -31,6 +31,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		emitRestart,
 		currentRole,
 		setCurrentRole,
+		guestIds,
 	} = useReversiRoom(roomId, setFirstRole, firstRole);
 
 	// bodyの背景色を動的に変更
@@ -82,6 +83,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				<div className="flex flex-col justify-center items-center h-[calc(100svh-72px)]">
 					<div className="w-full max-w-md space-y-4 px-4">
 						<PlayerCard
+							guestId={guestIds?.[Role.BLACK] ?? ""}
 							playerRole={playerRole}
 							cardRole={Role.BLACK}
 							members={members}
@@ -89,6 +91,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 							subAvatarBGcolor={WHITE_BG_COLOR}
 						/>
 						<PlayerCard
+							guestId={guestIds?.[Role.WHITE] ?? ""}
 							playerRole={playerRole}
 							cardRole={Role.WHITE}
 							members={members}
