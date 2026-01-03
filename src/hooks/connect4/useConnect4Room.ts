@@ -80,6 +80,7 @@ export default function useConnect4Room(
 			}
 			setMembers(1);
 			membersRef.current = 1;
+			setGuestIds({});
 		}
 
 		const handleMembersUpdate = ({ members }: { members: number }) => {

@@ -1,7 +1,5 @@
-import { useMemo } from 'react';
 import { Avatar, Spin } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { getRandomInt } from '@/utils/getRandom';
 import { Role } from '@/constants/utils';
 import { PlayerCardProps } from '@/types/utils';
 import Loading from './Loading';

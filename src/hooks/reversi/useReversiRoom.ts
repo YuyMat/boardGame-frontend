@@ -81,6 +81,7 @@ export default function useReversiRoom(
 			}
 			setMembers(1);
 			membersRef.current = 1;
+			setGuestIds({});
 		}
 
 		const handleMembersUpdate = ({ members }: { members: number }) => {
