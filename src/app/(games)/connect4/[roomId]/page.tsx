@@ -29,6 +29,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 		emitRestart,
 		currentRole,
 		setCurrentRole,
+		guestIds,
 	} = useConnect4Room(roomId, setFirstRole, firstRole);
 
 	// bodyの背景色を動的に変更
@@ -75,6 +76,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 				<div className="flex flex-col justify-center items-center h-[calc(100svh-72px)]">
 					<div className="w-full max-w-md space-y-4 px-4">
 						<PlayerCard
+							guestId={guestIds?.[Role.RED] ?? ""}
 							playerRole={playerRole}
 							cardRole={Role.RED}
 							members={members}
@@ -82,6 +84,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 							subAvatarBGcolor={YELLOW_BG_COLOR}
 						/>
 						<PlayerCard
+							guestId={guestIds?.[Role.YELLOW] ?? ""}
 							playerRole={playerRole}
 							cardRole={Role.YELLOW}
 							members={members}

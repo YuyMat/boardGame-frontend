@@ -1,6 +1,7 @@
 import { Role } from "@/constants/utils";
 
 export type CSSColorClass = string;
+export type GuestId = string;
 export type RoleState = typeof Role.MAIN | typeof Role.SUB;
 export type FirstState = 'random' | RoleState;
 
@@ -44,6 +45,7 @@ export interface FirstRoleSelectorProps {
 }
 
 export interface PlayerCardProps {
+	guestId: GuestId;
 	playerRole: RoleState | null;
 	cardRole: RoleState;
 	members: number;
@@ -55,4 +57,9 @@ export interface StartGameProps {
 	matchState: MatchState;
 	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
 	playerRole: RoleState | null;
+}
+
+export type GuestIds = {
+	[Role.MAIN]?: GuestId;
+	[Role.SUB]?: GuestId;
 }

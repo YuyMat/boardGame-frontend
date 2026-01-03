@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { createSocket } from "@/libs/socket/client";
 import { useUpdateEffect } from "@/hooks/utils/useUpdateEffect";
-import { RoleState, HandleJoinedRoomProps, FirstState } from "@/types/connect4";
-import { MatchState } from "@/types/utils";
+import { RoleState, HandleJoinedRoomProps, HandleRoomPairedProps, FirstState } from "@/types/connect4";
+import { MatchState, GuestIds } from "@/types/utils";
 import { Role } from "@/constants/connect4";
 import type { Socket } from "socket.io-client";
 
@@ -41,6 +41,7 @@ export default function useConnect4Room(
 	const [playerRole, setPlayerRole] = useState<RoleState | null>(null);
 	const [matchState, setMatchState] = useState<MatchState>("waiting");
 	const [currentRole, setCurrentRole] = useState<RoleState>(Role.RED);
+	const [guestIds, setGuestIds] = useState<GuestIds>({});
 
 	const socketRef = useRef<Socket | null>(null);
 	const membersRef = useRef<number>(0);
@@ -54,17 +55,19 @@ export default function useConnect4Room(
 		socket.connect();
 		socket.emit("startRoom", roomId, "connect4");
 
-		const handleJoinedRoom = ({ members, role }: HandleJoinedRoomProps) => {
+		const handleJoinedRoom = ({ members, role, guestIds }: HandleJoinedRoomProps) => {
 			setMembers(members);
 			membersRef.current = members;
 			// 最初に受け取ったロールのみ採用（後から上書きしない）
 			setPlayerRole((prev) => (prev ?? role));
+			setGuestIds(guestIds);
 		};
 
-		const handleRoomPaired = (firstRole: RoleState) => {
+		const handleRoomPaired = ({ firstRole, guestIds }: HandleRoomPairedProps) => {
 			if (matchStateRef.current === "waiting") {
 				setMatchState("matched");
 				setFirstRole(firstRole);
+				setGuestIds(guestIds);
 				setCurrentRole(firstRole);
 				setMembers(2);
 				membersRef.current = 2;
@@ -77,6 +80,7 @@ export default function useConnect4Room(
 			}
 			setMembers(1);
 			membersRef.current = 1;
+			setGuestIds({});
 		}
 
 		const handleMembersUpdate = ({ members }: { members: number }) => {
@@ -132,5 +136,6 @@ export default function useConnect4Room(
 		emitRestart,
 		currentRole,
 		setCurrentRole,
+		guestIds,
 	};
 }
