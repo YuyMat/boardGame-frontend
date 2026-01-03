@@ -71,6 +71,7 @@ export default function useConnect4Game({
 		setBoard,
 		setCurrentRole,
 		setLastPosition,
+		setMatchState,
 	});
 
 	useConnect4WinCheck({

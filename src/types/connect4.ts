@@ -74,9 +74,9 @@ export interface UseConnect4GameProps {
 }
 
 export interface HandleGameStateUpdatedProps {
-	board: BoardState;
-	currentRole: RoleState;
-	lastPosition: lastPositionState;
+	board?: BoardState;
+	currentRole?: RoleState;
+	lastPosition?: lastPositionState;
 }
 
 export interface HandleJoinedRoomProps {
@@ -105,6 +105,7 @@ export interface UseConnect4SocketSyncProps {
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<lastPositionState>>;
+	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
 }
 
 export interface Connect4RuleSettingsProps {
