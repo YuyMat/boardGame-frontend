@@ -38,7 +38,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Optional: comma-separated rotation models (優先的に消費)
-          GEMINI_ROTATION_MODELS: 'gemini-2.5-flash-lite,gemini-2.5-flash,gemini-3-flash'
+          GEMINI_ROTATION_MODELS: 'gemini-2.5-flash-lite,gemini-2.5-flash,gemini-3-flash-preview'
           # Optional: fallback model when all rotation models are rate-limited
           GEMINI_FALLBACK_MODEL: 'gemini-1.5-flash'
         run: python .github/scripts/ai_review/review_pr.py

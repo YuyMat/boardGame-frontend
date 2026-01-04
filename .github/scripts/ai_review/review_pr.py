@@ -29,7 +29,7 @@ GITHUB_API_BASE = os.getenv("GITHUB_API_URL", "https://api.github.com")
 DEFAULT_ROTATION_MODELS = [
     "gemini-2.5-flash-lite",
     "gemini-2.5-flash",
-    "gemini-3-flash",
+    "gemini-3-flash-preview",
 ]
 DEFAULT_FALLBACK_MODEL = "gemini-1.5-flash"
 
