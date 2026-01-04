@@ -23,7 +23,7 @@ export default function ShowTurn({ currentRole, playerRole, canPlay }: ShowRoleP
 
 	if (canPlay) {
 		return (
-			<div className="absolute top-110 left-1/2 -translate-x-1/2 text-blue-800 font-bold whitespace-nowrap text-base sm:text-xl md:text-2xl">
+			<div className="flex justify-center text-blue-800 font-bold whitespace-nowrap text-base sm:text-xl md:text-2xl">
 				{isMyTurn ? (
 					isRed ? <p>🔴 あなたの番です 🔴</p> : <p>🟡 あなたの番です 🟡</p>
 				) : (
