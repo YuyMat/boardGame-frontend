@@ -78,6 +78,7 @@ export default function useReversiGame({
 		setBoard,
 		setCurrentRole,
 		setLastPosition,
+		setMatchState,
 	});
 
 	useReversiWinCheck({

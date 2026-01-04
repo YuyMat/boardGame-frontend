@@ -59,10 +59,16 @@ export interface UseReversiGameProps {
 }
 
 export interface HandleGameStateUpdatedProps {
-	board: BoardState;
-	currentRole: RoleState;
-	lastPosition: LastPositionState;
+	board?: BoardState;
+	currentRole?: RoleState;
+	lastPosition?: LastPositionState;
 }
+
+export type ReverseStonesProps = {
+	board: BoardState;
+	lastPosition: LastPositionState;
+	currentRole: RoleState;
+};
 
 export interface HandleJoinedRoomProps {
 	members: number;
@@ -76,8 +82,6 @@ export interface CanTurnOverProps {
 	col: number;
 	currentRole: RoleState;
 }
-
-export type ReverseStonesProps = HandleGameStateUpdatedProps;
 
 export interface SkipTurnProps {
 	isSkipTurn: boolean;
@@ -103,6 +107,7 @@ export interface UseReversiSocketSyncProps {
 	setBoard: React.Dispatch<React.SetStateAction<BoardState>>;
 	setCurrentRole: React.Dispatch<React.SetStateAction<RoleState>>;
 	setLastPosition: React.Dispatch<React.SetStateAction<LastPositionState>>;
+	setMatchState: React.Dispatch<React.SetStateAction<MatchState>>;
 }
 
 export interface UseReversiWinCheckProps {

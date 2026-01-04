@@ -16,6 +16,7 @@ export function useReversiSocketSync({
 	setBoard,
 	setCurrentRole,
 	setLastPosition,
+	setMatchState,
 }: UseReversiSocketSyncProps) {
 	const suppressSyncRef = useRef(false);
 
@@ -26,9 +27,10 @@ export function useReversiSocketSync({
 
 		const handleGameStateUpdated = ({ board: nextBoard, currentRole: nextRole, lastPosition: nextLast }: HandleGameStateUpdatedProps) => {
 			suppressSyncRef.current = true;
-			setBoard(nextBoard);
-			setCurrentRole(nextRole);
+			if (nextBoard) setBoard(nextBoard);
+			if (nextRole) setCurrentRole(nextRole);
 			if (nextLast) setLastPosition(nextLast);
+			setMatchState("playing");
 		};
 
 		socket.on("boardUpdated", handleGameStateUpdated);

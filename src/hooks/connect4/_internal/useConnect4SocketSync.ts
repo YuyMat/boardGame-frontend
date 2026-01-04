@@ -16,6 +16,7 @@ export function useConnect4SocketSync({
 	setBoard,
 	setCurrentRole,
 	setLastPosition,
+	setMatchState,
 }: UseConnect4SocketSyncProps) {
 	const suppressSyncRef = useRef<boolean>(false);
 
@@ -26,9 +27,10 @@ export function useConnect4SocketSync({
 
 		const handleGameStateUpdated = ({ board: nextBoard, currentRole: nextRole, lastPosition: nextLast }: HandleGameStateUpdatedProps) => {
 			suppressSyncRef.current = true;
-			setBoard(nextBoard);
-			setCurrentRole(nextRole);
+			if (nextBoard) setBoard(nextBoard);
+			if (nextRole) setCurrentRole(nextRole);
 			if (nextLast) setLastPosition(nextLast);
+			setMatchState("playing");
 		};
 
 		socket.on("boardUpdated", handleGameStateUpdated);
