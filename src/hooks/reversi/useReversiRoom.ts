@@ -75,7 +75,7 @@ export default function useReversiRoom(
 			}
 		};
 
-		const handleSomeoneDisconnected = ({ members }: { members: number }) => {
+		const handleSomeoneDisconnected = (members: number) => {
 			if (matchStateRef.current !== "playing") {
 				setMatchState(members !== 2 ? "waiting" : "matched");
 			}
