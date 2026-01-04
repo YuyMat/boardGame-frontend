@@ -146,6 +146,7 @@ export interface ReversiScoreBoardProps {
 	blackCount: number;
 	whiteCount: number;
 	currentRole: RoleState;
+	playerRole?: RoleState | null;
 };
 
 export interface HandleRoomPairedProps {

@@ -23,7 +23,7 @@ import { Role } from "@/constants/reversi";
 export default function Board({ board, highlightedCells, onCellClick, lastPosition }: BoardProps) {
 	return (
 		<div className="relative">
-			<div className="flex flex-col items-center p-6">
+			<div className="flex flex-col items-center">
 				{/* 盤面 */}
 				<div className="bg-green-600 p-4 rounded-lg shadow-lg mt-2">
 					<div className="grid grid-cols-8 gap-1">
