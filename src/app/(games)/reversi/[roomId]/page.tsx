@@ -118,7 +118,7 @@ export default function Page({ params }: { params: Promise<{ roomId: string }> }
 						</div>
 					</div>
 
-					<div className="mt-9">
+					<div className="mt-2">
 						<StartGame matchState={matchState} setMatchState={setMatchState} playerRole={playerRole} />
 					</div>
 				</div>
