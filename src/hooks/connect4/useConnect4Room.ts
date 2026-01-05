@@ -7,6 +7,7 @@ import { RoleState, HandleJoinedRoomProps, HandleRoomPairedProps, FirstState } f
 import { MatchState, GuestIds } from "@/types/utils";
 import { Role } from "@/constants/connect4";
 import type { Socket } from "socket.io-client";
+import { notification } from "antd";
 
 /**
  * Connect4ゲームのルーム管理とマッチング機能を提供するカスタムフックです。
@@ -26,6 +27,8 @@ import type { Socket } from "socket.io-client";
  * - `emitRestart`: ゲームをリスタートするイベントを送信する関数
  * - `currentRole`: 現在のターンのプレイヤー
  * - `setCurrentRole`: 現在のロールを更新するセッター関数
+ * - `guestIds`: ゲストIDの配列
+ * - `contextHolder`: 通知コンテキストのホルダー
  * 
  * @remarks
  * - マウント時に自動的にSocket.IO接続を確立し、ルームに参加します
@@ -47,6 +50,8 @@ export default function useConnect4Room(
 	const membersRef = useRef<number>(0);
 	const matchStateRef = useRef<MatchState>("waiting");
 	matchStateRef.current = matchState;
+
+	const [api, contextHolder] = notification.useNotification();
 
 	useEffect(() => {
 		const socket = createSocket();
@@ -91,11 +96,28 @@ export default function useConnect4Room(
 			setMatchState("playing");
 		};
 
+		const handleHostUpdated = (guestIds: GuestIds) => {
+			if (matchStateRef.current !== "playing") {
+				setPlayerRole(Role.RED);
+				setGuestIds(guestIds);
+				// setTimeoutでレンダリングサイクル外で実行
+				setTimeout(() => {
+					api.success({
+						message: "ホストが退室しました",
+						description: "ホストが退室したため、あなたがホストになりました。",
+						placement: "top",
+						duration: 3,
+					});
+				}, 0);
+			}
+		}
+
 		socket.on("joinedRoom", handleJoinedRoom);
 		socket.on("roomPaired", handleRoomPaired);
 		socket.on("someoneDisconnected", handleSomeoneDisconnected);
 		socket.on("membersUpdate", handleMembersUpdate);
 		socket.on("gameStarted", handleGameStart);
+		socket.on("hostUpdated", handleHostUpdated);
 
 		return () => {
 			socket.off("joinedRoom", handleJoinedRoom);
@@ -103,6 +125,7 @@ export default function useConnect4Room(
 			socket.off("someoneDisconnected", handleSomeoneDisconnected);
 			socket.off("membersUpdate", handleMembersUpdate);
 			socket.off("gameStarted", handleGameStart);
+			socket.off("hostUpdated", handleHostUpdated);
 			socket.disconnect();
 			socketRef.current = null;
 		};
@@ -136,5 +159,6 @@ export default function useConnect4Room(
 		currentRole,
 		setCurrentRole,
 		guestIds,
+		contextHolder,
 	};
 }
